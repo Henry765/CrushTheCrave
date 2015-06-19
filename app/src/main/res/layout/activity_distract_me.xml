@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.DistractMe"
+    android:background="@drawable/bg"
+>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Whac-A-Cigarette"
+        android:id="@+id/textView63"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/imageButton17"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginStart="23dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton17"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/btngames"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/textView63"
+        android:layout_alignStart="@+id/textView63"
+        android:clickable="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton18"
+        android:background="@drawable/btnmusic"
+        android:clickable="true"
+        android:layout_above="@+id/textView63"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Music"
+        android:id="@+id/textView64"
+        android:textColor="#ffffffff"
+        android:layout_above="@+id/imageButton26"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Video"
+        android:id="@+id/textView65"
+        android:textColor="#ffffffff"
+        android:layout_above="@+id/imageButton26"
+        android:layout_alignLeft="@+id/imageButton19"
+        android:layout_alignStart="@+id/imageButton19" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton19"
+        android:layout_alignBottom="@+id/imageButton17"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="33dp"
+        android:layout_marginEnd="33dp"
+        android:background="@drawable/btnyoutube" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton25"
+        android:background="@drawable/btntext"
+        android:clickable="true"
+        android:layout_alignTop="@+id/imageButton26"
+        android:layout_alignLeft="@+id/imageButton18"
+        android:layout_alignStart="@+id/imageButton18" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Text"
+        android:id="@+id/textView66"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/imageButton25"
+        android:layout_alignLeft="@+id/textView64"
+        android:layout_alignStart="@+id/textView64" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton26"
+        android:layout_marginTop="38dp"
+        android:background="@drawable/btngames"
+        android:layout_below="@+id/textView63"
+        android:layout_alignLeft="@+id/textView63"
+        android:layout_alignStart="@+id/textView63" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tic-Tac-Toe"
+        android:id="@+id/textView67"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/imageButton26"
+        android:layout_alignRight="@+id/imageButton26"
+        android:layout_alignEnd="@+id/imageButton26" />
+</RelativeLayout>

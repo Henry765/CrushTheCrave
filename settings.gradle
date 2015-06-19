@@ -1,0 +1,5 @@
+//include ':app', ':SLT'
+//project(':SLT').projectDir = new File('SLT')
+
+include ':app', ':androidplot', ':facebook'
+include ':myAndroidApp'

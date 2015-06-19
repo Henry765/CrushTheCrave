@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.hrzhulocal.crushthecraveprototype2" >
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <application
+        android:name=".FBMyApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/appicon"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivityHome"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+
+        <activity
+            android:name="com.facebook.FacebookActivity"
+            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <provider
+            android:name="com.facebook.FacebookContentProvider"
+            android:authorities="com.facebook.app.FacebookContentProvider356790361177565"
+            android:exported="true" />
+
+        <activity
+            android:name=".CraveActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_crave"
+            android:parentActivityName=".MainActivityHome"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
+        </activity>
+        <activity
+            android:name=".SmokeActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_smoke"
+            android:parentActivityName=".MainActivityHome"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
+        </activity>
+        <activity
+            android:name=".My_AwardsActivity"
+            android:label="@string/title_activity_my__awards"
+            android:parentActivityName=".MainActivityHome" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
+        </activity>
+        <activity
+            android:name=".My_ProgressActivity"
+            android:label="@string/title_activity_my__progress" >
+        </activity>
+        <activity
+            android:name=".Quit_Help"
+            android:label="@string/title_activity_quit__help"
+            android:parentActivityName=".MainActivityHome" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
+        </activity>
+        <activity
+            android:name=".More"
+            android:label="@string/title_activity_more"
+            android:parentActivityName=".MainActivityHome" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
+        </activity>
+        <activity
+            android:name=".w12"
+            android:label="@string/title_activity_w12" >
+        </activity>
+        <activity
+            android:name=".w23"
+            android:label="@string/title_activity_w23" >
+        </activity>
+        <activity
+            android:name=".HealthCalculator"
+            android:label="@string/title_activity_health_calculator"
+            android:parentActivityName=".My_ProgressActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_ProgressActivity" />
+        </activity>
+        <activity
+            android:name=".Slt"
+            android:label="@string/title_activity_slt"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".ScreenLoaderActivity"
+            android:label="@string/title_activity_screen_loader"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".MoleGame"
+            android:label="@string/title_activity_mole_game"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".Mole"
+            android:label="@string/title_activity_mole"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".Menu"
+            android:label="@string/title_activity_menu"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".Hole"
+            android:label="@string/title_activity_hole"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".Help"
+            android:label="@string/title_activity_help"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".GraphicsMole"
+            android:label="@string/title_activity_graphics_mole"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".GameOver"
+            android:label="@string/title_activity_game_over"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".Credits"
+            android:label="@string/title_activity_credits"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".SmokingTriggers"
+            android:label="@string/title_activity_smoking_triggers"
+            android:parentActivityName=".SmokeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.SmokeActivity" />
+        </activity>
+        <activity
+            android:name=".WhoWeAre"
+            android:label="@string/title_activity_who_we_are"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".HowToUse"
+            android:label="@string/title_activity_how_to_use"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".MySettings"
+            android:label="@string/title_activity_my_settings"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".QuitLine"
+            android:label="@string/title_activity_quit_line"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".QuitAids"
+            android:label="@string/title_activity_quit_aids"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".CraveCrushers"
+            android:label="@string/title_activity_crave_crushers"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".MyQuitPlan"
+            android:label="@string/title_activity_my_quit_plan"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".GoogleMap"
+            android:label="@string/title_activity_google_map"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".SetDate"
+            android:label="@string/title_activity_set_date"
+            android:parentActivityName=".MySettings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MySettings" />
+        </activity>
+        <activity
+            android:name=".ResetSmokingStatus"
+            android:label="@string/title_activity_reset_smoking_status"
+            android:parentActivityName=".MySettings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MySettings" />
+        </activity>
+        <activity
+            android:name=".Feedback"
+            android:label="@string/title_activity_feedback"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".MyInformation"
+            android:label="@string/title_activity_my_information"
+            android:parentActivityName=".MySettings" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MySettings" />
+        </activity>
+        <activity
+            android:name=".DistractMe"
+            android:label="@string/title_activity_distract_me"
+            android:parentActivityName=".CraveActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
+        </activity>
+        <activity
+            android:name=".TicTacToe"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_tic_tac_toe"
+            android:parentActivityName=".DistractMe"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.DistractMe" />
+        </activity>
+        <activity
+            android:name=".HandlingTriggers"
+            android:label="@string/title_activity_handling_triggers"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".WithdrawalAndCravings"
+            android:label="@string/title_activity_withdrawal_and_cravings"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".HandlingSlips"
+            android:label="@string/title_activity_handling_slips"
+            android:parentActivityName=".Quit_Help" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
+        </activity>
+        <activity
+            android:name=".MyPersonalization"
+            android:label="@string/title_activity_my_personalization"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".addOtherSp4"
+            android:label="@string/title_activity_add_other_sp4"
+            android:parentActivityName=".SmokeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.SmokeActivity" />
+        </activity>
+        <activity
+            android:name=".addOtherSp5"
+            android:label="@string/title_activity_add_other_sp5"
+            android:parentActivityName=".SmokeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.SmokeActivity" />
+        </activity>
+        <activity
+            android:name=".addOtherSp6"
+            android:label="@string/title_activity_add_other_sp6"
+            android:parentActivityName=".SmokeActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.SmokeActivity" />
+        </activity>
+        <activity
+            android:name=".Committed"
+            android:label="@string/title_activity_committed"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardQuitDate"
+            android:label="@string/title_activity_award_quit_date"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardDay1"
+            android:label="@string/title_activity_award_day1"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardWeek1"
+            android:label="@string/title_activity_award_week1"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardWeek3"
+            android:label="@string/title_activity_award_week3"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardMonth1"
+            android:label="@string/title_activity_award_month1"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award100Cig"
+            android:label="@string/title_activity_award100_cig"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award250Cig"
+            android:label="@string/title_activity_award250_cig"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award500Cig"
+            android:label="@string/title_activity_award500_cig"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardSmokingTracker"
+            android:label="@string/title_activity_award_smoking_tracker"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardCravingTracker"
+            android:label="@string/title_activity_award_craving_tracker"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award100Saved"
+            android:label="@string/title_activity_award100_saved"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award250Saved"
+            android:label="@string/title_activity_award250_saved"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award500Saved"
+            android:label="@string/title_activity_award500_saved"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Award1000Saved"
+            android:label="@string/title_activity_award1000_saved"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardBreatheEasier"
+            android:label="@string/title_activity_award_breathe_easier"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardBreatheEasier2"
+            android:label="@string/title_activity_award_breathe_easier2"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardO2"
+            android:label="@string/title_activity_award_o2"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardBetterHealth"
+            android:label="@string/title_activity_award_better_health"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardNicotineFree"
+            android:label="@string/title_activity_award_nicotine_free"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardBetterTasteAndSmell"
+            android:label="@string/title_activity_award_better_taste_and_smell"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardHappyHeart"
+            android:label="@string/title_activity_award_happy_heart"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardHappyHeart2"
+            android:label="@string/title_activity_award_happy_heart2"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardFriends"
+            android:label="@string/title_activity_award_friends"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardSharing"
+            android:label="@string/title_activity_award_sharing"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardFeedback"
+            android:label="@string/title_activity_award_feedback"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".AwardNightOut"
+            android:label="@string/title_activity_award_night_out"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".GraphFragmentOne"
+            android:label="@string/title_activity_graph_fragment_one" >
+        </activity>
+        <activity
+            android:name=".GraphFragmentTwo"
+            android:label="@string/title_activity_graph_fragment_two" >
+        </activity>
+        <activity
+            android:name=".GraphFragmentThree"
+            android:label="@string/title_activity_graph_fragment_three" >
+        </activity>
+        <activity
+            android:name=".InnerGraphOne"
+            android:label="@string/title_activity_inner_graph_one" >
+        </activity>
+        <activity
+            android:name=".InnerOneGraph"
+            android:label="@string/title_activity_inner_one_graph" >
+        </activity>
+        <activity
+            android:name=".FaceBookShare"
+            android:label="@string/title_activity_face_book_share"
+            android:parentActivityName=".Award100Cig" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.Award100Cig" />
+        </activity>
+        <activity
+            android:name=".SetDesktopImage"
+            android:label="@string/title_activity_set_desktop_image"
+            android:parentActivityName=".More" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+    </application>
+
+</manifest>

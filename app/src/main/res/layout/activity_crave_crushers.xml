@@ -1,0 +1,71 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.CraveCrushers"
+    android:background="@drawable/bg">
+
+    <ScrollView
+        android:id="@+id/who_we_are_textviewLayoutAcrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        >
+        <LinearLayout
+            android:id="@+id/who_we_are_textviewLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="546dp"
+                android:text="Some things you can do instead of smoking:
+                \n• Get a massage or pedicure
+                \n• Walk the dog, or your pet giraffe, tiger, whatever
+                \n• Yoga/Pilates, Tae Kwon Do or Ju Jitsu or Kung Fu
+                \n• Deep breathing or meditation, zen it up
+                \n• stretch tense muscles, go to the gym
+                \n• Learn to cook something new
+                \n• Stimulate your senses with aroma therapy
+                \n• Visualize your success and everything you can do in better health
+                \n• Get outside, it's a great day and you might be missing it
+                \n• Take up a new hobby, anything from painting to kick boxing.
+                \n• Play a sport
+                \n• Slow down adn enjoy the day - do not rush
+                \n• Drink more water and eat more veggies
+                \n Reward yourself for not smoking!
+                \n• Use your money saved for that new movie, outfit, game, restaurant, anything else. It adds up!
+                \n Crush a workout to kill that stress!
+                \n Exercise is a great way to:
+                \n• Burn calories
+                \n• Raise your metabolism
+                \n• Reduce stress and tension
+                \n• Enhance oxygen consumption
+                \n• Increase energy
+                \n• Improve your sleep
+                \n• Improve your libido
+                \n• Enhance self-esteem
+                \n• Strengthen your heart and lungs
+                \n• Decrease your risk of heart disease and stroke
+                \n\n In many ways working out is a lot like smoking. Except it will not cause cancer, emphysema or heart disease, yeah!
+                \n\nCheck out quitrunchil.org. Running is as effective as the patch to help people quit smoking."
+                android:id="@+id/textView28"
+                android:layout_centerHorizontal="true"
+                android:textColor="#ffffffff"
+                android:layout_above="@+id/imageButton"
+                android:layout_alignParentTop="true" />
+
+        </LinearLayout>
+    </ScrollView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView20"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="122dp"
+        android:textColor="#ffffffff" />
+</RelativeLayout>

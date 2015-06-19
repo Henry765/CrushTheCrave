@@ -1,0 +1,36 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.ResetQuitPlan">
+    <item android:id="@+id/action_settings" android:title="@string/action_settings"
+        android:orderInCategory="100" app:showAsAction="never" />
+
+    <item
+        android:id="@+id/one"
+        android:title="Cold Turkey"/>
+
+    <item
+        android:id="@+id/two"
+        android:title="By cutting down until my quit date"/>
+
+    <item
+        android:id="@+id/three"
+        android:title="My Health"/>
+
+    <item
+        android:id="@+id/four"
+        android:title="My Appearance"/>
+
+    <item
+        android:id="@+id/five"
+        android:title="My Family"/>
+
+    <item
+        android:id="@+id/six"
+        android:title="My Finances"/>
+
+    <item
+        android:id="@+id/seven"
+        android:title="Other"/>
+
+</menu>

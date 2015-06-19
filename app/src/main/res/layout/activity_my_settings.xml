@@ -1,0 +1,121 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.MySettings"
+    android:background="@drawable/bg">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Quit Day"
+        android:id="@+id/button6"
+        android:onClick="setDate"
+        android:layout_marginTop="23dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Set Now To Start Quit Smoking"
+        android:id="@+id/button7"
+        android:layout_marginTop="26dp"
+        android:layout_below="@+id/button6"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton15"
+        android:background="@drawable/btnsighup_new"
+        android:clickable="true"
+        android:layout_marginTop="22dp"
+        android:layout_below="@+id/button7"
+        android:layout_alignLeft="@+id/imageButton20"
+        android:layout_alignStart="@+id/imageButton20" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Français "
+        android:id="@+id/textView40"
+        android:layout_alignTop="@+id/imageButton15"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton16"
+        android:background="@drawable/btnsighup_new"
+        android:layout_below="@+id/imageButton21"
+        android:layout_alignLeft="@+id/imageButton21"
+        android:layout_alignStart="@+id/imageButton21"
+        android:layout_marginTop="22dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset Smoking Status"
+        android:id="@+id/textView42"
+        android:layout_alignTop="@+id/imageButton16"
+        android:layout_alignLeft="@+id/imageButton16"
+        android:layout_alignStart="@+id/imageButton16" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton20"
+        android:background="@drawable/btnsighup_new"
+        android:layout_centerVertical="true"
+        android:layout_alignRight="@+id/button6"
+        android:layout_alignEnd="@+id/button6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Information"
+        android:id="@+id/textView58"
+        android:layout_alignTop="@+id/imageButton20"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton21"
+        android:background="@drawable/btnsighup_new"
+        android:clickable="true"
+        android:layout_marginTop="27dp"
+        android:layout_below="@+id/imageButton20"
+        android:layout_alignLeft="@+id/imageButton20"
+        android:layout_alignStart="@+id/imageButton20" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="My Personalization"
+        android:id="@+id/textView59"
+        android:layout_alignTop="@+id/imageButton21"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton22"
+        android:clickable="true"
+        android:background="@drawable/btnsighup_new"
+        android:layout_marginBottom="36dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/imageButton21"
+        android:layout_alignStart="@+id/imageButton21" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESET EVERYTHING"
+        android:id="@+id/textView60"
+        android:layout_alignTop="@+id/imageButton22"
+        android:layout_alignRight="@+id/imageButton22"
+        android:layout_alignEnd="@+id/imageButton22" />
+
+</RelativeLayout>

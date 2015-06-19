@@ -1,0 +1,351 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.ResetSmokingStatus"
+    android:background="@drawable/bg">
+
+    <ScrollView
+        android:id="@+id/who_we_are_textviewLayoutAcrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        >
+    <LinearLayout
+        android:id="@+id/who_we_are_textviewLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="1">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please help us understand your smoking habit so that we can create your custom Quit Plan"
+        android:id="@+id/textView43"
+        android:textColor="#ffffffff"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView43"
+        android:background="#ffffffff"
+        android:layout_above="@+id/imageButton17">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="I want to quit:"
+            android:id="@+id/textView44"
+            android:textColor="#ffffffff" />
+        <Spinner
+            android:layout_width="166dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner3"
+            android:layout_gravity="right"
+            android:background="@drawable/btnsighup_new"
+            android:clickable="true"
+            android:entries="@array/I_want_to_Quit"
+            android:prompt="@string/I_want_to_Quit_prompt"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Number of Cigarettes Smoked per day:"
+            android:id="@+id/textView45"
+            android:textColor="#ffffffff" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText5"
+            android:layout_gravity="right"
+            android:editable="true"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Number of years smoking"
+            android:id="@+id/textView46"
+            android:textColor="#ffffffff" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText7"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Number of cigarettes\n per pack (25 or 20)"
+            android:id="@+id/textView47"
+            android:textColor="#ffffffff" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText8"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Cost per pack"
+            android:id="@+id/textView48"
+            android:textColor="#ffffffff" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:ems="10"
+            android:id="@+id/editText9"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Have you used any Quit Aids\n(check all that apply)"
+            android:id="@+id/textView49"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nicotine gum"
+            android:id="@+id/checkBox2"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nicotine patch"
+            android:id="@+id/checkBox3"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nicotine inhaler"
+            android:id="@+id/checkBox4"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nicotine lozenges"
+            android:id="@+id/checkBox6"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Bupropion"
+            android:id="@+id/checkBox7"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Varenicline"
+            android:id="@+id/checkBox8"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Other self-help programs"
+            android:id="@+id/checkBox9"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Telephone quitline"
+            android:id="@+id/checkBox10"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Online counseling"
+            android:id="@+id/checkBox11"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In-person counseling"
+            android:id="@+id/checkBox12"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="None"
+            android:id="@+id/checkBox13"
+            android:checked="false"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView52"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffffff"
+            android:text="Tell us what will motivate you to quit and enter a Quit Buddy in case you need some back-up." />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Our evidence suggests that setting a quit date in the next 2-6 weeks is the way to go. Tell us what day you want to be smoke-free by."
+            android:id="@+id/textView53"
+            android:layout_below="@+id/textView52"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffffff" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Date"
+            android:id="@+id/button8"
+            android:layout_below="@+id/textView53"
+            android:layout_centerHorizontal="true"
+            android:onClick="setDate"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="I am Quitting:"
+            android:id="@+id/textView54"
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/button8"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:background="@drawable/btnsighup_new"
+            android:layout_below="@+id/button8"
+            android:layout_toRightOf="@+id/editText10"
+            android:layout_toEndOf="@+id/editText10"
+            android:spinnerMode="dropdown"
+            android:prompt="@string/I_am_Quitting_prompt"
+            android:entries="@array/I_am_Quitting"
+            android:clickable="true"
+            android:layout_gravity="right" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="I am Quitting For:"
+            android:id="@+id/textView55"
+            android:textColor="#ffffffff"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Spinner
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner2"
+            android:layout_alignTop="@+id/textView55"
+            android:layout_alignRight="@+id/spinner"
+            android:layout_alignEnd="@+id/spinner"
+            android:background="@drawable/btnsighup_new"
+            android:layout_toRightOf="@+id/editText10"
+            android:layout_toEndOf="@+id/editText10"
+            android:clickable="true"
+            android:prompt="@string/I_am_Quitting_For_prompt"
+            android:entries="@array/I_am_Quitting_For"
+            android:layout_gravity="right" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="I can rely on this person for Quittings:"
+            android:id="@+id/textView56"
+            android:layout_below="@+id/textView55"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="71dp"
+            android:textColor="#ffffffff" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textColorHint="#FFFFFFFF"
+            android:ems="10"
+            android:id="@+id/editText10"
+            android:layout_below="@+id/textView56"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="44dp"
+            android:textColor="#FFFFFFFF" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/editText11"
+            android:layout_below="@+id/editText10"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFFFF"
+            android:hint="Phone"
+            android:textColorHint="#FFFFFFFF" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:id="@+id/button9"
+            android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:text="LOAD"
+            android:id="@+id/button10"
+            android:layout_marginBottom="122dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            />
+    </LinearLayout>
+</ScrollView>
+
+
+</RelativeLayout>

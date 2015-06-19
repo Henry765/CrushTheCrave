@@ -1,0 +1,149 @@
+<resources>
+    <string name="app_name">Crush The Crave</string>
+    <string name="hello_world" translatable="false">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_crave" translatable="false">CraveActivity</string>
+    <string name="title_activity_smoke" translatable="false">SmokeActivity</string>
+    <string name="title_activity_my__awards" translatable="false">My_AwardsActivity</string>
+    <string name="title_activity_my__progress" translatable="false">My_ProgressActivity</string>
+    <string name="title_activity_quit__help" translatable="false">Quit_Help</string>
+    <string name="title_activity_more" translatable="false">More</string>
+    <string name="title_activity_w12" translatable="false">w12</string>
+    <string name="title_activity_w23" translatable="false">w23</string>
+    <string name="title_activity_health_calculator" translatable="false">HealthCalculator</string>
+    <string name="title_activity_game_logic" translatable="false">GameLogic</string>
+    <string name="title_activity_slt" translatable="false">Slt</string>
+    <string name="title_activity_screen_loader" translatable="false">ScreenLoaderActivity</string>
+    <string name="title_activity_mole_game" translatable="false">MoleGame</string>
+    <string name="title_activity_mole" translatable="false">Mole</string>
+    <string name="title_activity_menu" translatable="false">Menu</string>
+    <string name="title_activity_hole" translatable="false">Hole</string>
+    <string name="title_activity_help" translatable="false">Help</string>
+    <string name="title_activity_graphics_mole" translatable="false">GraphicsMole</string>
+    <string name="title_activity_game_over" translatable="false">GameOver</string>
+    <string name="title_activity_credits" translatable="false">Credits</string>
+
+    <string name="Score">Score: 0 </string>
+    <string name="Life">Life: 3 </string>
+    <string name="restart">restart</string>
+    <string name="quit">quit</string>
+    <string name="title_activity_smoking_triggers" translatable="false">SmokingTriggers</string>
+    <string name="title_activity_who_we_are" translatable="false">WhoWeAre</string>
+    <string name="title_activity_how_to_use" translatable="false">HowToUse</string>
+    <string name="title_activity_my_settings" translatable="false">MySettings</string>
+    <string name="title_activity_quit_line" translatable="false">QuitLine</string>
+    <string name="title_activity_quit_aids" translatable="false">QuitAids</string>
+    <string name="title_activity_crave_crushers" translatable="false">CraveCrushers</string>
+    <string name="title_activity_my_quit_plan" translatable="false">MyQuitPlan</string>
+    <string name="title_activity_google_map" translatable="false">GoogleMap</string>
+    <string name="title_activity_set_date" translatable="false">SetDate</string>
+    <string name="title_activity_reset_smoking_status" translatable="false">ResetSmokingStatus</string>
+    <string name="title_activity_reset_quit_plan" translatable="false">ResetQuitPlan</string>
+    <string name="title_activity_feedback" translatable="false">Feedback</string>
+
+    <string name="I_am_Quitting_prompt">I am Quitting:</string>
+    <string-array name = "I_am_Quitting">
+        <item>Cold Turkey (I quit)</item>
+        <item>By cutting down until my quit date</item>
+    </string-array>
+
+    <string name="I_am_Quitting_For_prompt">I am Quitting For:</string>
+    <string-array name="I_am_Quitting_For">
+        <item>My Health</item>
+        <item>My Appearance</item>
+        <item>My Family</item>
+        <item>My Finances</item>
+        <item>Other</item>
+    </string-array>
+
+    <string name="I_want_to_Quit_prompt">I want to Quit:</string>
+    <string-array name="I_want_to_Quit">
+        <item>Today</item>
+        <item>In the near Future</item>
+        <item>I have already quit</item>
+    </string-array>
+    <string name="title_activity_my_information" translatable="false">MyInformation</string>
+    <string name="title_activity_distract_me" translatable="false">DistractMe</string>
+    <string name="title_activity_tic_tac_toe" translatable="false">TicTacToe</string>
+    <string name="title_activity_handling_triggers" translatable="false">HandlingTriggers</string>
+    <string name="title_activity_withdrawal_and_cravings" translatable="false">WithdrawalAndCravings</string>
+    <string name="title_activity_handling_slips" translatable="false">HandlingSlips</string>
+    <string name="title_activity_my_personalization" translatable="false">MyPersonalization</string>
+
+    <string name="I_am_with_prompt">I am with:</string>
+    <string-array name="I_am_with">
+        <item>friends</item>
+        <item>family</item>
+        <item>no one</item>
+        <item>add other</item>
+    </string-array>
+
+    <string name="I_am_at_prompt">i am at:</string>
+    <string-array name="I_am_at">
+        <item>home</item>
+        <item>work</item>
+        <item>school</item>
+        <item>bar/restaurant</item>
+        <item>party</item>
+        <item>add other</item>
+    </string-array>
+
+    <string name="I_am_feeling_prompt">I am feeling:</string>
+    <string-array name="I_am_feeling">
+        <item>stressed</item>
+        <item>sad</item>
+        <item>bored</item>
+        <item>angry</item>
+        <item>hungry</item>
+        <item>lonely</item>
+        <item>tired</item>
+        <item>fine</item>
+        <item>add other</item>
+    </string-array>
+    <string name="title_activity_add_other_sp4" translatable="false">addOtherSp4</string>
+    <string name="title_activity_add_other_sp5" translatable="false">addOtherSp5</string>
+    <string name="title_activity_add_other_sp6" translatable="false">addOtherSp6</string>
+    <string name="title_activity_committed" translatable="false">Committed</string>
+    <string name="title_activity_award_quit_date" translatable="false">AwardQuitDate</string>
+    <string name="title_activity_award_day1" translatable="false">AwardDay1</string>
+    <string name="title_activity_award_week1" translatable="false">AwardWeek1</string>
+    <string name="title_activity_award_week3" translatable="false">AwardWeek3</string>
+    <string name="title_activity_award_month1" translatable="false">AwardMonth1</string>
+    <string name="title_activity_award100_cig" translatable="false">Award100Cig</string>
+    <string name="title_activity_award250_cig" translatable="false">Award250Cig</string>
+    <string name="title_activity_award500_cig" translatable="false">Award500Cig</string>
+    <string name="title_activity_award_smoking_tracker" translatable="false">AwardSmokingTracker</string>
+    <string name="title_activity_award_craving_tracker" translatable="false">AwardCravingTracker</string>
+    <string name="title_activity_award100_saved" translatable="false">Award100Saved</string>
+    <string name="title_activity_award250_saved" translatable="false">Award250Saved</string>
+    <string name="title_activity_award500_saved" translatable="false">Award500Saved</string>
+    <string name="title_activity_award1000_saved" translatable="false">Award1000Saved</string>
+    <string name="title_activity_award_breathe_easier" translatable="false">AwardBreatheEasier</string>
+    <string name="title_activity_award_breathe_easier2" translatable="false">AwardBreatheEasier2</string>
+    <string name="title_activity_award_o2" translatable="false">AwardO2</string>
+    <string name="title_activity_award_better_health" translatable="false">AwardBetterHealth</string>
+    <string name="title_activity_award_nicotine_free" translatable="false">AwardNicotineFree</string>
+    <string name="title_activity_award_better_taste_and_smell" translatable="false">AwardBetterTasteAndSmell</string>
+    <string name="title_activity_award_happy_heart" translatable="false">AwardHappyHeart</string>
+    <string name="title_activity_award_happy_heart2" translatable="false">AwardHappyHeart2</string>
+    <string name="title_activity_award_friends" translatable="false">AwardFriends</string>
+    <string name="title_activity_award_sharing" translatable="false">AwardSharing</string>
+    <string name="title_activity_award_feedback" translatable="false">AwardFeedback</string>
+    <string name="title_activity_award_night_out" translatable="false">AwardNightOut</string>
+    <string name="title_activity_graph_fragment_one" translatable="false">GraphFragmentOne</string>
+    <string name="title_activity_graph_fragment_two" translatable="false">GraphFragmentTwo</string>
+    <string name="title_activity_graph_fragment_three" translatable="false">GraphFragmentThree</string>
+    <string name="title_activity_inner_graph_one" translatable="false">InnerGraphOne</string>
+    <string name="title_activity_inner_one_graph" translatable="false">InnerOneGraph</string>
+
+
+    <string name="facebook_app_id" translatable="false">356790361177565</string>
+    <string name="title_activity_face_book_share" translatable="false">FaceBookShare</string>
+    <string name="title_activity_set_desktop_image" translatable="false">SetDesktopImage</string>
+    <string name="title_activity_tabbed_activity_my_progress" translatable="false">TabbedActivityMyProgress</string>
+
+    <string name="title_section1" translatable="false">Section 1</string>
+    <string name="title_section2" translatable="false">Section 2</string>
+    <string name="title_section3" translatable="false">Section 3</string>
+    <string name="title_activity_my__progress_activity2" translatable="false">My_ProgressActivity2</string>
+</resources>

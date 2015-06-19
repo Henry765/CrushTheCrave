@@ -1,0 +1,21 @@
+
+
+<android.support.v4.view.ViewPager
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="match_parent"
+    android:id="@+id/pager1"
+android:layout_height="match_parent"
+    >
+
+    <com.androidplot.xy.XYPlot
+        android:id="@+id/mySimpleXYPlotOne"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        androidPlot.title="A Simple XY Plot 123k"
+        androidPlot.domainLabel="Time"
+        androidPlot.rangeLabel="Quantity"
+        androidPlot.titleWidget.labelPaint.textSize="@dimen/title_font_size"
+        androidPlot.domainLabelWidget.labelPaint.textSize="@dimen/domain_label_font_size"
+        androidPlot.rangeLabelWidget.marginTop="20dp"/>
+
+</android.support.v4.view.ViewPager>

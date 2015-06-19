@@ -1,0 +1,612 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity">
+
+    <ScrollView
+        android:id="@+id/who_we_are_textviewLayoutAcrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:scrollbars="none"
+        android:fillViewport="false">
+
+    <RelativeLayout
+        android:id="@+id/MyAwardInnerRL"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton34"
+    android:background="@drawable/iconlock"
+            android:layout_gravity="right"
+            android:layout_above="@+id/textView78"
+            android:layout_alignLeft="@+id/imageButton53"
+            android:layout_alignStart="@+id/imageButton53" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton33"
+            android:layout_alignTop="@+id/imageButton32"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/iconlock" />
+
+        <ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton32"
+    android:background="@drawable/iconcommitted_sel"
+    android:clickable="false"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="69dp" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="Committed"
+    android:id="@+id/textView78"
+    android:layout_below="@+id/imageButton33"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:textColor="#ffffffff" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="Quit Date"
+    android:id="@+id/textView79"
+    android:textColor="#ffffffff"
+    android:layout_below="@+id/imageButton33"
+    android:layout_alignRight="@+id/textView81"
+    android:layout_alignEnd="@+id/textView81" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="3 Weeks"
+    android:id="@+id/textView81"
+    android:textColor="#ffffffff"
+            android:layout_alignRight="@+id/imageButton36"
+    android:layout_alignEnd="@+id/imageButton36"
+            android:layout_below="@+id/imageButton47" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceSmall"
+    android:text="1 Week"
+    android:id="@+id/textView82"
+    android:layout_alignTop="@+id/textView81"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true"
+    android:textColor="#ffffffff" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="1 Month"
+    android:id="@+id/textView83"
+    android:textColor="#ffffffff"
+    android:layout_alignTop="@+id/textView81"
+    android:layout_alignLeft="@+id/imageButton53"
+    android:layout_alignStart="@+id/imageButton53" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton36"
+    android:background="@drawable/iconlock"
+    android:layout_above="@+id/textView81"
+    android:layout_alignLeft="@+id/imageButton33"
+    android:layout_alignStart="@+id/imageButton33" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="250 Cigarette not Smoked"
+    android:id="@+id/textView84"
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/imageButton50"
+            android:layout_centerHorizontal="true" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="100 Cigareetes not Smoked"
+    android:id="@+id/textView85"
+    android:textColor="#ffffffff"
+    android:layout_alignTop="@+id/textView84"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breathe Easier"
+            android:id="@+id/textView92"
+            android:textColor="#ffffffff"
+            android:layout_alignTop="@+id/textView97"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton47"
+            android:background="@drawable/iconlock"
+            android:layout_below="@+id/textView78"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Smoking Tracking"
+        android:id="@+id/textView87"
+        android:textColor="#ffffffff"
+            android:layout_below="@+id/imageButton41"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton41"
+    android:background="@drawable/iconlock"
+            android:layout_below="@+id/textView85"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton44"
+            android:background="@drawable/iconlock"
+            android:layout_alignTop="@+id/imageButton42"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Happy Heart"
+    android:id="@+id/textView93"
+            android:textColor="#ffffffff"
+            android:layout_alignTop="@+id/imageButton38"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$500 Saved!"
+            android:id="@+id/textView90"
+            android:textColor="#ffffffff"
+            android:layout_alignTop="@+id/textView89"
+            android:layout_alignLeft="@+id/textView97"
+            android:layout_alignStart="@+id/textView97" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="$100 Saved!"
+    android:id="@+id/textView89"
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/imageButton45"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="$1000 Saved!"
+    android:id="@+id/textView91"
+            android:textColor="#ffffffff"
+            android:layout_alignTop="@+id/textView90"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="500 Cigarettes not Smoked"
+    android:id="@+id/textView86"
+            android:textColor="#ffffffff"
+            android:layout_alignTop="@+id/textView84"
+            android:layout_alignEnd="@+id/imageButton55" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton50"
+            android:background="@drawable/iconlock"
+            android:layout_below="@+id/textView81"
+            android:layout_alignLeft="@+id/imageButton54"
+            android:layout_alignStart="@+id/imageButton54" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton51"
+            android:background="@drawable/iconlock"
+            android:layout_above="@+id/textView85"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton49"
+            android:background="@drawable/iconlock"
+            android:layout_below="@+id/textView80"
+            android:layout_alignLeft="@+id/imageButton35"
+            android:layout_alignStart="@+id/imageButton35" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Breathe Easier II"
+            android:id="@+id/textView97"
+            android:textColor="#ffffffff"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/imageButton49" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Better Taste and Smell"
+            android:id="@+id/textView98"
+
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/textView92"
+            android:layout_toLeftOf="@+id/textView92"
+            android:layout_toStartOf="@+id/textView92"
+            android:layout_marginTop="169dp" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton53"
+            android:background="@drawable/iconlock"
+            android:layout_above="@+id/textView83"
+            android:layout_alignLeft="@+id/imageButton52"
+            android:layout_alignStart="@+id/imageButton52" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Better Health"
+            android:id="@+id/textView102"
+            android:textColor="#ffffffff"
+            android:layout_below="@+id/imageButton46"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton55"
+            android:background="@drawable/iconlock"
+            android:layout_alignTop="@+id/imageButton35"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton52"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/textView83"
+    android:layout_alignRight="@+id/textView86"
+    android:layout_alignEnd="@+id/textView86" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton40"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/textView102"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton35"
+    android:background="@drawable/iconlock"
+    android:layout_alignTop="@+id/imageButton45"
+    android:layout_alignRight="@+id/textView81"
+    android:layout_alignEnd="@+id/textView81" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton38"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/imageButton40"
+    android:layout_toRightOf="@+id/imageButton52"
+    android:layout_toEndOf="@+id/imageButton52"
+    android:layout_marginLeft="49dp"
+    android:layout_marginStart="49dp" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton54"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/textView84"
+    android:layout_alignLeft="@+id/imageButton35"
+    android:layout_alignStart="@+id/imageButton35" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton46"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/textView97"
+    android:layout_alignRight="@+id/textView81"
+    android:layout_alignEnd="@+id/textView81" />
+
+<ImageButton
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/imageButton39"
+    android:background="@drawable/iconlock"
+    android:layout_above="@+id/textView97"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton37"
+    android:background="@drawable/iconlock"
+    android:layout_above="@+id/textView102"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<ImageButton
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/imageButton43"
+    android:background="@drawable/iconlock"
+    android:layout_alignTop="@+id/imageButton37"
+    android:layout_alignLeft="@+id/imageButton46"
+    android:layout_alignStart="@+id/imageButton46" />
+
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/imageButton42"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/textView97"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentEnd="true" />
+
+<ImageButton
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:id="@+id/imageButton45"
+    android:background="@drawable/iconlock"
+    android:layout_below="@+id/textView71"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Craving Tracking"
+            android:id="@+id/textView15"
+            android:textColor="#ffffffff"
+            android:layout_alignTop="@+id/textView87"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Money Saved"
+            android:id="@+id/textView71"
+            android:textColor="#ffffe08c"
+            android:layout_marginTop="39dp"
+            android:layout_below="@+id/textView15"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Health Achieved"
+            android:id="@+id/textView80"
+            android:textColor="#ffffe08c"
+            android:layout_below="@+id/textView90"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Nicotine Free"
+            android:id="@+id/textView95"
+            android:layout_below="@+id/imageButton46"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Better Taste and Smell"
+            android:id="@+id/textView96"
+            android:layout_below="@+id/imageButton44"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#ffffffff" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton56"
+            android:layout_above="@+id/textView92"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/iconlock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="O2"
+            android:id="@+id/textView88"
+            android:layout_below="@+id/imageButton39"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#ffffffff" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton57"
+            android:layout_below="@+id/textView95"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/iconlock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Happy Heart II"
+            android:id="@+id/textView99"
+            android:layout_alignTop="@+id/textView93"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Earn your own"
+            android:id="@+id/textView100"
+            android:textColor="#ffffe08c"
+            android:layout_alignBottom="@+id/imageButton38"
+            android:layout_alignRight="@+id/textView15"
+            android:layout_alignEnd="@+id/textView15" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton48"
+            android:layout_below="@+id/textView100"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/iconlock" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton58"
+            android:layout_alignTop="@+id/imageButton48"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/iconlock" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton59"
+            android:layout_alignTop="@+id/imageButton58"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/iconlock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Friends"
+            android:id="@+id/textView101"
+            android:layout_below="@+id/imageButton48"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Sharing"
+            android:id="@+id/textView103"
+            android:layout_alignTop="@+id/textView101"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Feedback"
+            android:id="@+id/textView104"
+            android:layout_alignTop="@+id/textView103"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="#ffffffff" />
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageButton60"
+            android:layout_below="@+id/textView101"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/iconlock" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Night Out"
+            android:id="@+id/textView109"
+            android:layout_below="@+id/imageButton60"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#ffffffff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Days Smokefree"
+            android:id="@+id/textView57"
+            android:textColor="#ffffe08c"
+            android:layout_above="@+id/imageButton33"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:text="Day 1"
+            android:id="@+id/textView110"
+            android:textColor="#ffffffff"
+            android:layout_above="@+id/imageButton53"
+            android:layout_toLeftOf="@+id/textView88"
+            android:layout_toStartOf="@+id/textView88" />
+
+    </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

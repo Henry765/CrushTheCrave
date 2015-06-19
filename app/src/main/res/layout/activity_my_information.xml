@@ -1,0 +1,93 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.MyInformation"
+    android:background="@drawable/bg">
+
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="I am interested in being contacted about future research on quit smoking apps."
+        android:id="@+id/checkBox5"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="222dp"
+        android:checked="false"
+        android:textColor="#ffffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Name"
+        android:textColorHint="#FFFFFFFF"
+        android:ems="10"
+        android:id="@+id/editText6"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="39dp"
+        android:textColor="#ffffffff" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:id="@+id/editText12"
+        android:layout_below="@+id/editText6"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffffff"
+        android:hint="Age"
+        android:textColorHint="#FFFFFFFF"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:hint="Male or Female"
+        android:ems="10"
+        android:id="@+id/editText13"
+        android:layout_below="@+id/editText12"
+        android:layout_centerHorizontal="true"
+        android:textColorHint="#FFFFFFFF"
+        android:textColor="#ffffffff" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton23"
+        android:clickable="true"
+        android:background="@drawable/btnsighup_new"
+        android:layout_below="@+id/imageButton24"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="23dp" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton24"
+        android:clickable="true"
+        android:background="@drawable/btnsighup_new"
+        android:layout_marginTop="51dp"
+        android:layout_alignTop="@+id/checkBox5"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UPDATE"
+        android:id="@+id/textView61"
+        android:layout_alignTop="@+id/imageButton24"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOAD"
+        android:id="@+id/textView62"
+        android:layout_alignTop="@+id/imageButton23"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
