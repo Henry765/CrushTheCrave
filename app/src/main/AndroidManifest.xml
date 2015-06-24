@@ -34,7 +34,7 @@
 
         <provider
             android:name="com.facebook.FacebookContentProvider"
-            android:authorities="com.facebook.app.FacebookContentProvider356790361177565"
+            android:authorities="com.facebook.app.FacebookContentProvider417315275141718"
             android:exported="true" />
 
         <activity
@@ -66,7 +66,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
         </activity>
         <activity
-            android:name=".My_ProgressActivity"
+            android:name=".Graph.My_ProgressActivity"
             android:label="@string/title_activity_my__progress" >
         </activity>
         <activity
@@ -96,10 +96,10 @@
         <activity
             android:name=".HealthCalculator"
             android:label="@string/title_activity_health_calculator"
-            android:parentActivityName=".My_ProgressActivity" >
+            android:parentActivityName=".Graph.My_ProgressActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_ProgressActivity" />
+                android:value=".Graph.My_ProgressActivity" />
         </activity>
         <activity
             android:name=".Slt"
@@ -368,7 +368,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardQuitDate"
+            android:name=".Committed$AwardQuitDate"
             android:label="@string/title_activity_award_quit_date"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -376,7 +376,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardDay1"
+            android:name=".Committed$AwardDay1"
             android:label="@string/title_activity_award_day1"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -384,7 +384,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardWeek1"
+            android:name=".Committed$AwardWeek1"
             android:label="@string/title_activity_award_week1"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -392,7 +392,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardWeek3"
+            android:name=".Committed$AwardWeek3"
             android:label="@string/title_activity_award_week3"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -400,7 +400,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardMonth1"
+            android:name=".Committed$AwardMonth1"
             android:label="@string/title_activity_award_month1"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -408,7 +408,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".Award100Cig"
+            android:name=".Committed$Award100Cig"
             android:label="@string/title_activity_award100_cig"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -416,7 +416,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".Award250Cig"
+            android:name=".Committed$Award250Cig"
             android:label="@string/title_activity_award250_cig"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -424,7 +424,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".Award500Cig"
+            android:name=".Committed$Award500Cig"
             android:label="@string/title_activity_award500_cig"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -432,7 +432,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardSmokingTracker"
+            android:name=".Committed$AwardSmokingTracker"
             android:label="@string/title_activity_award_smoking_tracker"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -440,7 +440,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardCravingTracker"
+            android:name=".Committed$AwardCravingTracker"
             android:label="@string/title_activity_award_craving_tracker"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -448,7 +448,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".Award100Saved"
+            android:name=".Committed$Award100Saved"
             android:label="@string/title_activity_award100_saved"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -464,7 +464,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".Award500Saved"
+            android:name=".Committed$Award500Saved"
             android:label="@string/title_activity_award500_saved"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -472,7 +472,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".Award1000Saved"
+            android:name=".Committed$Award1000Saved"
             android:label="@string/title_activity_award1000_saved"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -480,7 +480,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardBreatheEasier"
+            android:name=".Committed$AwardBreatheEasier"
             android:label="@string/title_activity_award_breathe_easier"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -488,7 +488,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardBreatheEasier2"
+            android:name=".Committed$AwardBreatheEasier2"
             android:label="@string/title_activity_award_breathe_easier2"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -496,7 +496,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardO2"
+            android:name=".Committed$AwardO2"
             android:label="@string/title_activity_award_o2"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -504,7 +504,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardBetterHealth"
+            android:name=".Committed$AwardBetterHealth"
             android:label="@string/title_activity_award_better_health"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -512,7 +512,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardNicotineFree"
+            android:name=".Committed$AwardNicotineFree"
             android:label="@string/title_activity_award_nicotine_free"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -520,7 +520,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardBetterTasteAndSmell"
+            android:name=".Committed$AwardBetterTasteAndSmell"
             android:label="@string/title_activity_award_better_taste_and_smell"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -528,7 +528,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardHappyHeart"
+            android:name=".Committed$AwardHappyHeart"
             android:label="@string/title_activity_award_happy_heart"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -536,7 +536,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardHappyHeart2"
+            android:name=".Committed$AwardHappyHeart2"
             android:label="@string/title_activity_award_happy_heart2"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -544,7 +544,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardFriends"
+            android:name=".Committed$AwardFriends"
             android:label="@string/title_activity_award_friends"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -552,7 +552,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardSharing"
+            android:name=".Committed$AwardSharing"
             android:label="@string/title_activity_award_sharing"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -560,7 +560,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardFeedback"
+            android:name=".Committed$AwardFeedback"
             android:label="@string/title_activity_award_feedback"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -568,7 +568,7 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
         <activity
-            android:name=".AwardNightOut"
+            android:name=".Committed$AwardNightOut"
             android:label="@string/title_activity_award_night_out"
             android:parentActivityName=".My_AwardsActivity" >
             <meta-data
@@ -598,10 +598,18 @@
         <activity
             android:name=".FaceBookShare"
             android:label="@string/title_activity_face_book_share"
-            android:parentActivityName=".Award100Cig" >
+            android:parentActivityName=".Committed$Award100Cig" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.Award100Cig" />
+                android:value=".Committed$Award100Cig" />
+        </activity>
+        <activity
+            android:name=".TwitterShare"
+            android:label="@string/title_activity_twitter_share"
+            android:parentActivityName=".Committed$Award100Cig" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Committed$Award100Cig" />
         </activity>
         <activity
             android:name=".SetDesktopImage"
@@ -610,6 +618,27 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
+        </activity>
+        <activity
+            android:name=".SocialMediaOptions"
+            android:label="@string/title_activity_social_media_options"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="66faf7aa5a82165dc6604bdb6aae1e7ae6daabeb" />
+
+        <activity
+            android:name=".Graph.My_ProgressActivity$My_ProgressActivity3"
+            android:label="@string/title_activity_my__progress_activity3"
+            android:parentActivityName=".MainActivityHome" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
         </activity>
     </application>
 

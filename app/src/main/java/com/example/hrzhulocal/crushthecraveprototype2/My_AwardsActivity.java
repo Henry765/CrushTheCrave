@@ -2,20 +2,12 @@ package com.example.hrzhulocal.crushthecraveprototype2;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
-import com.facebook.share.widget.ShareButton;
-
-import java.util.Date;
 
 
 public class My_AwardsActivity extends MainActivityHome {
@@ -173,14 +165,25 @@ public class My_AwardsActivity extends MainActivityHome {
         listenerNightOut();
     }
 
+    public void ListenerShare(){
+        final Context context = this;
 
+        ImageButton fb = (ImageButton)findViewById(R.id.imageButton58);
+        fb.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+
+                Intent intent = new Intent(context, SocialMediaOptions.class);
+                startActivity(intent);
+            }
+        });
+    }
     private void listenerCommitted() {
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton32);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Committed.class);
+                Intent intent = new Intent(context, Committed.AwardCommitted.class);
                 startActivity(intent);
             }
         });
@@ -192,7 +195,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardQuitDate.class);
+                Intent intent = new Intent(context, Committed.AwardQuitDate.class);
                 startActivity(intent);
             }
         });
@@ -204,7 +207,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardDay1.class);
+                Intent intent = new Intent(context, Committed.AwardDay1.class);
                 startActivity(intent);
             }
         });
@@ -216,7 +219,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardWeek1.class);
+                Intent intent = new Intent(context, Committed.AwardWeek1.class);
                 startActivity(intent);
             }
         });
@@ -228,7 +231,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardWeek3.class);
+                Intent intent = new Intent(context, Committed.AwardWeek3.class);
                 startActivity(intent);
             }
         });
@@ -240,7 +243,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardMonth1.class);
+                Intent intent = new Intent(context, Committed.AwardMonth1.class);
                 startActivity(intent);
             }
         });
@@ -252,7 +255,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Award100Cig.class);
+                Intent intent = new Intent(context, Committed.Award100Cig.class);
                 startActivity(intent);
             }
         });
@@ -264,7 +267,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Award250Cig.class);
+                Intent intent = new Intent(context, Committed.Award250Cig.class);
                 startActivity(intent);
             }
         });
@@ -276,7 +279,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Award500Cig.class);
+                Intent intent = new Intent(context, Committed.Award500Cig.class);
                 startActivity(intent);
             }
         });
@@ -288,7 +291,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardSmokingTracker.class);
+                Intent intent = new Intent(context, Committed.AwardSmokingTracker.class);
                 startActivity(intent);
             }
         });
@@ -300,7 +303,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardCravingTracker.class);
+                Intent intent = new Intent(context, Committed.AwardCravingTracker.class);
                 startActivity(intent);
             }
         });
@@ -312,7 +315,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Award100Saved.class);
+                Intent intent = new Intent(context, Committed.Award100Saved.class);
                 startActivity(intent);
             }
         });
@@ -324,7 +327,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Award500Saved.class);
+                Intent intent = new Intent(context, Committed.Award500Saved.class);
                 startActivity(intent);
             }
         });
@@ -336,7 +339,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Award1000Saved.class);
+                Intent intent = new Intent(context, Committed.Award1000Saved.class);
                 startActivity(intent);
             }
         });
@@ -348,7 +351,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardBreatheEasier.class);
+                Intent intent = new Intent(context, Committed.AwardBreatheEasier.class);
                 startActivity(intent);
             }
         });
@@ -360,7 +363,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardBreatheEasier2.class);
+                Intent intent = new Intent(context, Committed.AwardBreatheEasier2.class);
                 startActivity(intent);
             }
         });
@@ -372,7 +375,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardO2.class);
+                Intent intent = new Intent(context, Committed.AwardO2.class);
                 startActivity(intent);
             }
         });
@@ -383,7 +386,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardBetterHealth.class);
+                Intent intent = new Intent(context, Committed.AwardBetterHealth.class);
                 startActivity(intent);
             }
         });
@@ -393,7 +396,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardNicotineFree.class);
+                Intent intent = new Intent(context, Committed.AwardNicotineFree.class);
                 startActivity(intent);
             }
         });
@@ -403,7 +406,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardBetterTasteAndSmell.class);
+                Intent intent = new Intent(context, Committed.AwardBetterTasteAndSmell.class);
                 startActivity(intent);
             }
         });
@@ -413,7 +416,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardHappyHeart.class);
+                Intent intent = new Intent(context, Committed.AwardHappyHeart.class);
                 startActivity(intent);
             }
         });
@@ -423,7 +426,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardHappyHeart2.class);
+                Intent intent = new Intent(context, Committed.AwardHappyHeart2.class);
                 startActivity(intent);
             }
         });
@@ -433,7 +436,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardFriends.class);
+                Intent intent = new Intent(context, Committed.AwardFriends.class);
                 startActivity(intent);
             }
         });
@@ -443,7 +446,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardSharing.class);
+                Intent intent = new Intent(context, Committed.AwardSharing.class);
                 startActivity(intent);
             }
         });
@@ -453,7 +456,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardFeedback.class);
+                Intent intent = new Intent(context, Committed.AwardFeedback.class);
                 startActivity(intent);
             }
         });
@@ -463,7 +466,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, AwardNightOut.class);
+                Intent intent = new Intent(context, Committed.AwardNightOut.class);
                 startActivity(intent);
             }
         });

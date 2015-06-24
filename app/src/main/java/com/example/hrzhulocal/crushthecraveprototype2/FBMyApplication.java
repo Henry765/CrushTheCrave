@@ -7,6 +7,9 @@ import android.content.pm.Signature;
 import android.util.Base64;
 import android.util.Log;
 
+import com.twitter.sdk.android.Twitter;
+import com.twitter.sdk.android.core.TwitterAuthConfig;
+import io.fabric.sdk.android.Fabric;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -15,9 +18,16 @@ import java.security.NoSuchAlgorithmException;
  */
 public class FBMyApplication extends Application {
 
+    // Note: Your consumer key and secret should be obfuscated in your source code before shipping.
+    private static final String TWITTER_KEY = "dLSqeRJVxD8Za5XLJZ17OvHEM";
+    private static final String TWITTER_SECRET = "nwLEFcPRv9EqJJpQYFhNGHMXEf6o6rZLtOLkmGvFtWk2iXXWi2";
+
+
     @Override
     public void onCreate(){
         super.onCreate();
+        TwitterAuthConfig authConfig = new TwitterAuthConfig(TWITTER_KEY, TWITTER_SECRET);
+        Fabric.with(this, new Twitter(authConfig));
         printHashKey();
     }
 

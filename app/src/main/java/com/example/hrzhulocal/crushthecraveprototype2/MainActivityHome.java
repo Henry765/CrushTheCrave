@@ -8,26 +8,17 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.provider.MediaStore;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.CompoundButton;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,34 +28,14 @@ import android.content.Intent;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
-import org.w3c.dom.Text;
 
 import java.util.Calendar;
-import java.util.Random;
 import java.util.TimeZone;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import android.support.v7.app.ActionBarActivity;
-import android.app.Activity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.Window;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.view.ViewPager;
 
-import com.androidplot.xy.XYPlot;
+import com.example.hrzhulocal.crushthecraveprototype2.Graph.My_ProgressActivity;
 import com.facebook.appevents.AppEventsLogger;
-import android.os.Handler;
+
 import android.view.MotionEvent;
-import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 
 public class MainActivityHome extends ActionBarActivity {
@@ -105,6 +76,11 @@ public class MainActivityHome extends ActionBarActivity {
     public static ImageView iv61;
     public static Drawable drawable;
 
+    //track the progress in graph
+    public static long[] TrackSmoke = new long[200];
+    public static long[] TrackCrave = new long[300];
+    public static int TrackSmokeCount = 0;
+    public static int TrackCraveCount = 0;
 
 
     @Override
@@ -231,7 +207,6 @@ public class MainActivityHome extends ActionBarActivity {
         };
 
         private View downView;
-
         /**
          * @param initialInterval The interval after first click event
          * @param normalInterval The interval after second and subsequent click
@@ -268,7 +243,6 @@ public class MainActivityHome extends ActionBarActivity {
 
             return false;
         }
-
     }
 
     public void addListenerOnCRAVEButton() {
@@ -278,6 +252,12 @@ public class MainActivityHome extends ActionBarActivity {
 
         imageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
+                //keep a list of the time when you crave
+                if(TrackCraveCount < 300){
+                    Calendar trackCrave = Calendar.getInstance();
+                    TrackCrave[TrackCraveCount] = trackCrave.getTimeInMillis();
+                    TrackCraveCount++;
+                }
                 //increment number of click
                 Toast.makeText(getApplicationContext(), "quit date is " + quitDayNum + " time", Toast.LENGTH_LONG).show();
                 theNumberOfCrave++;
@@ -297,6 +277,14 @@ public class MainActivityHome extends ActionBarActivity {
                 //increment number of click
                 theNumberOfSmoke++;
                 theNumberOfSmokeTotal++;
+                //keep a list of the time when you smoke
+                if(TrackSmokeCount < 200) {
+                    Calendar trackSmoke = Calendar.getInstance();
+                    TrackSmoke[TrackSmokeCount] = trackSmoke.getTimeInMillis();
+                    TrackSmokeCount++;
+                }
+
+                Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
 
                 //reset the smokeFreeDayNum to quitDayNum
                 smokeFreeDayNum = quitDayNum;
@@ -453,6 +441,10 @@ public class MainActivityHome extends ActionBarActivity {
         editor.putString("FINAL_DATA22", final_data22);
         editor.putLong("STARTDAYNUM", startDayNum);
 
+        //save the progress
+        //editor.putLong("TRACKSMOKE", TrackSmoke[]);
+        //editor.putInt("TRACKSMOKECOUNT", TrackSmokeCount);
+        //editor.putLong("TRACKCRAVE", TrackCrave[]);
 
         editor.commit();
     }
@@ -467,7 +459,6 @@ public class MainActivityHome extends ActionBarActivity {
         theNumberOfSmokeTotal = sp.getInt("SmokeTotal", theNumberOfSmokeTotal);
         final_data22 = sp.getString("FINAL_DATA22", final_data22);
         startDayNum = sp.getLong("STARTDAYNUM", startDayNum);
-
     }
 
     private void saveDate() {

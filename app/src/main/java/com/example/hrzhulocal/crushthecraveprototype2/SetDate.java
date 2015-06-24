@@ -29,7 +29,6 @@ public class SetDate extends MainActivityHome {
             SharedPreferences.Editor editor = sp.edit();
             editor.putLong("QUITDAYNUM6", quitDayNum6);
             editor.commit();
-
         }
         Toast.makeText(context, "quitDayNum6: " + quitDayNum6, Toast.LENGTH_LONG).show();
         textView.setText("quitDayNum6"+quitDayNum6);

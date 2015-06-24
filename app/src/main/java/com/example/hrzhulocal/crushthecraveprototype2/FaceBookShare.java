@@ -1,5 +1,6 @@
 package com.example.hrzhulocal.crushthecraveprototype2;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -19,6 +21,7 @@ import com.facebook.FacebookSdk;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.share.ShareApi;
+import com.facebook.share.Sharer;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.model.SharePhoto;
 import com.facebook.share.model.SharePhotoContent;
@@ -37,46 +40,103 @@ public class FaceBookShare extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_face_book_share);
         FacebookSdk.sdkInitialize(getApplicationContext());
-    }}
 
+        final Context context = this;
 
-        /*callbackManager = CallbackManager.Factory.create();
+//show the ShareDialog:
+        if (ShareDialog.canShow(ShareLinkContent.class)) {
+            callbackManager = CallbackManager.Factory.create();
+            shareDialog = new ShareDialog(this);
 
-        List<string> permissionNeeds;
-        permissionNeeds = Arrays.asList("publish_actions");
+            List<String> permissionNeeds;
+            permissionNeeds = Arrays.asList("publish_actions");
 
-        //this loginManager helps you eliminate adding a LoginButton to your UI
-        manager = LoginManager.getInstance();
+            //this loginManager helps you eliminate adding a LoginButton to your UI
+            manager = LoginManager.getInstance();
 
-        manager.logInWithPublishPermissions(this, permissionNeeds);
+            manager.logInWithPublishPermissions(this, permissionNeeds);
 
-        manager.registerCallback(callbackManager, new FacebookCallback<\LoginResult>()
-        {
-            public void onSuccess (LoginResult loginResult)
-            {
-                sharePhotoToFacebook();
-            }
+            /////////////////
 
-            public void onCancel ()
-            {
-                System.out.println("onCancel");
-            }
+            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                    .setContentTitle("Congratulations!")
+                    .setContentDescription(
+                            "I earned this quit smoking award!")
+                    .build();
+            Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.icon100cigarettes_sel);
+            SharePhoto photo = new SharePhoto.Builder()
+                    .setBitmap(image)
+                    .setCaption("I earned this quit smoking award!")
+                    .build();
+            SharePhotoContent content = new SharePhotoContent.Builder()
+                    .addPhoto(photo)
+                    .build();
+            ShareApi.share(content, new FacebookCallback<Sharer.Result>() {
+                @Override
+                public void onSuccess(Sharer.Result result)
+                {
+                    /*Intent intent = new Intent(context, My_AwardsActivity.class);
+                    startActivity(intent);*/
+                }
 
+                @Override
+                public void onCancel()
+                {
+                    Log.v("FACEBOOK_TEST", "share api cancel");
+                }
 
-            public void onError(FacebookException exception)
-            {
-                System.out.println("onError");
-            }
-        });
+                @Override
+                public void onError(FacebookException e) {
+                    Log.v("FACEBOOK_TEST", "share api error " + e);
+                }
+            });
+            shareDialog.show(linkContent);
+        }
+
     }
 
+
+
+
+
+        /*BitmapFactory.Options bmOptions = new BitmapFactory.Options();
+
+        bmOptions.inPreferredConfig = Bitmap.Config.ARGB_8888;
+
+        Bitmap image = BitmapFactory.decodeFile(String.valueOf(R.drawable.icon100cigarettes_sel), bmOptions);
+
+        SharePhoto photo = new SharePhoto.Builder().setBitmap(image).build();
+
+        SharePhotoContent content = new SharePhotoContent.Builder().addPhoto(photo).build();
+
+        Toast.makeText(getApplicationContext(), getString(R.string.facebook_uploading), Toast.LENGTH_SHORT).show();
+
+        ShareApi.share(content, new FacebookCallback<Sharer.Result>() {
+            @Override
+            public void onSuccess(Sharer.Result result)
+            {
+                Toast.makeText(getApplicationContext(), getString(R.string.facebookSuccessful), Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onCancel()
+            {
+                Log.v("FACEBOOK_TEST", "share api cancel");
+            }
+
+            @Override
+            public void onError(FacebookException e)
+            {
+                Log.v("FACEBOOK_TEST", "share api error " + e);
+            }
+        });
+    }*/
     private void sharePhotoToFacebook() {
-        Bitmap image = BitmapFactory.decodeResource(getResources(), R.mipmap.ic_launcher);
+        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.icon100cigarettes_sel);
         SharePhoto photo = new SharePhoto.Builder()
                 .setBitmap(image)
-                .setCaption("Give me my codez or I will ... you know, do that thing you don't like!")
+                .setCaption("Yes!")
                 .build();
 
         SharePhotoContent content = new SharePhotoContent.Builder()
@@ -92,7 +152,8 @@ public class FaceBookShare extends AppCompatActivity {
         super.onActivityResult(requestCode, responseCode, data);
         callbackManager.onActivityResult(requestCode, responseCode, data);
     }
-}*/
+}
+
     /*- See more at: http://simpledeveloper.com/how-to-share-an-image-on-facebook-in-android/#sthash.8U7u92TN.dpuf
        /* callbackManager = CallbackManager.Factory.create();
 

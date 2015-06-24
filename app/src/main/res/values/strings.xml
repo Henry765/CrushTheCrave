@@ -137,8 +137,10 @@
     <string name="title_activity_inner_one_graph" translatable="false">InnerOneGraph</string>
 
 
-    <string name="facebook_app_id" translatable="false">356790361177565</string>
+    <string name="facebook_app_id" translatable="false">417315275141718</string>
     <string name="title_activity_face_book_share" translatable="false">FaceBookShare</string>
+    <string name="title_activity_twitter_share" translatable="false">TwitterShare</string>
+
     <string name="title_activity_set_desktop_image" translatable="false">SetDesktopImage</string>
     <string name="title_activity_tabbed_activity_my_progress" translatable="false">TabbedActivityMyProgress</string>
 
@@ -146,4 +148,9 @@
     <string name="title_section2" translatable="false">Section 2</string>
     <string name="title_section3" translatable="false">Section 3</string>
     <string name="title_activity_my__progress_activity2" translatable="false">My_ProgressActivity2</string>
+    <string name="facebook_uploading">no1</string>
+    <string name="facebookSuccessful">no2</string>
+    <string name="title_activity_tabbed_graph_main">TabbedGraphMain</string>
+    <string name="title_activity_social_media_options">SocialMediaOptions</string>
+    <string name="title_activity_my__progress_activity3">My_ProgressActivity3</string>
 </resources>

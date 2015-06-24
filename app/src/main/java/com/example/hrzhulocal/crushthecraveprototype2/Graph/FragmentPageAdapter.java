@@ -1,4 +1,4 @@
-package com.example.hrzhulocal.crushthecraveprototype2;
+package com.example.hrzhulocal.crushthecraveprototype2.Graph;
 
 /**
  * Created by hrzhulocal on 17/06/2015.
@@ -6,12 +6,13 @@ package com.example.hrzhulocal.crushthecraveprototype2;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
 public class FragmentPageAdapter extends FragmentPagerAdapter {
     public FragmentPageAdapter(FragmentManager fm) {
         super(fm);
     }
     @Override
-    public Fragment getItem(int arg0) {
+    public Fragment getItem (int arg0) {
         // TODO Auto-generated method stub
         switch (arg0) {
             case 0:

@@ -4,24 +4,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import org.w3c.dom.Text;
 import java.io.File;
 
-import android.app.Application;
 import android.util.Log;
 
 
-public class MySettings extends /*More*/ FragmentActivity {
+public class MySettings extends More /*FragmentActivity*/ {
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +26,12 @@ public class MySettings extends /*More*/ FragmentActivity {
         addlistenerOnResetSmokingStatus();
         addListenerOnMyInformation();
         addListenerOnMyPersonlization();
+
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();
+        addListenerOnHomeImageButton();
     }
     public void setDate(View view){
         PickerDialogs pickerDialogs = new PickerDialogs();
@@ -49,7 +50,6 @@ public class MySettings extends /*More*/ FragmentActivity {
             }
         }
     }
-
     public static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
             String[] children = dir.list();
@@ -90,9 +90,9 @@ public class MySettings extends /*More*/ FragmentActivity {
     }
     private void addListenerOnSetDate(){
         final Context context = this;
-        button = (Button) findViewById(R.id.button7);
+        ImageButton imageButton = (ImageButton) findViewById(R.id.SetNowToStartQuitSmoking);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Intent intent = new Intent(context, SetDate.class);
                 startActivity(intent);

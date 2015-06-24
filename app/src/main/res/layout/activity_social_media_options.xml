@@ -1,0 +1,37 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.SocialMediaOptions"
+    android:background="@drawable/bg">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Sharing is Strength"
+        android:id="@+id/textView94"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="59dp"
+        android:textColor="#ffffffff" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton62"
+        android:background="@drawable/btnfacebookicon"
+        android:layout_alignTop="@+id/imageButton64"
+        android:layout_alignLeft="@+id/textView94"
+        android:layout_alignStart="@+id/textView94" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton64"
+        android:background="@drawable/btntwitter"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/textView94"
+        android:layout_alignRight="@+id/textView94"
+        android:layout_alignEnd="@+id/textView94" />
+</RelativeLayout>

@@ -40,6 +40,10 @@ public class TicTacToe extends ActionBarActivity {
     public static int x = 0;
     public static int counter = 0;
 
+    String xString= "X";
+    boolean firstTime = true;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -98,14 +102,20 @@ public class TicTacToe extends ActionBarActivity {
                 B.setTextColor(Color.BLUE);
 
                 if (whosTurn) {
-                    //board[x][y] = 'O';
-                    //B.setText("O");
-                    AI(view, board);
+                    board[x][y] = 'O';
+                    B.setText("O");
+                    //EASYAI(view, board);
                     checkWinner(board);
 
                 } else {
-                    board[x][y] = 'X';
-                    B.setText("X");
+                    //computer play X first
+                    if(firstTime){
+                        board[1][1] = 'X';
+                        B.setText(""+xString);
+                    }
+                    //board[x][y] = 'X';
+                    //B.setText("X");
+                    MEDIUMAI(view, board);
                     checkWinner(board);
                 }
                     //after click that specific button, it can no longer respond to change to events
@@ -114,18 +124,29 @@ public class TicTacToe extends ActionBarActivity {
             }
         }
     }
-
-    private void AI(View view, char[][] board){
+    //You can never lose in EASYAI mode
+    private void EASYAI(View view, char[][] board) {
         if (view instanceof Button) {
 
             Button B = (Button) view;
             B.setTextColor(Color.BLUE);
-            if(x == 0 && board[1][1] != 'X') {
+            if (x == 0 && board[1][1] != 'X') {
                 board[1][1] = 'O';
                 B.setText("O");
+            }
         }
+    }
 
+    private void MEDIUMAI(View view, char[][] board){
+        if(view instanceof Button){
+            Button B = (Button) view;
+            B.setTextColor(Color.BLUE);
+            if( x > 0 ){
+                board[1][1] = 'X';
+                B.setText(""+xString);
+            }
         }
+    }
         /*if (whosTurn) {
             Random rand = new Random();
             int nX = rand.nextInt(3);
@@ -146,7 +167,8 @@ public class TicTacToe extends ActionBarActivity {
                 B.setText("O");
 
             }*/
-    }
+
+
 
 
         private void addListenerOnRestart() {

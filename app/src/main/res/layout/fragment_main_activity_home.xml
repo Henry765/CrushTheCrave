@@ -167,12 +167,14 @@
 
     <ImageButton
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/imageButton61"
         android:background="@drawable/splash"
-        android:layout_above="@+id/CraveButtonID"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toLeftOf="@+id/textView72"
-        android:layout_toStartOf="@+id/textView72" />
+        android:scaleType="fitXY"
+        android:layout_above="@+id/SmokeButtonID"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textView51"
+        android:layout_toEndOf="@+id/textView51" />
 
 </RelativeLayout>
