@@ -49,7 +49,9 @@ import android.os.Bundle;
  * Programmer: Henry Zhu, Computer Eng 2019
  * Supported by Matt VanderMeer
  * University Of Waterloo, Faculty of Applied Health Sciences, Propel Centre For Population Health Impact
- * Acknowledgement: Osama Tariq, Software Eng 2018
+ * Acknowledgement:
+ *
+ * Osama Tariq, Software Eng 2018
  * The Mini Game of Whack a Mole is released under GNU GPL v2 License from http://whack-a-mole-android.googlecode.com/svn/
  * Coded and designed by Lorenzo Lambertini  contact: lorenzo.lambertini@gmail.coms
  * Modified by Henry Zhu contact hrzhu@uwaterloo.ca

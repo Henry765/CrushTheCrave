@@ -66,10 +66,6 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
         </activity>
         <activity
-            android:name=".Graph.My_ProgressActivity"
-            android:label="@string/title_activity_my__progress" >
-        </activity>
-        <activity
             android:name=".Quit_Help"
             android:label="@string/title_activity_quit__help"
             android:parentActivityName=".MainActivityHome" >
@@ -627,6 +623,14 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
+        <activity
+            android:name=".Committed$AwardCommitted"
+            android:parentActivityName=".My_AwardsActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+
 
         <meta-data
             android:name="io.fabric.ApiKey"
@@ -640,6 +644,35 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
         </activity>
+
+        <activity android:name=".Graph.MainActivity"
+            android:label="@string/app_name"/>
+        <service android:name="com.parse.PushService" />
+        <receiver android:name="com.parse.ParseBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.GcmBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <!--
+                  IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
+                -->
+                <category android:name="com.parse.tutorials.pushnotifications" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="com.parse.ParsePushBroadcastReceiver" android:exported="false">
+            <intent-filter>
+                <action android:name="com.parse.push.intent.RECEIVE" />
+                <action android:name="com.parse.push.intent.DELETE" />
+                <action android:name="com.parse.push.intent.OPEN" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

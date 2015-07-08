@@ -15,7 +15,13 @@ public class My_AwardsActivity extends MainActivityHome {
     public static boolean SharedFB = false;
     public static boolean Feedback = false;
     public static boolean NightOut = false;
-
+    public static int ShareOption = 0;
+    //create an array of file name strings
+    int[] ImageFile = {R.drawable.iconcommitted_sel, R.drawable.iconquitdate_sel, R.drawable.iconday1_sel, R.drawable.iconweek1_sel, R.drawable.iconweek3_sel,
+            R.drawable.iconmouth1_sel, R.drawable.icon100cigarettes_sel, R.drawable.icon250cigarettes_sel,  R.drawable.icon500cigarettes_sel, R.drawable.iconsmoked_sel,
+            R.drawable.iconcarvings_sel, R.drawable.icon100_sel, R.drawable.icon500_sel, R.drawable.icon1000_sel, R.drawable.iconoxygen2_sel, R.drawable.iconoxygen_sel,
+            R.drawable.icono2_sel, R.drawable.iconbetterhealth_sel, R.drawable.iconnicotine_sel, R.drawable.icontasteandsmell_sel, R.drawable.iconhappyheart_sel,
+            R.drawable.iconheart2_sel, R.drawable.iconshare_sel, R.drawable.iconfeedback_sel, R.drawable.iconnightout_sel};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,6 +108,7 @@ public class My_AwardsActivity extends MainActivityHome {
         if(moneySavedTotal >= 1000){
             ib55.setImageResource(R.drawable.icon1000_sel);
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1:16 monday
         if((daysInBetween - daysInBetween2) >= 2){
             ib56.setImageResource(R.drawable.iconoxygen2_sel);
         }
@@ -160,15 +167,13 @@ public class My_AwardsActivity extends MainActivityHome {
         listenerHappyHeart();
         listenerHappyHeart2();
         listenerFriends();
-        listenerSharing();
         listenerFeedback();
         listenerNightOut();
     }
-
     public void ListenerShare(){
         final Context context = this;
 
-        ImageButton fb = (ImageButton)findViewById(R.id.imageButton58);
+        ImageButton fb = (ImageButton)findViewById(R.id.fb_share_button);//imageButton58);
         fb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
@@ -177,12 +182,14 @@ public class My_AwardsActivity extends MainActivityHome {
             }
         });
     }
+
     private void listenerCommitted() {
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton32);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 0;
                 Intent intent = new Intent(context, Committed.AwardCommitted.class);
                 startActivity(intent);
             }
@@ -195,6 +202,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 1;
                 Intent intent = new Intent(context, Committed.AwardQuitDate.class);
                 startActivity(intent);
             }
@@ -207,6 +215,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 2;
                 Intent intent = new Intent(context, Committed.AwardDay1.class);
                 startActivity(intent);
             }
@@ -219,6 +228,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 3;
                 Intent intent = new Intent(context, Committed.AwardWeek1.class);
                 startActivity(intent);
             }
@@ -231,6 +241,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 4;
                 Intent intent = new Intent(context, Committed.AwardWeek3.class);
                 startActivity(intent);
             }
@@ -243,6 +254,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 5;
                 Intent intent = new Intent(context, Committed.AwardMonth1.class);
                 startActivity(intent);
             }
@@ -255,6 +267,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 6;
                 Intent intent = new Intent(context, Committed.Award100Cig.class);
                 startActivity(intent);
             }
@@ -267,6 +280,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 7;
                 Intent intent = new Intent(context, Committed.Award250Cig.class);
                 startActivity(intent);
             }
@@ -279,6 +293,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 8;
                 Intent intent = new Intent(context, Committed.Award500Cig.class);
                 startActivity(intent);
             }
@@ -291,6 +306,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 9;
                 Intent intent = new Intent(context, Committed.AwardSmokingTracker.class);
                 startActivity(intent);
             }
@@ -303,6 +319,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 10;
                 Intent intent = new Intent(context, Committed.AwardCravingTracker.class);
                 startActivity(intent);
             }
@@ -315,6 +332,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 11;
                 Intent intent = new Intent(context, Committed.Award100Saved.class);
                 startActivity(intent);
             }
@@ -327,6 +345,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 12;
                 Intent intent = new Intent(context, Committed.Award500Saved.class);
                 startActivity(intent);
             }
@@ -339,6 +358,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 13;
                 Intent intent = new Intent(context, Committed.Award1000Saved.class);
                 startActivity(intent);
             }
@@ -351,6 +371,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 14;
                 Intent intent = new Intent(context, Committed.AwardBreatheEasier.class);
                 startActivity(intent);
             }
@@ -363,6 +384,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 15;
                 Intent intent = new Intent(context, Committed.AwardBreatheEasier2.class);
                 startActivity(intent);
             }
@@ -375,6 +397,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 16;
                 Intent intent = new Intent(context, Committed.AwardO2.class);
                 startActivity(intent);
             }
@@ -386,6 +409,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 17;
                 Intent intent = new Intent(context, Committed.AwardBetterHealth.class);
                 startActivity(intent);
             }
@@ -396,6 +420,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 18;
                 Intent intent = new Intent(context, Committed.AwardNicotineFree.class);
                 startActivity(intent);
             }
@@ -406,6 +431,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 19;
                 Intent intent = new Intent(context, Committed.AwardBetterTasteAndSmell.class);
                 startActivity(intent);
             }
@@ -416,6 +442,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 20;
                 Intent intent = new Intent(context, Committed.AwardHappyHeart.class);
                 startActivity(intent);
             }
@@ -426,6 +453,7 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 21;
                 Intent intent = new Intent(context, Committed.AwardHappyHeart2.class);
                 startActivity(intent);
             }
@@ -436,12 +464,14 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 22;
                 Intent intent = new Intent(context, Committed.AwardFriends.class);
                 startActivity(intent);
             }
         });
-    }private void listenerSharing() {
+    }/*private void listenerSharingOnSocialMedia() {
         final Context context = this;
+        //wrong imagebutton number
         imageButton = (ImageButton) findViewById(R.id.imageButton58);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
@@ -450,12 +480,13 @@ public class My_AwardsActivity extends MainActivityHome {
                 startActivity(intent);
             }
         });
-    }private void listenerFeedback() {
+    }*/private void listenerFeedback() {
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton59);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 23;
                 Intent intent = new Intent(context, Committed.AwardFeedback.class);
                 startActivity(intent);
             }
@@ -466,16 +497,10 @@ public class My_AwardsActivity extends MainActivityHome {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
+                ShareOption = 24;
                 Intent intent = new Intent(context, Committed.AwardNightOut.class);
                 startActivity(intent);
             }
         });
     }
 }
-
-
-
-
-
-
-

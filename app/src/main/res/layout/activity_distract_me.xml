@@ -3,7 +3,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.hrzhulocal.crushthecraveprototype2.DistractMe"
     android:background="@drawable/bg"
->
+    >
 
     <TextView
         android:layout_width="wrap_content"
@@ -111,19 +111,19 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton65"
-        android:layout_marginTop="86dp"
         android:background="@drawable/btngames"
         android:layout_below="@+id/textView67"
-        android:layout_alignLeft="@+id/textView67"
-        android:layout_alignStart="@+id/textView67" />
+        android:layout_alignLeft="@+id/imageButton26"
+        android:layout_alignStart="@+id/imageButton26"
+        android:layout_marginTop="34dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Text"
+        android:text="Flappy TRex Run"
         android:id="@+id/textView114"
+        android:textColor="#ffffffff"
         android:layout_below="@+id/imageButton65"
         android:layout_alignLeft="@+id/imageButton65"
-        android:layout_alignStart="@+id/imageButton65"
-        android:textColor="#ffffffff" />
+        android:layout_alignStart="@+id/imageButton65" />
 </RelativeLayout>

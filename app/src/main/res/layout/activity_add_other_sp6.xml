@@ -3,7 +3,8 @@
     android:layout_height="match_parent"
 
     tools:context="com.example.hrzhulocal.crushthecraveprototype2.addOtherSp4"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+   >
 
 
     <TextView

@@ -1,6 +1,9 @@
 buildscript {
     repositories {
         maven { url 'https://maven.fabric.io/public' }
+      //  flatDir{
+      //      dirs 'libs'
+      //  }
     }
 
     dependencies {

@@ -10,24 +10,8 @@
     <string name="Life">Vie</string>
     <string name="Score">But</string>
     <string name="action_settings">Réglage</string>
-    <string name="facebook_app_id"></string>
     <string name="quit">quitter</string>
     <string name="restart">redémarrage</string>
-
-
-    <string name="title_activity_smoking_triggers" translatable="false">SmokingTriggers</string>
-    <string name="title_activity_who_we_are" translatable="false">WhoWeAre</string>
-    <string name="title_activity_how_to_use" translatable="false">HowToUse</string>
-    <string name="title_activity_my_settings" translatable="false">MySettings</string>
-    <string name="title_activity_quit_line" translatable="false">QuitLine</string>
-    <string name="title_activity_quit_aids" translatable="false">QuitAids</string>
-    <string name="title_activity_crave_crushers" translatable="false">CraveCrushers</string>
-    <string name="title_activity_my_quit_plan" translatable="false">MyQuitPlan</string>
-    <string name="title_activity_google_map" translatable="false">GoogleMap</string>
-    <string name="title_activity_set_date" translatable="false">SetDate</string>
-    <string name="title_activity_reset_smoking_status" translatable="false">ResetSmokingStatus</string>
-    <string name="title_activity_reset_quit_plan" translatable="false">ResetQuitPlan</string>
-    <string name="title_activity_feedback" translatable="false">Feedback</string>
 
     <string-array name = "I_am_Quitting">
         <item>"Cold Turkey (I quit)"</item>
@@ -42,24 +26,17 @@
         <item>Other</item>
     </string-array>
 
-    <string-array name="I_want_to_Quit">
-        <item>Today</item>
-        <item>In the near Future</item>
-        <item>I have already quit</item>
-    </string-array>
-    <string name="title_activity_my_information" translatable="false">MyInformation</string>
-    <string name="title_activity_distract_me" translatable="false">DistractMe</string>
-    <string name="title_activity_tic_tac_toe" translatable="false">TicTacToe</string>
-    <string name="title_activity_handling_triggers" translatable="false">HandlingTriggers</string>
-    <string name="title_activity_withdrawal_and_cravings" translatable="false">WithdrawalAndCravings</string>
-    <string name="title_activity_handling_slips" translatable="false">HandlingSlips</string>
-    <string name="title_activity_my_personalization" translatable="false">MyPersonalization</string>
 
     <string-array name="I_am_with">
         <item>friends</item>
         <item>family</item>
         <item>no one</item>
         <item>add other</item>
+    </string-array>
+    <string-array name="I_want_to_Quit">
+        <item>Today</item>
+        <item>In the near Future</item>
+        <item>I have already quit</item>
     </string-array>
 
     <string-array name="I_am_at">

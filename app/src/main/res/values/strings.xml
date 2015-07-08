@@ -2,17 +2,17 @@
     <string name="app_name">Crush The Crave</string>
     <string name="hello_world" translatable="false">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_crave" translatable="false">CraveActivity</string>
-    <string name="title_activity_smoke" translatable="false">SmokeActivity</string>
-    <string name="title_activity_my__awards" translatable="false">My_AwardsActivity</string>
-    <string name="title_activity_my__progress" translatable="false">My_ProgressActivity</string>
-    <string name="title_activity_quit__help" translatable="false">Quit_Help</string>
+    <string name="title_activity_crave" translatable="false">Crave</string>
+    <string name="title_activity_smoke" translatable="false">Smoke</string>
+    <string name="title_activity_my__awards" translatable="false">My Awards</string>
+    <string name="title_activity_my__progress" translatable="false">My Progress</string>
+    <string name="title_activity_quit__help" translatable="false">Quit Help</string>
     <string name="title_activity_more" translatable="false">More</string>
     <string name="title_activity_w12" translatable="false">w12</string>
     <string name="title_activity_w23" translatable="false">w23</string>
     <string name="title_activity_health_calculator" translatable="false">HealthCalculator</string>
     <string name="title_activity_game_logic" translatable="false">GameLogic</string>
-    <string name="title_activity_slt" translatable="false">Slt</string>
+    <string name="title_activity_slt" translatable="false">Whac-A-Cigarette</string>
     <string name="title_activity_screen_loader" translatable="false">ScreenLoaderActivity</string>
     <string name="title_activity_mole_game" translatable="false">MoleGame</string>
     <string name="title_activity_mole" translatable="false">Mole</string>
@@ -20,25 +20,25 @@
     <string name="title_activity_hole" translatable="false">Hole</string>
     <string name="title_activity_help" translatable="false">Help</string>
     <string name="title_activity_graphics_mole" translatable="false">GraphicsMole</string>
-    <string name="title_activity_game_over" translatable="false">GameOver</string>
+    <string name="title_activity_game_over" translatable="false">Game Over</string>
     <string name="title_activity_credits" translatable="false">Credits</string>
 
     <string name="Score">Score: 0 </string>
     <string name="Life">Life: 3 </string>
     <string name="restart">restart</string>
     <string name="quit">quit</string>
-    <string name="title_activity_smoking_triggers" translatable="false">SmokingTriggers</string>
-    <string name="title_activity_who_we_are" translatable="false">WhoWeAre</string>
-    <string name="title_activity_how_to_use" translatable="false">HowToUse</string>
-    <string name="title_activity_my_settings" translatable="false">MySettings</string>
-    <string name="title_activity_quit_line" translatable="false">QuitLine</string>
-    <string name="title_activity_quit_aids" translatable="false">QuitAids</string>
-    <string name="title_activity_crave_crushers" translatable="false">CraveCrushers</string>
-    <string name="title_activity_my_quit_plan" translatable="false">MyQuitPlan</string>
-    <string name="title_activity_google_map" translatable="false">GoogleMap</string>
-    <string name="title_activity_set_date" translatable="false">SetDate</string>
-    <string name="title_activity_reset_smoking_status" translatable="false">ResetSmokingStatus</string>
-    <string name="title_activity_reset_quit_plan" translatable="false">ResetQuitPlan</string>
+    <string name="title_activity_smoking_triggers" translatable="false">Smoking Triggers</string>
+    <string name="title_activity_who_we_are" translatable="false">Who We Are</string>
+    <string name="title_activity_how_to_use" translatable="false">How To Use</string>
+    <string name="title_activity_my_settings" translatable="false">My Settings</string>
+    <string name="title_activity_quit_line" translatable="false">Quit Line</string>
+    <string name="title_activity_quit_aids" translatable="false">Quit Aids</string>
+    <string name="title_activity_crave_crushers" translatable="false">Crave Crushers</string>
+    <string name="title_activity_my_quit_plan" translatable="false">My Quit Plan</string>
+    <string name="title_activity_google_map" translatable="false">Google Map</string>
+    <string name="title_activity_set_date" translatable="false">Set Date</string>
+    <string name="title_activity_reset_smoking_status" translatable="false">Reset Smoking Status</string>
+    <string name="title_activity_reset_quit_plan" translatable="false">Reset Quit Plan</string>
     <string name="title_activity_feedback" translatable="false">Feedback</string>
 
     <string name="I_am_Quitting_prompt">I am Quitting:</string>
@@ -148,9 +148,8 @@
     <string name="title_section2" translatable="false">Section 2</string>
     <string name="title_section3" translatable="false">Section 3</string>
     <string name="title_activity_my__progress_activity2" translatable="false">My_ProgressActivity2</string>
-    <string name="facebook_uploading">no1</string>
-    <string name="facebookSuccessful">no2</string>
-    <string name="title_activity_tabbed_graph_main">TabbedGraphMain</string>
-    <string name="title_activity_social_media_options">SocialMediaOptions</string>
-    <string name="title_activity_my__progress_activity3">My_ProgressActivity3</string>
+
+    <string name="title_activity_tabbed_graph_main" translatable="false">TabbedGraphMain</string>
+    <string name="title_activity_social_media_options" translatable="false">SocialMediaOptions</string>
+    <string name="title_activity_my__progress_activity3" translatable="false">My_ProgressActivity3</string>
 </resources>

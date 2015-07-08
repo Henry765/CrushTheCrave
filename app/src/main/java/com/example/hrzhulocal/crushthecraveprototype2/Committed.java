@@ -11,9 +11,11 @@ import android.widget.TextView;
 import com.facebook.CallbackManager;
 import com.facebook.share.widget.ShareDialog;
 
-
+//  the committed award is always awarded to users who install the app!!
 public class Committed extends My_AwardsActivity {
 
+    //create an helper array to store the awards image file name
+    String helperImageFile[] = {"iconquitdate_sel","iconday1_sel"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,13 +29,16 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_committed);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
     }
-
     /**
      * Created by hrzhulocal on 22/06/2015.
      */
-
     public static class AwardWeek3 extends My_AwardsActivity {
 
         @Override
@@ -41,6 +46,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_week3);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
     }
 
@@ -51,6 +61,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_week1);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -62,6 +77,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_smoking_tracker);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -74,6 +94,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_sharing);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -86,6 +111,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_quit_date);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -98,6 +128,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_o2);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -110,6 +145,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_night_out);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -122,6 +162,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_nicotine_free);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -134,6 +179,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_month1);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
 
         }
 
@@ -146,7 +196,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_happy_heart2);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -158,7 +212,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_happy_heart);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -170,7 +228,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_friends);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -182,7 +244,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_feedback);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -194,7 +260,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_day1);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -206,7 +276,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_craving_tracker);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -218,7 +292,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_breathe_easier2);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -230,7 +308,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_breathe_easier);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
 
@@ -243,7 +325,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_better_taste_and_smell);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -255,7 +341,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award_better_health);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -267,7 +357,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award1000_saved);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
 
@@ -280,7 +374,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award500_saved);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
 
@@ -293,7 +391,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award500_cig);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -305,7 +407,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award250_cig);
             ListenerShare();
-
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -317,6 +423,11 @@ public class Committed extends My_AwardsActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_award100_saved);
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
         }
 
     }
@@ -338,6 +449,11 @@ public class Committed extends My_AwardsActivity {
             }
 
             ListenerShare();
+            addListenerOnHomeImageButton();
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
                     //Notification.Builder.setLargeIcon(bitmap);
            // Bitmap image = BitmapFactory.decodeResource
              //       (getResources(), R.drawable.icon100cigarettes_sel);
@@ -374,45 +490,12 @@ public class Committed extends My_AwardsActivity {
             //shareButton.setShareContent(content);
 
 
-        public void ListenerShare(){
-            final Context context = this;
-
-            ImageButton fb = (ImageButton)findViewById(R.id.fb_share_button);
-            fb.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View arg0) {
-
-                    Intent intent = new Intent(context, SocialMediaOptions.class);
-                    startActivity(intent);
-                }
-            });
-        }
-
                  @Override
                  protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
                      super.onActivityResult(requestCode, resultCode, data);
                      callbackManager.onActivityResult(requestCode, resultCode, data);
                  }
 
-                 @Override
-                 public boolean onCreateOptionsMenu(android.view.Menu menu) {
-                     // Inflate the menu; this adds items to the action bar if it is present.
-                     getMenuInflater().inflate(R.menu.menu_award100_cig, menu);
-                     return true;
-                 }
+    }
 
-                 @Override
-                 public boolean onOptionsItemSelected(MenuItem item) {
-                     // Handle action bar item clicks here. The action bar will
-                     // automatically handle clicks on the Home/Up button, so long
-                     // as you specify a parent activity in AndroidManifest.xml.
-                     int id = item.getItemId();
-
-                     //noinspection SimplifiableIfStatement
-                     if (id == R.id.action_settings) {
-                         return true;
-                     }
-
-                     return super.onOptionsItemSelected(item);
-                 }
-             }
 }

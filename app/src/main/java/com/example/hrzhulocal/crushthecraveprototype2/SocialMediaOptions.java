@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 
-public class SocialMediaOptions extends My_AwardsActivity {
+public class SocialMediaOptions extends Committed {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,11 @@ public class SocialMediaOptions extends My_AwardsActivity {
         setContentView(R.layout.activity_social_media_options);
         ListenerShareOnFB();
         ListenerShareOnTW();
-
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();
+        addListenerOnHomeImageButton();
 
     }
     public void ListenerShareOnFB(){

@@ -30,22 +30,76 @@ import com.facebook.share.widget.ShareDialog;
 import java.util.Arrays;
 import java.util.List;
 
-
 public class FaceBookShare extends AppCompatActivity {
 
+    My_AwardsActivity myawardactivity;
     private CallbackManager callbackManager;
     private LoginManager manager;
     ShareDialog shareDialog;
-
+    int[] ImageFile2 = {R.drawable.iconcommitted_sel, R.drawable.iconquitdate_sel, R.drawable.iconday1_sel, R.drawable.iconweek1_sel, R.drawable.iconweek3_sel,
+            R.drawable.iconmouth1_sel, R.drawable.icon100cigarettes_sel, R.drawable.icon250cigarettes_sel,  R.drawable.icon500cigarettes_sel, R.drawable.iconsmoked_sel,
+            R.drawable.iconcarvings_sel, R.drawable.icon100_sel, R.drawable.icon500_sel, R.drawable.icon1000_sel, R.drawable.iconoxygen2_sel, R.drawable.iconoxygen_sel,
+            R.drawable.icono2_sel, R.drawable.iconbetterhealth_sel, R.drawable.iconnicotine_sel, R.drawable.icontasteandsmell_sel, R.drawable.iconhappyheart_sel,
+            R.drawable.iconheart2_sel, R.drawable.iconshare_sel, R.drawable.iconfeedback_sel, R.drawable.iconnightout_sel};
+    //create another instance of Committed class to use helperImageFile array
+    public Committed arrayhelp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
 
-        final Context context = this;
+        if (ShareDialog.canShow(ShareLinkContent.class)) {
+            callbackManager = CallbackManager.Factory.create();
+            shareDialog = new ShareDialog(this);
+
+            List<String> permissionNeeds;
+            permissionNeeds = Arrays.asList("publish_actions");
+
+            //this loginManager helps you eliminate adding a LoginButton to your UI
+            manager = LoginManager.getInstance();
+
+            manager.logInWithPublishPermissions(this, permissionNeeds);
+            FaceBookShare test = new FaceBookShare();
+
+            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+                    .setContentTitle("Congratulations!")
+                    .setContentDescription("I earned this quit smoking award!")
+                    .build();
+            Bitmap image = BitmapFactory.decodeResource(getResources(), test.CallImageFile(myawardactivity.ShareOption));//ImageFile[myawardactivity.ShareOption]);//Iarrayhelp.helperImageFile[1]));//icon100cigarettes_sel);
+                    SharePhoto photo = new SharePhoto.Builder()
+                            .setBitmap(image)
+                            .setCaption("I earned this quit smoking award!")
+                            .build();
+            SharePhotoContent content = new SharePhotoContent.Builder()
+                    .addPhoto(photo)
+                    .build();
+            ShareApi.share(content, null);
+            shareDialog.show(linkContent);
+            onPause();
+        }
+    }
+    public int CallImageFile(int index){
+        //return myawardactivity.ImageFile[index];
+        return ImageFile2[index];
+        //1:48
+    }
+    /*@Override
+    protected void onActivityResult(int requestCode, int responseCode, Intent data) {
+        super.onActivityResult(requestCode, responseCode, data);
+        callbackManager.onActivityResult(requestCode, responseCode, data);
+    }*/
+
+    @Override
+    public void onPause() {
+        super.onPause();  // Always call the superclass method first
+    }
+}
+
+
+
 
 //show the ShareDialog:
-        if (ShareDialog.canShow(ShareLinkContent.class)) {
+        /*if (ShareDialog.canShow(ShareLinkContent.class)) {
             callbackManager = CallbackManager.Factory.create();
             shareDialog = new ShareDialog(this);
 
@@ -59,30 +113,32 @@ public class FaceBookShare extends AppCompatActivity {
 
             /////////////////
 
-            ShareLinkContent linkContent = new ShareLinkContent.Builder()
+            final ShareLinkContent linkContent = new ShareLinkContent.Builder()
                     .setContentTitle("Congratulations!")
                     .setContentDescription(
                             "I earned this quit smoking award!")
                     .build();
-            Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.icon100cigarettes_sel);
-            SharePhoto photo = new SharePhoto.Builder()
-                    .setBitmap(image)
-                    .setCaption("I earned this quit smoking award!")
-                    .build();
+            Bitmap image = BitmapFactory.decodeResource(getResources(), Integer.parseInt(arrayhelp.helperImageFile[1]));//icon100cigarettes_sel);
+                    SharePhoto photo = new SharePhoto.Builder()
+                            .setBitmap(image)
+                            .setCaption("I earned this quit smoking award!")
+                            .build();
             SharePhotoContent content = new SharePhotoContent.Builder()
                     .addPhoto(photo)
                     .build();
             ShareApi.share(content, new FacebookCallback<Sharer.Result>() {
                 @Override
-                public void onSuccess(Sharer.Result result)
-                {
-                    /*Intent intent = new Intent(context, My_AwardsActivity.class);
-                    startActivity(intent);*/
+                public void onSuccess(Sharer.Result result) {
+                    shareDialog.show(linkContent);
+
+                    Intent intent = new Intent(context, My_AwardsActivity.class);
+                    startActivity(intent);
                 }
 
                 @Override
-                public void onCancel()
-                {
+                public void onCancel() {
+                    Intent intent = new Intent(context, My_AwardsActivity.class);
+                    startActivity(intent);
                     Log.v("FACEBOOK_TEST", "share api cancel");
                 }
 
@@ -90,15 +146,7 @@ public class FaceBookShare extends AppCompatActivity {
                 public void onError(FacebookException e) {
                     Log.v("FACEBOOK_TEST", "share api error " + e);
                 }
-            });
-            shareDialog.show(linkContent);
-        }
-
-    }
-
-
-
-
+            });*/
 
         /*BitmapFactory.Options bmOptions = new BitmapFactory.Options();
 
@@ -132,30 +180,10 @@ public class FaceBookShare extends AppCompatActivity {
             }
         });
     }*/
-    private void sharePhotoToFacebook() {
-        Bitmap image = BitmapFactory.decodeResource(getResources(), R.drawable.icon100cigarettes_sel);
-        SharePhoto photo = new SharePhoto.Builder()
-                .setBitmap(image)
-                .setCaption("Yes!")
-                .build();
 
-        SharePhotoContent content = new SharePhotoContent.Builder()
-                .addPhoto(photo)
-                .build();
-
-        ShareApi.share(content, null);
-
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int responseCode, Intent data) {
-        super.onActivityResult(requestCode, responseCode, data);
-        callbackManager.onActivityResult(requestCode, responseCode, data);
-    }
-}
 
     /*- See more at: http://simpledeveloper.com/how-to-share-an-image-on-facebook-in-android/#sthash.8U7u92TN.dpuf
-       /* callbackManager = CallbackManager.Factory.create();
+       callbackManager = CallbackManager.Factory.create();
 
         List<String> permissionNeeds = Arrays.asList("publish_action");
 
