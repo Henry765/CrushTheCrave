@@ -32,15 +32,14 @@ public class TwitterShare extends ActionBarActivity {
 
         //File myImageFile = new File("O:/Students/CTC Coop/CTC Version/June5 after meeting/CrushTheCravePrototype2/app/src/main/res/drawable/btngames");
         //File myImageFile = new File("O:\\Students\\CTC Coop\\CTC Version\\June5 after meeting\\CrushTheCravePrototype2\\app\\src\\main\\res\\drawable\\icon100cigarettes_sel.png");
-//file:///O:/Students/CTC%20Coop/CTC%20Version/June5%20after%20meeting/CrushTheCravePrototype2/app/src/main/res/drawable/icon100cigarettes_sel.png
+        //file:///O:/Students/CTC%20Coop/CTC%20Version/June5%20after%20meeting/CrushTheCravePrototype2/app/src/main/res/drawable/icon100cigarettes_sel.png
         //file:///c|/WINDOWS/clock.avi
         //f:\June 30\CrushTheCravePrototype2\app\src\main\res\drawable
-        File myImageFile = new File("file:///f:/June 30/CrushTheCravePrototype2/app/src/main/res/drawable/icon100cigarettes_sel.png");
+        File myImageFile = new File("file:C:\\June 30\\CrushTheCravePrototype2\\app\\src\\main\\res\\drawable\\icon100cigarettes_sel.png");
 
         TweetComposer.Builder builder = new TweetComposer.Builder(this)
                 .text("just setting up my Fabric.")
                 .image(Uri.fromFile(myImageFile));
         builder.show();
     }
-
 }

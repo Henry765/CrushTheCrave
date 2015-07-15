@@ -51,12 +51,10 @@ public class ResetSmokingStatus extends MainActivityHome {
         message = (EditText) findViewById(R.id.editText5);
         message2 = (EditText) findViewById(R.id.editText7);
         message3 = (EditText) findViewById(R.id.editText8);
-        message4 = (EditText) findViewById(R.id.editText9);
-        final CheckBox cb = (CheckBox) findViewById(R.id.checkBox2);
-        final CheckBox cb2 = (CheckBox) findViewById(R.id.checkBox3);
-        final CheckBox cb3 = (CheckBox) findViewById(R.id.checkBox4);
+        message4 = (EditText) findViewById(R.id.editText2);
         final Spinner sp = (Spinner) findViewById(R.id.spinner);
         final Spinner sp2 = (Spinner) findViewById(R.id.spinner2);
+        final Spinner sp7 = (Spinner) findViewById(R.id.spinner7);
         message5 = (EditText) findViewById(R.id.editText10);
         message6 = (EditText) findViewById(R.id.editText11);
 
@@ -256,10 +254,22 @@ public class ResetSmokingStatus extends MainActivityHome {
 
             }
         });
+        QuitDayNow();
     }
     public void addListenerOnSpinnerItemSelection() {
         spinner1 = (Spinner) findViewById(R.id.spinner3);
         spinner1.setOnItemSelectedListener(new ResetCustomOnItemSelectedListenerStatus());
+    }
+    public void QuitDayNow(){
+        final Context context = this;
+        Button setQuitDayNow = (Button) findViewById(R.id.button8);
+
+        setQuitDayNow.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0){
+                Intent intent = new Intent(context, SetDate.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

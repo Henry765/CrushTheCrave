@@ -26,7 +26,18 @@ public class Quit_Help extends MainActivityHome {
         addListenerOnCraveCrushers();
         addListenerOnMyQuitPlan();
         addListenerOnHowToUse();
+        addListenerHealthCalculator();
+    }
+    private void addListenerHealthCalculator(){
+        final Context context = this;
+        imageButton = (ImageButton) findViewById(R.id.imageButton66);
 
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, HealthCalculator.class);
+                startActivity(intent);
+            }
+        });
     }
     private void addListenerOnHowToUse(){
         final Context context = this;

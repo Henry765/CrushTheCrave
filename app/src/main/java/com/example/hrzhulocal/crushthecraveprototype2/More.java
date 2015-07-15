@@ -58,7 +58,6 @@ public class More extends MainActivityHome {
         addListenerOnQuitHelpImageButton();
         addListenerOnWhoWeAre();
         addListenerOnSettings();
-        addListenerOnGoogleMap();
          ListenerUsePic();
         ListenerUsePic();
     }
@@ -72,17 +71,7 @@ public class More extends MainActivityHome {
             }
         });
     }
-    private void addListenerOnGoogleMap(){
-        final Context context = this;
-        imageButton = (ImageButton) findViewById(R.id.imageButton14);
 
-        imageButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View arg0){
-                Intent intent = new Intent(context, GoogleMap.class);
-                startActivity(intent);
-            }
-        });
-    }
     private void addListenerOnSettings(){
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton8);

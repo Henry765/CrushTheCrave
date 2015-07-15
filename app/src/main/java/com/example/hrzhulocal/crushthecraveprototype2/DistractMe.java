@@ -1,5 +1,6 @@
 package com.example.hrzhulocal.crushthecraveprototype2;
 
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
@@ -35,7 +36,15 @@ public class DistractMe extends CraveActivity {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(
+                try{
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" ));
+                    startActivity(intent);
+                }catch (ActivityNotFoundException ex){
+                    Intent intent=new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://www.youtube.com/"));
+                    startActivity(intent);
+                }
+                /*Intent intent = new Intent(
                         Intent.ACTION_VIEW,
                         Uri.parse("https://www.youtube.com/channel/UCRmoG8dTnv0B7y9uoocikLw"));
                 intent.setComponent(new ComponentName("com.google.android.youtube", "com.google.android.youtube.PlayerActivity"));
@@ -46,7 +55,7 @@ public class DistractMe extends CraveActivity {
                     context.startActivity(intent);
                 } else {
                     //No Application can handle your intent
-                }
+                }*/
             }
         });
     }
@@ -68,7 +77,7 @@ public class DistractMe extends CraveActivity {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, Help.class);
+                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.Help.class);
                 startActivity(intent);
             }
         });
@@ -79,7 +88,7 @@ public class DistractMe extends CraveActivity {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, TicTacToe.class);
+                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.TicTacToe.class);
                 startActivity(intent);
             }
         });
@@ -105,5 +114,15 @@ public class DistractMe extends CraveActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+    public void watchYoutubeVideo(String id){
+        try{
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+            startActivity(intent);
+        }catch (ActivityNotFoundException ex){
+            Intent intent=new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://www.youtube.com/watch?v="+id));
+            startActivity(intent);
+        }
     }
 }

@@ -47,7 +47,6 @@ public class SmokeActivity extends MainActivityHome {
     public static String addOther6;
     public static String addOther4;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +64,9 @@ public class SmokeActivity extends MainActivityHome {
         TextView saveSp4 = (TextView) findViewById(R.id.textView74);
 
         final TextView textView = (TextView) findViewById(R.id.textView23);
+
+        // CLEAR the record your triggers section
+        addOther4 = null;
 
         //final TextView textView = (TextView) findViewById(R.id.textView24);
         /*for (int i = 0; i < 250; i++) {*/
@@ -184,7 +186,8 @@ public class SmokeActivity extends MainActivityHome {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if( position == 5){
                     Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)",Toast.LENGTH_LONG).show();
-
+                    Intent intent = new Intent(context, addOtherSp5.class);
+                    startActivity(intent);
                 }
             }
 
@@ -198,6 +201,8 @@ public class SmokeActivity extends MainActivityHome {
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                 if (position == 8) {
                     Toast.makeText(getApplicationContext(), "this is my Toast message!!! =)", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(context, addOtherSp6.class);
+                    startActivity(intent);
                 }
             }
 

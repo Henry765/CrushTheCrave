@@ -92,7 +92,11 @@ public class MyPersonalization extends MainActivityHome {
                 }
             }
         });
-
+        addListenerOnHomeImageButton();
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();
     }
 
     @Override

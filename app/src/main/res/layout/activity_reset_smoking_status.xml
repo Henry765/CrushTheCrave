@@ -35,6 +35,48 @@
         android:background="#ffffffff"
         android:layout_above="@+id/imageButton17">
 
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Name"
+            android:textColorHint="#FFFFFFFF"
+            android:ems="10"
+            android:id="@+id/editText10"
+            android:layout_below="@+id/textView56"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="44dp"
+            android:textColor="#FFFFFFFF" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/editText11"
+            android:layout_below="@+id/editText10"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFFFF"
+            android:hint="Age"
+            android:textColorHint="#FFFFFFFF"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editText3"
+            android:textColor="#ffffffff"
+            android:hint="Gender"
+            android:textColorHint="#FFFFFFFF"
+            />
+
+        <Spinner
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner7"
+            android:layout_gravity="right"
+            android:background="@drawable/btnsighup_new"
+            android:entries="@array/gender"
+            android:prompt="@string/gender_prompt" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,6 +84,7 @@
             android:text="I want to quit:"
             android:id="@+id/textView44"
             android:textColor="#ffffffff" />
+
         <Spinner
             android:layout_width="166dp"
             android:layout_height="wrap_content"
@@ -113,106 +156,9 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number"
+            android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText9"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Have you used any Quit Aids\n(check all that apply)"
-            android:id="@+id/textView49"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nicotine gum"
-            android:id="@+id/checkBox2"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nicotine patch"
-            android:id="@+id/checkBox3"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nicotine inhaler"
-            android:id="@+id/checkBox4"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nicotine lozenges"
-            android:id="@+id/checkBox6"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bupropion"
-            android:id="@+id/checkBox7"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Varenicline"
-            android:id="@+id/checkBox8"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Other self-help programs"
-            android:id="@+id/checkBox9"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Telephone quitline"
-            android:id="@+id/checkBox10"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Online counseling"
-            android:id="@+id/checkBox11"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="In-person counseling"
-            android:id="@+id/checkBox12"
-            android:checked="false"
-            android:textColor="#ffffffff" />
-
-        <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="None"
-            android:id="@+id/checkBox13"
-            android:checked="false"
-            android:textColor="#ffffffff" />
+            android:id="@+id/editText2" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -236,11 +182,10 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Set Date"
+            android:text="Start Quitting Smoke Now"
             android:id="@+id/button8"
             android:layout_below="@+id/textView53"
             android:layout_centerHorizontal="true"
-            android:onClick="setDate"
             android:layout_gravity="center_horizontal" />
 
         <TextView
@@ -294,38 +239,23 @@
             android:entries="@array/I_am_Quitting_For"
             android:layout_gravity="right" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="I can rely on this person for Quittings:"
-            android:id="@+id/textView56"
-            android:layout_below="@+id/textView55"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="71dp"
-            android:textColor="#ffffffff" />
-
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:inputType="textPersonName"
+            android:hint="Support Person&apos;s Name"
             android:textColorHint="#FFFFFFFF"
             android:ems="10"
-            android:id="@+id/editText10"
-            android:layout_below="@+id/textView56"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="44dp"
-            android:textColor="#FFFFFFFF" />
+            android:id="@+id/editText4" />
 
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="phone"
             android:ems="10"
-            android:id="@+id/editText11"
-            android:layout_below="@+id/editText10"
-            android:layout_centerHorizontal="true"
-            android:textColor="#FFFFFFFF"
-            android:hint="Phone"
-            android:textColorHint="#FFFFFFFF" />
+            android:id="@+id/editText9"
+            android:hint="Support Person&apos;s Phone"
+            android:textColorHint="#FFFFFFFF"/>
 
         <Button
             android:layout_width="wrap_content"

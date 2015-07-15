@@ -100,6 +100,13 @@
         <item>fine</item>
         <item>add other</item>
     </string-array>
+
+    <string name="gender_prompt">Gender</string>
+    <string-array name="gender">
+        <item>Male</item>
+        <item>Female</item>
+        <item>Prefer not to disclose</item>
+    </string-array>
     <string name="title_activity_add_other_sp4" translatable="false">addOtherSp4</string>
     <string name="title_activity_add_other_sp5" translatable="false">addOtherSp5</string>
     <string name="title_activity_add_other_sp6" translatable="false">addOtherSp6</string>

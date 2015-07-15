@@ -232,8 +232,10 @@
         android:text="Set Now To Start Quit Smoking"
         android:id="@+id/textView112"
         android:layout_alignTop="@+id/SetNowToStartQuitSmoking"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_toLeftOf="@+id/textView60"
+        android:layout_toStartOf="@+id/textView60"
+        android:layout_marginRight="33dp"
+        android:layout_marginEnd="33dp" />
 
     <TextView
         android:layout_width="wrap_content"

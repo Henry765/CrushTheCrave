@@ -11,7 +11,9 @@
         android:allowBackup="true"
         android:icon="@drawable/appicon"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        android:largeHeap="true" >
+        >
         <activity
             android:name=".MainActivityHome"
             android:label="@string/app_name" >
@@ -240,14 +242,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
-        </activity>
-        <activity
-            android:name=".GoogleMap"
-            android:label="@string/title_activity_google_map"
-            android:parentActivityName=".More" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.More" />
         </activity>
         <activity
             android:name=".SetDate"

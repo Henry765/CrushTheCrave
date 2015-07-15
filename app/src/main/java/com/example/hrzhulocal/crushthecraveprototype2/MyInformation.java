@@ -99,7 +99,11 @@ public class MyInformation extends MySettings{
                 }
             }
         });
-
+        addListenerOnHomeImageButton();
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();
         }
 
 

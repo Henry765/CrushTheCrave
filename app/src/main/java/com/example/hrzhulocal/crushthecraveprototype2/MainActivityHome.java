@@ -7,10 +7,12 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +33,7 @@ import java.text.NumberFormat;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Scanner;
 import java.util.TimeZone;
 
 //import com.example.hrzhulocal.crushthecraveprototype2.Graph.My_ProgressActivity;
@@ -49,6 +52,7 @@ public class MainActivityHome extends ActionBarActivity {
     ImageButton imageButton;
 
     public static int isFirstTime5 = 1;
+    public static boolean isFirstTimeUserOpenTheApp = true;
     public static long startDayNum = -1;
     long startDayNum6 = -1;
     long quitDayNum = -1;
@@ -76,11 +80,15 @@ public class MainActivityHome extends ActionBarActivity {
     public static ImageView iv61;
     public static Drawable drawable;
 
-    //track the progress in graph and the indix are the maximum number of count allowed
-    public static int[] TrackSmoke = new int[200];
-    public static long[] TrackCrave = new long[300];
+    //track the progress in graph and the index represent the number of quit day that passed
+    public static int[] TrackSmoke = new int[125];
+    public static int[] TrackCrave = new int[200];
     public static int TrackSmokeCount = 0;
     public static int TrackCraveCount = 0;
+
+    //is first time for Crave and Smoke
+    public static boolean isSmokeFirstTime = true;
+    public static boolean isCraveFirstTime = true;
 
     //JSONArray is dynamic and is a linked list
     //JSONArray TrackSmoke = new JSONArray();
@@ -101,12 +109,27 @@ public class MainActivityHome extends ActionBarActivity {
         TextView moneySaved = (TextView) findViewById(R.id.textView50);
         TextView noSmokedDay = (TextView) findViewById(R.id.textView51);
         TextView myPersonalization = (TextView) findViewById(R.id.textView72);
+        final Context context = this;
+
+        if(isFirstTimeUserOpenTheApp){
+            Intent intent = new Intent(context, ResetSmokingStatus.class);
+            startActivity(intent);
+            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
+            isFirstTimeUserOpenTheApp = false;
+            SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = sp.edit();
+            editor.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        }
+        /*else {
+            Toast.makeText(getApplicationContext(), "should be false " + isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(context, MainActivityHome.class);
+            startActivity(intent);
+        }*/
 
         //set desktop photo
         if(iv61 != null && drawable != null) {
             iv61.setImageDrawable(drawable);
         }
-
         TimeZone.setDefault(TimeZone.getTimeZone("America/Toronto")); //Eastern Time here
         //****************
         loadDate();
@@ -137,7 +160,7 @@ public class MainActivityHome extends ActionBarActivity {
 
         //make sure money is in two decimal places
         NumberFormat formatter = new DecimalFormat("#0.00");
-        moneySaved.setText("Money saved $"+ formatter.format(moneySavedTotal));
+        moneySaved.setText("Money saved $" + formatter.format(moneySavedTotal));
         noSmokedDay.setText("Number of days smoke-free" + smokeFreeDay);
 
 
@@ -155,27 +178,78 @@ public class MainActivityHome extends ActionBarActivity {
      * If it runs slow, it does not generate skipped onClicks.
      */
 
-
     //saveArray and loadArray found from
     //http://stackoverflow.com/questions/3876680/is-it-possible-to-add-an-array-or-object-to-sharedpreferences-on-android
-    public static boolean saveArray(int[] array, String arrayName, Context mContext) {
+    public boolean saveArray(int[] array, String arrayName, Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("preferencename", 0);
         SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(arrayName +"_size", array.length);
-        for(int i=0;i<array.length;i++)
-            editor.putLong(arrayName + "_" + i, array[i]);
+        editor.putInt(arrayName + "_size", array.length);
+        for(int i=0;i<array.length;i++) {
+            editor.putInt(arrayName + "_" + i, array[i]);
+            Log.d("saveArray", arrayName);
+        }
         return editor.commit();
     }
 
-    public static String[] loadArray(String arrayName, Context mContext) {
+    public int[] loadArray(String arrayName, Context mContext) {
         SharedPreferences prefs = mContext.getSharedPreferences("preferencename", 0);
         int size = prefs.getInt(arrayName + "_size", 0);
-        String array[] = new String[size];
-        for(int i=0;i<size;i++)
-            array[i] = prefs.getString(arrayName + "_" + i, null);
-        return array;
+        int array[] = new int[size];
+        for(int i=0;i<size;i++) {
+            Log.d("Testing", arrayName);
+            array[i] = prefs.getInt(arrayName + "_" + i, 0);
+        }
+        /*Scanner scanner = new Scanner("1A true");
+        String line = scanner.nextLine();
+        String[] numberStrs = line.split(",");
+        for(int i = 0;i < array.length;i++)
+        {
+            // Note that this is assuming valid input
+            // If you want to check then add a try/catch
+            // and another index for the numbers if to continue adding the others
+            array[i] = (numberStrs[i]);
+        }*/
+        return (array);
+    }
+    public static boolean saveArray2(Context mContext)
+    {
+        SharedPreferences sp = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor mEdit1 = sp.edit();
+        mEdit1.putInt("Status_size", TrackCrave.length);
+
+        for(int i=0;i<TrackCrave.length;i++)
+        {
+            mEdit1.remove("Status_" + i);
+            mEdit1.putInt("Status_" + i, TrackCrave[i]);
+        }
+
+        return mEdit1.commit();
     }
 
+    /*public static boolean saveArray3()
+    {
+        SharedPreferences sp = SharedPreferences.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor mEdit1 = sp.edit();
+        mEdit1.putInt("Status_size", sKey.size()); /* sKey is an array
+
+        for(int i=0;i<sKey.size();i++)
+        {
+            mEdit1.remove("Status_" + i);
+            mEdit1.putString("Status_" + i, sKey.get(i));
+        }
+
+        return mEdit1.commit();
+    }*/
+    public static void loadArray3(Context mContext)
+    {
+        SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(mContext);
+        int size = mSharedPreference1.getInt("Status_size", 0);
+
+        for(int i=0;i<size;i++)
+        {
+            TrackCrave[i] = mSharedPreference1.getInt("Status_" + i, 0);
+        }
+    }
 
     private void ListenerSetDesktopPhoto(){
         //For hold button in order to set desktop photo
@@ -211,7 +285,6 @@ public class MainActivityHome extends ActionBarActivity {
 //                        bg.setBackgroundDrawable(drawable);
                     if(iv61 != null){
                         iv61.setImageDrawable(drawable);
-
                     }
                 }
         }
@@ -275,14 +348,67 @@ public class MainActivityHome extends ActionBarActivity {
         //increment number of click
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.CraveButtonID);
-
         imageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 //keep a list of the time when you crave
-
-                if(TrackCraveCount < 300){
+                if( isCraveFirstTime == true){
+                    for(int i = 0; i < TrackCrave.length; i++)
+                    {
+                        TrackCrave[i] = 0;
+                    }
+                    isCraveFirstTime = false;
+                }
+                if(TrackCraveCount < 200){
                     Calendar trackCrave = Calendar.getInstance();
-
+                    //if s day has passed
+                    if((daysInBetween-daysInBetween2) == 0) {
+                        TrackCraveCount = 0;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 1) {
+                        TrackCraveCount = 1;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 2) {
+                        TrackCraveCount = 2;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 3 ){
+                        TrackCraveCount = 3;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 4) {
+                        TrackCraveCount = 4;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 5) {
+                        TrackCraveCount = 5;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 6 ){
+                        TrackCraveCount = 6;
+                    }else if((daysInBetween - daysInBetween2) == 7) {
+                        TrackCraveCount = 7;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 8) {
+                        TrackCraveCount = 8;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 9 ){
+                        TrackCraveCount = 9;
+                    }else if((daysInBetween - daysInBetween2) == 10) {
+                        TrackCraveCount = 10;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 11) {
+                        TrackCraveCount = 11;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 11 ){
+                        TrackCraveCount = 11;
+                    }else if((daysInBetween - daysInBetween2) == 12) {
+                        TrackCraveCount = 12;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 13) {
+                        TrackCraveCount = 13;
+                    }
+                    else if((daysInBetween - daysInBetween2) == 14 ){
+                        TrackCraveCount = 14;
+                    }else if((daysInBetween - daysInBetween2) == 15) {
+                        TrackCraveCount = 15;
+                    }
+                    TrackCrave[TrackCraveCount]++;
                     /*if (TrackCrave != null) {
                         int len = TrackCrave.length();
                         for (int i=0; i<len; i++){
@@ -294,13 +420,10 @@ public class MainActivityHome extends ActionBarActivity {
                         }
                     }*/
                     //assert TrackCrave != null;
-                    TrackCrave[TrackCraveCount] = trackCrave.getTimeInMillis();
+                    //TrackCrave[TrackCraveCount] = trackCrave.getTimeInMillis();
                     //TrackCrave[TrackCraveCount] = TrackCrave[TrackCraveCount] / (60*60*1000*24);
                     //if a day has passed
-                    if(daysInBetween > 12) {
 
-                        TrackCraveCount++;
-                    }
                 }
                 //increment number of click
                 Toast.makeText(getApplicationContext(), "quit date is " + quitDayNum + " time", Toast.LENGTH_LONG).show();
@@ -315,14 +438,21 @@ public class MainActivityHome extends ActionBarActivity {
 
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.SmokeButtonID);
-
         imageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 //increment number of click
                 theNumberOfSmoke++;
                 theNumberOfSmokeTotal++;
+                if( isSmokeFirstTime == true){
+                    for(int i = 0; i < TrackSmoke.length; i++)
+                    {
+                        TrackSmoke[i] = 0;
+                    }
+                    isSmokeFirstTime = false;
+                }
+
                 //keep a list of the time when you smoke
-                if (TrackSmokeCount < 200) {
+                if (TrackSmokeCount < 125) {
                     Calendar trackSmoke = Calendar.getInstance();
                     //TrackSmoke[TrackSmokeCount] = trackSmoke.getTimeInMillis();
                     //TrackSmoke[TrackSmokeCount] = TrackSmoke[TrackSmokeCount] / (60*60*1000*24);
@@ -393,7 +523,6 @@ public class MainActivityHome extends ActionBarActivity {
                         }
                     }*/
                 }
-
                 Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
 
                 //reset the smokeFreeDayNum to quitDayNum
@@ -552,12 +681,19 @@ public class MainActivityHome extends ActionBarActivity {
         editor.putInt("SmokeTotal", theNumberOfSmokeTotal);
         editor.putString("FINAL_DATA22", final_data22);
         editor.putLong("STARTDAYNUM", startDayNum);
-        /*jsonArray.put(1);
-        SharedPreferences sp2 = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor2 = sp2.edit();
-        editor.putString("key", jsonArray.toString());
-        System.out.println(jsonArray.toString());*/
-        editor.commit();
+        editor.putInt("TRACKCRAVECOUNT", TrackCraveCount);
+        editor.putInt("TRACKSMOKECOUNT", TrackSmokeCount);
+        editor.putBoolean("ISCRAVEFIRSTTIME", isCraveFirstTime);
+        editor.putBoolean("ISSMOKEFIRSTTIME", isSmokeFirstTime);
+        editor.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+
+        //save arrays to sharedpreference
+        for( int i = 0; i < 125; i++ ){
+            editor.putInt("TRACKSMOKE"+String.valueOf(i), TrackSmoke[i]);
+        }
+        for( int i = 0; i < 200; i++ ){
+            editor.putInt("TRACKCRAVE"+String.valueOf(i), TrackCrave[i]);
+        }
 
         //save the progress
         //editor.putLongArray("TRACKSMOKE", TrackSmoke[]);
@@ -577,6 +713,17 @@ public class MainActivityHome extends ActionBarActivity {
         theNumberOfSmokeTotal = sp.getInt("SmokeTotal", theNumberOfSmokeTotal);
         final_data22 = sp.getString("FINAL_DATA22", final_data22);
         startDayNum = sp.getLong("STARTDAYNUM", startDayNum);
+        TrackCraveCount = sp.getInt("TRACKCRAVECOUNT", TrackCraveCount);
+        TrackSmokeCount = sp.getInt("TRACKSMOKECOUNT", TrackSmokeCount);
+        isCraveFirstTime = sp.getBoolean("ISCRAVEFIRSTTIME", isCraveFirstTime);
+        isSmokeFirstTime = sp.getBoolean("ISSMOKEFIRSTTIME", isSmokeFirstTime);
+        isFirstTimeUserOpenTheApp = sp.getBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        for(int i = 0; i < 125; i++){
+            TrackSmoke[i] = sp.getInt("TRACKSMOKE"+String.valueOf(i), TrackSmoke[i]);
+        }
+        for(int i = 0; i < 200; i++){
+            TrackCrave[i] = sp.getInt("TRACKCRAVE"+String.valueOf(i), TrackCrave[i]);
+        }
     }
 
     private void saveDate() {
@@ -619,7 +766,11 @@ public class MainActivityHome extends ActionBarActivity {
         super.onPause();
         saveData();
         saveDate();
-        saveArray(TrackSmoke, "TRACKSMOKE", this);
+        //saveArray(TrackSmoke, "TRACKSMOKE", this);
+        //saveArray(TrackCrave, "TRACKCRAVE", context);
+        //saveArray2(this);
+
+
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
@@ -629,7 +780,9 @@ public class MainActivityHome extends ActionBarActivity {
         super.onResume();
         loadData();
         loadDate();
-        loadArray("TRACKSMOKE2", this);
+        //loadArray("TRACKSMOKE", this);
+        //loadArray("TRACKCRAVE", context);
+        //loadArray3(this);
         // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
     }
