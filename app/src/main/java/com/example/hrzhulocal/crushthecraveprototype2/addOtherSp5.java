@@ -28,17 +28,16 @@ public class addOtherSp5 extends SmokeActivity {
         saveSp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                addOther4 = message7.getText().toString();
+                addOther5 = message7.getText().toString();
                 try {
                     //1. Create an object of the FileOutputStream class using the openFileOutput method.
                     //MODE_WORLD_READABLE Allows to write permission to all the applications
-                    FileOutputStream fou2 = openFileOutput("SP4.txt", MODE_WORLD_READABLE);
+                    FileOutputStream fou2 = openFileOutput("SP5.txt", MODE_WORLD_READABLE);
                     //2. Get an object of the OutPutStreamWriter class using the FileOutputStream object.
                     OutputStreamWriter osw = new OutputStreamWriter(fou2);
                     try {
                         //3. Write the data
-                        osw.write(addOther4);
+                        osw.write(addOther5);
                         osw.flush();
                         osw.close();
 
@@ -51,7 +50,7 @@ public class addOtherSp5 extends SmokeActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                Toast.makeText(getBaseContext(), "Data saved " + addOther4, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getBaseContext(), "Data saved " + addOther5, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SmokeActivity.class);
                 startActivity(intent);
 
@@ -59,10 +58,8 @@ public class addOtherSp5 extends SmokeActivity {
 
         });
 
-        Message4 = final_dataSP4;
-        Toast.makeText(getBaseContext(), "Data saved be2" + final_dataSP4, Toast.LENGTH_SHORT).show();
-
-        Toast.makeText(getBaseContext(), "Data saved be3" + Message4, Toast.LENGTH_SHORT).show();
+        Message5 = final_dataSP5;
+        Toast.makeText(getBaseContext(), "Data saved be3" + Message5, Toast.LENGTH_SHORT).show();
     }
 }
 

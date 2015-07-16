@@ -158,7 +158,9 @@
             android:layout_height="wrap_content"
             android:inputType="numberDecimal"
             android:ems="10"
-            android:id="@+id/editText2" />
+            android:id="@+id/editText2"
+            android:textColor="#FFFFFFFF"
+            android:numeric="integer|decimal" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -246,7 +248,8 @@
             android:hint="Support Person&apos;s Name"
             android:textColorHint="#FFFFFFFF"
             android:ems="10"
-            android:id="@+id/editText4" />
+            android:id="@+id/editText4"
+            android:textColor="#FFFFFFFF" />
 
         <EditText
             android:layout_width="match_parent"
@@ -255,7 +258,8 @@
             android:ems="10"
             android:id="@+id/editText9"
             android:hint="Support Person&apos;s Phone"
-            android:textColorHint="#FFFFFFFF"/>
+            android:textColorHint="#FFFFFFFF"
+            android:textColor="#FFFFFFFF" />
 
         <Button
             android:layout_width="wrap_content"

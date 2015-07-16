@@ -11,6 +11,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Calendar;
+import java.util.HashSet;
+import java.util.Set;
+
 import android.app.AlertDialog;
 
 import com.example.hrzhulocal.crushthecraveprototype2.Graph.MainActivity;
@@ -41,9 +44,19 @@ public class SetDate extends MainActivityHome {
                             // current activity
                             //save quitDayNum6 value
                             Calendar quitDay = Calendar.getInstance();
-                            quitDayNum6 = quitDay.getTimeInMillis();
                             SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
+
+
+                            //set the value into a HashSet
+                            arrayListQuitNow.add(quitDay.getTimeInMillis());
+                            Set<String> set = new HashSet<String>();
+                            set.addAll(arrayListQuitNow);
+                            editor.putStringSet("ArrayListkey", set);
+                            editor.commit();
+
+
+                            quitDayNum6 = quitDay.getTimeInMillis();
                             editor.putLong("QUITDAYNUM6", quitDayNum6);
                             editor.commit();
                             Toast.makeText(context, "quitDayNum6 before: " + quitDayNum6, Toast.LENGTH_LONG).show();
@@ -83,9 +96,18 @@ public class SetDate extends MainActivityHome {
                             // if this button is clicked, close
                             // current activity
                             Calendar quitDay = Calendar.getInstance();
-                            quitDayNum6 = quitDay.getTimeInMillis();
                             SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
+
+                            //set the value into a HashSet
+                            arrayListQuitNow.add(quitDay.getTimeInMillis());
+                            /*Set<String> set = new HashSet<String>();
+                            set.addAll(arrayListQuitNow);
+                            editor.putStringSet("ArrayListkey", set);
+                            editor.commit();*/
+
+
+                            quitDayNum6 = quitDay.getTimeInMillis();
                             editor.putLong("QUITDAYNUM6", quitDayNum6);
                             editor.commit();
                             Toast.makeText(context, "quitDayNum6 before: " + quitDayNum6, Toast.LENGTH_LONG).show();

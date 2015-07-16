@@ -27,8 +27,7 @@ public class addOtherSp6 extends SmokeActivity {
         saveSp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                addOther4 = message7.getText().toString();
+                addOther6 = message7.getText().toString();
                 try {
                     //1. Create an object of the FileOutputStream class using the openFileOutput method.
                     //MODE_WORLD_READABLE Allows to write permission to all the applications
@@ -37,7 +36,7 @@ public class addOtherSp6 extends SmokeActivity {
                     OutputStreamWriter osw = new OutputStreamWriter(fou2);
                     try {
                         //3. Write the data
-                        osw.write(addOther4);
+                        osw.write(addOther6);
                         osw.flush();
                         osw.close();
 
@@ -50,7 +49,6 @@ public class addOtherSp6 extends SmokeActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-                Toast.makeText(getBaseContext(), "Data saved " + addOther4, Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(context, SmokeActivity.class);
                 startActivity(intent);
 
@@ -58,8 +56,8 @@ public class addOtherSp6 extends SmokeActivity {
 
         });
 
-        Message4 = final_dataSP4;
-        Toast.makeText(getBaseContext(), "Data saved be2" + final_dataSP4, Toast.LENGTH_SHORT).show();
+        Message6 = final_dataSP6;
+        Toast.makeText(getBaseContext(), "Data saved be2" + final_dataSP6, Toast.LENGTH_SHORT).show();
 
         Toast.makeText(getBaseContext(), "Data saved be3" + Message4, Toast.LENGTH_SHORT).show();
     }

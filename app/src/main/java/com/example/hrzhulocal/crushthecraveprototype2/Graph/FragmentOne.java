@@ -88,7 +88,7 @@ public class FragmentOne extends Fragment{
         // Create a formatter to use for drawing a series using LineAndPointRenderer
         // and configure it from xml:
         LineAndPointFormatter AllowanceFORMAT = new LineAndPointFormatter();
-        AllowanceFORMAT.setPointLabelFormatter(new PointLabelFormatter());
+
         AllowanceFORMAT.configure(container.getContext(),
                 R.xml.line_point_formatter_with_plf1_2);
         plot.addSeries(Allowance, AllowanceFORMAT);
@@ -103,13 +103,11 @@ public class FragmentOne extends Fragment{
 
 
         LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
-        CRAVEFormat2.setPointLabelFormatter(new PointLabelFormatter());
+
         CRAVEFormat2.configure(container.getContext(),
                 R.xml.line_point_formatter_with_plf1);
 
         plot.addSeries(Crave, CRAVEFormat2);
-
-
 
         // add a new series' to the xyplot:*********************************************
         XYSeries Smoke = new SimpleXYSeries(
@@ -118,7 +116,7 @@ public class FragmentOne extends Fragment{
                 SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                 "Smoke");
         LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
-        SMOKEFormat.setPointLabelFormatter(new PointLabelFormatter());
+
         SMOKEFormat.configure(container.getContext(),
                 R.xml.line_point_formatter_with_plf1_3);
         // add a new series' to the xyplot:*********************************************
@@ -153,7 +151,7 @@ public class FragmentOne extends Fragment{
         plot.setDomainValueFormat(new DecimalFormat("0"));
         plot.setRangeValueFormat(new DecimalFormat("0"));
         // reduce the number of range labels
-        plot.setTicksPerRangeLabel(6);
+        plot.setTicksPerRangeLabel(3);
         plot.getGraphWidget().setDomainLabelOrientation(-45);
         //plot.setRangeStepValue(6);
 
@@ -164,7 +162,8 @@ public class FragmentOne extends Fragment{
         plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
         //set boundaries
-        plot.setRangeBoundaries(0, 12, BoundaryMode.FIXED);
+        plot.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+        //plot.getGraphWidget().setMarginLeft(0);
 
         // initialize our XYPlot reference:
        /* plot = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotOne);
@@ -318,25 +317,71 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[12],
                     MainActivityHome.TrackCrave[13]
             };
+            //set boundaries
+            plot2.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
-            XYSeries series12 = new SimpleXYSeries(
+            XYSeries Allowance = new SimpleXYSeries(
                     Arrays.asList(allowance),          // SimpleXYSeries takes a List so turn our array into a List
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                    "allowance");                             // Set the display title of the series
-
+                    "Allowance");                             // Set the display title of the series
             // Create a formatter to use for drawing a series using LineAndPointRenderer
             // and configure it from xml:
-            LineAndPointFormatter series1Format2 = new LineAndPointFormatter();
-            series1Format2.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format2.configure(container.getContext(),
+            LineAndPointFormatter AllowanceFORMAT = new LineAndPointFormatter();
+
+            AllowanceFORMAT.configure(container.getContext(),
                     R.xml.line_point_formatter_with_plf1_2);
+            plot2.addSeries(Allowance, AllowanceFORMAT);
 
-            // add a new series' to the xyplot:
-            plot2.addSeries(series12, series1Format2);
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot2.getGraphWidget().setPaddingRight(1);
 
 
-            // reduce the number of range labels
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
+
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot2.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot2.addSeries(Smoke, SMOKEFormat);
+
+
             plot2.setTicksPerRangeLabel(3);
+            //Remove legend
+            plot2.getLayoutManager().remove(plot2.getRangeLabelWidget());
+
+            //set background colors
+            plot2.getBackgroundPaint().setColor(Color.BLACK);
+            plot2.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot2.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot2.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot2.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot2.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot2.setDomainValueFormat(new DecimalFormat("0"));
+            plot2.setRangeValueFormat(new DecimalFormat("0"));
+            // reduce the number of range labels
+            //plot2.setTicksPerRangeLabel(6);
             plot2.getGraphWidget().setDomainLabelOrientation(-45);
 
             //7 domain ticks 6 range ticks
@@ -346,7 +391,8 @@ public class FragmentOne extends Fragment{
             plot2.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot2.setRangeBoundaries(0, 10, BoundaryMode.FIXED);
+            plot2.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot2.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
 
             // TODO Auto-generated method stub
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
@@ -389,26 +435,70 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[19],
                     MainActivityHome.TrackCrave[20]
             };
-            // Turn the above arrays into XYSeries':
-            XYSeries series13 = new SimpleXYSeries(
+            XYSeries Allowance = new SimpleXYSeries(
                     Arrays.asList(allowance),          // SimpleXYSeries takes a List so turn our array into a List
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                     "Allowance");                             // Set the display title of the series
-
             // Create a formatter to use for drawing a series using LineAndPointRenderer
             // and configure it from xml:
-            LineAndPointFormatter series1Format3 = new LineAndPointFormatter();
-            series1Format3.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format3.configure(container.getContext(),
+            LineAndPointFormatter AllowanceFORMAT = new LineAndPointFormatter();
+
+            AllowanceFORMAT.configure(container.getContext(),
                     R.xml.line_point_formatter_with_plf1_2);
+            plot3.addSeries(Allowance, AllowanceFORMAT);
 
-            // add a new series' to the xyplot:
-            plot3.addSeries(series13, series1Format3);
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot3.getGraphWidget().setPaddingRight(1);
 
+
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
+
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot3.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot3.addSeries(Smoke, SMOKEFormat);
+
+
+            //plot3.setTicksPerRangeLabel(5);
+            //Remove legend
+            plot3.getLayoutManager().remove(plot3.getRangeLabelWidget());
+
+            //set background colors
+            plot3.getBackgroundPaint().setColor(Color.BLACK);
+            plot3.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot3.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot3.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot3.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot3.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot3.setDomainValueFormat(new DecimalFormat("0"));
+            plot3.setRangeValueFormat(new DecimalFormat("0"));
             // reduce the number of range labels
             plot3.setTicksPerRangeLabel(3);
             plot3.getGraphWidget().setDomainLabelOrientation(-45);
-            // TODO Auto-generated method stub
+
             //7 domain ticks 6 range ticks
             plot3.setDomainStep(XYStepMode.SUBDIVIDE, 7);
             plot3.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
@@ -416,7 +506,9 @@ public class FragmentOne extends Fragment{
             plot3.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot3.setRangeBoundaries(0, 10, BoundaryMode.FIXED);
+            plot3.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            //plot3.getGraphWidget().setMarginLeft(0);
+            //plot3.getGraphWidget().getRangeLabelPaint().setColor(Color.TRANSPARENT);
             return rootView;//inflater.inflate(R.layout.fragment_three_layout,container,false);
         }
 
@@ -456,25 +548,73 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[26],
                     MainActivityHome.TrackCrave[27]
             };
+            //set boundaries
+            plot4.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
-            XYSeries series14 = new SimpleXYSeries(
+            XYSeries Allowance = new SimpleXYSeries(
                     Arrays.asList(allowance),          // SimpleXYSeries takes a List so turn our array into a List
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                     "Allowance");                             // Set the display title of the series
-
             // Create a formatter to use for drawing a series using LineAndPointRenderer
             // and configure it from xml:
-            LineAndPointFormatter series1Format4 = new LineAndPointFormatter();
-            series1Format4.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format4.configure(container.getContext(),
+            LineAndPointFormatter AllowanceFORMAT = new LineAndPointFormatter();
+
+            AllowanceFORMAT.configure(container.getContext(),
                     R.xml.line_point_formatter_with_plf1_2);
+            plot4.addSeries(Allowance, AllowanceFORMAT);
 
-            // add a new series' to the xyplot:
-            plot4.addSeries(series14, series1Format4);
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot4.getGraphWidget().setPaddingRight(1);
 
-            // reduce the number of range labels
+
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
+
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot4.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot4.addSeries(Smoke, SMOKEFormat);
+
+
             plot4.setTicksPerRangeLabel(3);
+            //Remove legend
+            plot4.getLayoutManager().remove(plot4.getRangeLabelWidget());
+
+            //set background colors
+            plot4.getBackgroundPaint().setColor(Color.BLACK);
+            plot4.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot4.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot4.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot4.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot4.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot4.setDomainValueFormat(new DecimalFormat("0"));
+            plot4.setRangeValueFormat(new DecimalFormat("0"));
+            // reduce the number of range labels
+            //plot4.setTicksPerRangeLabel(6);
             plot4.getGraphWidget().setDomainLabelOrientation(-45);
+
             //7 domain ticks 6 range ticks
             plot4.setDomainStep(XYStepMode.SUBDIVIDE, 7);
             plot4.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
@@ -482,7 +622,8 @@ public class FragmentOne extends Fragment{
             plot4.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot4.setRangeBoundaries(0, 10, BoundaryMode.FIXED);
+            plot4.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot4.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -523,33 +664,82 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[33],
                     MainActivityHome.TrackCrave[34]
             };
+            //set boundaries
+            plot5.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
-            XYSeries series15 = new SimpleXYSeries(
+            XYSeries Allowance = new SimpleXYSeries(
                     Arrays.asList(allowance),          // SimpleXYSeries takes a List so turn our array into a List
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                     "Allowance");                             // Set the display title of the series
-
             // Create a formatter to use for drawing a series using LineAndPointRenderer
             // and configure it from xml:
-            LineAndPointFormatter series1Format5 = new LineAndPointFormatter();
-            series1Format5.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format5.configure(container.getContext(),
+            LineAndPointFormatter AllowanceFORMAT = new LineAndPointFormatter();
+
+            AllowanceFORMAT.configure(container.getContext(),
                     R.xml.line_point_formatter_with_plf1_2);
+            plot5.addSeries(Allowance, AllowanceFORMAT);
 
-            // add a new series' to the xyplot:
-            plot5.addSeries(series15, series1Format5);
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot5.getGraphWidget().setPaddingRight(1);
 
-            // reduce the number of range labels
+
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
+
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot5.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot5.addSeries(Smoke, SMOKEFormat);
+
+
             plot5.setTicksPerRangeLabel(3);
+            //Remove legend
+            plot5.getLayoutManager().remove(plot5.getRangeLabelWidget());
+
+            //set background colors
+            plot5.getBackgroundPaint().setColor(Color.BLACK);
+            plot5.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot5.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot5.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot5.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot5.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot5.setDomainValueFormat(new DecimalFormat("0"));
+            plot5.setRangeValueFormat(new DecimalFormat("0"));
+            // reduce the number of range labels
+            //plot5.setTicksPerRangeLabel(6);
             plot5.getGraphWidget().setDomainLabelOrientation(-45);
 
+            //7 domain ticks 6 range ticks
             plot5.setDomainStep(XYStepMode.SUBDIVIDE, 7);
             plot5.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
             plot5.setRangeStep(XYStepMode.SUBDIVIDE, 6);
             plot5.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot5.setRangeBoundaries(0, 10, BoundaryMode.FIXED);
+            plot5.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot5.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -591,25 +781,71 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[40],
                     MainActivityHome.TrackCrave[41]
             };
+            //set boundaries
+            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
-            XYSeries series16 = new SimpleXYSeries(
-                    Arrays.asList(series1Numbers6),          // SimpleXYSeries takes a List so turn our array into a List
+
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                    "Allowance");                             // Set the display title of the series
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot.getGraphWidget().setPaddingRight(1);
 
-            // Create a formatter to use for drawing a series using LineAndPointRenderer
-            // and configure it from xml:
-            LineAndPointFormatter series1Format5 = new LineAndPointFormatter();
-            series1Format5.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format5.configure(container.getContext(),
-                    R.xml.line_point_formatter_with_plf1_2);
 
-            // add a new series' to the xyplot:
-            plot.addSeries(series16, series1Format5);
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
 
-            // reduce the number of range labels
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot.addSeries(Smoke, SMOKEFormat);
+
+
             plot.setTicksPerRangeLabel(3);
+            //Remove legend
+            plot.getLayoutManager().remove(plot.getRangeLabelWidget());
+
+            //set background colors
+            plot.getBackgroundPaint().setColor(Color.BLACK);
+            plot.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot.setDomainValueFormat(new DecimalFormat("0"));
+            plot.setRangeValueFormat(new DecimalFormat("0"));
+            // reduce the number of range labels
+            //plot6.setTicksPerRangeLabel(6);
             plot.getGraphWidget().setDomainLabelOrientation(-45);
+
+            //7 domain ticks 6 range ticks
+            plot.setDomainStep(XYStepMode.SUBDIVIDE, 7);
+            plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
+            plot.setRangeStep(XYStepMode.SUBDIVIDE, 6);
+            plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
+
+            //set boundaries
+            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -651,26 +887,71 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[47],
                     MainActivityHome.TrackCrave[48]
             };
+            //set boundaries
+            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
-            XYSeries series7 = new SimpleXYSeries(
-                    Arrays.asList(series1Numbers7),          // SimpleXYSeries takes a List so turn our array into a List
+
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                    "Allowance");                             // Set the display title of the series
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot.getGraphWidget().setPaddingRight(1);
 
-            // Create a formatter to use for drawing a series using LineAndPointRenderer
-            // and configure it from xml:
-            LineAndPointFormatter series1Format7 = new LineAndPointFormatter();
-            series1Format7.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format7.configure(container.getContext(),
-                    R.xml.line_point_formatter_with_plf1_2);
 
-            // add a new series' to the xyplot:
-            plot.addSeries(series7, series1Format7);
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
 
-            // reduce the number of range labels
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot.addSeries(Smoke, SMOKEFormat);
+
+
             plot.setTicksPerRangeLabel(3);
+            //Remove legend
+            plot.getLayoutManager().remove(plot.getRangeLabelWidget());
+
+            //set background colors
+            plot.getBackgroundPaint().setColor(Color.BLACK);
+            plot.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot.setDomainValueFormat(new DecimalFormat("0"));
+            plot.setRangeValueFormat(new DecimalFormat("0"));
+            // reduce the number of range labels
+            //plot6.setTicksPerRangeLabel(6);
             plot.getGraphWidget().setDomainLabelOrientation(-45);
 
+            //7 domain ticks 6 range ticks
+            plot.setDomainStep(XYStepMode.SUBDIVIDE, 7);
+            plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
+            plot.setRangeStep(XYStepMode.SUBDIVIDE, 6);
+            plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
+
+            //set boundaries
+            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
             //this.getGraphWidget().setDomainValueFormat(new GraphXLabelFormat());
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -710,25 +991,71 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[54],
                     MainActivityHome.TrackCrave[55]
             };
+            //set boundaries
+            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
-            XYSeries series12 = new SimpleXYSeries(
-                    Arrays.asList(series1Numbers8),          // SimpleXYSeries takes a List so turn our array into a List
+
+            XYSeries Crave = new SimpleXYSeries(
+                    Arrays.asList(CRAVE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                    "Allowance");                             // Set the display title of the series
+                    "Crave");
+            LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
+            plot.getGraphWidget().setPaddingRight(1);
 
-            // Create a formatter to use for drawing a series using LineAndPointRenderer
-            // and configure it from xml:
-            LineAndPointFormatter series1Format2 = new LineAndPointFormatter();
-            series1Format2.setPointLabelFormatter(new PointLabelFormatter());
-            series1Format2.configure(container.getContext(),
-                    R.xml.line_point_formatter_with_plf1_2);
 
-            // add a new series' to the xyplot:
-            plot.addSeries(series12, series1Format2);
+            LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
 
-            // reduce the number of range labels
+            CRAVEFormat2.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1);
+
+            plot.addSeries(Crave, CRAVEFormat2);
+
+            // add a new series' to the xyplot:*********************************************
+            XYSeries Smoke = new SimpleXYSeries(
+                    Arrays.asList(SMOKE),          // SimpleXYSeries takes a List so turn our array into a List
+                    //Arrays.asList(allowance),
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Smoke");
+            LineAndPointFormatter SMOKEFormat = new LineAndPointFormatter();
+
+            SMOKEFormat.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_3);
+            // add a new series' to the xyplot:*********************************************
+            plot.addSeries(Smoke, SMOKEFormat);
+
+
             plot.setTicksPerRangeLabel(3);
+            //Remove legend
+            plot.getLayoutManager().remove(plot.getRangeLabelWidget());
+
+            //set background colors
+            plot.getBackgroundPaint().setColor(Color.BLACK);
+            plot.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            // draw a domain tick for each year:
+            plot.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+
+            // customize our domain/range labels
+            plot.setRangeLabel("Value");
+
+            // get rid of decimal points in the domain labels:
+            plot.setDomainValueFormat(new DecimalFormat("0"));
+            plot.setRangeValueFormat(new DecimalFormat("0"));
+            // reduce the number of range labels
+            //plot6.setTicksPerRangeLabel(6);
             plot.getGraphWidget().setDomainLabelOrientation(-45);
+
+            //7 domain ticks 6 range ticks
+            plot.setDomainStep(XYStepMode.SUBDIVIDE, 7);
+            plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
+            plot.setRangeStep(XYStepMode.SUBDIVIDE, 6);
+            plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
+
+            //set boundaries
+            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
 
             //this.getGraphWidget().setDomainValueFormat(new GraphXLabelFormat());
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);

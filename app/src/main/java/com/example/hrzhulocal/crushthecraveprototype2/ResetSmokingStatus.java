@@ -1,6 +1,9 @@
 package com.example.hrzhulocal.crushthecraveprototype2;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
@@ -39,9 +42,6 @@ public class ResetSmokingStatus extends MainActivityHome {
     String Message, Message2, Message3, Message4, Message5, Message6, Message7, Message8, Message9, Message10;
     int data_block = 100;
 
-    String cigarSmokedPerDayS = "";
-    String NumberOfCigarPerPackS = "";
-    String costPerPackS = "";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +60,12 @@ public class ResetSmokingStatus extends MainActivityHome {
 
         save = (Button) findViewById(R.id.button9);
         load = (Button) findViewById(R.id.button10);
-
+        if(isFirstTimeUserOpenTheApp){
+            isFirstTimeUserOpenTheApp = false;
+            SharedPreferences sp9 = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor2 = sp9.edit();
+            editor2.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        }
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -235,10 +240,10 @@ public class ResetSmokingStatus extends MainActivityHome {
                             //attach each piece of read_data the final string
                             costPerPackS += read_data;
                             data = new char[data_block];
-                            costPerPack = Integer.parseInt(costPerPackS);
+                            costPerPack = Float.parseFloat(costPerPackS);
 
                         }
-                        Toast.makeText(getBaseContext(), "Message3 :" + costPerPack, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getBaseContext(), "Message3 :" + costPerPackS, Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -250,7 +255,21 @@ public class ResetSmokingStatus extends MainActivityHome {
                 //days after you start quit                             // cost of one cigar you defined
 
                 moneySavedTotal = (daysInBetween - daysInBetween2) * cigarSmokedPerDay * (costPerPack / numberOfCigarPerPack);
-                Toast.makeText(getApplicationContext(), "total" +moneySavedTotal, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "total" + moneySavedTotal, Toast.LENGTH_LONG).show();
+
+                new AlertDialog.Builder(context)
+                        .setTitle(" Congratulations ")
+                        .setMessage(" You are taking the first step toward quit smoking ")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int which) {
+                                // continue with delete
+                                dialog.cancel();
+                                Intent intent = new Intent(context, MainActivityHome.class);
+                                startActivity(intent);
+                            }
+                        })
+                        .setIcon(android.R.drawable.ic_dialog_alert)
+                        .show();
 
             }
         });

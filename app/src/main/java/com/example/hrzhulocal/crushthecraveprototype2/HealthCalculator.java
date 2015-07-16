@@ -17,7 +17,7 @@ import java.text.NumberFormat;
 // was like public class HealthCalculator extends ActionBarActivity {
 public class HealthCalculator extends MainActivityHome {
 
-    //Assume 18 milligram of tar per cigarette
+    //Typically assume 18 milligram of tar per cigarette
     final static int tarPerCigar = 18;
     //Assume there are 365 days in a year
     final static int daysInAYear = 365;
@@ -26,10 +26,12 @@ public class HealthCalculator extends MainActivityHome {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_calculator);
 
-        final TextView myStatus = (TextView) findViewById(R.id.textView16);
+        TextView myStatus = (TextView) findViewById(R.id.textView16);
 
         //make sure money is in two decimal places
         NumberFormat formatter = new DecimalFormat("#0.00");
+
+        myStatus.setTextSize(40);
         myStatus.setText("Number of days smoke-free:  "+  smokeFreeDay
                 +"\nTar from cigarettes crushed:  " + (tarPerCigar*theNumberOfCrave)+" mg"
                 +"\nMoney saved so far:  $"+ formatter.format(moneySavedTotal)

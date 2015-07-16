@@ -31,7 +31,7 @@ public class SmokingTriggers extends SmokeActivity {
         addListenerOnMoreImageButton();
 
         //textView.setText(final_data.substring(6).relace("^", "\n"));
-            //If the string is empty
+        //If the string is empty
         if(final_data == null ) {
             //do nothing
         }

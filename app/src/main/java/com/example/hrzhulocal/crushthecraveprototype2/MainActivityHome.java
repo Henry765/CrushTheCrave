@@ -33,7 +33,9 @@ import java.text.NumberFormat;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.HashSet;
 import java.util.Scanner;
+import java.util.Set;
 import java.util.TimeZone;
 
 //import com.example.hrzhulocal.crushthecraveprototype2.Graph.My_ProgressActivity;
@@ -45,6 +47,8 @@ import android.view.View.OnTouchListener;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+
+import bolts.Task;
 
 public class MainActivityHome extends ActionBarActivity {
 //public class MainActivityHome extends MyPersonalization {
@@ -90,9 +94,17 @@ public class MainActivityHome extends ActionBarActivity {
     public static boolean isSmokeFirstTime = true;
     public static boolean isCraveFirstTime = true;
 
+    public static String cigarSmokedPerDayS = "";
+    public static String NumberOfCigarPerPackS = "";
+    public static String costPerPackS = "";
     //JSONArray is dynamic and is a linked list
     //JSONArray TrackSmoke = new JSONArray();
     //JSONArray TrackCrave = new JSONArray();
+
+    // create an array list to replace quitDayNum6
+    public static ArrayList arrayListQuitNow = new ArrayList();
+    //use a string as a workaround to save ArrayList
+    public static String workAroundQuitDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,13 +124,10 @@ public class MainActivityHome extends ActionBarActivity {
         final Context context = this;
 
         if(isFirstTimeUserOpenTheApp){
+            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
             Intent intent = new Intent(context, ResetSmokingStatus.class);
             startActivity(intent);
-            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
-            isFirstTimeUserOpenTheApp = false;
-            SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor = sp.edit();
-            editor.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+
         }
         /*else {
             Toast.makeText(getApplicationContext(), "should be false " + isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
@@ -153,9 +162,11 @@ public class MainActivityHome extends ActionBarActivity {
         //SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         //final_data22 = sp.getString("FINAL_DATA22", final_data22);
         myPersonalization.setText(final_data22);
+
+
         myMessage.setText("startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
                         + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum +"\n "+(quitDayNum6-startDayNum)
-          +"\nquitDayNum - smokeFreeDayNum\n"+(quitDayNum - smokeFreeDayNum)
+          +"\nquitDayNum - smokeFreeDayNum\n"+(quitDayNum - smokeFreeDayNum)+"array list"+arrayListQuitNow+"leeminho\n"+workAroundQuitDate
         );
 
         //make sure money is in two decimal places
@@ -166,7 +177,6 @@ public class MainActivityHome extends ActionBarActivity {
 
         ListenerSetDesktopPhoto();
         moneySaved.refreshDrawableState();
-
     }
     /**
      * A class, that can be used as a TouchListener on any view (e.g. a Button).
@@ -351,7 +361,7 @@ public class MainActivityHome extends ActionBarActivity {
         imageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 //keep a list of the time when you crave
-                if( isCraveFirstTime == true){
+                if( isCraveFirstTime){
                     for(int i = 0; i < TrackCrave.length; i++)
                     {
                         TrackCrave[i] = 0;
@@ -361,7 +371,7 @@ public class MainActivityHome extends ActionBarActivity {
                 if(TrackCraveCount < 200){
                     Calendar trackCrave = Calendar.getInstance();
                     //if s day has passed
-                    if((daysInBetween-daysInBetween2) == 0) {
+                    /*if((daysInBetween-daysInBetween2) == 0) {
                         TrackCraveCount = 0;
                     }
                     else if((daysInBetween - daysInBetween2) == 1) {
@@ -407,6 +417,13 @@ public class MainActivityHome extends ActionBarActivity {
                         TrackCraveCount = 14;
                     }else if((daysInBetween - daysInBetween2) == 15) {
                         TrackCraveCount = 15;
+                    }*/
+                    for(int i = 0; i<TrackCrave.length; i++){
+                        if(daysInBetween - daysInBetween2 == i)
+                        {
+                            TrackCraveCount = i;
+                            break;
+                        }
                     }
                     TrackCrave[TrackCraveCount]++;
                     /*if (TrackCrave != null) {
@@ -458,7 +475,7 @@ public class MainActivityHome extends ActionBarActivity {
                     //TrackSmoke[TrackSmokeCount] = TrackSmoke[TrackSmokeCount] / (60*60*1000*24);
 
                     //if s day has passed
-                    if((daysInBetween-daysInBetween2) == 0) {
+                    /*if((daysInBetween-daysInBetween2) == 0) {
                         TrackSmokeCount = 0;
                     }
                     else if((daysInBetween - daysInBetween2) == 1) {
@@ -504,6 +521,13 @@ public class MainActivityHome extends ActionBarActivity {
                         TrackSmokeCount = 14;
                     }else if((daysInBetween - daysInBetween2) == 15) {
                         TrackSmokeCount = 15;
+                    }*/
+                    for(int i = 0; i<TrackCrave.length; i++){
+                        if(daysInBetween - daysInBetween2 == i)
+                        {
+                            TrackCraveCount = i;
+                            break;
+                        }
                     }
 
                     TrackSmoke[TrackCraveCount]++;
@@ -686,7 +710,23 @@ public class MainActivityHome extends ActionBarActivity {
         editor.putBoolean("ISCRAVEFIRSTTIME", isCraveFirstTime);
         editor.putBoolean("ISSMOKEFIRSTTIME", isSmokeFirstTime);
         editor.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        /*Set<String> set = new HashSet<String>();
+        set.addAll(arrayListQuitNow);
+        editor.putStringSet("ArrayListkey", set);*/
+        editor.putString("ArrayListSaveInAString", arrayListQuitNow.toString());
+        editor.putString("WORKAROUNDQUITDATE", workAroundQuitDate);
+        editor.putString("CIGARSMOKEDPERDAYS",cigarSmokedPerDayS);
+        editor.putString("NUMBEROFCIGARPERPACKS",NumberOfCigarPerPackS);
+        editor.putString("COSTPERPACKS",costPerPackS);
 
+
+        editor.putInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
+        editor.putInt("NUMBEROFCIGARPERPACK", numberOfCigarPerPack);
+        editor.putFloat("COSTPERPACK", costPerPack);
+
+        editor.putFloat("MONEYSAVEDTOTAL", moneySavedTotal);
+
+        editor.commit();
         //save arrays to sharedpreference
         for( int i = 0; i < 125; i++ ){
             editor.putInt("TRACKSMOKE"+String.valueOf(i), TrackSmoke[i]);
@@ -701,6 +741,22 @@ public class MainActivityHome extends ActionBarActivity {
         //editor.putLong("TRACKCRAVE", TrackCrave[]);
 
         editor.commit();
+    }
+    public void addTask(Task t) {
+        /*if (null == currentTasks) {
+            currentTasks = new ArrayList<task>();
+        }
+        currentTasks.add(t);
+
+        //save the task list to preference
+        SharedPreferences prefs = getSharedPreferences(SHARED_PREFS_FILE, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        try {
+            editor.putString(TASKS, ObjectSerializer.serialize(currentTasks));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        editor.commit();*/
     }
     private void loadData() {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -718,6 +774,19 @@ public class MainActivityHome extends ActionBarActivity {
         isCraveFirstTime = sp.getBoolean("ISCRAVEFIRSTTIME", isCraveFirstTime);
         isSmokeFirstTime = sp.getBoolean("ISSMOKEFIRSTTIME", isSmokeFirstTime);
         isFirstTimeUserOpenTheApp = sp.getBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        workAroundQuitDate = sp.getString("ArrayListSaveInAString", null);
+        workAroundQuitDate = sp.getString("WORKAROUNDQUITDATE", workAroundQuitDate);
+        cigarSmokedPerDayS = sp.getString("CIGARSMOKEDPERDAYS", cigarSmokedPerDayS);
+        NumberOfCigarPerPackS = sp.getString("NUMBEROFCIGARPERPACKS", NumberOfCigarPerPackS);
+        costPerPackS = sp.getString("COSTPERPACKS", costPerPackS);
+
+        cigarSmokedPerDay = sp.getInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
+        numberOfCigarPerPack = sp.getInt("NUMBEROFCIGARPERPACK", numberOfCigarPerPack);
+        costPerPack = sp.getFloat("COSTPERPACK", costPerPack);
+        moneySavedTotal = sp.getFloat("MONEYSAVEDTOTAL", moneySavedTotal);
+
+        //Retrieve the values
+        Set<String> set = sp.getStringSet("ArrayListkey", null);
         for(int i = 0; i < 125; i++){
             TrackSmoke[i] = sp.getInt("TRACKSMOKE"+String.valueOf(i), TrackSmoke[i]);
         }
@@ -766,11 +835,6 @@ public class MainActivityHome extends ActionBarActivity {
         super.onPause();
         saveData();
         saveDate();
-        //saveArray(TrackSmoke, "TRACKSMOKE", this);
-        //saveArray(TrackCrave, "TRACKCRAVE", context);
-        //saveArray2(this);
-
-
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
@@ -780,9 +844,6 @@ public class MainActivityHome extends ActionBarActivity {
         super.onResume();
         loadData();
         loadDate();
-        //loadArray("TRACKSMOKE", this);
-        //loadArray("TRACKCRAVE", context);
-        //loadArray3(this);
         // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
     }
