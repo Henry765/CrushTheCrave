@@ -56,7 +56,7 @@ dependencies {
     //****************
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
     //compile ('com.facebook.android:facebook-android-sdk:4.1.1') { exclude module: 'support-v4'}
-    compile('com.twitter.sdk.android:twitter:1.6.0@aar') {
-        transitive = true;
-    }
+    //compile('com.twitter.sdk.android:twitter:1.6.0@aar') {
+    //    transitive = true;
+    //}
 }

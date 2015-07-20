@@ -13,6 +13,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 import android.app.AlertDialog;
 
@@ -20,6 +21,11 @@ import com.example.hrzhulocal.crushthecraveprototype2.Graph.MainActivity;
 
 
 public class SetDate extends MainActivityHome {
+    public static int days;
+    public static int hours;
+    public static int minutes;
+    public static int seconds;
+    public static int temp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,14 +61,21 @@ public class SetDate extends MainActivityHome {
                             editor.putStringSet("ArrayListkey", set);
                             editor.commit();
 
-
                             quitDayNum6 = quitDay.getTimeInMillis();
                             editor.putLong("QUITDAYNUM6", quitDayNum6);
                             editor.commit();
                             Toast.makeText(context, "quitDayNum6 before: " + quitDayNum6, Toast.LENGTH_LONG).show();
                             TextView textView1 = (TextView) findViewById(R.id.textView41);
+                            //http://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java
+                            String.format("%d day, %d hour, %d min, %d sec",
+                                    TimeUnit.MILLISECONDS.toDays(quitDayNum6),
+                                    TimeUnit.MILLISECONDS.toHours(quitDayNum6) -
+                                    TimeUnit.MILLISECONDS.toMinutes(quitDayNum6) -
+                                    TimeUnit.MILLISECONDS.toSeconds(quitDayNum6) -
+                                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(quitDayNum6))
+                            );
 
-                            textView1.setText("quitDayNum6" + quitDayNum6);
+                                    textView1.setText("quitDayNum6" + quitDayNum6 + "\n" + days + "\n" + hours + "\n" + minutes + "\n" + seconds);
                         }
                     })
                     .setNegativeButton("No",new DialogInterface.OnClickListener() {
@@ -78,8 +91,8 @@ public class SetDate extends MainActivityHome {
 
             // show it
             alertDialog.show();
-
         }
+        // else if user had already set at least one quit date
         else{
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                     context);
@@ -113,7 +126,9 @@ public class SetDate extends MainActivityHome {
                             Toast.makeText(context, "quitDayNum6 before: " + quitDayNum6, Toast.LENGTH_LONG).show();
                             TextView textView = (TextView) findViewById(R.id.textView41);
 
-                            textView.setText("quitDayNum6" + quitDayNum6);
+                            textView.setText("quitDayNum6: " + quitDayNum6 + "arrayList\n"+arrayListQuitNow);
+
+                            textView.setText("quitDayNum6" + quitDayNum6+"\n"+days+"\n"+hours+"\n"+minutes+"\n"+seconds);
 
                         }
                     })
@@ -132,6 +147,12 @@ public class SetDate extends MainActivityHome {
             alertDialog.show();
         }
         Toast.makeText(context, "quitDayNum6 after: " + quitDayNum6, Toast.LENGTH_LONG).show();
+
+        addListenerOnAwardImageButton();
+        addListenerOnAwardImageButton();
+        addListenerOnHomeImageButton();
+        addListenerOnMoreImageButton();
+        addListenerOnProgressImageButton();
     }
 
     @Override
