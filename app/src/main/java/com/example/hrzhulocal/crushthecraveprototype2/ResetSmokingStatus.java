@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -37,7 +38,7 @@ public class ResetSmokingStatus extends MainActivityHome {
     private Spinner spinner1;
     ImageButton imageButton;
 
-    Button save, load;
+    Button SaveAndLoad;
     EditText message, message2, message3, message4, message5, message6;
     String Message, Message2, Message3, Message4, Message5, Message6, Message7, Message8, Message9, Message10;
     int data_block = 100;
@@ -46,8 +47,8 @@ public class ResetSmokingStatus extends MainActivityHome {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_smoking_status);
-        addListenerOnSpinnerItemSelection();
-        final Spinner sp3 = (Spinner) findViewById(R.id.spinner3);
+        //addListenerOnSpinnerItemSelection();
+        //final Spinner sp3 = (Spinner) findViewById(R.id.spinner3);
         message = (EditText) findViewById(R.id.editText5);
         message2 = (EditText) findViewById(R.id.editText7);
         message3 = (EditText) findViewById(R.id.editText8);
@@ -55,18 +56,13 @@ public class ResetSmokingStatus extends MainActivityHome {
         final Spinner sp = (Spinner) findViewById(R.id.spinner);
         final Spinner sp2 = (Spinner) findViewById(R.id.spinner2);
         final Spinner sp7 = (Spinner) findViewById(R.id.spinner7);
+        Spinner sp3 = (Spinner) findViewById(R.id.spinner3);
         message5 = (EditText) findViewById(R.id.editText10);
         message6 = (EditText) findViewById(R.id.editText11);
 
-        save = (Button) findViewById(R.id.button9);
-        load = (Button) findViewById(R.id.button10);
-        if(isFirstTimeUserOpenTheApp){
-            isFirstTimeUserOpenTheApp = false;
-            SharedPreferences sp9 = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-            SharedPreferences.Editor editor2 = sp9.edit();
-            editor2.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
-        }
-        save.setOnClickListener(new View.OnClickListener() {
+        SaveAndLoad = (Button) findViewById(R.id.button10);
+        isFirstTimeUserOpenTheApp2 = 0;
+        SaveAndLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 /*Message = message.getText().toString();
@@ -82,7 +78,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                 Message = message.getText().toString();
                 Message3 = message3.getText().toString();
                 Message4 = message4.getText().toString();
-
                 try {
                     //1. Create an object of the FileOutputStream class using the openFileOutput method.
                     //MODE_WORLD_READABLE Allows to write permission to all the applications
@@ -146,7 +141,7 @@ public class ResetSmokingStatus extends MainActivityHome {
                 try {
                     //1. Create an object of the FileOutputStream class using the openFileOutput method.
                     //MODE_WORLD_READABLE Allows to write permission to all the applications
-                    FileOutputStream fou = openFileOutput("status3.txt", MODE_WORLD_READABLE);
+                    FileOutputStream fou = openFileOutput("status4.txt", MODE_WORLD_READABLE);
                     //2. Get an object of the OutPutStreamWriter class using the FileOutputStream object.
                     OutputStreamWriter osw = new OutputStreamWriter(fou);
                     try {
@@ -166,11 +161,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-            }
-        });
-        load.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
                 try {
                     //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
                     FileInputStream fis = openFileInput("status.txt");
@@ -227,7 +217,7 @@ public class ResetSmokingStatus extends MainActivityHome {
 
                 try {
                     //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                    FileInputStream fis = openFileInput("status3.txt");
+                    FileInputStream fis = openFileInput("status4.txt");
                     //5. Get an object of the InputStreamReader class .
                     InputStreamReader isr = new InputStreamReader(fis);
                     char[] data = new char[data_block];
@@ -240,7 +230,8 @@ public class ResetSmokingStatus extends MainActivityHome {
                             //attach each piece of read_data the final string
                             costPerPackS += read_data;
                             data = new char[data_block];
-                            costPerPack = Float.parseFloat(costPerPackS);
+                            //costPerPack = Float.parseFloat(costPerPackS);
+                            costPerPack = Float.valueOf(costPerPackS);
 
                         }
                         Toast.makeText(getBaseContext(), "Message3 :" + costPerPackS, Toast.LENGTH_LONG).show();
@@ -254,7 +245,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                 //assume you did not smoke after you set quit day
                 //days after you start quit                             // cost of one cigar you defined
 
-                moneySavedTotal = (daysInBetween - daysInBetween2) * cigarSmokedPerDay * (costPerPack / numberOfCigarPerPack);
                 Toast.makeText(getApplicationContext(), "total" + moneySavedTotal, Toast.LENGTH_LONG).show();
 
                 new AlertDialog.Builder(context)
@@ -273,13 +263,29 @@ public class ResetSmokingStatus extends MainActivityHome {
 
             }
         });
-        QuitDayNow();
-    }
-    public void addListenerOnSpinnerItemSelection() {
+        sp3.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                //transverse the list to check for timezone
+                for(int i = 0; i < 6; i++){
+                    if(i == position) {
+                        TimeZoneOption = position;
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+            }
+        });
+
+            QuitDayNow();
+        }
+    /*public void addListenerOnSpinnerItemSelection() {
         spinner1 = (Spinner) findViewById(R.id.spinner3);
         spinner1.setOnItemSelectedListener(new ResetCustomOnItemSelectedListenerStatus());
-    }
-    public void QuitDayNow(){
+    }*/
+
+    private void QuitDayNow(){
         final Context context = this;
         Button setQuitDayNow = (Button) findViewById(R.id.button8);
 
@@ -290,27 +296,4 @@ public class ResetSmokingStatus extends MainActivityHome {
             }
         });
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_reset_smoking_status, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
 }

@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.hrzhulocal.crushthecraveprototype2" >
-
-    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
-        android:name=".FBMyApplication"
         android:allowBackup="true"
         android:icon="@drawable/appicon"
         android:label="@string/app_name"
@@ -55,6 +54,16 @@
             android:label="@string/title_activity_smoke"
             android:parentActivityName=".MainActivityHome"
             android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
+        </activity>
+        <activity
+            android:name=".Graph.MainActivity"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_smoke"
+            android:parentActivityName=".MainActivityHome"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
@@ -198,6 +207,7 @@
         <activity
             android:name=".HowToUse"
             android:label="@string/title_activity_how_to_use"
+            android:screenOrientation="portrait"
             android:parentActivityName=".More" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -296,14 +306,6 @@
         <activity
             android:name=".HandlingTriggers"
             android:label="@string/title_activity_handling_triggers"
-            android:parentActivityName=".Quit_Help" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
-        </activity>
-        <activity
-            android:name=".WithdrawalAndCravings"
-            android:label="@string/title_activity_withdrawal_and_cravings"
             android:parentActivityName=".Quit_Help" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -570,32 +572,12 @@
             android:label="@string/title_activity_graph_fragment_one" >
         </activity>
         <activity
-            android:name=".GraphFragmentTwo"
-            android:label="@string/title_activity_graph_fragment_two" >
-        </activity>
-        <activity
-            android:name=".GraphFragmentThree"
-            android:label="@string/title_activity_graph_fragment_three" >
-        </activity>
-        <activity
             android:name=".InnerGraphOne"
             android:label="@string/title_activity_inner_graph_one" >
         </activity>
         <activity
-            android:name=".InnerOneGraph"
-            android:label="@string/title_activity_inner_one_graph" >
-        </activity>
-        <activity
             android:name=".FaceBookShare"
             android:label="@string/title_activity_face_book_share"
-            android:parentActivityName=".Committed$Award100Cig" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Committed$Award100Cig" />
-        </activity>
-        <activity
-            android:name=".TwitterShare"
-            android:label="@string/title_activity_twitter_share"
             android:parentActivityName=".Committed$Award100Cig" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -639,34 +621,6 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
         </activity>
 
-        <activity android:name=".Graph.MainActivity"
-            android:label="@string/app_name"/>
-        <service android:name="com.parse.PushService" />
-        <receiver android:name="com.parse.ParseBroadcastReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.intent.action.USER_PRESENT" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.parse.GcmBroadcastReceiver"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
-
-                <!--
-                  IMPORTANT: Change "com.parse.tutorials.pushnotifications" to match your app's package name.
-                -->
-                <category android:name="com.parse.tutorials.pushnotifications" />
-            </intent-filter>
-        </receiver>
-        <receiver android:name="com.parse.ParsePushBroadcastReceiver" android:exported="false">
-            <intent-filter>
-                <action android:name="com.parse.push.intent.RECEIVE" />
-                <action android:name="com.parse.push.intent.DELETE" />
-                <action android:name="com.parse.push.intent.OPEN" />
-            </intent-filter>
-        </receiver>
     </application>
 
 </manifest>

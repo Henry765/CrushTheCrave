@@ -13,6 +13,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -47,9 +49,9 @@ public class CraveActivity extends MainActivityHome {
         if(daysInBetween >= 0 && daysInBetween <= 6){
             switch(n){
                 case 1: myMessage.setText("If you think you need more help call your local quitline. For more information see the Quit Help page.");
-                    myPicture.setImageResource(R.drawable.istock_000018110696xsmall);   break;
+                    myPicture.setImageResource(R.drawable.istock_000018110696xsmall);break;
                 case 2: myMessage.setText("Take some deep breaths. A craving will only last a few minutes and then go away. You can beat it.");
-                    myPicture.setImageResource(R.drawable.istock_000002038361xsmall);   break;
+                    myPicture.setImageResource(R.drawable.istock_000002038361xsmall); break;
                 case 3: myMessage.setText("You are addicted to nicotine and your body is used to smoking. The bad feelings will go away");
                     myPicture.setImageResource(R.drawable.istock_000002871599xsmall);break;
                 case 4: myMessage.setText("Nicotine gum, lozenges, inhalers and patches can help you quit. Check out the QUIT HELP page");
@@ -68,7 +70,6 @@ public class CraveActivity extends MainActivityHome {
                     myPicture.setImageResource(R.drawable.istock_000011957632xsmall);break;
                 case 11: myMessage.setText("Cravings will get weaker and less frequent with every day you don't smoke.");
                     myPicture.setImageResource(R.drawable.istock_000011899337xsmall);break;
-
                 case 12: myMessage.setText("Smoking is like a bad relationship. You have to know when to walk away.");
                     myPicture.setImageResource(R.drawable.istock_000018462245xsmall);break;
 
@@ -207,7 +208,6 @@ public class CraveActivity extends MainActivityHome {
                 case 57: myMessage.setText("What can you do instead of smoking? Check out the Crave Crushers page for options.");
                     myPicture.setImageResource(R.drawable.istock_000017993312xsmall);break;
             }
-
         }
         else if (daysInBetween == 7 ){
             myMessage.setText("Congratulations you have quit for one week. You can keep it going. Reward yourself");
@@ -394,7 +394,9 @@ public class CraveActivity extends MainActivityHome {
 
 
         }
-        myMoneySaved.setText("You have saved $"+ moneySavedTotal +" in total!");
+        NumberFormat formatter = new DecimalFormat("#0.00");
+
+        myMoneySaved.setText("You have saved $"+ formatter.format(moneySavedTotal) +" in total!");
         myMessage.refreshDrawableState();
         //Options for navigation from home
         // Recommendation ->> refactoring the eventListener on this class (SOLVED NOW)
@@ -403,11 +405,10 @@ public class CraveActivity extends MainActivityHome {
         addListenerOnProgressImageButton();
         addListenerOnQuitHelpImageButton();
         addListenerOnMoreImageButton();
-
         addListenerOnDistractMe();
     }
 
-    public void addListenerOnDistractMe(){
+    private void addListenerOnDistractMe(){
         final Context context = this;
         button = (Button) findViewById(R.id.button);
 

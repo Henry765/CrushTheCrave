@@ -2,7 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.hrzhulocal.crushthecraveprototype2.Committed"
-    android:background="@drawable/bg">
+    android:background="@drawable/bg"
+    >
 
 
     <TextView
@@ -53,7 +54,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fb_share_button"
+        android:id="@+id/fbIDweek1"
         android:layout_marginTop="55dp"
         android:background="@drawable/btnsighup_new"
         android:layout_below="@+id/textView107"
@@ -64,7 +65,7 @@
         android:layout_height="wrap_content"
         android:text="SHARE"
         android:id="@+id/textView108"
-        android:layout_alignTop="@+id/fb_share_button"
+        android:layout_alignTop="@+id/fbIDweek1"
         android:layout_centerHorizontal="true" />
 
 

@@ -116,7 +116,7 @@ Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="Design  Build"
+                android:text="Design and Engineering"
                 android:textStyle="bold"
                 android:textColor="#fff"
                 />
@@ -129,9 +129,10 @@ Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="IMP\nDesign, publicity and promotional work done by http://www.impcanada.com IMP Canada specializes in web design and digital marketing, including social media management.\nProgrammer: Henry Zhu | Supported by Matt VanderMeer\nUniversity Of Waterloo, Faculty of Applied Health Sciences, Propel Centre For Population Health Impact\nThe Mini Game of Whack a Mole is released under GNU GPL v2 License from http://whack-a-mole-android.googlecode.com/svn/
-\nCoded and designed by Lorenzo Lambertini  contact: lorenzo.lambertini@gmail.coms
-\nModified by Henry Zhu contact hrzhu@uwaterloo.ca"
+                android:text="Programmer: Henry Zhu | Supported by Matt VanderMeer\nUniversity Of Waterloo, Faculty of Applied Health Sciences,
+                Propel Centre For Population Health Impact\nThe Mini Game of Whack a Mole is released under GNU GPL v2 License from
+                http://whack-a-mole-android.googlecode.com/svn/ \nCoded and designed by Lorenzo Lambertini  contact: lorenzo.lambertini@gmail.coms
+                Modified by Henry Zhu contact hrzhu@uwaterloo.ca\nGraph uses AndroidPlot #Swag"
                 android:textColor="#fff" />
 
             <TextView

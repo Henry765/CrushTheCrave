@@ -37,10 +37,10 @@ public class FaceBookShare extends AppCompatActivity {
     private LoginManager manager;
     ShareDialog shareDialog;
     int[] ImageFile2 = {R.drawable.iconcommitted_sel, R.drawable.iconquitdate_sel, R.drawable.iconday1_sel, R.drawable.iconweek1_sel, R.drawable.iconweek3_sel,
-            R.drawable.iconmouth1_sel, R.drawable.icon100cigarettes_sel, R.drawable.icon250cigarettes_sel,  R.drawable.icon500cigarettes_sel, R.drawable.iconsmoked_sel,
-            R.drawable.iconcarvings_sel, R.drawable.icon100_sel, R.drawable.icon500_sel, R.drawable.icon1000_sel, R.drawable.iconoxygen2_sel, R.drawable.iconoxygen_sel,
+            R.drawable.iconmouth1_sel, R.drawable.icon100cigarettes_sel, R.drawable.icon250cigarettes_sel,  R.drawable.icon500cigarettes_sel,
+            R.drawable.icon100_sel, R.drawable.icon500_sel, R.drawable.icon1000_sel, R.drawable.iconoxygen2_sel, R.drawable.iconoxygen_sel,
             R.drawable.icono2_sel, R.drawable.iconbetterhealth_sel, R.drawable.iconnicotine_sel, R.drawable.icontasteandsmell_sel, R.drawable.iconhappyheart_sel,
-            R.drawable.iconheart2_sel, R.drawable.iconshare_sel, R.drawable.iconfeedback_sel, R.drawable.iconnightout_sel};
+            R.drawable.iconheart2_sel};
     //create another instance of Committed class to use helperImageFile array
     public Committed arrayhelp;
     @Override

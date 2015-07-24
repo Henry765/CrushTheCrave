@@ -3,6 +3,7 @@ package com.example.hrzhulocal.crushthecraveprototype2;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -12,12 +13,15 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.io.File;
+import java.util.Locale;
 
 import android.util.Log;
 
 
 public class MySettings extends More /*FragmentActivity*/ {
     Button button;
+    public static int toggle = 1; //1 is english and two is French
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,12 +36,49 @@ public class MySettings extends More /*FragmentActivity*/ {
         addListenerOnQuitHelpImageButton();
         addListenerOnMoreImageButton();
         addListenerOnHomeImageButton();
+        ListenerChangeLanguage();
     }
+    private void ListenerChangeLanguage() {
+        ImageButton setEN_bt = (ImageButton) findViewById(R.id.imageButton15);
+        if (toggle % 2 == 1) {
+            //english
+            toggle = 2;
+            setEN_bt.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Locale locale_en = new Locale("default");
+                    Locale.setDefault(locale_en);
+                    Configuration config_en = new Configuration();
+                    config_en.locale = locale_en;
+                    getBaseContext().getResources().updateConfiguration(config_en, getBaseContext().getResources().getDisplayMetrics());
+                    Intent intent = new Intent(MySettings.this, MySettings.class);
+                    startActivity(intent);
+                    //x%2 reminder to alternative languages
+                }
+            });
+        } else
+        {
+            toggle = 1;
+            ImageButton setEN_btf = (ImageButton) findViewById(R.id.imageButton15);
+
+            setEN_btf.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Locale locale_en = new Locale("fr");
+                    Locale.setDefault(locale_en);
+                    Configuration config_en = new Configuration();
+                    config_en.locale = locale_en;
+                    getBaseContext().getResources().updateConfiguration(config_en, getBaseContext().getResources().getDisplayMetrics());
+                    Intent intent = new Intent(MySettings.this, MySettings.class);
+                    startActivity(intent);
+                }
+            });
+        }
+    }
+
     public void setDate(View view){
         PickerDialogs pickerDialogs = new PickerDialogs();
         pickerDialogs.show(getSupportFragmentManager(), "date_picker");
     }
-    public void clearApplicationData() {
+    private void clearApplicationData() {
         File cache = getCacheDir();
         File appDir = new File(cache.getParent());
         if (appDir.exists()) {
@@ -50,7 +91,7 @@ public class MySettings extends More /*FragmentActivity*/ {
             }
         }
     }
-    public static boolean deleteDir(File dir) {
+    private static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
             String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
@@ -81,10 +122,11 @@ public class MySettings extends More /*FragmentActivity*/ {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG*****************************
-                //clearApplicationData();
-                //sp.edit().clear().commit();
-                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG*****************************
+                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG********************************
+                SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                clearApplicationData();
+                sp.edit().clear().apply();
+                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG*********************************
             }
         });
     }

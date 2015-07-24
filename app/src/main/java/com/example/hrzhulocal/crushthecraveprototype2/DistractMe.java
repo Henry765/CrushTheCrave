@@ -24,26 +24,98 @@ public class DistractMe extends CraveActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_distract_me);
+        final Context context = this;
+
         addListenerOnGameWack();
         addListenerOnGameTicTacToe();
         ListenerOpenSMSAPP();
         ListenerrOpenYouTubeAPP();
-    }
-    private void ListenerrOpenYouTubeAPP(){
+        ListenerMusic();
+        ListenerMoreGame();
+        addListenerOnHomeImageButton();
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();    }
 
-        final Context context = this;
-        imageButton = (ImageButton) findViewById(R.id.imageButton19);
+    private void ListenerOpenSMSAPP() {
+        imageButton = (ImageButton) findViewById(R.id.imageButton25);
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                try{
-                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" ));
-                    startActivity(intent);
-                }catch (ActivityNotFoundException ex){
-                    Intent intent=new Intent(Intent.ACTION_VIEW,
-                            Uri.parse("http://www.youtube.com/"));
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(Intent.ACTION_VIEW);//ACTION_MAIN);
+                intent.setType("vnd.android-dir/mms-sms");
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void addListenerOnGameTicTacToe() {
+        imageButton = (ImageButton) findViewById(R.id.imageButton26);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.TicTacToe.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+
+    private void addListenerOnGameWack() {
+        imageButton = (ImageButton) findViewById(R.id.imageButton17);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.Help.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void ListenerMoreGame() {
+        final Context context = this;
+        imageButton = (ImageButton) findViewById(R.id.imageButton14);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Uri uri = Uri.parse("market://search?q=pname:pkg_name");
+                Intent it = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(it);
+            }
+        });
+    }
+
+            private void ListenerMusic() {
+                imageButton = (ImageButton) findViewById(R.id.imageButton18);
+                imageButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        try {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"));
+                            startActivity(intent);
+                        } catch (ActivityNotFoundException ex) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ"));
+                            startActivity(intent);
+                        }
+                    }
+                });
+            }
+
+            private void ListenerrOpenYouTubeAPP() {
+                imageButton = (ImageButton) findViewById(R.id.imageButton19);
+
+                imageButton.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        try {
+                            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:"));
+                            startActivity(intent);
+                        } catch (ActivityNotFoundException ex) {
+                            Intent intent = new Intent(Intent.ACTION_VIEW,
+                                    Uri.parse("http://www.youtube.com/"));
+                            startActivity(intent);
+                        }
                 /*Intent intent = new Intent(
                         Intent.ACTION_VIEW,
                         Uri.parse("https://www.youtube.com/channel/UCRmoG8dTnv0B7y9uoocikLw"));
@@ -56,73 +128,21 @@ public class DistractMe extends CraveActivity {
                 } else {
                     //No Application can handle your intent
                 }*/
+                    }
+                });
             }
-        });
-    }
-    private void ListenerOpenSMSAPP(){
-        final Context context = this;
-        imageButton = (ImageButton) findViewById(R.id.imageButton25);
 
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent intent = new Intent(Intent.ACTION_MAIN);
-                intent.setType("vnd.android-dir/mms-sms");
-                startActivity(intent);
+            public void watchYoutubeVideo(String id) {
+                try {
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
+                    startActivity(intent);
+                } catch (ActivityNotFoundException ex) {
+                    Intent intent = new Intent(Intent.ACTION_VIEW,
+                            Uri.parse("http://www.youtube.com/watch?v=" + id));
+                    startActivity(intent);
+                }
             }
-        });
-    }
-    private void addListenerOnGameWack(){
-        final Context context = this;
-        imageButton = (ImageButton) findViewById(R.id.imageButton17);
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.Help.class);
-                startActivity(intent);
-            }
-        });
-    }
-    private void addListenerOnGameTicTacToe(){
-        final Context context = this;
-        imageButton = (ImageButton) findViewById(R.id.imageButton26);
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.TicTacToe.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_distract_me, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
         }
 
-        return super.onOptionsItemSelected(item);
-    }
-    public void watchYoutubeVideo(String id){
-        try{
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + id));
-            startActivity(intent);
-        }catch (ActivityNotFoundException ex){
-            Intent intent=new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://www.youtube.com/watch?v="+id));
-            startActivity(intent);
-        }
-    }
-}
+
+

@@ -501,9 +501,9 @@ public class SmokeActivity extends MainActivityHome {
         addListenerOnQuitHelpImageButton();
         addListenerOnMoreImageButton();
 
-        //addListenerOnSmokingTriggers();
+        addListenerOnSmokingTriggers();
     }
-    public void addListenerOnSmokingTriggers(){
+    private void addListenerOnSmokingTriggers(){
         final Context context = this;
         button = (Button) findViewById(R.id.button3);
 

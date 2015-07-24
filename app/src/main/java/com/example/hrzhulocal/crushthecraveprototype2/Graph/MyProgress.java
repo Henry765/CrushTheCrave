@@ -43,12 +43,10 @@ import java.util.Date;
 import static android.graphics.Color.*;
 
 //***********************************************************************
-public class FragmentOne extends Fragment{
+public class MyProgress extends Fragment{
     private XYPlot plot;
     //create one getTimeAndCount instance to extends two classes
     private MainActivityHome getTimeAndCount;
-
-    final String[] xLabels = {"Mon", "Tues", "Wed", "Thur", "Fri", "Sat", "Sun"};
 
     //@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -263,26 +261,6 @@ public class FragmentOne extends Fragment{
         return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
     }
 
-    class GraphXLabelFormat extends Format {
-
-        @Override
-        public StringBuffer format(Object arg0, StringBuffer arg1, FieldPosition arg2) {
-            // TODO Auto-generated method stub
-
-            int parsedInt = Math.round(Float.parseFloat(arg0.toString()));
-            Log.d("test", parsedInt + " " + arg1 + " " + arg2);
-            String labelString = xLabels[parsedInt];
-            arg1.append(labelString);
-            return arg1;
-        }
-
-        @Override
-        public Object parseObject(String arg0, ParsePosition arg1) {
-            // TODO Auto-generated method stub
-            return java.util.Arrays.asList(xLabels).indexOf(arg0);
-        }
-    }
-
 
 
     public static class FragmentTwo extends Fragment {
@@ -296,7 +274,7 @@ public class FragmentOne extends Fragment{
             plot2 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotTwo);
 
             // Create a couple arrays of y-values to plot:
-            Number[] allowance = {8, 8, 8, 6, 6, 6, 6};
+            Number[] allowance = {10, 10, 10, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6};
             Number[] SMOKE = {
                     //86400000 in 24 hours
                     MainActivityHome.TrackSmoke[7],
@@ -317,8 +295,6 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackCrave[12],
                     MainActivityHome.TrackCrave[13]
             };
-            //set boundaries
-            plot2.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
             XYSeries Allowance = new SimpleXYSeries(
                     Arrays.asList(allowance),          // SimpleXYSeries takes a List so turn our array into a List
@@ -391,8 +367,8 @@ public class FragmentOne extends Fragment{
             plot2.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot2.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
-            plot2.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
+            plot2.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot2.setDomainBoundaries(7, 13, BoundaryMode.FIXED); //7->13
 
             // TODO Auto-generated method stub
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
@@ -414,9 +390,10 @@ public class FragmentOne extends Fragment{
             plot3 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotThree);
 
             // Create a couple arrays of y-values to plot:
-            Number[] allowance = {6, 6, 6, 4, 4, 4, 4};
+            Number[] allowance = {10, 10, 10, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4};
             Number[] SMOKE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[14],
                     MainActivityHome.TrackSmoke[15],
                     MainActivityHome.TrackSmoke[16],
@@ -427,6 +404,7 @@ public class FragmentOne extends Fragment{
             };
             Number[] CRAVE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[14],
                     MainActivityHome.TrackCrave[15],
                     MainActivityHome.TrackCrave[16],
@@ -507,6 +485,7 @@ public class FragmentOne extends Fragment{
 
             //set boundaries
             plot3.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot3.setDomainBoundaries(14 ,20, BoundaryMode.FIXED);
             //plot3.getGraphWidget().setMarginLeft(0);
             //plot3.getGraphWidget().getRangeLabelPaint().setColor(Color.TRANSPARENT);
             return rootView;//inflater.inflate(R.layout.fragment_three_layout,container,false);
@@ -527,9 +506,10 @@ public class FragmentOne extends Fragment{
             plot4 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotFour);
 
             // Create a couple arrays of y-values to plot:
-            Number[] allowance = {4, 4, 4, 2, 2, 2, 2};
+            Number[] allowance = {10, 10, 10, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2};
             Number[] SMOKE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[21],
                     MainActivityHome.TrackSmoke[22],
                     MainActivityHome.TrackSmoke[23],
@@ -540,6 +520,7 @@ public class FragmentOne extends Fragment{
             };
             Number[] CRAVE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[21],
                     MainActivityHome.TrackCrave[22],
                     MainActivityHome.TrackCrave[23],
@@ -622,8 +603,8 @@ public class FragmentOne extends Fragment{
             plot4.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot4.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
-            plot4.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
+            plot4.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot4.setDomainBoundaries(21, 27, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -643,9 +624,11 @@ public class FragmentOne extends Fragment{
             plot5 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotFive);
 
             // Create a couple arrays of y-values to plot:
-            Number[] allowance = {2, 2, 2, 1, 1, 1, 1};
+            Number[] allowance = {10, 10, 10, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6, 6, 6, 6, 4, 4, 4, 4, 4, 4, 4, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1};
             Number[] SMOKE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[28],
                     MainActivityHome.TrackSmoke[29],
                     MainActivityHome.TrackSmoke[30],
@@ -656,6 +639,8 @@ public class FragmentOne extends Fragment{
             };
             Number[] CRAVE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[28],
                     MainActivityHome.TrackCrave[29],
                     MainActivityHome.TrackCrave[30],
@@ -738,8 +723,8 @@ public class FragmentOne extends Fragment{
             plot5.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot5.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
-            plot5.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
+            plot5.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot5.setDomainBoundaries(28, 34, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -760,9 +745,10 @@ public class FragmentOne extends Fragment{
             plot = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotSix);
 
             // Create a couple arrays of y-values to plot:
-            Number[] series1Numbers6 = {10, 8, 5, 2, 7, 4};
             Number[] SMOKE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[35],
                     MainActivityHome.TrackSmoke[36],
                     MainActivityHome.TrackSmoke[37],
@@ -772,7 +758,8 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackSmoke[41]
             };
             Number[] CRAVE = {
-                    //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[35],
                     MainActivityHome.TrackCrave[36],
                     MainActivityHome.TrackCrave[37],
@@ -844,8 +831,8 @@ public class FragmentOne extends Fragment{
             plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
-            plot.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
+            plot.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot.setDomainBoundaries(35, 41, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -866,9 +853,9 @@ public class FragmentOne extends Fragment{
             plot = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotSeven);
 
             // Create a couple arrays of y-values to plot:
-            Number[] series1Numbers7 = {10, 8, 5, 2, 7, 10};
             Number[] SMOKE = {
-                    //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[42],
                     MainActivityHome.TrackSmoke[43],
                     MainActivityHome.TrackSmoke[44],
@@ -878,7 +865,8 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackSmoke[48]
             };
             Number[] CRAVE = {
-                    //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[42],
                     MainActivityHome.TrackCrave[43],
                     MainActivityHome.TrackCrave[44],
@@ -950,8 +938,8 @@ public class FragmentOne extends Fragment{
             plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
-            plot.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
+            plot.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot.setDomainBoundaries(42, 48, BoundaryMode.FIXED);
             //this.getGraphWidget().setDomainValueFormat(new GraphXLabelFormat());
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
@@ -970,9 +958,9 @@ public class FragmentOne extends Fragment{
             plot = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotEight);
 
             // Create a couple arrays of y-values to plot:
-            Number[] series1Numbers8 = {10, 8, 5, 2, 7, 10};
             Number[] SMOKE = {
-                    //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[49],
                     MainActivityHome.TrackSmoke[50],
                     MainActivityHome.TrackSmoke[51],
@@ -982,7 +970,8 @@ public class FragmentOne extends Fragment{
                     MainActivityHome.TrackSmoke[55]
             };
             Number[] CRAVE = {
-                    //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[49],
                     MainActivityHome.TrackCrave[50],
                     MainActivityHome.TrackCrave[51],
@@ -1054,8 +1043,8 @@ public class FragmentOne extends Fragment{
             plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
-            plot.setDomainBoundaries(0, 7, BoundaryMode.FIXED);
+            plot.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot.setDomainBoundaries(49, 55, BoundaryMode.FIXED);
 
             //this.getGraphWidget().setDomainValueFormat(new GraphXLabelFormat());
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);

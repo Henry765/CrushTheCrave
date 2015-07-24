@@ -44,13 +44,9 @@ public class More extends MainActivityHome {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
 
-        TextView myMessage = (TextView) findViewById(R.id.textView20);
+      //  TextView myMessage = (TextView) findViewById(R.id.textView20);
 
-        myMessage.setText(Html.fromHtml("<a href=\"http://www.crushthecrave.ca/\">Crush The Crave Official Website</a>"
-                + "<p><a href=\"https://play.google.com/store/apps/details?id=com.techahead.ctc.main/\">Crush the Crave On Google Play</a></p> "
-                + "<p><a href=\"https://www.facebook.com/CrushTheCrave\">Like our app page on Facebook!</a></p> "
-                + "<p><a href=\"https://twitter.com/crushthecrave\">Follow our app page on Twitter!</a></p> "));
-        myMessage.setMovementMethod(LinkMovementMethod.getInstance());
+         //       myMessage.setMovementMethod(LinkMovementMethod.getInstance());
 
         addListenerOnHomeImageButton();
         addListenerOnAwardImageButton();
@@ -58,20 +54,63 @@ public class More extends MainActivityHome {
         addListenerOnQuitHelpImageButton();
         addListenerOnWhoWeAre();
         addListenerOnSettings();
-         ListenerUsePic();
-        ListenerUsePic();
+        listeneropenFB();
+        listeneropenTW();
+        listeneropenCTC();
+        listeneropenPLAY();
     }
-    private void ListenerUsePic(){
-        final Context context = this;
-        imageButton = (ImageButton) findViewById(R.id.imageButton7);
+    private void listeneropenCTC(){
+        imageButton = (ImageButton) findViewById(R.id.imageButton41);
+
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, SetDesktopImage.class);
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.techahead.ctc.main"));
                 startActivity(intent);
             }
         });
     }
+    private void listeneropenPLAY(){
+        imageButton = (ImageButton) findViewById(R.id.imageButton7);
 
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.techahead.ctc.main"));
+                startActivity(intent);
+            }
+        });
+    }
+    private void listeneropenFB(){
+        imageButton = (ImageButton) findViewById(R.id.imageButton27);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://www.facebook.com/CrushTheCrave"));
+                startActivity(intent);
+            }
+        });
+    }
+    private void listeneropenTW(){
+        imageButton = (ImageButton) findViewById(R.id.imageButton28);
+
+        imageButton.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View arg0){
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_VIEW);
+                intent.addCategory(Intent.CATEGORY_BROWSABLE);
+                intent.setData(Uri.parse("https://twitter.com/crushthecrave"));
+                startActivity(intent);
+            }
+        });
+    }
     private void addListenerOnSettings(){
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton8);

@@ -21,6 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Please help us understand your smoking habit so that we can create your custom Quit Plan"
+        android:textSize="15dp"
         android:id="@+id/textView43"
         android:textColor="#ffffffff"
         android:layout_alignParentTop="true"
@@ -59,41 +60,13 @@
             android:textColorHint="#FFFFFFFF"
             />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/editText3"
-            android:textColor="#ffffffff"
-            android:hint="Gender"
-            android:textColorHint="#FFFFFFFF"
-            />
-
         <Spinner
             android:layout_width="165dp"
             android:layout_height="wrap_content"
             android:id="@+id/spinner7"
-            android:layout_gravity="right"
             android:background="@drawable/btnsighup_new"
             android:entries="@array/gender"
             android:prompt="@string/gender_prompt" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="I want to quit:"
-            android:id="@+id/textView44"
-            android:textColor="#ffffffff" />
-
-        <Spinner
-            android:layout_width="166dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/spinner3"
-            android:layout_gravity="right"
-            android:background="@drawable/btnsighup_new"
-            android:clickable="true"
-            android:entries="@array/I_want_to_Quit"
-            android:prompt="@string/I_want_to_Quit_prompt"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -133,7 +106,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Number of cigarettes\n per pack (25 or 20)"
+            android:text="Number of cigarettes per pack (25 or 20)"
             android:id="@+id/textView47"
             android:textColor="#ffffffff" />
 
@@ -149,7 +122,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Cost per pack"
+            android:text="Average cost per pack"
             android:id="@+id/textView48"
             android:textColor="#ffffffff" />
 
@@ -189,6 +162,23 @@
             android:layout_below="@+id/textView53"
             android:layout_centerHorizontal="true"
             android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Choose a timezone"
+            android:id="@+id/textView15"
+            android:textColor="#ffffffff"
+            />
+
+        <Spinner
+            android:layout_width="251dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner3"
+            android:layout_gravity="right"
+            android:background="@drawable/btnsighup_new"
+            android:entries="@array/time_zone"
+            android:prompt="@string/time_zone_prompt"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -262,16 +252,9 @@
             android:textColor="#FFFFFFFF" />
 
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SAVE"
-            android:id="@+id/button9"
-            android:layout_gravity="center_horizontal" />
-
-        <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="LOAD"
+            android:text="SAVE and LOAD the setup"
             android:id="@+id/button10"
             android:layout_marginBottom="122dp"
             android:layout_alignParentBottom="true"

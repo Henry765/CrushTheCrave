@@ -53,7 +53,7 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fb_share_button"
+        android:id="@+id/fbIDquitdate"
         android:layout_below="@+id/textView107"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="63dp"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:text="SHARE"
         android:id="@+id/textView108"
-        android:layout_alignTop="@+id/fb_share_button"
+        android:layout_alignTop="@+id/fbIDquitdate"
         android:layout_centerHorizontal="true" />
 
 

@@ -31,13 +31,21 @@ public class HealthCalculator extends MainActivityHome {
         //make sure money is in two decimal places
         NumberFormat formatter = new DecimalFormat("#0.00");
 
-        myStatus.setTextSize(40);
-        myStatus.setText("Number of days smoke-free:  "+  smokeFreeDay
-                +"\nTar from cigarettes crushed:  " + (tarPerCigar*theNumberOfCrave)+" mg"
+        //assume you did not smoke after you set quit day - number of smoke's cost
+        //moneySavedTotal = ((daysInBetween - daysInBetween2) * theNumberOfCrave * (costPerPack / numberOfCigarPerPack))-((daysInBetween - daysInBetween2)*theNumberOfSmokeTotal*(costPerPack/numberOfCigarPerPack));
+
+        //Matthew's formula
+        //(this is checked off when you calculate the cost per cigarette based on the values entered in the registration form.
+        // Multiply the cost per cigarettes by the number of cigarettes not smoked determined for the above reward when this value is greater than or equal to $ X dolloars
+
+        moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
+        myStatus.setTextSize(17);
+        myStatus.setText("Number of days smoke-free:  " + smokeFreeDay + " day(s)"
+                +"\nTar from cigarettes crushed:  " + (tarPerCigar*theNumberOfCrave)+" milligram(s)"
                 +"\nMoney saved so far:  $"+ formatter.format(moneySavedTotal)
                 +"\nMoney on track to save this year:  $"+ formatter.format(((double) (daysInAYear* (moneySavedTotal / daysInBetween ))))     // use ratio to estimate the money saved this year
                 +"\nTotal number of cravings:  " + theNumberOfCrave
-                +"\nTotal number of slips/smoke:  " + theNumberOfSmokeTotal
+                +"\nTotal number of slips/smoke:  " + theNumberOfSmokeTotal    //theNumberOfSmokeTotal can change thus it added endfix Total
                 +"\nTime most vulnerable for craving:  ");
         myStatus.refreshDrawableState();
 
@@ -47,7 +55,6 @@ public class HealthCalculator extends MainActivityHome {
         addListenerOnQuitHelpImageButton();
         addListenerOnMoreImageButton();
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

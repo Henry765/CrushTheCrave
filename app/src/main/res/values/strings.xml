@@ -103,10 +103,21 @@
 
     <string name="gender_prompt">Gender</string>
     <string-array name="gender">
-        <item>Male</item>
         <item>Female</item>
+        <item>Male</item>
         <item>Prefer not to disclose</item>
     </string-array>
+
+    <string name="time_zone_prompt">Time Zone:</string>
+    <string-array name="time_zone">
+        <item>Eastern</item>
+        <item>Pacific</item>
+        <item>Mountain</item>
+        <item>Central</item>
+        <item>Atlantic</item>
+        <item>Newfoundland</item>
+    </string-array>
+
     <string name="title_activity_add_other_sp4" translatable="false">addOtherSp4</string>
     <string name="title_activity_add_other_sp5" translatable="false">addOtherSp5</string>
     <string name="title_activity_add_other_sp6" translatable="false">addOtherSp6</string>
@@ -159,4 +170,55 @@
     <string name="title_activity_tabbed_graph_main" translatable="false">TabbedGraphMain</string>
     <string name="title_activity_social_media_options" translatable="false">SocialMediaOptions</string>
     <string name="title_activity_my__progress_activity3" translatable="false">My_ProgressActivity3</string>
+    <string name="a">Home</string>
+    <string name="b">Awards</string>
+    <string name="c">Progress</string>
+    <string name="d">Quit Help</string>
+    <string name="e">More</string>
+    <string name="s">Set Quit Day</string>
+    <string name="s2">Set Now To Start\n Quit Smoking</string>
+    <string name="s3">Français?</string>
+    <string name="s4">My Information</string>
+    <string name="s5">My \nPersonalization</string>
+    <string name="s6">Reset Smoking \nStatus</string>
+    <string name="s7">RESET\n EVERYTHING</string>
+    <string name="aa">Home</string>
+    <string name="bb">Awards</string>
+    <string name="cc">Progress</string>
+    <string name="dd">Quit help</string>
+    <string name="ee">More</string>
+    <string name="aaa">Home</string>
+    <string name="bbb">Awards</string>
+    <string name="ccc">progress</string>
+    <string name="ddd">quit help</string>
+    <string name="eee">more</string>
+    <string name="aq">DISTRACT ME</string>
+    <string name="aaaa">Home</string>
+    <string name="bbbb">Awards</string>
+    <string name="cccc">proogress</string>
+    <string name="dddd">quit help</string>
+    <string name="eeee">more</string>
+    <string name="as">Don\'t ask me these questions again</string>
+    <string name="az">Record your triggers</string>
+    <string name="aw">I am with:</string>
+    <string name="ad">I am at:</string>
+    <string name="af">I am feelings:</string>
+    <string name="aaaaa">Home</string>
+    <string name="bbbbb">Awards</string>
+    <string name="ccccc">Progress</string>
+    <string name="ddddd">Quit help</string>
+    <string name="eeeee">More</string>
+    <string name="aaaaaa">Home</string>
+    <string name="bbbbbb">Awards</string>
+    <string name="cccccc">Progress</string>
+    <string name="dddddd">Quit help</string>
+    <string name="eeeeee">More</string>
+    <string name="i">Who We Are</string>
+    <string name="ss">My Settings</string>
+    <string name="aaaaaaa">Home</string>
+    <string name="bbbbbbb">Awards</string>
+    <string name="ccccccc">Progress</string>
+    <string name="ddddddd">Quit help</string>
+    <string name="eeeeeee">More</string>
+
 </resources>

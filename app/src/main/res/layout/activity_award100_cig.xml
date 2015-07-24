@@ -49,18 +49,19 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/fb_share_button"
+        android:id="@+id/fbID100cig"
         android:layout_marginTop="55dp"
         android:background="@drawable/btnsighup_new"
         android:layout_below="@+id/textView107"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:focusableInTouchMode="false" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SHARE"
         android:id="@+id/textView108"
-        android:layout_alignTop="@+id/fb_share_button"
+        android:layout_alignTop="@+id/fbID100cig"
         android:layout_centerHorizontal="true" />
 
     <ImageButton

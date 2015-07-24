@@ -3,9 +3,13 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
+import android.os.Environment;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
@@ -27,12 +31,15 @@ import android.widget.Toast;
 import android.view.View.OnClickListener;
 import android.content.Intent;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -56,7 +63,7 @@ public class MainActivityHome extends ActionBarActivity {
     ImageButton imageButton;
 
     public static int isFirstTime5 = 1;
-    public static boolean isFirstTimeUserOpenTheApp = true;
+    public static int isFirstTimeUserOpenTheApp2 = 1;
     public static long startDayNum = -1;
     long startDayNum6 = -1;
     long quitDayNum = -1;
@@ -105,6 +112,9 @@ public class MainActivityHome extends ActionBarActivity {
     public static ArrayList arrayListQuitNow = new ArrayList();
     //use a string as a workaround to save ArrayList
     public static String workAroundQuitDate;
+    public static int TimeZoneOption;
+    private static String mCurrentPhotoPath;
+;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,71 +123,121 @@ public class MainActivityHome extends ActionBarActivity {
 
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
-
         this.setContentView(R.layout.fragment_main_activity_home);
 
-        final TextView myMessage = (TextView) findViewById(R.id.textView19);
+            final TextView myMessage = (TextView) findViewById(R.id.textView19);
 
-        TextView moneySaved = (TextView) findViewById(R.id.textView50);
-        TextView noSmokedDay = (TextView) findViewById(R.id.textView51);
-        TextView myPersonalization = (TextView) findViewById(R.id.textView72);
-        final Context context = this;
+            TextView moneySaved = (TextView) findViewById(R.id.textView50);
+            TextView noSmokedDay = (TextView) findViewById(R.id.textView51);
+            TextView myPersonalization = (TextView) findViewById(R.id.textView72);
 
-        if(isFirstTimeUserOpenTheApp){
-            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
+        final String PREFS_NAME = "MyPrefsFile";
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+        if (settings.getBoolean("my_first_time", true)) {
+            //the app is being launched for first time, do something
+            Log.d("Comments", "First time");
+
+            final Context context = this;
             Intent intent = new Intent(context, ResetSmokingStatus.class);
             startActivity(intent);
 
+            // record the fact that the app has been started at least once
+            settings.edit().putBoolean("my_first_time", false).commit();
+        }
+
+        /*if(isFirstTimeUserOpenTheApp2 == 1){
+            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
+            isFirstTimeUserOpenTheApp2 = 0;
+
+            final Context context = this;
+            Intent intent = new Intent(context, ResetSmokingStatus.class);
+            startActivity(intent);
         }
         /*else {
             Toast.makeText(getApplicationContext(), "should be false " + isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
             Intent intent = new Intent(context, MainActivityHome.class);
             startActivity(intent);
         }*/
-
-        //set desktop photo
-        if(iv61 != null && drawable != null) {
-            iv61.setImageDrawable(drawable);
+            //set desktop photo
+            if (iv61 != null && drawable != null) {
+                iv61.setImageDrawable(drawable);
+            }
+        switch(TimeZoneOption)
+        {
+            case 0:
+                TimeZone.setDefault(TimeZone.getTimeZone("America/Toronto")); //Standard Eastern Time here
+                break;
+            case 1:
+                TimeZone.setDefault(TimeZone.getTimeZone("America/Los_Angeles")); //Pacific Time here
+                break;
+            case 2:
+                TimeZone.setDefault(TimeZone.getTimeZone("America/Denver")); //Mountain Time here calgary
+                break;
+            case 3:
+                TimeZone.setDefault(TimeZone.getTimeZone("US/Central")); //Central Time here Regina
+                break;
+            case 4:
+                TimeZone.setDefault(TimeZone.getTimeZone("Canada/Atlantic")); //Canada Atlantic Time here Nova Scotia
+                break;
+            case 5:
+                TimeZone.setDefault(TimeZone.getTimeZone("Canada/Newfoundland")); //Canada Newfoundland Time here
+                break;
+            default:
+                TimeZone.setDefault(TimeZone.getTimeZone("America/Toronto")); //Standard Eastern Time here
+                break;
         }
-        TimeZone.setDefault(TimeZone.getTimeZone("America/Toronto")); //Eastern Time here
-        //****************
-        loadDate();
-        //****************
+            //****************
+            loadDate();
+            //****************
+            //total days pass since user installed the app
+            daysInBetween = (quitDayNum - startDayNum) / (24 * 60 * 60 * 1000);
 
-        //total days pass since user installed the app
-        daysInBetween = (quitDayNum - startDayNum) / (24 * 60 * 60 * 1000);
+            //DAYS BEFORE THE YOU START TO QUIT
+            daysInBetween2 = (quitDayNum6 - startDayNum) / (24 * 60 * 60 * 1000);
 
-        //DAYS BEFORE THE YOU START TO QUIT
-        daysInBetween2 = (quitDayNum6 - startDayNum)/ (24 * 60 * 60 * 1000);
+            //number of consecutive days without clicking on SMOKE button
+            smokeFreeDay = (quitDayNum - smokeFreeDayNum) / (24 * 60 * 60 * 1000);
+            addListenerOnCRAVEButton();
+            addListenerOnSMOKEButton();
+            //Options for navigation from home
+            addListenerOnAwardImageButton();
+            addListenerOnProgressImageButton();
+            addListenerOnQuitHelpImageButton();
+            addListenerOnMoreImageButton();
+            //SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            //final_data22 = sp.getString("FINAL_DATA22", final_data22);
+            myPersonalization.setText(final_data22);
 
-        //number of consecutive days without clicking on SMOKE button
-        smokeFreeDay = (quitDayNum - smokeFreeDayNum) / (24 * 60 * 60 * 1000);
-        addListenerOnCRAVEButton();
-        addListenerOnSMOKEButton();
-        //Options for navigation from home
-        addListenerOnAwardImageButton();
-        addListenerOnProgressImageButton();
-        addListenerOnQuitHelpImageButton();
-        addListenerOnMoreImageButton();
-        //SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        //final_data22 = sp.getString("FINAL_DATA22", final_data22);
-        myPersonalization.setText(final_data22);
+            myMessage.setText("startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
+                            + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
+                            + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate
+            );
+            moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
 
+            //make sure money is in two decimal places
+            NumberFormat formatter = new DecimalFormat("#0.00");
+            if (quitDayNum6 != -1) {
+                moneySaved.setText("Money saved $" + formatter.format(moneySavedTotal));
+                noSmokedDay.setText("Number of smoke-free day " + smokeFreeDay);
+            }
+            ListenerSetDesktopPhoto();
+            moneySaved.refreshDrawableState();
+            isFirstTimeUserOpenTheApp2 = 1;
 
-        myMessage.setText("startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
-                        + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum +"\n "+(quitDayNum6-startDayNum)
-          +"\nquitDayNum - smokeFreeDayNum\n"+(quitDayNum - smokeFreeDayNum)+"array list"+arrayListQuitNow+"leeminho\n"+workAroundQuitDate
-        );
-
-        //make sure money is in two decimal places
-        NumberFormat formatter = new DecimalFormat("#0.00");
-        moneySaved.setText("Money saved $" + formatter.format(moneySavedTotal));
-        noSmokedDay.setText("Number of days smoke-free" + smokeFreeDay);
-
-
-        ListenerSetDesktopPhoto();
-        moneySaved.refreshDrawableState();
-    }
+        if( mCurrentPhotoPath != null) {
+            loadImageFile();
+        }
+        //dispatchTakePictureIntent();
+        }
+        /*else{
+            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
+            isFirstTimeUserOpenTheApp2 = 0;
+            final Context context = this;
+            Intent intent = new Intent(context, ResetSmokingStatus.class);
+            startActivity(intent);
+        }*/
     /**
      * A class, that can be used as a TouchListener on any view (e.g. a Button).
      * It cyclically runs a clickListener, emulating keyboard-like behaviour. First
@@ -190,75 +250,49 @@ public class MainActivityHome extends ActionBarActivity {
 
     //saveArray and loadArray found from
     //http://stackoverflow.com/questions/3876680/is-it-possible-to-add-an-array-or-object-to-sharedpreferences-on-android
-    public boolean saveArray(int[] array, String arrayName, Context mContext) {
-        SharedPreferences prefs = mContext.getSharedPreferences("preferencename", 0);
-        SharedPreferences.Editor editor = prefs.edit();
-        editor.putInt(arrayName + "_size", array.length);
-        for(int i=0;i<array.length;i++) {
-            editor.putInt(arrayName + "_" + i, array[i]);
-            Log.d("saveArray", arrayName);
-        }
-        return editor.commit();
+
+    static final int REQUEST_TAKE_PHOTO = 1;
+
+    private void dispatchTakePictureIntent() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+            // Create the File where the photo should go
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                // Error occurred while creating the File
+
+            }
+            // Continue only if the File was successfully created
+            if (photoFile != null) {
+                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        Uri.fromFile(photoFile));
+                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
+            }
     }
 
-    public int[] loadArray(String arrayName, Context mContext) {
-        SharedPreferences prefs = mContext.getSharedPreferences("preferencename", 0);
-        int size = prefs.getInt(arrayName + "_size", 0);
-        int array[] = new int[size];
-        for(int i=0;i<size;i++) {
-            Log.d("Testing", arrayName);
-            array[i] = prefs.getInt(arrayName + "_" + i, 0);
-        }
-        /*Scanner scanner = new Scanner("1A true");
-        String line = scanner.nextLine();
-        String[] numberStrs = line.split(",");
-        for(int i = 0;i < array.length;i++)
-        {
-            // Note that this is assuming valid input
-            // If you want to check then add a try/catch
-            // and another index for the numbers if to continue adding the others
-            array[i] = (numberStrs[i]);
-        }*/
-        return (array);
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        File storageDir = Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+        // Save a file: path for use with ACTION_VIEW intents
+        mCurrentPhotoPath = "file:"+image.getAbsolutePath();
+        return image;
     }
-    public static boolean saveArray2(Context mContext)
-    {
-        SharedPreferences sp = mContext.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEdit1 = sp.edit();
-        mEdit1.putInt("Status_size", TrackCrave.length);
-
-        for(int i=0;i<TrackCrave.length;i++)
-        {
-            mEdit1.remove("Status_" + i);
-            mEdit1.putInt("Status_" + i, TrackCrave[i]);
-        }
-
-        return mEdit1.commit();
-    }
-
-    /*public static boolean saveArray3()
-    {
-        SharedPreferences sp = SharedPreferences.getDefaultSharedPreferences(this);
-        SharedPreferences.Editor mEdit1 = sp.edit();
-        mEdit1.putInt("Status_size", sKey.size()); /* sKey is an array
-
-        for(int i=0;i<sKey.size();i++)
-        {
-            mEdit1.remove("Status_" + i);
-            mEdit1.putString("Status_" + i, sKey.get(i));
-        }
-
-        return mEdit1.commit();
-    }*/
-    public static void loadArray3(Context mContext)
-    {
-        SharedPreferences mSharedPreference1 = PreferenceManager.getDefaultSharedPreferences(mContext);
-        int size = mSharedPreference1.getInt("Status_size", 0);
-
-        for(int i=0;i<size;i++)
-        {
-            TrackCrave[i] = mSharedPreference1.getInt("Status_" + i, 0);
-        }
+    private void loadImageFile(){
+        File root = Environment.getExternalStorageDirectory();
+        ImageButton ib61 = (ImageButton) findViewById(R.id.imageButton61);
+        Bitmap bmap = BitmapFactory.decodeFile((root+mCurrentPhotoPath));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bmap);
+        ib61.setBackgroundDrawable(bitmapDrawable);
+        Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
     }
 
     private void ListenerSetDesktopPhoto(){
@@ -271,7 +305,12 @@ public class MainActivityHome extends ActionBarActivity {
                 Intent intent = new Intent();
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "Select Picture"),0);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), 0);
+                try {
+                    createImageFile();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
 
@@ -280,7 +319,8 @@ public class MainActivityHome extends ActionBarActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
-            case 0:data.getDataString();
+            case 0:
+                if(data != null){data.getDataString();}
                 if (resultCode == RESULT_OK) {
 
                     Bitmap bitmap = null;
@@ -349,12 +389,11 @@ public class MainActivityHome extends ActionBarActivity {
                     downView = null;
                     return true;
             }
-
             return false;
         }
     }
 
-    public void addListenerOnCRAVEButton() {
+    private void addListenerOnCRAVEButton() {
         //increment number of click
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.CraveButtonID);
@@ -451,7 +490,7 @@ public class MainActivityHome extends ActionBarActivity {
             }
         });
     }
-    public void addListenerOnSMOKEButton() {
+    private void addListenerOnSMOKEButton() {
 
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.SmokeButtonID);
@@ -675,23 +714,6 @@ public class MainActivityHome extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main_activity_home, container, false);
-
-            return rootView;
-        }
-   }
-
     /*private*/
     public void saveData() {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -709,7 +731,7 @@ public class MainActivityHome extends ActionBarActivity {
         editor.putInt("TRACKSMOKECOUNT", TrackSmokeCount);
         editor.putBoolean("ISCRAVEFIRSTTIME", isCraveFirstTime);
         editor.putBoolean("ISSMOKEFIRSTTIME", isSmokeFirstTime);
-        editor.putBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        editor.putInt("FIRSTTIME2", isFirstTimeUserOpenTheApp2);
         /*Set<String> set = new HashSet<String>();
         set.addAll(arrayListQuitNow);
         editor.putStringSet("ArrayListkey", set);*/
@@ -717,7 +739,7 @@ public class MainActivityHome extends ActionBarActivity {
         editor.putString("WORKAROUNDQUITDATE", workAroundQuitDate);
         editor.putString("CIGARSMOKEDPERDAYS",cigarSmokedPerDayS);
         editor.putString("NUMBEROFCIGARPERPACKS",NumberOfCigarPerPackS);
-        editor.putString("COSTPERPACKS",costPerPackS);
+        editor.putString("COSTPERPACKS", costPerPackS);
 
 
         editor.putInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
@@ -725,6 +747,8 @@ public class MainActivityHome extends ActionBarActivity {
         editor.putFloat("COSTPERPACK", costPerPack);
 
         editor.putFloat("MONEYSAVEDTOTAL", moneySavedTotal);
+       // editor.putFloat("TOGGLE", MySettings.toggle);
+        editor.putString("HOMEIMAGE", mCurrentPhotoPath);
 
         editor.commit();
         //save arrays to sharedpreference
@@ -773,7 +797,7 @@ public class MainActivityHome extends ActionBarActivity {
         TrackSmokeCount = sp.getInt("TRACKSMOKECOUNT", TrackSmokeCount);
         isCraveFirstTime = sp.getBoolean("ISCRAVEFIRSTTIME", isCraveFirstTime);
         isSmokeFirstTime = sp.getBoolean("ISSMOKEFIRSTTIME", isSmokeFirstTime);
-        isFirstTimeUserOpenTheApp = sp.getBoolean("FIRSTTIME", isFirstTimeUserOpenTheApp);
+        isFirstTimeUserOpenTheApp2 = sp.getInt("FIRSTTIME2", isFirstTimeUserOpenTheApp2);
         workAroundQuitDate = sp.getString("ArrayListSaveInAString", null);
         workAroundQuitDate = sp.getString("WORKAROUNDQUITDATE", workAroundQuitDate);
         cigarSmokedPerDayS = sp.getString("CIGARSMOKEDPERDAYS", cigarSmokedPerDayS);
@@ -784,6 +808,8 @@ public class MainActivityHome extends ActionBarActivity {
         numberOfCigarPerPack = sp.getInt("NUMBEROFCIGARPERPACK", numberOfCigarPerPack);
         costPerPack = sp.getFloat("COSTPERPACK", costPerPack);
         moneySavedTotal = sp.getFloat("MONEYSAVEDTOTAL", moneySavedTotal);
+//        MySettings.toggle = sp.getInt("TOGGLE", MySettings.toggle);
+        mCurrentPhotoPath = sp.getString("HOMEIMAGE", mCurrentPhotoPath);
 
         //Retrieve the values
         Set<String> set = sp.getStringSet("ArrayListkey", null);

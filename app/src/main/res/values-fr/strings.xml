@@ -19,46 +19,92 @@
     </string-array>
 
     <string-array name="I_am_Quitting_For">
-        <item>My Health</item>
-        <item>My Appearance</item>
-        <item>My Family</item>
-        <item>My Finances</item>
-        <item>Other</item>
+        <item>ma santé</item>
+        <item>Mon apparence</item>
+        <item>Ma famille</item>
+        <item>Mes finances</item>
+        <item>Autre</item>
     </string-array>
 
 
     <string-array name="I_am_with">
-        <item>friends</item>
-        <item>family</item>
-        <item>no one</item>
-        <item>add other</item>
+        <item>amis</item>
+        <item>famille </item>
+        <item>ne</item>
+        <item>ajouter dautres</item>
     </string-array>
     <string-array name="I_want_to_Quit">
-        <item>Today</item>
-        <item>In the near Future</item>
-        <item>I have already quit</item>
+        <item>Aujourdhui </item>
+        <item>Dans le futur</item>
+        <item>je lai déjà quitter</item>
     </string-array>
 
     <string-array name="I_am_at">
-        <item>home</item>
-        <item>work</item>
-        <item>school</item>
+        <item>accueil</item>
+        <item>travaux</item>
+        <item>lécole</item>
         <item>bar/restaurant</item>
-        <item>party</item>
-        <item>add other</item>
+        <item>parti</item>
+        <item>ajouter dautres</item>
     </string-array>
 
     <string-array name="I_am_feeling">
-        <item>stressed</item>
-        <item>sad</item>
-        <item>bored</item>
-        <item>angry</item>
-        <item>hungry</item>
-        <item>lonely</item>
-        <item>tired</item>
-        <item>fine</item>
-        <item>add other</item>
+        <item>souligné </item>
+        <item>triste </item>
+        <item>ennuyer </item>
+        <item>colère </item>
+        <item>faim </item>
+        <item>solitaire </item>
+        <item>fatigués </item>
+        <item>bien </item>
+        <item>ajouter dautres </item>
     </string-array>
+    <string name="time_zone_prompt">Fuseau Horaire</string>
+    <string name="title_activity_smoking_triggers" translatable="false"></string>
+    <string name="a">maison</string>
+    <string name="b">Récompenses</string>
+    <string name="c">Progrès</string>
+    <string name="d">"Quitter l'aide" </string>
+    <string name="e">Plus</string>
+    <string name="s2">Réglez maintenant pour \ncommencer Arrêter de fumer</string>
+    <string name="s4">Mon Information</string>
+    <string name="s5">My \nPersonnalisation</string>
+    <string name="s6">Réinitialiser le \nstatut de fumeur</string>
+    <string name="s7">Tout \nréinitialiser</string>
+    <string name="s3">English?</string>
+    <string name="gender_prompt">Sexe</string>
+    <string name="s">"ensemble date d'abandon"</string>
+    <string name="aa">maison</string>
+    <string name="bb">Récompenses</string>
+    <string name="cc">Progrès</string>
+    <string name="dd">"Quitter l'aide"</string>
+    <string name="ee">Plus</string>
+    <string name="aaa">maison</string>
+    <string name="aq">Me Distraire</string>
+    <string name="bbb">Récompenses</string>
+    <string name="ccc">Progrès</string>
+    <string name="ddd">"Quitter l'aide"</string>
+    <string name="eee">Plus</string>
+    <string name="aaaa">maison</string>
+    <string name="ad"></string>
+    <string name="bbbb">Récompenses</string>
+    <string name="cccc">Progrès</string>
+    <string name="dddd">"Quitter l'aide"</string>
+    <string name="eeee">Plus</string>
+    <string name="bbbbb">Récompenses</string>
+    <string name="ddddd">Quit help</string>
+    <string name="eeeee">More</string>
+    <string name="aaaaaa">Home</string>
+    <string name="bbbbbb">Récompenses</string>
+    <string name="cccccc">Progress</string>
+    <string name="dddddd">Quit help</string>
+    <string name="eeeeee">More</string>
+    <string name="ss">My Settings</string>
+    <string name="bbbbbbb">Récompenses</string>
+    <string name="ccccc">Progrès</string>
+    <string name="ccccccc">Progress</string>
+    <string name="ddddddd">Quit help</string>
+    <string name="eeeeeee">More</string>
 
 
 </resources>

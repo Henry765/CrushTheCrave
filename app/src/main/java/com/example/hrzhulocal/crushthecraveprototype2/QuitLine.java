@@ -12,13 +12,18 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 
-public class QuitLine extends ActionBarActivity {
+public class QuitLine extends Quit_Help {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quit_line);
         callForHelp();
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();
+        addListenerOnHomeImageButton();
     }
 
     @Override
@@ -32,7 +37,6 @@ public class QuitLine extends ActionBarActivity {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0){
-
                 String number = "18663663667";
                 String uri = "tel:" + number;
                 Intent intent = new Intent(Intent.ACTION_DIAL);

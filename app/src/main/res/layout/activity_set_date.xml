@@ -12,7 +12,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Large Text"
         android:id="@+id/textView41"
         android:layout_marginTop="45dp"
         android:textColor="#ffffffff"
@@ -122,6 +121,18 @@
         android:layout_below="@+id/imageButton4"
         android:layout_toRightOf="@+id/imageButton4"
         android:layout_toEndOf="@+id/imageButton4" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Our evidence suggest that setting a quit date in the next 2-6 weeks is the way to go."
+        android:id="@+id/textView39"
+        android:layout_marginTop="107dp"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/textView41"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
 
 </RelativeLayout>

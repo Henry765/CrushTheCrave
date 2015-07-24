@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
-    tools:context="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity">
+    tools:context="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity"
+    >
 
     <ScrollView
         android:id="@+id/who_we_are_textviewLayoutAcrollView"
@@ -116,7 +117,7 @@
         <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="250 Cigarette not Smoked"
+    android:text="250 Cigarette \nnot Smoked"
     android:id="@+id/textView84"
             android:textColor="#ffffffff"
             android:layout_below="@+id/imageButton50"
@@ -125,7 +126,7 @@
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="100 Cigareetes not Smoked"
+    android:text="100 Cigareetes \nnot Smoked"
     android:id="@+id/textView85"
     android:textColor="#ffffffff"
     android:layout_alignTop="@+id/textView84"
@@ -148,25 +149,6 @@
             android:id="@+id/imageButton47"
             android:background="@drawable/iconlock"
             android:layout_below="@+id/textView78"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Smoking Tracking"
-        android:id="@+id/textView87"
-        android:textColor="#ffffffff"
-            android:layout_below="@+id/imageButton41"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
-
-        <ImageButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/imageButton41"
-    android:background="@drawable/iconlock"
-            android:layout_below="@+id/textView85"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
 
@@ -222,7 +204,7 @@
         <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:text="500 Cigarettes not Smoked"
+    android:text="500 Cigarettes \nnot Smoked"
     android:id="@+id/textView86"
             android:textColor="#ffffffff"
             android:layout_alignTop="@+id/textView84"
@@ -234,8 +216,8 @@
             android:id="@+id/imageButton50"
             android:background="@drawable/iconlock"
             android:layout_below="@+id/textView81"
-            android:layout_alignLeft="@+id/imageButton54"
-            android:layout_alignStart="@+id/imageButton54" />
+            android:layout_alignLeft="@+id/imageButton35"
+            android:layout_alignStart="@+id/imageButton35" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -343,16 +325,7 @@
     android:layout_marginLeft="49dp"
     android:layout_marginStart="49dp" />
 
-<ImageButton
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/imageButton54"
-    android:background="@drawable/iconlock"
-    android:layout_below="@+id/textView84"
-    android:layout_alignLeft="@+id/imageButton35"
-    android:layout_alignStart="@+id/imageButton35" />
-
-<ImageButton
+        <ImageButton
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:id="@+id/imageButton46"
@@ -409,23 +382,13 @@ android:id="@+id/imageButton45"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Craving Tracking"
-            android:id="@+id/textView15"
-            android:textColor="#ffffffff"
-            android:layout_alignTop="@+id/textView87"
-            android:layout_centerHorizontal="true" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Money Saved"
             android:id="@+id/textView71"
             android:textColor="#ffffe08c"
             android:layout_marginTop="39dp"
-            android:layout_below="@+id/textView15"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/textView85" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -452,7 +415,7 @@ android:id="@+id/imageButton45"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Better Taste and Smell"
+            android:text="Better Taste \nand Smell"
             android:id="@+id/textView96"
             android:layout_below="@+id/imageButton44"
             android:layout_alignParentRight="true"
@@ -495,95 +458,6 @@ android:id="@+id/imageButton45"
             android:id="@+id/textView99"
             android:layout_alignTop="@+id/textView93"
             android:layout_centerHorizontal="true"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Earn your own"
-            android:id="@+id/textView100"
-            android:textColor="#ffffe08c"
-            android:layout_alignBottom="@+id/imageButton38"
-            android:layout_alignRight="@+id/textView15"
-            android:layout_alignEnd="@+id/textView15" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton48"
-            android:layout_below="@+id/textView100"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@drawable/iconlock" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton58"
-            android:layout_alignTop="@+id/imageButton48"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/iconlock" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton59"
-            android:layout_alignTop="@+id/imageButton58"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/iconlock" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Friends"
-            android:id="@+id/textView101"
-            android:layout_below="@+id/imageButton48"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Sharing"
-            android:id="@+id/textView103"
-            android:layout_alignTop="@+id/textView101"
-            android:layout_centerHorizontal="true"
-            android:textColor="#ffffffff" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Feedback"
-            android:id="@+id/textView104"
-            android:layout_alignTop="@+id/textView103"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textColor="#ffffffff" />
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton60"
-            android:layout_below="@+id/textView101"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:background="@drawable/iconlock" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:text="Night Out"
-            android:id="@+id/textView109"
-            android:layout_below="@+id/imageButton60"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
             android:textColor="#ffffffff" />
 
         <TextView

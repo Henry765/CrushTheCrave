@@ -226,6 +226,13 @@
                 android:text="NEW GAME"
                 android:id="@+id/button20"
                 android:layout_column="0" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Play with AI"
+                android:id="@+id/button2"
+                android:layout_column="2" />
         </TableRow>
 
         <TableRow

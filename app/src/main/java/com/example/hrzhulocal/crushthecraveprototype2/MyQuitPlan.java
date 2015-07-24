@@ -6,12 +6,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MyQuitPlan extends ActionBarActivity {
+public class MyQuitPlan extends Quit_Help {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_quit_plan);
+        addListenerOnAwardImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
+        addListenerOnMoreImageButton();
+        addListenerOnHomeImageButton();
     }
 
 

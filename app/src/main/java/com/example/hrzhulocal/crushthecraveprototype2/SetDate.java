@@ -10,7 +10,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -34,11 +37,12 @@ public class SetDate extends MainActivityHome {
 
         //TextView textView = (TextView) findViewById(R.id.textView41);
 
+        //First time set the quit date
         if(quitDayNum6 == -1) {
             AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                     context);
             // set title
-            alertDialogBuilder.setTitle(" Do you want to add a brand new quit day?");
+            alertDialogBuilder.setTitle("Do you want to add a brand new quit day?");
 
             // set dialog message
             alertDialogBuilder
@@ -53,29 +57,18 @@ public class SetDate extends MainActivityHome {
                             SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
 
-
-                            //set the value into a HashSet
                             arrayListQuitNow.add(quitDay.getTimeInMillis());
-                            Set<String> set = new HashSet<String>();
-                            set.addAll(arrayListQuitNow);
-                            editor.putStringSet("ArrayListkey", set);
-                            editor.commit();
+
 
                             quitDayNum6 = quitDay.getTimeInMillis();
                             editor.putLong("QUITDAYNUM6", quitDayNum6);
                             editor.commit();
-                            Toast.makeText(context, "quitDayNum6 before: " + quitDayNum6, Toast.LENGTH_LONG).show();
+                            Toast.makeText(context, "quitDayNum6 before: " + (quitDayNum6-quitDayNum), Toast.LENGTH_LONG).show();
                             TextView textView1 = (TextView) findViewById(R.id.textView41);
                             //http://stackoverflow.com/questions/625433/how-to-convert-milliseconds-to-x-mins-x-seconds-in-java
-                            String.format("%d day, %d hour, %d min, %d sec",
-                                    TimeUnit.MILLISECONDS.toDays(quitDayNum6),
-                                    TimeUnit.MILLISECONDS.toHours(quitDayNum6) -
-                                    TimeUnit.MILLISECONDS.toMinutes(quitDayNum6) -
-                                    TimeUnit.MILLISECONDS.toSeconds(quitDayNum6) -
-                                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(quitDayNum6))
-                            );
 
-                                    textView1.setText("quitDayNum6" + quitDayNum6 + "\n" + days + "\n" + hours + "\n" + minutes + "\n" + seconds);
+                            //textView1.setText("quitDayNum6" + quitDayNum6 + "\n" + days + "\n" + hours + "\n" + minutes + "\n" + seconds);
+                            textView1.setText("You have set " + arrayListQuitNow.size() + " quit date(s) so far");
                         }
                     })
                     .setNegativeButton("No",new DialogInterface.OnClickListener() {
@@ -104,16 +97,17 @@ public class SetDate extends MainActivityHome {
             alertDialogBuilder
                     .setMessage("Do you want to update and add a new quit day?")
                     .setCancelable(false)
-                    .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
                             // if this button is clicked, close
                             // current activity
                             Calendar quitDay = Calendar.getInstance();
                             SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
                             SharedPreferences.Editor editor = sp.edit();
 
-                            //set the value into a HashSet
                             arrayListQuitNow.add(quitDay.getTimeInMillis());
+
+                            //set the value into a HashSet
                             /*Set<String> set = new HashSet<String>();
                             set.addAll(arrayListQuitNow);
                             editor.putStringSet("ArrayListkey", set);
@@ -123,23 +117,26 @@ public class SetDate extends MainActivityHome {
                             quitDayNum6 = quitDay.getTimeInMillis();
                             editor.putLong("QUITDAYNUM6", quitDayNum6);
                             editor.commit();
-                            Toast.makeText(context, "quitDayNum6 before: " + quitDayNum6, Toast.LENGTH_LONG).show();
+
+
+                            /*Date date = new Date(quitDayNum6);
+                            DateFormat formatter = new SimpleDateFormat("HH:mm:ss:SSS");
+                            String dateFormatted = formatter.format(date);*/
+
                             TextView textView = (TextView) findViewById(R.id.textView41);
 
-                            textView.setText("quitDayNum6: " + quitDayNum6 + "arrayList\n"+arrayListQuitNow);
-
-                            textView.setText("quitDayNum6" + quitDayNum6+"\n"+days+"\n"+hours+"\n"+minutes+"\n"+seconds);
-
+                            textView.setText("quitDayNum6: " + quitDayNum6 + "\narrayList" + arrayListQuitNow
+                                    + "\nYou have set " + arrayListQuitNow.size() + " quit date(s) so far\n" + DateFormat.getDateTimeInstance().format(quitDayNum6)
+                            );
                         }
                     })
-                    .setNegativeButton("No",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog,int id) {
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
                             // if this button is clicked, just close
                             // the dialog box and do nothing
                             dialog.cancel();
                         }
                     });
-
             // create alert dialog
             AlertDialog alertDialog = alertDialogBuilder.create();
 

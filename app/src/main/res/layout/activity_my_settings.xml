@@ -36,12 +36,13 @@
         android:clickable="true"
         android:layout_alignTop="@+id/textView60"
         android:layout_alignLeft="@+id/imageButton20"
-        android:layout_alignStart="@+id/imageButton20" />
+        android:layout_alignStart="@+id/imageButton20"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Français "
+        android:text="@string/s3"
         android:id="@+id/textView40"
         android:layout_alignTop="@+id/imageButton15"
         android:layout_alignLeft="@+id/textView"
@@ -59,11 +60,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset Smoking Status"
+        android:text="@string/s6"
         android:id="@+id/textView42"
         android:layout_alignTop="@+id/imageButton16"
-        android:layout_alignLeft="@+id/imageButton16"
-        android:layout_alignStart="@+id/imageButton16" />
+        android:layout_toRightOf="@+id/imageButton3"
+        android:layout_toEndOf="@+id/imageButton3" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -78,11 +79,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Information"
+        android:text="@string/s4"
         android:id="@+id/textView58"
         android:layout_alignTop="@+id/imageButton20"
-        android:layout_alignLeft="@+id/imageButton15"
-        android:layout_alignStart="@+id/imageButton15" />
+        android:layout_alignLeft="@+id/textView40"
+        android:layout_alignStart="@+id/textView40" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -97,11 +98,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Personalization"
+        android:text="@string/s5"
         android:id="@+id/textView59"
         android:layout_alignTop="@+id/imageButton21"
-        android:layout_alignLeft="@+id/imageButton21"
-        android:layout_alignStart="@+id/imageButton21" />
+        android:layout_toRightOf="@+id/imageButton3"
+        android:layout_toEndOf="@+id/imageButton3" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -117,11 +118,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RESET EVERYTHING"
+        android:text="@string/s7"
         android:id="@+id/textView60"
         android:layout_alignTop="@+id/imageButton22"
-        android:layout_alignRight="@+id/imageButton22"
-        android:layout_alignEnd="@+id/imageButton22" />
+        android:layout_toRightOf="@+id/imageButton3"
+        android:layout_toEndOf="@+id/imageButton3" />
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -176,7 +177,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Home"
+        android:text="@string/aaaaaaa"
         android:id="@+id/textView"
         android:textColor="#ffffffff"
         android:layout_alignTop="@+id/textView2"
@@ -187,7 +188,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Awards"
+        android:text="@string/bbbbbbb"
         android:id="@+id/textView2"
         android:textColor="#ffffffff"
         android:layout_alignTop="@+id/textView3"
@@ -198,7 +199,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Progress"
+        android:text="@string/ccccccc"
         android:id="@+id/textView3"
         android:textColor="#ffffffff"
         android:layout_alignTop="@+id/textView5"
@@ -208,7 +209,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Quit help"
+        android:text="@string/ddddddd"
         android:id="@+id/textView4"
         android:textColor="#ffffffff"
         android:layout_alignTop="@+id/textView3"
@@ -219,7 +220,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="More"
+        android:text="@string/eeeeeee"
         android:id="@+id/textView5"
         android:textColor="#ffffffff"
         android:layout_below="@+id/imageButton4"
@@ -229,20 +230,18 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Now To Start Quit Smoking"
+        android:text="@string/s2"
         android:id="@+id/textView112"
         android:layout_alignTop="@+id/SetNowToStartQuitSmoking"
-        android:layout_toLeftOf="@+id/textView60"
-        android:layout_toStartOf="@+id/textView60"
-        android:layout_marginRight="33dp"
-        android:layout_marginEnd="33dp" />
+        android:layout_alignLeft="@+id/textView40"
+        android:layout_alignStart="@+id/textView40" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Set Quit Day"
+        android:text="@string/s"
         android:id="@+id/textView113"
         android:layout_alignTop="@+id/SetQuitDay"
-        android:layout_alignLeft="@+id/SetQuitDay"
-        android:layout_alignStart="@+id/SetQuitDay" />
+        android:layout_alignLeft="@+id/textView112"
+        android:layout_alignStart="@+id/textView112" />
 </RelativeLayout>

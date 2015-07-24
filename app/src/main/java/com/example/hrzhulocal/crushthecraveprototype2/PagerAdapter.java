@@ -3,6 +3,7 @@ package com.example.hrzhulocal.crushthecraveprototype2;
 
 /**
  * Created by hrzhulocal on 26/05/2015.
+ * Created for How to Use tab
  */
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
