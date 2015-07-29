@@ -16,6 +16,7 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,7 +58,8 @@ import org.json.JSONException;
 
 import bolts.Task;
 
-public class MainActivityHome extends ActionBarActivity {
+public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
+{
 //public class MainActivityHome extends MyPersonalization {
     Button button;
     ImageButton imageButton;
@@ -70,11 +72,11 @@ public class MainActivityHome extends ActionBarActivity {
     long quitDayNum6 = -1;
     public static long daysInBetween = 0;
     public static long daysInBetween2 = 0;
-    int moneySaved = 0;
+    //int moneySaved = 0;
     long temp = 0;
 
     public static long smokeFreeDay = 0;
-    public static long smokeFreeDayNum = 0;
+    public static long smokeFreeDayNum= 0;
 
     //Count number of time user click crave or smoke
     public static int theNumberOfCrave = 0;       //theNumberOfCrave is always the total and it never decrease
@@ -146,7 +148,17 @@ public class MainActivityHome extends ActionBarActivity {
             // record the fact that the app has been started at least once
             settings.edit().putBoolean("my_first_time", false).commit();
         }
+        if( mCurrentPhotoPath != null) {
+          //  Toast.makeText(getApplicationContext(), "sss"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
 
+            loadImageFile();
+        }
+        else{
+          //  Toast.makeText(getApplicationContext(), "qqqq"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+
+            ListenerSetDesktopPhoto();
+
+        }
         /*if(isFirstTimeUserOpenTheApp2 == 1){
             Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
             isFirstTimeUserOpenTheApp2 = 0;
@@ -190,6 +202,7 @@ public class MainActivityHome extends ActionBarActivity {
         }
             //****************
             loadDate();
+            loadSetUpInformation();
             //****************
             //total days pass since user installed the app
             daysInBetween = (quitDayNum - startDayNum) / (24 * 60 * 60 * 1000);
@@ -208,27 +221,24 @@ public class MainActivityHome extends ActionBarActivity {
             addListenerOnMoreImageButton();
             //SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
             //final_data22 = sp.getString("FINAL_DATA22", final_data22);
-            myPersonalization.setText(final_data22);
 
-            myMessage.setText("startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
-                            + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
-                            + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate
-            );
-            moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
+        myPersonalization.setText(final_data22);
 
-            //make sure money is in two decimal places
-            NumberFormat formatter = new DecimalFormat("#0.00");
-            if (quitDayNum6 != -1) {
+        myMessage.setText("startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
+                        + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
+                        + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate
+        );
+        moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
+
+        if (quitDayNum6 != -1) {
+                //two decimal places
+                NumberFormat formatter = new DecimalFormat("#0.00");
+                //if(formatter.format(moneySavedTotal == null))
                 moneySaved.setText("Money saved $" + formatter.format(moneySavedTotal));
                 noSmokedDay.setText("Number of smoke-free day " + smokeFreeDay);
             }
-            ListenerSetDesktopPhoto();
-            moneySaved.refreshDrawableState();
+            //moneySaved.refreshDrawableState();
             isFirstTimeUserOpenTheApp2 = 1;
-
-        if( mCurrentPhotoPath != null) {
-            loadImageFile();
-        }
         //dispatchTakePictureIntent();
         }
         /*else{
@@ -261,7 +271,6 @@ public class MainActivityHome extends ActionBarActivity {
                 photoFile = createImageFile();
             } catch (IOException ex) {
                 // Error occurred while creating the File
-
             }
             // Continue only if the File was successfully created
             if (photoFile != null) {
@@ -283,22 +292,24 @@ public class MainActivityHome extends ActionBarActivity {
                 storageDir      /* directory */
         );
         // Save a file: path for use with ACTION_VIEW intents
-        mCurrentPhotoPath = "file:"+image.getAbsolutePath();
+        mCurrentPhotoPath = image.getAbsolutePath();
         return image;
     }
     private void loadImageFile(){
-        File root = Environment.getExternalStorageDirectory();
+        /*//File root = Environment.getExternalStorageDirectory();
         ImageButton ib61 = (ImageButton) findViewById(R.id.imageButton61);
-        Bitmap bmap = BitmapFactory.decodeFile((root+mCurrentPhotoPath));
+        Bitmap bmap = BitmapFactory.decodeFile((String.valueOf(mCurrentPhotoPath)));
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bmap);
-        ib61.setBackgroundDrawable(bitmapDrawable);
+        ib61.setBackgroundDrawable(bitmapDrawable);*/
+        ImageButton ib61 = (ImageButton) findViewById(R.id.imageButton61);
+        ib61.setImageBitmap(BitmapFactory.decodeFile(String.valueOf(mCurrentPhotoPath)));
         Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
     }
 
     private void ListenerSetDesktopPhoto(){
         //For hold button in order to set desktop photo
         ImageButton ib = (ImageButton)findViewById(R.id.imageButton61);
-        ib.setOnTouchListener(new RepeatListener(400, 100, new OnClickListener() {
+        ib.setOnTouchListener(new RepeatListener(15000, 100, new OnClickListener() {
             @Override
             public void onClick(View view) {
                 // the code to execute repeatedly
@@ -331,7 +342,6 @@ public class MainActivityHome extends ActionBarActivity {
                     }
                     drawable = new BitmapDrawable(getResources(), bitmap);
                     iv61 =(ImageButton)findViewById(R.id.imageButton61);
-
 //                        bg.setBackgroundDrawable(drawable);
                     if(iv61 != null){
                         iv61.setImageDrawable(drawable);
@@ -392,7 +402,6 @@ public class MainActivityHome extends ActionBarActivity {
             return false;
         }
     }
-
     private void addListenerOnCRAVEButton() {
         //increment number of click
         final Context context = this;
@@ -855,7 +864,17 @@ public class MainActivityHome extends ActionBarActivity {
             saveDate();
         }
     }
+    private void loadSetUpInformation(){
+        SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
+        cigarSmokedPerDay = sp.getInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
+        numberOfCigarPerPack = sp.getInt("NUMBEROFCIGARPERPACK", numberOfCigarPerPack);
+        costPerPack = sp.getFloat("COSTPERPACK", costPerPack);
+
+        theNumberOfCrave = sp.getInt("Crave", theNumberOfCrave);
+        smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
+        mCurrentPhotoPath = sp.getString("HOMEIMAGE", mCurrentPhotoPath);
+    }
     //@Override
     protected void onPause() {
         super.onPause();
@@ -864,7 +883,6 @@ public class MainActivityHome extends ActionBarActivity {
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
     }
-
     //@Override
     protected void onResume() {
         super.onResume();

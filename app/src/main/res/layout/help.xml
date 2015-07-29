@@ -17,7 +17,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PLAY !"
+        android:text="@string/Jouer"
         android:id="@+id/button5"
         android:layout_below="@+id/TextView01"
         android:layout_centerHorizontal="true"

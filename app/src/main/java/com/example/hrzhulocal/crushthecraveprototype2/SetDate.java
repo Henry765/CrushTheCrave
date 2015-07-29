@@ -75,6 +75,12 @@ public class SetDate extends MainActivityHome {
                         public void onClick(DialogInterface dialog,int id) {
                             // if this button is clicked, just close
                             // the dialog box and do nothing
+
+                            TextView textView = (TextView) findViewById(R.id.textView41);
+
+                            textView.setText("quitDayNum6: " + quitDayNum6 + "\narrayList" + arrayListQuitNow
+                                            + "\nYou have set " + arrayListQuitNow.size() + " quit date(s) so far\n" + DateFormat.getDateTimeInstance().format(quitDayNum6)
+                            );
                             dialog.cancel();
                         }
                     });
@@ -134,6 +140,12 @@ public class SetDate extends MainActivityHome {
                         public void onClick(DialogInterface dialog, int id) {
                             // if this button is clicked, just close
                             // the dialog box and do nothing
+
+                            TextView textView = (TextView) findViewById(R.id.textView41);
+
+                            textView.setText("quitDayNum6: " + quitDayNum6 + "\narrayList" + arrayListQuitNow
+                                            + "\nYou have set " + arrayListQuitNow.size() + " quit date(s) so far\n" + DateFormat.getDateTimeInstance().format(quitDayNum6)
+                            );
                             dialog.cancel();
                         }
                     });

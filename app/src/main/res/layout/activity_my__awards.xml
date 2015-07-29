@@ -11,7 +11,9 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scrollbars="none"
-        android:fillViewport="false">
+        android:fillViewport="false"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true">
 
     <RelativeLayout
         android:id="@+id/MyAwardInnerRL"

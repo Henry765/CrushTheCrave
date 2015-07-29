@@ -32,12 +32,13 @@ public class SmokingTriggers extends SmokeActivity {
 
         //textView.setText(final_data.substring(6).relace("^", "\n"));
         //If the string is empty
+        Toast.makeText(getApplicationContext(), "final_data " + final_data, Toast.LENGTH_LONG).show();
+
         if(final_data == null ) {
             //do nothing
         }
         else{
             textView.setText(final_data.replace("^", "\n"));
-
         }
         Toast.makeText(getApplicationContext(), "isFirstTimeOpen " + isFirstTimeOpen, Toast.LENGTH_LONG).show();
 

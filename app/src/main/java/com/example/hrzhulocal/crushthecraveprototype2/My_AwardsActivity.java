@@ -55,13 +55,13 @@ public class My_AwardsActivity extends MainActivityHome {
         ImageButton ib56 = (ImageButton) findViewById(R.id.imageButton56);
         ImageButton ib57 = (ImageButton) findViewById(R.id.imageButton57);
 
-        RelativeLayout rl = (RelativeLayout) findViewById(R.id.MyAwardInnerRL);
+//        RelativeLayout rl = (RelativeLayout) findViewById(R.id.MyAwardInnerRL);
 
         ImageButton fbIDbetterHeart = (ImageButton) findViewById(R.id.fbIDbetterHeart);
         ImageButton fbIDbetterHeart2 = (ImageButton) findViewById(R.id.fbIDbetterHeart2);
 
         ImageView iv5 = (ImageView) findViewById(R.id.imageView5);
-        rl.getLayoutParams().height = 500;
+   //     rl.getLayoutParams().height = 400;
         //setImageButtonEnabled(this, false, ib33, R.id.imageButton33);
         /*setImageButtonEnabled(this, false, fbShareweek1, R.drawable.btnsighup_new);
         setImageButtonEnabled(this, false, fbShareweek3, R.drawable.btnsighup_new);

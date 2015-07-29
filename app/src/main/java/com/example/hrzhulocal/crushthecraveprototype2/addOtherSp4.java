@@ -29,12 +29,13 @@ public class addOtherSp4 extends SmokeActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_other_sp4);
 
-        final EditText message7 = (EditText) findViewById(R.id.editText);
         ImageButton saveSp4 = (ImageButton) findViewById(R.id.imageButton31);
         saveSp4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //addNewText4 = true;
+                EditText message7 = (EditText) findViewById(R.id.editText);
+                addNewText4 = 1;
                 addOther4 = message7.getText().toString();
                 //Message4 = message7.getText().toString();
                // Message4 = sp4.getSelectedItem().toString();
@@ -50,6 +51,7 @@ public class addOtherSp4 extends SmokeActivity {
                         osw.write(addOther4);
                         osw.flush();
                         osw.close();
+                        Toast.makeText(getBaseContext(), "addNewText4 in SP4" +addNewText4 , Toast.LENGTH_LONG).show();
 
                     } catch (IOException e) {
                         //TODO Auto-generated catch block
@@ -60,6 +62,8 @@ public class addOtherSp4 extends SmokeActivity {
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
+                Message4 = addOther4;
+
                 Intent intent = new Intent(context, SmokeActivity.class);
                 startActivity(intent);
 
@@ -105,7 +109,7 @@ public class addOtherSp4 extends SmokeActivity {
                 startActivity(intent);
             }
         });*/
-        Message4 = final_dataSP4;
-        Toast.makeText(getBaseContext(), "Data saved be2" + final_dataSP4, Toast.LENGTH_SHORT).show();
+        //Message4 = final_dataSP4;
+        //Toast.makeText(getBaseContext(), "Data saved be2" + final_dataSP4, Toast.LENGTH_SHORT).show();
     }
 }

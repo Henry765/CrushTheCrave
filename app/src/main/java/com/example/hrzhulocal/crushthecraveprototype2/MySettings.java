@@ -20,7 +20,7 @@ import android.util.Log;
 
 public class MySettings extends More /*FragmentActivity*/ {
     Button button;
-    public static int toggle = 1; //1 is english and two is French
+    public static int toggle = 2; //1 is english and two is French
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

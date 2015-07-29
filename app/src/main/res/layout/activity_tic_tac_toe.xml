@@ -223,14 +223,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NEW GAME"
+                android:text="@string/nouveau"
                 android:id="@+id/button20"
                 android:layout_column="0" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Play with AI"
+                android:text="@string/kjib"
                 android:id="@+id/button2"
                 android:layout_column="2" />
         </TableRow>

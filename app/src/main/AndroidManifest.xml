@@ -312,14 +312,6 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
         </activity>
         <activity
-            android:name=".HandlingSlips"
-            android:label="@string/title_activity_handling_slips"
-            android:parentActivityName=".Quit_Help" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
-        </activity>
-        <activity
             android:name=".MyPersonalization"
             android:label="@string/title_activity_my_personalization"
             android:parentActivityName=".More" >

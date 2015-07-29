@@ -4,27 +4,26 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.os.Environment;
-import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 // below line was like public class SmokeActivity extends ActionBarActivity {
@@ -33,9 +32,29 @@ public class SmokeActivity extends MainActivityHome {
 
     Button save, load;
     EditText message, message2, message3;
-    public static String Message, Message2, Message3, MESSAGE_TOTAL, Message4, Message5, Message6;
+    String Message, Message2, Message3;
+    public static String MESSAGE_TOTAL, Message4, Message5, Message6;
     Spinner sp4, sp5, sp6;
     int data_block = 100;
+    //Linked list for My Smoking Triggers
+    public String triggerEntry;
+    public String with;
+    public String at;
+    public String feelings;
+
+    //reference the next link
+    /*public SmokeActivity next;
+
+    public SmokeActivity(String triggerEntry){
+        this.triggerEntry = triggerEntry;
+    }
+
+    public void display(){
+        Toast.makeText(getBaseContext(), "triggerEntry;  "+triggerEntry, Toast.LENGTH_SHORT).show();
+    }
+    public String toString(){
+        return triggerEntry;
+    }*/
 
     protected static String final_data;
     protected static String[] mySmokingTriggers = new String [250];
@@ -45,18 +64,16 @@ public class SmokeActivity extends MainActivityHome {
     public static String final_dataSP5 = "";
     public static String final_dataSP6 = "";
 
+
     public static String addOther5;
     public static String addOther6;
     public static String addOther4;
-
 
     //boolean does not work for inside an onclick instener and try catch block
     //so I use 1 for true and 0 for false
     public static int addNewText4 = 0;
     public static int addNewText5 = 0;
     public static int addNewText6 = 0;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,177 +91,11 @@ public class SmokeActivity extends MainActivityHome {
         TextView saveSp4 = (TextView) findViewById(R.id.textView74);
 
         final TextView textView = (TextView) findViewById(R.id.textView23);
-
-        // CLEAR the record your triggers section
-        //if(!addNewText4) {addOther4 = null;}
-        //if(!addNewText5) {addOther5 = null;}
-        //if(!addNewText6) {addOther6 = null;}
-       // addOther4 = null;
-        //addOther5 = null;
-        //addOther6 = null;
+        Toast.makeText(getBaseContext(), "addNewText4" +addNewText4 , Toast.LENGTH_LONG).show();
 
         //final TextView textView = (TextView) findViewById(R.id.textView24);
         /*for (int i = 0; i < 250; i++) {*/
 /***********************************************************ADD another text only*/
-        Message4 = "";
-
-        if(addNewText4 == 0) {
-            try {
-                //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                FileInputStream fis = openFileInput("SP4.txt");
-                //5. Get an object of the InputStreamReader class .
-                InputStreamReader isr = new InputStreamReader(fis);
-                char[] data = new char[data_block];
-                int size;
-                //there is 80 character, this size will return into the variable size
-                try {
-                    while ((size = isr.read(data)) > 0) {
-                        //copy each string of data in this string read_data
-                        String read_data = String.copyValueOf(data, 0, size);
-                        //attach each piece of read_data the final string
-                        final_dataSP4 = read_data;
-                        data = new char[data_block];
-                        Message4 = final_dataSP4;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-        }
-        if(addNewText5 == 0) {
-            Message5 = "";
-            try {
-                //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                FileInputStream fis = openFileInput("SP5.txt");
-                //5. Get an object of the InputStreamReader class .
-                InputStreamReader isr = new InputStreamReader(fis);
-                char[] data = new char[data_block];
-                int size;
-                //there is 80 character, this size will return into the variable size
-                try {
-                    while ((size = isr.read(data)) > 0) {
-                        //copy each string of data in this string read_data
-                        String read_data = String.copyValueOf(data, 0, size);
-                        //attach each piece of read_data the final string
-                        final_dataSP5 = read_data;
-                        data = new char[data_block];
-                        Message5 = final_dataSP5;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-
-        if(addNewText6 == 0) {
-            Message6 = "";
-            try {
-                //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                FileInputStream fis = openFileInput("SP6.txt");
-                //5. Get an object of the InputStreamReader class .
-                InputStreamReader isr = new InputStreamReader(fis);
-                char[] data = new char[data_block];
-                int size;
-                //there is 80 character, this size will return into the variable size
-                try {
-                    while ((size = isr.read(data)) > 0) {
-                        //copy each string of data in this string read_data
-                        String read_data = String.copyValueOf(data, 0, size);
-                        //attach each piece of read_data the final string
-                        final_dataSP6 = read_data;
-                        data = new char[data_block];
-                        Message6 = final_dataSP6;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-        Toast.makeText(getBaseContext(), "addnewtext before "+addNewText4, Toast.LENGTH_SHORT).show();
-
-        save.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getBaseContext(), "addnewtext "+addNewText4, Toast.LENGTH_SHORT).show();
-
-                try {
-                    // create a condition for add other text to the smoking triggers,
-                    // if user did not choose add other for each of the 3 spinner, then get the item's string
-                    if(addNewText4 == 0) {
-                        Message4 = sp4.getSelectedItem().toString();
-                    }
-                    if(addNewText5 == 0) {
-                        Message5 = sp5.getSelectedItem().toString();
-                    }
-                    if(addNewText6 == 0) {
-                        Message6 = sp6.getSelectedItem().toString();
-                    }
-                    MESSAGE_TOTAL = "I am with: "+Message4 + "  I am at: " +Message5 +"  I am feeling: "+Message6+"\n";
-                    //1. Create an object of the FileOutputStream class using the openFileOutput method.
-                    //MODE_WORLD_READABLE Allows to write permission to all the applications
-                    FileOutputStream fou = openFileOutput("text13.txt", MODE_APPEND);
-                    //2. Get an object of the OutPutStreamWriter class using the FileOutputStream object.
-                    OutputStreamWriter osw = new OutputStreamWriter(fou);
-                    try {
-                        //3. Write the data
-                        osw.write(MESSAGE_TOTAL);
-                        osw.flush();
-                        osw.close();
-
-                        Toast.makeText(getBaseContext(), "Data saved", Toast.LENGTH_SHORT).show();
-
-                    } catch (IOException e) {
-                        //TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-                } catch (FileNotFoundException e) {
-                    // TODO Auto-generated catch block
-                    e.printStackTrace();
-                }
-            }
-        });
-        load.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                try {
-                    //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                    FileInputStream fis = openFileInput("text13.txt");
-                    //5. Get an object of the InputStreamReader class .
-                    InputStreamReader isr = new InputStreamReader(fis);
-                    char[] data = new char[data_block];
-                    final_data = "";
-                    int size;
-                    //there is 80 character, this size will return into the variable size
-                    try {
-                        while ((size = isr.read(data)) > 0) {
-                            //copy each string of data in this string read_data
-                            String read_data = String.copyValueOf(data, 0, size);
-                            //attach each piece of read_data the final string
-                            final_data += read_data;
-                            data = new char[data_block];
-                        }
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-                Intent intent = new Intent(context, SmokingTriggers.class);
-                startActivity(intent);
-            }
-        });
 
         sp4.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -254,10 +105,12 @@ public class SmokeActivity extends MainActivityHome {
                     addNewText4 = 1;
                     Intent intent = new Intent(context, addOtherSp4.class);
                     startActivity(intent);
+                    Message4 = addOther4;
+
                 }
                 else{
                     //if user did not choose add other item then reset addNewText as false
-                    addNewText4 = 1;
+                    addNewText4 = 0;
                 }
             }
 
@@ -303,10 +156,170 @@ public class SmokeActivity extends MainActivityHome {
 
         });
 
+        Message4 = "";
+        //if(addNewText4 == 0) {
+            try {
+                //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
+                FileInputStream fis = openFileInput("SP4.txt");
+                //5. Get an object of the InputStreamReader class .
+                InputStreamReader isr = new InputStreamReader(fis);
+                char[] data = new char[data_block];
+                int size;
+                //there is 80 character, this size will return into the variable size
+                try {
+                    while ((size = isr.read(data)) > 0) {
+                        //copy each string of data in this string read_data
+                        String read_data = String.copyValueOf(data, 0, size);
+                        //attach each piece of read_data the final string
+                        final_dataSP4 = read_data;
+                        data = new char[data_block];
+                        Message4 = final_dataSP4;
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+        //}
+        Toast.makeText(getBaseContext(), "Data saved be1" + Message4, Toast.LENGTH_SHORT).show();
+        Message5 = "";
+        //if(addNewText5 == 0) {
+        try {
+            //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
+            FileInputStream fis = openFileInput("SP5.txt");
+            //5. Get an object of the InputStreamReader class .
+            InputStreamReader isr = new InputStreamReader(fis);
+            char[] data = new char[data_block];
+            int size;
+            //there is 80 character, this size will return into the variable size
+            try {
+                while ((size = isr.read(data)) > 0) {
+                    //copy each string of data in this string read_data
+                    String read_data = String.copyValueOf(data, 0, size);
+                    //attach each piece of read_data the final string
+                    final_dataSP5 = read_data;
+                    data = new char[data_block];
+                    Message5 = final_dataSP5;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        // }
+
+        Message6 = "";
+        //if(addNewText6 == 0) {
+        try {
+            //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
+            FileInputStream fis = openFileInput("SP6.txt");
+            //5. Get an object of the InputStreamReader class .
+            InputStreamReader isr = new InputStreamReader(fis);
+            char[] data = new char[data_block];
+            int size;
+            //there is 80 character, this size will return into the variable size
+            try {
+                while ((size = isr.read(data)) > 0) {
+                    //copy each string of data in this string read_data
+                    String read_data = String.copyValueOf(data, 0, size);
+                    //attach each piece of read_data the final string
+                    final_dataSP6 = read_data;
+                    data = new char[data_block];
+                    Message6 = final_dataSP6;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        //  }
+        Toast.makeText(getBaseContext(), "addnewtext before "+addNewText4, Toast.LENGTH_SHORT).show();
+        save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    // create a condition for add other text to the smoking triggers,
+                    // if user did not choose add other for each of the 3 spinner, then get the item's string
+                    if (addNewText4 == 0) {
+                        Message4 = sp4.getSelectedItem().toString();
+                    }
+                    //if (addNewText5 == 0) {
+                    Message5 = sp5.getSelectedItem().toString();
+                    //}
+                    //if (addNewText6 == 0) {
+                    Message6 = sp6.getSelectedItem().toString();
+                    //}
+                    ////////////////////////// MESSAGE_TOTAL = "I am with: " + Message4 + "  I am at: " + Message5 + "  I am feeling: " + Message6 + "\n";
+                    MESSAGE_TOTAL = "I am with: " + Message4 + " I am at: " + Message5 + " I am feeling: " + Message6 + "\n";
+                    //1. Create an object of the FileOutputStream class using the openFileOutput method.
+                    //MODE_WORLD_READABLE Allows to write permission to all the applications
+                    FileOutputStream fou = openFileOutput("text20.txt", MODE_APPEND);
+                    //2. Get an object of the OutPutStreamWriter class using the FileOutputStream object.
+                    OutputStreamWriter osw = new OutputStreamWriter(fou);
+                    try {
+                        //3. Write the data
+                        osw.write(MESSAGE_TOTAL);
+                        osw.flush();
+                        osw.close();
+
+                        Toast.makeText(getBaseContext(), "Data saved", Toast.LENGTH_SHORT).show();
+
+                    } catch (IOException e) {
+                        //TODO Auto-generated catch block
+                        e.printStackTrace();
+                    }
+
+                } catch (FileNotFoundException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+
+        });
+        load.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
+                    FileInputStream fis = openFileInput("text20.txt");
+                    //5. Get an object of the InputStreamReader class .
+                    InputStreamReader isr = new InputStreamReader(fis);
+                    char[] data = new char[data_block];
+                    final_data = "";
+                    int size;
+                    //there is 80 character, this size will return into the variable size
+                    try {
+                        while ((size = isr.read(data)) > 0) {
+                            //copy each string of data in this string read_data
+                            String read_data = String.copyValueOf(data, 0, size);
+                            //attach each piece of read_data the final string
+                            final_data += read_data;
+                            data = new char[data_block];
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                Intent intent = new Intent(context, SmokingTriggers.class);
+                startActivity(intent);
+            }
+        });
+
  //***************************************************************************/
+
         Random rand = new Random();
 
-        int n = rand.nextInt(24)+1;           // Generate Random number to switch between cases
+        int n = rand.nextInt(24)+1;           // Generate Random number between 1 to 45
         int n2 = rand.nextInt(29)+1;
         int n3 = rand.nextInt(7)+1;
         int n4 = rand.nextInt(3)+1;
@@ -501,9 +514,26 @@ public class SmokeActivity extends MainActivityHome {
         addListenerOnQuitHelpImageButton();
         addListenerOnMoreImageButton();
 
-        addListenerOnSmokingTriggers();
+        //addListenerOnSmokingTriggers();
     }
-    private void addListenerOnSmokingTriggers(){
+    // add items into spinner dynamically
+    public void addItemsOnSpinner2() {
+
+        sp4 = (Spinner) findViewById(R.id.spinner4);
+        List<String> list = new ArrayList<String>();
+        list.add("list 1");
+        list.add("list 2");
+        list.add("list 3");
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_spinner_item, list);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sp4.setAdapter(dataAdapter);
+    }
+    public void addListenerOnSpinnerItemSelection() {
+        sp4 = (Spinner) findViewById(R.id.spinner4);
+        sp4.setOnItemSelectedListener(new CustomOnItemSelectedListener());
+    }
+    public void addListenerOnSmokingTriggers(){
         final Context context = this;
         button = (Button) findViewById(R.id.button3);
 
@@ -514,7 +544,6 @@ public class SmokeActivity extends MainActivityHome {
             }
         });
     }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

@@ -165,7 +165,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quit Hot Line"
+        android:text="@string/zxv"
         android:id="@+id/textView32"
         android:textColor="#ffffffff"
         android:layout_alignTop="@+id/textView33"
@@ -175,7 +175,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Quit Aids"
+        android:text="@string/vxcxz"
         android:id="@+id/textView33"
         android:layout_below="@+id/imageButton10"
         android:layout_centerHorizontal="true"
@@ -184,7 +184,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Crave Crushers"
+        android:text="@string/fgdbx"
         android:id="@+id/textView34"
         android:textColor="#ffffffff"
         android:layout_alignTop="@+id/textView33"
@@ -194,7 +194,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="My Quit Plan"
+        android:text="@string/ngh"
         android:id="@+id/textView35"
         android:textColor="#ffffffff"
         android:layout_below="@+id/imageButton12"
@@ -212,7 +212,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="How To Use"
+        android:text="@string/fvdb"
         android:id="@+id/textView111"
         android:layout_below="@+id/imageButton63"
         android:layout_centerHorizontal="true"
@@ -230,7 +230,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Health Calculators"
+        android:text="@string/ass"
         android:id="@+id/textView115"
         android:layout_alignTop="@+id/textView111"
         android:layout_alignRight="@+id/textView34"
