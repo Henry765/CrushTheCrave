@@ -151,11 +151,11 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             // record the fact that the app has been started at least once
             settings.edit().putBoolean("my_first_time", false).commit();
         }
-        if( mCurrentPhotoPath != null) {
+        //if( mCurrentPhotoPath != null) {
           //  Toast.makeText(getApplicationContext(), "sss"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+        //loadImageFile();
 
-            loadImageFile();
-        }
+        //}
 
           //  Toast.makeText(getApplicationContext(), "qqqq"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
 
@@ -360,9 +360,12 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                     drawable = new BitmapDrawable(getResources(), bitmap);
                     iv61 =(ImageButton)findViewById(R.id.imageButton61);
                         iv61.setBackgroundDrawable(drawable);
-                    if(iv61 != null){
+                    if(mCurrentPhotoPath != null){
                         //iv61.setImageDrawable(drawable);
-                        iv61.setBackgroundDrawable(drawable);
+                        //iv61.setBackgroundDrawable(drawable);
+
+                        loadImageFile();
+
                     }
                 }
         }

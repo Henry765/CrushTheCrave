@@ -1,6 +1,8 @@
 package com.example.hrzhulocal.crushthecraveprototype2;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
@@ -13,9 +15,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 
 import java.io.File;
+import java.text.DateFormat;
+import java.util.Calendar;
 import java.util.Locale;
 
 import android.util.Log;
+import android.widget.TextView;
 
 
 public class MySettings extends More /*FragmentActivity*/ {
@@ -37,6 +42,7 @@ public class MySettings extends More /*FragmentActivity*/ {
         addListenerOnMoreImageButton();
         addListenerOnHomeImageButton();
         ListenerChangeLanguage();
+        RESETEVERYTHING();
     }
     private void ListenerChangeLanguage() {
         ImageButton setEN_bt = (ImageButton) findViewById(R.id.imageButton15);
@@ -55,8 +61,7 @@ public class MySettings extends More /*FragmentActivity*/ {
                     //x%2 reminder to alternative languages
                 }
             });
-        } else
-        {
+        } else {
             toggle = 1;
             ImageButton setEN_btf = (ImageButton) findViewById(R.id.imageButton15);
 
@@ -122,11 +127,35 @@ public class MySettings extends More /*FragmentActivity*/ {
 
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG********************************
-                SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-                clearApplicationData();
-                sp.edit().clear().apply();
-                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG*********************************
+
+                AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                        context);
+                // set title
+                alertDialogBuilder.setTitle("Are you sure about this???");
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage("Do you want to reset all the data?")
+                        .setCancelable(false)
+                        .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG********************************
+                                SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+                                clearApplicationData();
+                                sp.edit().clear().apply();
+                                //********************WARNING DO NOT TOUCH THIS WILL RESET EVERYTIHNG*********************************
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, just close
+                                dialog.cancel();
+                            }
+                        });
+                // create alert dialog
+                AlertDialog alertDialog = alertDialogBuilder.create();
+
+                // show it
+                alertDialog.show();
             }
         });
     }
