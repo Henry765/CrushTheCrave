@@ -13,10 +13,14 @@ import android.graphics.Shader;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.androidplot.Plot;
@@ -47,6 +51,7 @@ public class MyProgress extends Fragment{
     private XYPlot plot;
     //create one getTimeAndCount instance to extends two classes
     private MainActivityHome getTimeAndCount;
+
 
     //@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -97,7 +102,6 @@ public class MyProgress extends Fragment{
                 SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                 "Crave");
         LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
-        plot.getGraphWidget().setPaddingRight(1);
 
 
         LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
@@ -263,8 +267,9 @@ public class MyProgress extends Fragment{
 
 
 
-    public static class FragmentTwo extends Fragment {
+    public static class FragmentTwo extends MyProgress {
         private XYPlot plot2;
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -273,10 +278,24 @@ public class MyProgress extends Fragment{
     // initialize our XYPlot reference:
             plot2 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotTwo);
 
+            /*FragmentManager fm = getFragmentManager();
+            fm.beginTransaction()
+                    .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                    //.show()
+                    .commit();*/
+
+            //rl2.setVisibility(View.GONE);
+            //FragmentTwo.getView().setVisibility(View.GONE);
+            /*FragmentManager fm = getFragmentManager();
+            fm.beginTransaction()
+                    .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
+                    .hide
+                    .commit();*/
             // Create a couple arrays of y-values to plot:
             Number[] allowance = {10, 10, 10, 8, 8, 8, 8, 8, 8, 8, 6, 6, 6, 6};
             Number[] SMOKE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackSmoke[7],
                     MainActivityHome.TrackSmoke[8],
                     MainActivityHome.TrackSmoke[9],
@@ -287,6 +306,7 @@ public class MyProgress extends Fragment{
             };
             Number[] CRAVE = {
                     //86400000 in 24 hours
+                    0, 0, 0, 0, 0, 0, 0,
                     MainActivityHome.TrackCrave[7],
                     MainActivityHome.TrackCrave[8],
                     MainActivityHome.TrackCrave[9],
@@ -314,7 +334,6 @@ public class MyProgress extends Fragment{
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                     "Crave");
             LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
-            plot2.getGraphWidget().setPaddingRight(1);
 
 
             LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
@@ -376,7 +395,7 @@ public class MyProgress extends Fragment{
 
     }
 
-    public static class FragmentThree extends Fragment {
+    public static class FragmentThree extends FragmentTwo {
 
         private XYPlot plot3;
         @Override
@@ -493,7 +512,7 @@ public class MyProgress extends Fragment{
 
     }
 
-    public static class FragmentFour extends Fragment {
+    public static class FragmentFour extends FragmentThree {
         private XYPlot plot4;
 
         //@Override
@@ -612,7 +631,7 @@ public class MyProgress extends Fragment{
 
     }
 
-    public static class FragmentFive extends Fragment {
+    public static class FragmentFive extends FragmentFour {
         private XYPlot plot5;
 
         //@Override
@@ -732,7 +751,7 @@ public class MyProgress extends Fragment{
 
     }
 
-    public static class FragmentSix extends Fragment{
+    public static class FragmentSix extends FragmentFive{
         private XYPlot plot;
 
         //@Override
@@ -840,7 +859,7 @@ public class MyProgress extends Fragment{
 
     }
 
-    public static class FragmentSeven extends Fragment{
+    public static class FragmentSeven extends FragmentSix{
         private XYPlot plot;
 
         //@Override
@@ -945,7 +964,7 @@ public class MyProgress extends Fragment{
         }
     }
 
-    public static class FragmentEight extends Fragment{
+    public static class FragmentEight extends FragmentSeven{
         private XYPlot plot;
 
         //@Override

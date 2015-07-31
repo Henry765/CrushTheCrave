@@ -119,12 +119,9 @@ public class SetDate extends MainActivityHome {
                             editor.putStringSet("ArrayListkey", set);
                             editor.commit();*/
 
-
                             quitDayNum6 = quitDay.getTimeInMillis();
                             editor.putLong("QUITDAYNUM6", quitDayNum6);
                             editor.commit();
-
-
                             /*Date date = new Date(quitDayNum6);
                             DateFormat formatter = new SimpleDateFormat("HH:mm:ss:SSS");
                             String dateFormatted = formatter.format(date);*/
@@ -140,7 +137,6 @@ public class SetDate extends MainActivityHome {
                         public void onClick(DialogInterface dialog, int id) {
                             // if this button is clicked, just close
                             // the dialog box and do nothing
-
                             TextView textView = (TextView) findViewById(R.id.textView41);
 
                             textView.setText("quitDayNum6: " + quitDayNum6 + "\narrayList" + arrayListQuitNow

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -33,7 +34,9 @@ import android.view.View.OnClickListener;
 import android.content.Intent;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
@@ -153,12 +156,12 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
             loadImageFile();
         }
-        else{
+
           //  Toast.makeText(getApplicationContext(), "qqqq"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
 
             ListenerSetDesktopPhoto();
 
-        }
+
         /*if(isFirstTimeUserOpenTheApp2 == 1){
             Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
             isFirstTimeUserOpenTheApp2 = 0;
@@ -173,9 +176,12 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             startActivity(intent);
         }*/
             //set desktop photo
-            if (iv61 != null && drawable != null) {
+            /*if (iv61 != null && drawable != null) {
                 iv61.setImageDrawable(drawable);
-            }
+            }*/
+
+        //Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+        //startActivityForResult(i, 1);
         switch(TimeZoneOption)
         {
             case 0:
@@ -224,7 +230,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
         myPersonalization.setText(final_data22);
 
-        myMessage.setText("startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
+        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
                         + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
                         + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate
         );
@@ -261,25 +267,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
     //saveArray and loadArray found from
     //http://stackoverflow.com/questions/3876680/is-it-possible-to-add-an-array-or-object-to-sharedpreferences-on-android
 
-    static final int REQUEST_TAKE_PHOTO = 1;
-
-    private void dispatchTakePictureIntent() {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            // Create the File where the photo should go
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException ex) {
-                // Error occurred while creating the File
-            }
-            // Continue only if the File was successfully created
-            if (photoFile != null) {
-                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                        Uri.fromFile(photoFile));
-                startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);
-            }
-    }
-
     private File createImageFile() throws IOException {
         // Create an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
@@ -293,16 +280,47 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         );
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
+        Toast.makeText(getApplicationContext(), "kkh"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+
         return image;
     }
-    private void loadImageFile(){
-        /*//File root = Environment.getExternalStorageDirectory();
-        ImageButton ib61 = (ImageButton) findViewById(R.id.imageButton61);
+
+    /*private File SaveImageFile() throws IOException {
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        String imageFileName = "JPEG_" + timeStamp + "_";
+        FileOutputStream out = null;
         Bitmap bmap = BitmapFactory.decodeFile((String.valueOf(mCurrentPhotoPath)));
-        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bmap);
-        ib61.setBackgroundDrawable(bitmapDrawable);*/
+
+        try {
+            out = new FileOutputStream(imageFileName);
+            bmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
+            // PNG is a lossless format, the compression factor (100) is ignored
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }*/
+    private void loadImageFile(){
+        //File root = Environment.getExternalStorageDirectory();
+
+        File imgFile = new File(mCurrentPhotoPath);
         ImageButton ib61 = (ImageButton) findViewById(R.id.imageButton61);
-        ib61.setImageBitmap(BitmapFactory.decodeFile(String.valueOf(mCurrentPhotoPath)));
+        /*Bitmap bmap = BitmapFactory.decodeFile((String.valueOf(mCurrentPhotoPath)));
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bmap);
+        ib61.setBackgroundDrawable(bitmapDrawable);
+        ib61.setImageBitmap(BitmapFactory.decodeFile(String.valueOf(mCurrentPhotoPath)));*/
+        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+        BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), myBitmap);
+        ib61.setBackgroundDrawable(bitmapDrawable);
+        ib61.setImageBitmap(myBitmap);
+
         Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
     }
 
@@ -319,12 +337,11 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                 startActivityForResult(Intent.createChooser(intent, "Select Picture"), 0);
                 try {
                     createImageFile();
+                    // SaveImageFile();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-
-
         }));
     }
     @Override
@@ -342,9 +359,10 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                     }
                     drawable = new BitmapDrawable(getResources(), bitmap);
                     iv61 =(ImageButton)findViewById(R.id.imageButton61);
-//                        bg.setBackgroundDrawable(drawable);
+                        iv61.setBackgroundDrawable(drawable);
                     if(iv61 != null){
-                        iv61.setImageDrawable(drawable);
+                        //iv61.setImageDrawable(drawable);
+                        iv61.setBackgroundDrawable(drawable);
                     }
                 }
         }

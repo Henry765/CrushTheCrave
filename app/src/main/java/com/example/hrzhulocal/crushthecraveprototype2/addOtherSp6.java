@@ -18,6 +18,10 @@ import java.io.OutputStreamWriter;
 
 public class addOtherSp6 extends SmokeActivity {
 
+    public addOtherSp6(String triggerEntry) {
+        super(triggerEntry);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

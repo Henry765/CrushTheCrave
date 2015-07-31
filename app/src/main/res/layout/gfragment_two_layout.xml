@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/i2"
      >
 
     <com.androidplot.xy.XYPlot
@@ -27,4 +28,4 @@
         androidPlot.legendWidget.heightMetric.value="25dp"
         androidPlot.legendWidget.positionMetrics.anchor="right_bottom"
         androidPlot.graphWidget.gridLinePaint.color="#000000"/>
-</RelativeLayout>
+</LinearLayout>

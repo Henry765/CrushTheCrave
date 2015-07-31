@@ -213,7 +213,7 @@ public class CraveActivity extends MainActivityHome {
             myMessage.setText("Congratulations you have quit for one week. You can keep it going. Reward yourself");
             myPicture.setImageResource(R.drawable.istock_000019396482xsmall);
         }
-        else if ( daysInBetween > 8 && daysInBetween <= 14 ) {
+        else if ( daysInBetween >= 8 && daysInBetween <= 14 ) {
             switch(n5){
                 case 1: myMessage.setText("Smoking won't solve the problem or make the stress go away. Tell your quit buddy or a friend you are having a craving.");
                     myPicture.setImageResource(R.drawable.istock_000017329893xsmall);break;

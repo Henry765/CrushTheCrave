@@ -507,5 +507,11 @@
     <string name="klm">Progress</string>
     <string name="klpo">Quit help</string>
     <string name="kjlk">More</string>
+    <string name="kjl">Committed</string>
+    <string name="lkn">Quit Date</string>
+    <string name="lml">Day 1</string>
+    <string name="lkln">1 Week</string>
+    <string name="klln">3 Weeks</string>
+    <string name="lklnk">1 Month</string>
 
 </resources>

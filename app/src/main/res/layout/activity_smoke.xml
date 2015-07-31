@@ -69,9 +69,11 @@
         android:id="@+id/imageButton5"
         android:background="@drawable/tabquithelpline_sel"
         android:clickable="true"
-        android:layout_above="@+id/textView12"
-        android:layout_toRightOf="@+id/textView12"
-        android:layout_toEndOf="@+id/textView12" />
+        android:layout_alignTop="@+id/imageButton3"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6"
+        android:layout_marginLeft="21dp"
+        android:layout_marginStart="21dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -145,18 +147,6 @@
         android:layout_above="@+id/textView7"
         android:layout_centerHorizontal="true" />
 
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/as"
-        android:id="@+id/checkBox"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="65dp"
-        android:checked="false"
-        android:clickable="true"
-        android:textColor="#ffffffff" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -171,8 +161,9 @@
         android:layout_height="wrap_content"
         android:text="SAVE"
         android:id="@+id/button4"
-        android:layout_below="@+id/checkBox"
-        android:layout_centerHorizontal="true" />
+        android:layout_above="@+id/button3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="11dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -189,6 +180,7 @@
         android:entries="@array/I_am_with"
         android:prompt="@string/I_am_with_prompt"
         android:hint="I am with: "
+        android:textSize="50sp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
         android:layout_above="@+id/textView6"
@@ -204,6 +196,8 @@
         android:entries="@array/I_am_at"
         android:prompt="@string/I_am_at_prompt"
         android:textColor="#FFFFFF"
+        android:textSize="50sp"
+
         android:hint="I am at: "
         android:textColorHint="#FFFFFF"
         android:layout_centerVertical="true"
@@ -219,6 +213,8 @@
         android:entries="@array/I_am_feeling"
         android:prompt="@string/I_am_feeling_prompt"
         android:textColor="#FFFFFF"
+        android:textSize="50sp"
+
         android:hint="I am feeling:"
         android:textColorHint="#FFFFFF"
         android:layout_below="@+id/textView6"

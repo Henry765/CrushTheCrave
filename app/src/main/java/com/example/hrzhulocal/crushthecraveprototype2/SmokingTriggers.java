@@ -18,6 +18,10 @@ public class SmokingTriggers extends SmokeActivity {
 
     public static boolean isFirstTimeOpen = true;
 
+    public SmokingTriggers() {
+        super();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,8 +44,16 @@ public class SmokingTriggers extends SmokeActivity {
         else{
             textView.setText(final_data.replace("^", "\n"));
         }
-        Toast.makeText(getApplicationContext(), "isFirstTimeOpen " + isFirstTimeOpen, Toast.LENGTH_LONG).show();
+        LinkedList theLinkedList = new LinkedList();
 
+        if(final_data == null){
+            theLinkedList.insertFirstLink(MESSAGE_TOTAL);
+        }
+        else{
+            theLinkedList.append(MESSAGE_TOTAL);
+        }
+        //textView.setText("entry 1 "+theLinkedList.Head);
+        Toast.makeText(getApplicationContext(), "size of linked list " + LinkedListCount, Toast.LENGTH_LONG).show();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -72,7 +84,8 @@ public class SmokingTriggers extends SmokeActivity {
 
     private void loadData2() {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        isFirstTimeOpen = sp.getBoolean("ISFIRSTTIMEOPEN", isFirstTimeOpen);    }
+        isFirstTimeOpen = sp.getBoolean("ISFIRSTTIMEOPEN", isFirstTimeOpen);
+    }
 
     @Override
     protected void onPause() {

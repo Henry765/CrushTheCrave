@@ -24,6 +24,10 @@ import java.io.OutputStreamWriter;
 
 public class addOtherSp4 extends SmokeActivity {
 
+    public addOtherSp4(String triggerEntry) {
+        super(triggerEntry);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +43,6 @@ public class addOtherSp4 extends SmokeActivity {
                 addOther4 = message7.getText().toString();
                 //Message4 = message7.getText().toString();
                // Message4 = sp4.getSelectedItem().toString();
-
                 try {
                     //1. Create an object of the FileOutputStream class using the openFileOutput method.
                     //MODE_WORLD_READABLE Allows to write permission to all the applications
@@ -66,7 +69,6 @@ public class addOtherSp4 extends SmokeActivity {
 
                 Intent intent = new Intent(context, SmokeActivity.class);
                 startActivity(intent);
-
             }
 
         });
