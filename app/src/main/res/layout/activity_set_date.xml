@@ -130,7 +130,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Our evidence suggest that setting a quit date in the next 2-6 weeks is the way to go."
+        android:text="@string/kjnhklj"
         android:id="@+id/textView39"
         android:layout_marginTop="107dp"
         android:textColor="#ffffffff"

@@ -125,7 +125,7 @@ public class MySettings extends More /*FragmentActivity*/ {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
-        button.setOnClickListener(new View.OnClickListener() {
+        imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
                 AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(

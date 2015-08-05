@@ -3,11 +3,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
 	android:background="@drawable/bg" android:layout_width="fill_parent"
 	android:layout_height="fill_parent" android:orientation="vertical"
-    android:weightSum="1">
+    android:weightSum="1"
+    >
 
     <TextView android:id="@+id/Score" android:layout_width="186dp"
 		android:layout_height="wrap_content" android:text="@string/Score"
-		android:textColor="#ff25ff06" android:textStyle="bold" android:textSize="75px"
+		android:textColor="#FFFFFFFF" android:textStyle="bold" android:textSize="75px"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/Life"
         android:layout_toStartOf="@+id/Life">
@@ -16,7 +17,7 @@
 
     <TextView android:id="@+id/Life" android:layout_width="126dp"
         android:layout_height="wrap_content" android:text="@string/Life"
-        android:textColor="#ff25ff06" android:textSize="75px" android:textStyle="bold"
+        android:textColor="#ffffffff" android:textSize="75px" android:textStyle="bold"
         android:layout_gravity="right"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/gridview"
@@ -25,7 +26,6 @@
         android:layout_marginEnd="64dp">
 
     </TextView>
-
     <GridView android:id="@+id/gridview"
         android:verticalSpacing="0px" android:horizontalSpacing="0px"
 		android:stretchMode="columnWidth" android:gravity="center"

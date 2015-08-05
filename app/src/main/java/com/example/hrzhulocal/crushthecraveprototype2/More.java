@@ -31,10 +31,9 @@ import android.support.v4.view.ViewPager;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
-
 /******************************************************************************
- *  Crush The Crave Version 2.3 beta
- *  Rebuilt by Henry Zhu, contact email: hrzhu@uwaterloo.ca
+ *  Crush The Crave Version 2.3
+ *  Native rebuilt by Henry Zhu, contact email: hrzhu@uwaterloo.ca
  *  For the University Of Waterloo Propel Centre For Population Health Impact
  ******************************************************************************/
 public class More extends MainActivityHome {
@@ -43,11 +42,8 @@ public class More extends MainActivityHome {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
-
       //  TextView myMessage = (TextView) findViewById(R.id.textView20);
-
          //       myMessage.setMovementMethod(LinkMovementMethod.getInstance());
-
         addListenerOnHomeImageButton();
         addListenerOnAwardImageButton();
         addListenerOnProgressImageButton();
@@ -58,6 +54,17 @@ public class More extends MainActivityHome {
         listeneropenTW();
         listeneropenCTC();
         listeneropenPLAY();
+        listenerFeedBack();
+    }
+    private void listenerFeedBack(){
+        imageButton = (ImageButton) findViewById(R.id.imageButton54);
+
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent intent = new Intent(context, Feedback.class);
+                startActivity(intent);
+            }
+        });
     }
     private void listeneropenCTC(){
         imageButton = (ImageButton) findViewById(R.id.imageButton41);
@@ -152,7 +159,6 @@ public class More extends MainActivityHome {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

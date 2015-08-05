@@ -2,10 +2,10 @@
 <RelativeLayout android:id="@+id/widget32"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
 	xmlns:android="http://schemas.android.com/apk/res/android"
-	android:background="@drawable/background">
+	android:background="@drawable/gamebackground">
 
 	<TextView
-		android:text="To play this mini game Whac-A-Cigarette, you have to take the mole when it appears on the hole, if you are wrong for 3 times the game ends, otherwise the score will increase by one. Have Fun !"
+		android:text="@string/afsds"
 		android:id="@+id/TextView01" android:layout_width="wrap_content"
 		android:layout_height="wrap_content" android:textSize="70px"
 		android:textStyle="bold" android:textColor="#000"

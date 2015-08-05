@@ -208,7 +208,7 @@ public class SmokeActivity extends MainActivityHome {
                     myPicture.setImageResource(R.drawable.istock_000017465619small);break;
             }
         }
-        else if ( daysInBetween > 15 && daysInBetween < 21 )
+        else if ( daysInBetween >= 15 && daysInBetween < 21 )
         {
             myMessage.setText("Challenge all of your negative thoughts. Smoking does not solve problems.");
             myPicture.setImageResource(R.drawable.istock_000011899337xsmall);
@@ -222,7 +222,7 @@ public class SmokeActivity extends MainActivityHome {
             myMessage.setText("Don't quit quitting.");
             myPicture.setImageResource(R.drawable.istock_000018180137xsmall);
         }
-        else if ( daysInBetween2 == 0 /*before quit day*/)
+        else if ( daysInBetween2 == 0  && quitDayNum6 != -1/*before quit day*/)
         {
             switch(n2){
                 case 1: myMessage.setText("Smoking while pregnant increases the risk of stillbirths and Sudden Infant Death Syndrome.");
@@ -382,30 +382,30 @@ public class SmokeActivity extends MainActivityHome {
 
         Message4 = "";
         //if(addNewText4 == 0) {
+        try {
+            //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
+            FileInputStream fis = openFileInput("SP4.txt");
+            //5. Get an object of the InputStreamReader class .
+            InputStreamReader isr = new InputStreamReader(fis);
+            char[] data = new char[data_block];
+            int size;
+            //there is 80 character, this size will return into the variable size
             try {
-                //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                FileInputStream fis = openFileInput("SP4.txt");
-                //5. Get an object of the InputStreamReader class .
-                InputStreamReader isr = new InputStreamReader(fis);
-                char[] data = new char[data_block];
-                int size;
-                //there is 80 character, this size will return into the variable size
-                try {
-                    while ((size = isr.read(data)) > 0) {
-                        //copy each string of data in this string read_data
-                        String read_data = String.copyValueOf(data, 0, size);
-                        //attach each piece of read_data the final string
-                        final_dataSP4 = read_data;
-                        data = new char[data_block];
-                        Message4 = final_dataSP4;
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                while ((size = isr.read(data)) > 0) {
+                    //copy each string of data in this string read_data
+                    String read_data = String.copyValueOf(data, 0, size);
+                    //attach each piece of read_data the final string
+                    final_dataSP4 = read_data;
+                    data = new char[data_block];
+                    Message4 = final_dataSP4;
                 }
-
-            } catch (FileNotFoundException e) {
+            } catch (IOException e) {
                 e.printStackTrace();
             }
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
         //}
         Toast.makeText(getBaseContext(), "Data saved be1" + Message4, Toast.LENGTH_SHORT).show();
         Message5 = "";
@@ -471,9 +471,9 @@ public class SmokeActivity extends MainActivityHome {
                 try {
                     // create a condition for add other text to the smoking triggers,
                     // if user did not choose add other for each of the 3 spinner, then get the item's string
-                    if (addNewText4 == 0) {
+                    //if (addNewText4 == 0) {
                         Message4 = sp4.getSelectedItem().toString();
-                    }
+                    //}
                     //if (addNewText5 == 0) {
                     Message5 = sp5.getSelectedItem().toString();
                     //}
@@ -485,18 +485,18 @@ public class SmokeActivity extends MainActivityHome {
                     LinkedList theLinkedList = new LinkedList();
 
                     if(final_data == null){
-                        theLinkedList.insertFirstLink(MESSAGE_TOTAL);
+                        theLinkedList.prepend(MESSAGE_TOTAL);
                     }
                     else{
                         theLinkedList.append(MESSAGE_TOTAL);
                     }
-                    myMessage.setText("jk"+theLinkedList.append(MESSAGE_TOTAL));
+                    myMessage.setText("size: "+theLinkedList.append(MESSAGE_TOTAL)+"\nHead: "+theLinkedList.Head+"\nTail: "+theLinkedList.Tail+"\nCurr: "+theLinkedList.Current+"\nFind:"+theLinkedList.find(MESSAGE_TOTAL));
                     //            triggerEntry = MESSAGE_TOTAL;
 //                    SmokeActivity linkedListRef = currentLink;
 //                    currentLink = currentLink.next;
                     //1. Create an object of the FileOutputStream class using the openFileOutput method.
                     //MODE_WORLD_READABLE Allows to write permission to all the applications
-                    FileOutputStream fou = openFileOutput("text23.txt", MODE_APPEND);
+                    FileOutputStream fou = openFileOutput("text32.txt", MODE_APPEND);
                     //2. Get an object of the OutPutStreamWriter class using the FileOutputStream object.
                     OutputStreamWriter osw = new OutputStreamWriter(fou);
                     try {
@@ -504,7 +504,6 @@ public class SmokeActivity extends MainActivityHome {
                         osw.write(MESSAGE_TOTAL);
                         osw.flush();
                         osw.close();
-
                         Toast.makeText(getBaseContext(), "Data saved", Toast.LENGTH_SHORT).show();
 
                     } catch (IOException e) {
@@ -525,7 +524,7 @@ public class SmokeActivity extends MainActivityHome {
             public void onClick(View v) {
                 try {
                     //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
-                    FileInputStream fis = openFileInput("text23.txt");
+                    FileInputStream fis = openFileInput("text32.txt");
                     //5. Get an object of the InputStreamReader class .
                     InputStreamReader isr = new InputStreamReader(fis);
                     char[] data = new char[data_block];
@@ -555,13 +554,13 @@ public class SmokeActivity extends MainActivityHome {
 
                     // set dialog message
                     alertDialogBuilder
-                            .setMessage("My Smoking Triggers reach the limit, do you want to clean My Smoking Triggers?")
+                            .setMessage("My Smoking Trigger has reached the limit, do you want to clean My Smoking Triggers?")
                             .setCancelable(false)
                             .setPositiveButton("Yes",new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog,int id) {
                                     // if this button is clicked, close
                                     File dir = getFilesDir();
-                                    File file = new File(dir, "text23.txt");
+                                    File file = new File(dir, "text32.txt");
                                     boolean deleted = file.delete();
                                     Toast.makeText(getBaseContext(), "deleted;  "+deleted, Toast.LENGTH_SHORT).show();
                                     LinkedListCount=0;
@@ -610,21 +609,6 @@ public class SmokeActivity extends MainActivityHome {
                 android.R.layout.simple_spinner_item, list);
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         sp4.setAdapter(dataAdapter);
-    }
-    public void addListenerOnSpinnerItemSelection() {
-        sp4 = (Spinner) findViewById(R.id.spinner4);
-        sp4.setOnItemSelectedListener(new CustomOnItemSelectedListener());
-    }
-    public void addListenerOnSmokingTriggers(){
-        final Context context = this;
-        button = (Button) findViewById(R.id.button3);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0){
-                Intent intent = new Intent(context, SmokingTriggers.class);
-                startActivity(intent);
-            }
-        });
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -1,6 +1,7 @@
 package com.example.hrzhulocal.crushthecraveprototype2.Graph;
 
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
@@ -16,6 +17,8 @@ import android.view.WindowManager;
 import com.androidplot.xy.SimpleXYSeries;
 import com.androidplot.xy.XYSeries;
 import com.androidplot.xy.*;
+import com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome;
+import com.example.hrzhulocal.crushthecraveprototype2.MyProgress;
 import com.example.hrzhulocal.crushthecraveprototype2.PagerAdapterInherits;
 import com.example.hrzhulocal.crushthecraveprototype2.R;
 
@@ -28,6 +31,7 @@ public class MainActivity extends FragmentActivity  {
 /**
  * A straightforward example of using AndroidPlot to plot some data.
  */
+MainActivityHome MAH;
 ViewPager viewpager;
     private XYPlot plot;
     private XYPlot plot2;
@@ -43,6 +47,7 @@ ViewPager viewpager;
                 viewpager.setAdapter(padapter);
                 //86400000 in 24 hours
                 //putseralizalied for 2 d array!!1
+
             }
 }
 

@@ -143,7 +143,8 @@
         <activity
             android:name=".Menu"
             android:label="@string/title_activity_menu"
-            android:parentActivityName=".CraveActivity" >
+            android:parentActivityName=".CraveActivity"
+            android:screenOrientation="portrait" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
@@ -159,6 +160,7 @@
         <activity
             android:name=".Help"
             android:label="@string/title_activity_help"
+            android:screenOrientation="portrait"
             android:parentActivityName=".CraveActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -302,14 +304,6 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.DistractMe" />
-        </activity>
-        <activity
-            android:name=".HandlingTriggers"
-            android:label="@string/title_activity_handling_triggers"
-            android:parentActivityName=".Quit_Help" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.Quit_Help" />
         </activity>
         <activity
             android:name=".MyPersonalization"

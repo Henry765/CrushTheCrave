@@ -215,26 +215,6 @@
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton65"
-        android:background="@drawable/btngames"
-        android:layout_below="@+id/textView67"
-        android:layout_alignLeft="@+id/imageButton26"
-        android:layout_alignStart="@+id/imageButton26"
-        android:layout_marginTop="34dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/svdxs"
-        android:id="@+id/textView114"
-        android:textColor="#ffffffff"
-        android:layout_below="@+id/imageButton65"
-        android:layout_alignLeft="@+id/imageButton65"
-        android:layout_alignStart="@+id/imageButton65" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:id="@+id/imageButton14"
         android:background="@drawable/btngames"
         android:layout_alignTop="@+id/imageButton25"

@@ -20,7 +20,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please help us understand your smoking habit so that we can create your custom Quit Plan"
+        android:text="@string/kookop"
         android:textSize="15dp"
         android:id="@+id/textView43"
         android:textColor="#ffffffff"
@@ -39,7 +39,7 @@
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Name"
+            android:hint="@string/poopk"
             android:textColorHint="#FFFFFFFF"
             android:ems="10"
             android:id="@+id/editText10"
@@ -53,10 +53,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:id="@+id/editText11"
-            android:layout_below="@+id/editText10"
-            android:layout_centerHorizontal="true"
             android:textColor="#FFFFFFFF"
-            android:hint="Age"
+            android:hint="@string/ijkk"
             android:textColorHint="#FFFFFFFF"
             />
 
@@ -72,7 +70,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Number of Cigarettes Smoked per day:"
+            android:text="@string/lkjmilojm"
             android:id="@+id/textView45"
             android:textColor="#ffffffff" />
 
@@ -90,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Number of years smoking"
+            android:text="@string/ojnoij"
             android:id="@+id/textView46"
             android:textColor="#ffffffff" />
 
@@ -106,7 +104,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Number of cigarettes per pack (25 or 20)"
+            android:text="@string/nmbmn"
             android:id="@+id/textView47"
             android:textColor="#ffffffff" />
 
@@ -122,7 +120,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Average cost per pack"
+            android:text="@string/ojnhm"
             android:id="@+id/textView48"
             android:textColor="#ffffffff" />
 
@@ -139,16 +137,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/textView52"
-            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:textColor="#ffffffff"
-            android:text="Tell us what will motivate you to quit and enter a Quit Buddy in case you need some back-up." />
+            android:text="@string/gbuikh" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Our evidence suggests that setting a quit date in the next 2-6 weeks is the way to go. Tell us what day you want to be smoke-free by."
+            android:text="@string/kjnhn"
             android:id="@+id/textView53"
             android:layout_below="@+id/textView52"
             android:layout_centerHorizontal="true"
@@ -157,7 +154,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start Quitting Smoke Now"
+            android:text="@string/iklojniloj"
             android:id="@+id/button8"
             android:layout_below="@+id/textView53"
             android:layout_centerHorizontal="true"
@@ -166,7 +163,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose a timezone"
+            android:text="@string/kljmlkjm"
             android:id="@+id/textView15"
             android:textColor="#ffffffff"
             />
@@ -184,7 +181,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="I am Quitting:"
+            android:text="@string/lkjljlkj"
             android:id="@+id/textView54"
             android:textColor="#ffffffff"
             android:layout_below="@+id/button8"
@@ -209,7 +206,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="I am Quitting For:"
+            android:text="@string/kjnkjn"
             android:id="@+id/textView55"
             android:textColor="#ffffffff"
             android:layout_centerVertical="true"
@@ -235,7 +232,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="Support Person&apos;s Name"
+            android:hint="@string/ljlkjn"
             android:textColorHint="#FFFFFFFF"
             android:ems="10"
             android:id="@+id/editText4"
@@ -247,14 +244,14 @@
             android:inputType="phone"
             android:ems="10"
             android:id="@+id/editText9"
-            android:hint="Support Person&apos;s Phone"
+            android:hint="@string/klljk"
             android:textColorHint="#FFFFFFFF"
             android:textColor="#FFFFFFFF" />
 
         <Button
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:text="SAVE and LOAD the setup"
+            android:text="@string/ilojilojjnh"
             android:id="@+id/button10"
             android:layout_marginBottom="122dp"
             android:layout_alignParentBottom="true"

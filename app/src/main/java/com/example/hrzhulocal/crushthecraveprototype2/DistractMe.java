@@ -50,7 +50,6 @@ public class DistractMe extends CraveActivity {
         });
     }
 
-
     private void addListenerOnGameTicTacToe() {
         imageButton = (ImageButton) findViewById(R.id.imageButton26);
 
@@ -80,13 +79,13 @@ public class DistractMe extends CraveActivity {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Uri uri = Uri.parse("market://search?q=pname:pkg_name");
+               // Uri uri = Uri.parse("vnd.market:");
+                Uri uri = Uri.parse("https://play.google.com/store/apps");
                 Intent it = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(it);
             }
         });
     }
-
             private void ListenerMusic() {
                 imageButton = (ImageButton) findViewById(R.id.imageButton18);
                 imageButton.setOnClickListener(new View.OnClickListener() {

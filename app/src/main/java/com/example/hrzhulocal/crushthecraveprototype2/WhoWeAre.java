@@ -12,9 +12,7 @@ public class WhoWeAre extends More {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_who_we_are);
-
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

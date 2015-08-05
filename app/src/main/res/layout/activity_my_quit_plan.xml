@@ -132,12 +132,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="For 3 Days only smoke 10 cigs/day
-        \nfor week 2, only smoke 8 cigs/day
-        \nfor week 3, only smoke 6 cigs/day
-        \nfor week 4, only smoke 4 cigs/day
-        \nfor week 5, only smoke 2 cigs/day
-        "
+        android:text="@string/okoko"
         android:id="@+id/textView29"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -146,7 +141,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Is the crave approaching? Hit the Craving button and the app will help you crush it.         \n\nDid you smoke? Don&apos;t sweat it you can crush the crave one cigarette at a time. Just record it using the Smoked button so the app can track your progress. You can follow your progress and get to know your habit on the My Progress pages."
+        android:text="@string/lkjmk"
         android:id="@+id/textView30"
         android:layout_below="@+id/textView29"
         android:layout_centerHorizontal="true"

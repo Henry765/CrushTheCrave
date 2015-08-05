@@ -44,14 +44,14 @@ public class SmokingTriggers extends SmokeActivity {
         else{
             textView.setText(final_data.replace("^", "\n"));
         }
-        LinkedList theLinkedList = new LinkedList();
+        /*LinkedList theLinkedList = new LinkedList();
 
         if(final_data == null){
-            theLinkedList.insertFirstLink(MESSAGE_TOTAL);
+            theLinkedList.prepend(MESSAGE_TOTAL);
         }
         else{
             theLinkedList.append(MESSAGE_TOTAL);
-        }
+        }*/
         //textView.setText("entry 1 "+theLinkedList.Head);
         Toast.makeText(getApplicationContext(), "size of linked list " + LinkedListCount, Toast.LENGTH_LONG).show();
     }

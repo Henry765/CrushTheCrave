@@ -129,4 +129,13 @@
         android:layout_alignParentTop="false"
         android:layout_alignParentBottom="true" />
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView6"
+        android:layout_above="@+id/imageButton2"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="33dp"
+        android:background="@drawable/calculatoricon" />
+
 </RelativeLayout>

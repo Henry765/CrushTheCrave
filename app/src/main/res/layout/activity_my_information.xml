@@ -8,7 +8,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="I am interested in being contacted about future research on quit smoking apps."
+        android:text="@string/svdsd"
         android:id="@+id/checkBox5"
         android:checked="false"
         android:textColor="#ffffffff"
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Name"
+        android:hint="@string/jiojio"
         android:textColorHint="#FFFFFFFF"
         android:ems="10"
         android:id="@+id/editText6"
@@ -39,7 +39,7 @@
         android:layout_below="@+id/editText6"
         android:layout_centerHorizontal="true"
         android:textColor="#ffffffff"
-        android:hint="Age"
+        android:hint="@string/sadas"
         android:textColorHint="#FFFFFFFF"
         />
 
@@ -47,7 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:hint="Male or Female"
+        android:hint="@string/avsedvd"
         android:ems="10"
         android:id="@+id/editText13"
         android:layout_below="@+id/editText12"
@@ -78,7 +78,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="UPDATE"
+        android:text="@string/vegqaqe"
         android:id="@+id/textView61"
         android:layout_alignTop="@+id/imageButton24"
         android:layout_centerHorizontal="true" />
@@ -86,7 +86,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOAD"
+        android:text="@string/wegvdwa"
         android:id="@+id/textView62"
         android:layout_alignTop="@+id/imageButton23"
         android:layout_centerHorizontal="true" />

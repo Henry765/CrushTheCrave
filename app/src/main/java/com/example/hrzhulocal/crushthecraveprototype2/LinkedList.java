@@ -2,32 +2,32 @@ package com.example.hrzhulocal.crushthecraveprototype2;
 
 import android.test.suitebuilder.annotation.Smoke;
 import android.widget.Toast;
-
 /**
  * Created by hrzhulocal on 28/07/2015.
  * Demonstrated the use of Linked List
  */
-
 class LinkedList{
 
     public SmokeActivity Head;
     public SmokeActivity Tail;
+    public SmokeActivity Current;
 
+    //Constructor
     LinkedList(){
         Head = null;
+        Tail = null;
+        Current = null;
     }
     //public LinkedList(String triggerEntry) {
     //    super(triggerEntry);
     //}
-
     public boolean isEmpty(){
-        return(Head == null);
+        return(Current == null);
     }
     public static boolean isTriggerFull(){
         if(SmokeActivity.LinkedListCount >= 22){
             return true;
-        }
-        else{
+        }else{
             return false;
         }
     }
@@ -39,13 +39,14 @@ class LinkedList{
         while(!isEmpty())
         {
             SmokeActivity.LinkedListCount++;
-            Head = Head.next;
+            Current = Current.next;
         }*/
         for(SmokeActivity.LinkedListCount = SmokeActivity.previousLinkedListCount; !isEmpty(); SmokeActivity.LinkedListCount++) {
-            Head = Head.next;
+            Current = Current.next;
         }
         //assign a new node to the end
-        Head = (new SmokeActivity(triggerEntry));
+        Current = (new SmokeActivity(triggerEntry));
+        Tail = Current;
         //update previousLinkedListCount
         SmokeActivity.previousLinkedListCount = SmokeActivity.LinkedListCount;
         return (SmokeActivity.LinkedListCount);
@@ -53,9 +54,9 @@ class LinkedList{
 
     /*public int append2(String triggerEntry){
         SmokeActivity newLink = new SmokeActivity(triggerEntry);
-        if(Head == null)
+        if(Current == null)
         {
-            Head = newLink;
+            Current = newLink;
         }
         else{
             newLink.next;
@@ -65,40 +66,41 @@ class LinkedList{
         //traverse to the end of linked list
         for(LinkedListCount = 0; triggerEntry.next() != null; LinkedListCount++)
         {
-            Head = Head.next;
+            Current = Current.next;
         }
         //assign a new node to the end
-        Head = new SmokeActivity(triggerEntry);
+        Current = new SmokeActivity(triggerEntry);
     }*/
-    public void prepend(String triggerEntry){
-        Head = new SmokeActivity(triggerEntry);
-    }
+    //public void prepend(String triggerEntry){
+    //   Current = new SmokeActivity(triggerEntry);
+    //}
     //public static int Count (){
     //    for(LinkedListCount = 0; !isEmpty();)
     //    return LinkedListCount;
     //}
-    public void insertFirstLink(String triggerEntry){
+    public void prepend(String triggerEntry){
         SmokeActivity newLink = new SmokeActivity(triggerEntry);
 
         //connect the the first ink field stored inside the linked list to newLinke
         //it's Next is assigned the reference to the previous Link created
-        newLink.next = Head;
+        newLink.next = Current;
 
         //address
         //the LinkedList's firstLink is assigned to a reference to the newest Link added
+        Current = newLink;
         Head = newLink;
     }
     public SmokeActivity removeLastLink(String triggerEntry){
-        SmokeActivity linkedListRef = Head;
+        SmokeActivity linkedListRef = Current;
         while(!isEmpty()){
             //traverse the linked list
-            Head = Head.next;
+            Current = Current.next;
         }
         //firstLink is assigned the value of the current firstLink's next
         return linkedListRef;
     }
     /* public void display(){
-         SmokeActivity theLink = Head;
+         SmokeActivity theLink = Current;
          while(theLink != null){
              theLink.display();
              System.out.println("Next Link: " + theLink.next);
@@ -107,7 +109,7 @@ class LinkedList{
          }
      }*/
     public SmokeActivity find(String triggerEntry){
-        SmokeActivity theLink = Head;
+        SmokeActivity theLink = Current;
         if(!isEmpty()){
             while(theLink.triggerEntry != triggerEntry)
             {
@@ -122,7 +124,6 @@ class LinkedList{
                 {
                     //found a match
                     theLink = theLink.next;
-
                 }
             }
         }else{

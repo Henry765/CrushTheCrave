@@ -130,11 +130,11 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.fragment_main_activity_home);
 
-            final TextView myMessage = (TextView) findViewById(R.id.textView19);
+        final TextView myMessage = (TextView) findViewById(R.id.textView19);
 
-            TextView moneySaved = (TextView) findViewById(R.id.textView50);
-            TextView noSmokedDay = (TextView) findViewById(R.id.textView51);
-            TextView myPersonalization = (TextView) findViewById(R.id.textView72);
+        TextView moneySaved = (TextView) findViewById(R.id.textView50);
+        TextView noSmokedDay = (TextView) findViewById(R.id.textView51);
+        TextView myPersonalization = (TextView) findViewById(R.id.textView72);
 
         final String PREFS_NAME = "MyPrefsFile";
 
@@ -151,15 +151,15 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             // record the fact that the app has been started at least once
             settings.edit().putBoolean("my_first_time", false).commit();
         }
-        //if( mCurrentPhotoPath != null) {
-          //  Toast.makeText(getApplicationContext(), "sss"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
-        //loadImageFile();
+        if( mCurrentPhotoPath != null){
+        //  Toast.makeText(getApplicationContext(), "sss"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+            loadImageFile();}
+        //}else{
 
+        //  Toast.makeText(getApplicationContext(), "qqqq"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+
+             ListenerSetDesktopPhoto();
         //}
-
-          //  Toast.makeText(getApplicationContext(), "qqqq"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
-
-            ListenerSetDesktopPhoto();
 
 
         /*if(isFirstTimeUserOpenTheApp2 == 1){
@@ -232,7 +232,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
         myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
                         + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
-                        + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate
+                        + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate+"\npath"+mCurrentPhotoPath
         );
         moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
 
@@ -308,7 +308,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         }
     }*/
     private void loadImageFile(){
-        //File root = Environment.getExternalStorageDirectory();
+        File root = Environment.getExternalStorageDirectory();
 
         File imgFile = new File(mCurrentPhotoPath);
         ImageButton ib61 = (ImageButton) findViewById(R.id.imageButton61);
@@ -316,10 +316,10 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), bmap);
         ib61.setBackgroundDrawable(bitmapDrawable);
         ib61.setImageBitmap(BitmapFactory.decodeFile(String.valueOf(mCurrentPhotoPath)));*/
-        Bitmap myBitmap = BitmapFactory.decodeFile(imgFile.getAbsolutePath());
+        Bitmap myBitmap = BitmapFactory.decodeFile(String.valueOf(mCurrentPhotoPath));
         BitmapDrawable bitmapDrawable = new BitmapDrawable(getResources(), myBitmap);
-        ib61.setBackgroundDrawable(bitmapDrawable);
         ib61.setImageBitmap(myBitmap);
+        ib61.setBackgroundDrawable(bitmapDrawable);
 
         Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
     }
@@ -346,7 +346,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
+        switch (requestCode) {//////////////////////////////////////////////////////
             case 0:
                 if(data != null){data.getDataString();}
                 if (resultCode == RESULT_OK) {
@@ -359,13 +359,12 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                     }
                     drawable = new BitmapDrawable(getResources(), bitmap);
                     iv61 =(ImageButton)findViewById(R.id.imageButton61);
-                        iv61.setBackgroundDrawable(drawable);
-                    if(mCurrentPhotoPath != null){
-                        //iv61.setImageDrawable(drawable);
                         //iv61.setBackgroundDrawable(drawable);
+                    if(mCurrentPhotoPath != null){
+                        iv61.setImageDrawable(drawable);
+                        iv61.setBackgroundDrawable(drawable);//////////////////////////////////////////////////////
 
-                        loadImageFile();
-
+                        //loadImageFile();
                     }
                 }
         }
@@ -647,7 +646,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                                     theNumberOfSmoke = 0;
                                 }
                             })
-                            .setNegativeButton("I'm good", new DialogInterface.OnClickListener() {
+                            .setNegativeButton("No, I'm good", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
                                     // if this button is clicked, just close
                                     // the dialog box and do nothing

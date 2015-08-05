@@ -1,4 +1,19 @@
 //package com.example.hrzhulocal.crushthecraveprototype2;
+/*
+ * Copyright 2012 AndroidPlot.com
+ *
+ *    Licensed under the Apache License, Version 2.0 (the "License");
+ *    you may not use this file except in compliance with the License.
+ *    You may obtain a copy of the License at
+ *
+ *        http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *    Unless required by applicable law or agreed to in writing, software
+ *    distributed under the License is distributed on an "AS IS" BASIS,
+ *    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *    See the License for the specific language governing permissions and
+ *    limitations under the License.
+ */
 package com.example.hrzhulocal.crushthecraveprototype2;
 
 /**
@@ -129,14 +144,10 @@ public class MyProgress extends Fragment{
         plot.getGraphWidget().setPaddingRight(2);
         plot.addSeries(series1, formatter);*/
 
-
         //Remove legend
         //plot.getLayoutManager().remove(plot.getLegendWidget());
         //plot.getLayoutManager().remove(plot.getDomainLabelWidget());
         plot.getLayoutManager().remove(plot.getRangeLabelWidget());
-        //plot.getLayoutManager().remove(plot.getTitleWidget());
-
-        //plot.getGraphWidget().getDomainLabelPaint().setTextSize(10);
 
         //set background colors
         plot.getBackgroundPaint().setColor(Color.BLACK);
@@ -156,7 +167,14 @@ public class MyProgress extends Fragment{
         plot.setTicksPerRangeLabel(3);
         plot.getGraphWidget().setDomainLabelOrientation(-45);
         //plot.setRangeStepValue(6);
+        // setup our line fill paint to be a slightly transparent gradient:
+        Paint lineFill = new Paint();
+        lineFill.setAlpha(200);
 
+        // ugly usage of LinearGradient. unfortunately there's no way to determine the actual size of
+        // a View from within onCreate.  one alternative is to specify a dimension in resources
+        // and use that accordingly.  at least then the values can be customized for the device type and orientation.
+        lineFill.setShader(new LinearGradient(0, 0, 200, 200, Color.WHITE, Color.GREEN, Shader.TileMode.REPEAT));
         //7 domain ticks 6 range ticks
         plot.setDomainStep(XYStepMode.SUBDIVIDE, 7);
         plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
@@ -167,100 +185,6 @@ public class MyProgress extends Fragment{
         plot.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
         //plot.getGraphWidget().setMarginLeft(0);
 
-        // initialize our XYPlot reference:
-       /* plot = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotOne);
-        Number[] allowance = {10, 10, 10, 8, 8};//, 8, 8};
-        Toast.makeText(container.getContext(), "this is my Toast message!!! =)"+ getTimeAndCount.startDayNum, Toast.LENGTH_LONG).show();
-
-        long x = getTimeAndCount.TrackSmoke[getTimeAndCount.TrackSmokeCount]+86400000;
-        Number[] days = {
-                //86400000 in 24 hours
-                978307200,  // 2001
-                1009843200, // 2002
-                1041379200, // 2003
-                1072915200, // 2004
-                1104537600  // 2005
-                //1072915200, // 2004
-                //1104537600  // 2005
-        };
-
-        XYSeries series2 = new SimpleXYSeries(
-                Arrays.asList(days),
-                Arrays.asList(allowance),               // SimpleXYSeries takes a List so turn our array into a List
-                //SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
-                "allowance");
-
-        plot.getGraphWidget().getGridBackgroundPaint().setColor(Color.WHITE);
-        //plot.getGraphWidget().getGridLinePaint().setColor(Color.BLACK);
-        //plot.getGraphWidget().getGridLinePaint().setPathEffect(new DashPathEffect(new float[]{1,1}, 1));
-        plot.getGraphWidget().getDomainOriginLinePaint().setColor(Color.BLACK);
-        plot.getGraphWidget().getRangeOriginLinePaint().setColor(Color.BLACK);
-
-        plot.setBorderStyle(Plot.BorderStyle.SQUARE, null, null);
-        plot.getBorderPaint().setStrokeWidth(1);
-        plot.getBorderPaint().setAntiAlias(false);
-        plot.getBorderPaint().setColor(Color.WHITE);
-
-
-        // setup our line fill paint to be a slightly transparent gradient:
-        Paint lineFill = new Paint();
-        lineFill.setAlpha(200);
-        lineFill.setShader(new LinearGradient(0, 0, 0, 250, Color.WHITE, Color.GREEN, Shader.TileMode.MIRROR));
-
-
-        plot.addSeries(series2, formatter);
-
-        // draw a domain tick for each year:
-        plot.setDomainStep(XYStepMode.SUBDIVIDE, days.length);
-
-        // customize our domain/range labels
-        plot.setDomainLabel("Year");
-        plot.setRangeLabel("# of Sightings");
-
-        // get rid of decimal points in our range labels:
-        plot.setRangeValueFormat(new DecimalFormat("0"));*/
-        //XYSeries series2 = new SimpleXYSeries(Arrays.asList(days), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series2");
-        //plot.getGraphWidget().setDomainValueFormat(new GraphXLabelFormat());
-
-        // Set the display title of the series
-        // Create a formatter to use for drawing a series using LineAndPointRenderer
-        // and configure it from xml:
-        /*LineAndPointFormatter series1Format = new LineAndPointFormatter();
-        series1Format.setPointLabelFormatter(new PointLabelFormatter());
-        series1Format.configure(container.getContext(),
-                R.xml.line_point_formatter_with_plf1);
-
-        // add a new series' to the xyplot:
-        plot.addSeries(series1, series1Format);
-
-        // add a new series' to the xyplot:
-        // same as above:
-        /*LineAndPointFormatter series2Format = new LineAndPointFormatter();
-        series2Format.setPointLabelFormatter(new PointLabelFormatter());
-        series2Format.configure(container.getContext(),
-                R.xml.line_point_formatter_with_plf2);
-        plot.addSeries(series2, series2Format);*/
-
-        // setup our line fill paint to be a slightly transparent gradient:
-        /*Paint lineFill = new Paint();
-        lineFill.setAlpha(200);
-        lineFill.setShader(new LinearGradient(0, 0, 0, 250, Color.WHITE, Color.GREEN, Shader.TileMode.CLAMP));
-
-        // customize our domain/range labels
-        plot.setDomainLabel("Number of Days of quitting");
-        plot.setRangeLabel("Value");
-        // get rid of decimal points in our range labels:
-        plot.setRangeValueFormat(new DecimalFormat("0"));
-
-        // reduce the number of range labels
-        plot.setTicksPerRangeLabel(2);
-        plot.getGraphWidget().setDomainLabelOrientation(45);
-        //7 domain ticks 6 range ticks
-        plot.setDomainStep(XYStepMode.SUBDIVIDE, 7);
-        plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
-        plot.setRangeStep(XYStepMode.SUBDIVIDE, 6);
-        plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);*/
-
         //set boundaries
         return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
     }
@@ -270,12 +194,19 @@ public class MyProgress extends Fragment{
     public static class FragmentTwo extends MyProgress {
         private XYPlot plot2;
 
+       // MainActivityHome mAH;
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-            View rootView = inflater.inflate(R.layout.gfragment_two_layout,container,false);
-    // initialize our XYPlot reference:
+            View rootView = inflater.inflate(R.layout.gfragment_two_layout, container, false);
+
+            /*if(mAH.daysInBetween-mAH.daysInBetween2 >= 14){
+
+            }*/
+
+
+            // initialize our XYPlot reference:
             plot2 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotTwo);
 
             /*FragmentManager fm = getFragmentManager();
@@ -392,7 +323,6 @@ public class MyProgress extends Fragment{
             // TODO Auto-generated method stub
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
-
     }
 
     public static class FragmentThree extends FragmentTwo {
@@ -402,9 +332,7 @@ public class MyProgress extends Fragment{
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
 
-
             View rootView = inflater.inflate(R.layout.gfragment_three_layout,container,false);
-
             // initialize our XYPlot reference:
             plot3 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotThree);
 

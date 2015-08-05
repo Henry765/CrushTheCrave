@@ -22,28 +22,7 @@ android:background="@drawable/bg">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="550dp"
-            android:text="Quit smoking medication can help you quit.
-        \n•They reduce feelings of withdrawal, reduce your urge to smoke, and improve chances of quitting. They are not a magic bullet, but they come pretty close!
-        \n•Before choosing anyquit smoking medication, talk to your doctor about which medication may be right for you and what, if any, side effects may occur.
-        \n•The products described below have all been approved by Health Canada to assist in quitting.
-        \n\nNicotine Replacement Therapy (NRT)
-        \n• The most common forms of NRT are the patch, gum, lozenge, and inhaler.
-        \n• You can buy NRT without a prescription at a drugstore.
-        \n• It gives you some nicotine without the harmful chemicals in cigarette smoke.
-        \n• It fights symptoms like anger, anxiety, cravings, problems concentrating, and restlessness.
-        \n• It works best in combination with other forms of help(e.g. self-help or counseling).
-        \n• Before using NRT tell your doctor or pharmacist about your health conditions, other medications you are taking, and how much you smoke. They will help you choose the right brand
-        and dose and explain how to use the product. They will ask you if you are pregnant or breast feeding.
-        \n\nNicotine patches
-        \n are the easiest NRT products to use and can help heavy smokers who need a constant supply of nicotine. Small amounts of nicotine are continuously absorbed through the skin.
-        \n\nNicotine gum
-        \ncan help occasional smokers deal with strong cravings as needed through the day. Nicotine enters your system more rapidly than with the patch. You don't
-        chew it like regular gum; you bite and park the gum against your cheek. It is important to choose the right dose based on how many cigarettes per day you smoke.
-        \n\nNicotine lozenges
-        \n are like hard candy, and release nicotine as they dissolve in your mouth. Like the gum, lozenges deliver nicotine to the brain more rapidly than the patch and don't provide a steady dose of nicotine. Lozenges should not be bitten, chewed or swallowed.
-        \nNicotine inhalers
-        are the fastest method of receiving nicotine and using one mimics the hand to mouth ritual of smoking.
-        \nPrescription quitsmoking medications"
+            android:text="@string/kpoko"
             android:id="@+id/textView27"
             android:layout_centerHorizontal="true"
             android:textColor="#ffffffff"

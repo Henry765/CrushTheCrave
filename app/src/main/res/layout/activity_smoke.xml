@@ -150,7 +150,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MY SMOKING TRIGGERS"
+        android:text="@string/fdhdfghv"
         android:id="@+id/button3"
         android:layout_above="@+id/imageButton"
         android:layout_toRightOf="@+id/imageButton"
@@ -159,7 +159,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAVE"
+        android:text="@string/sdfsdc"
         android:id="@+id/button4"
         android:layout_above="@+id/button3"
         android:layout_centerHorizontal="true"

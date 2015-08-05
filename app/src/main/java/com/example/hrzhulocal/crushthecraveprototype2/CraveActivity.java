@@ -247,7 +247,7 @@ public class CraveActivity extends MainActivityHome {
             myMessage.setText("Congratulations you have quit for two weeks. You can keep it going. Reward yourself!");
             myPicture.setImageResource(R.drawable.istock_000014504400xsmall);
         }
-        else if (daysInBetween > 15 && daysInBetween <= 21){
+        else if (daysInBetween >= 15 && daysInBetween <= 21){
           if(n2 == 1){myMessage.setText("Keep your list of reasons for quitting where you will always see it - on your fridge, bulletin board, or day planner.");
                 myPicture.setImageResource(R.drawable.istock_000016495673xsmall);
           }
@@ -317,7 +317,6 @@ public class CraveActivity extends MainActivityHome {
 
                 case 17:myMessage.setText("If you think you need more help call your local quitline. For more information see the Quit Help page");
                     myPicture.setImageResource(R.drawable.istock_000018110696xsmall); break;
-
             }
         }
         else if (daysInBetween > 28){
@@ -329,7 +328,7 @@ public class CraveActivity extends MainActivityHome {
                 myPicture.setImageResource(R.drawable.istock_000001717560xsmall);
             }
         }
-        else if ( daysInBetween2 == 0 /*before quit day*/)
+        else if ( daysInBetween2 == 0 && quitDayNum6 != -1/*before quit day*/)
         {
             switch(n6){
                 case 1: myMessage.setText("Smoking while pregnant increases the risk of stillbirths and Sudden Infant Death Syndrome.");
@@ -391,8 +390,6 @@ public class CraveActivity extends MainActivityHome {
                 case 29: myMessage.setText("Talk to your doctor or a health professional about quitting. They can give you the facts and help you decide what option is best for you. Plus, speaking to a health professional makes you more likely to succeed.");
                     myPicture.setImageResource(R.drawable.istock_000016624768xsmall);break;
             }
-
-
         }
         NumberFormat formatter = new DecimalFormat("#0.00");
 

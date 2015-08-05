@@ -9,7 +9,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ENTER the text:"
+        android:text="@string/sdfsss"
         android:id="@+id/textView73"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
@@ -37,7 +37,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SAVE"
+        android:text="@string/sdsdczx"
         android:id="@+id/textView74"
         android:layout_alignTop="@+id/imageButton31"
         android:layout_centerHorizontal="true" />

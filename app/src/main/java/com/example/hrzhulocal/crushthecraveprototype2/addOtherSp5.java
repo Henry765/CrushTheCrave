@@ -18,8 +18,8 @@ import java.io.OutputStreamWriter;
 
 public class addOtherSp5 extends SmokeActivity {
 
-    public addOtherSp5(String triggerEntry) {
-        super(triggerEntry);
+    public addOtherSp5() {
+        super();
     }
 
     @Override

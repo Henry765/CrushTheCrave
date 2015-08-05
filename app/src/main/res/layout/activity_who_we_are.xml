@@ -27,7 +27,7 @@
                 android:layout_marginTop="0dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="Crush the Crave is a quit smoking mobile app for young adult smokers developed by the Propel Centre for Population Health impact at the University of Waterloo (Propel) in Partnership with Leave the Pack Behind at Brock University, with funding from Health Canada and promotional support provided by the Canadian Cancer Society"
+                android:text="@string/sdlfjks"
                 android:textColor="#fff" />
 
             <TextView
@@ -37,7 +37,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="8dp"
-                android:text="Parteners"
+                android:text="@string/kljlk"
                 android:textStyle="bold"
                 android:textColor="#fff" />
 
@@ -49,8 +49,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="PROPEL\nPropel&apos;s vision is to prevent cancer and chronic disease by improving health at a population level. Propel conducts impact-oriented research, evaluation, and knowledge exchange in the areas of tobacco conol and youth health. For more information about Propel visit http://www.propel.uwaterloo.ca
-                \nLEAVE THE PACK BEHIND\nA big thank you to Leave the Pack Behind(LTPB) for allowing us to adapt much of the content for the app from their self-help smoking cessation program Smoke I quit (http://www.leavethepackbehind.org/smoke_quit.php). Their experience and expertise in young adult cessation has been a tremendous asset. Leave The Pack Behind (LTPB) is an age-tailored tobacco control initiative funded by the Ontario Ministry of Health and Long-Term Care. LTPB provides year-round programs and services that increase tobacco awareness and cessation supports available to students at Ontario Universities and Colleges. For more information about LTPB visit http://wwww.ltpb.org"
+                android:text="@string/lkjl"
                 android:textColor="#fff" />
 
             <TextView
@@ -60,7 +59,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="Special Thanks"
+                android:text="@string/xcv"
                 android:textStyle="bold"
                 android:textColor="#fff" />
 
@@ -72,8 +71,7 @@
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="The Canadian Cancer Society is a national, community-based organization of volunteers whose mission is the eradication of cancer and the enhancement of the quality of life of people living with cancer.
-Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP. Smoking is responsible for 85% of lung cancer and 30% or all cancer deaths. The Canadian Cancer Society is committed to help people understand the risks of smoking and second-hand smoke, in addiion to providing smokers with the tools and support they need to be successfully tobacco-free."
+                android:text="@string/lkjnm"
                 android:textColor="#fff" />
 
             <ImageView
@@ -95,8 +93,7 @@ Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="Smokers' Helpline has proven, free and personalized tools to help you quit successfully. Smokers' Helpline offers non-judgmental support and information by phone, online and text messaging at 1 877 513 5333 and SmokersHelpline.ca
- "
+                android:text="@string/lkjlkn"
                 android:textColor="#fff" />
             <ImageView
                 android:id="@+id/who_we_are_imageview_specialThanks_shImage"
@@ -116,7 +113,7 @@ Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="Design and Engineering"
+                android:text="@string/lkjlk"
                 android:textStyle="bold"
                 android:textColor="#fff"
                 />
@@ -129,10 +126,7 @@ Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="Programmer: Henry Zhu | Supported by Matt VanderMeer\nUniversity Of Waterloo, Faculty of Applied Health Sciences,
-                Propel Centre For Population Health Impact\nThe Mini Game of Whack a Mole is released under GNU GPL v2 License from
-                http://whack-a-mole-android.googlecode.com/svn/ \nCoded and designed by Lorenzo Lambertini  contact: lorenzo.lambertini@gmail.coms
-                Modified by Henry Zhu contact hrzhu@uwaterloo.ca\nGraph uses AndroidPlot #Swag"
+                android:text="@string/lngwe"
                 android:textColor="#fff" />
 
             <TextView
@@ -142,7 +136,7 @@ Read more: http://www.cancer.ca/en/about-us/our-mission/?region=on#ixzz3agmH8cBP
                 android:layout_marginTop="8dp"
                 android:gravity="left"
                 android:padding="5dp"
-                android:text="FUNDING "
+                android:text="@string/kldf"
                 android:textStyle="bold"
                 android:textColor="#fff" />
 

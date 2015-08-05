@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/widget32"
 	android:layout_width="fill_parent" android:layout_height="fill_parent"
-	android:background="@drawable/backgroundover" xmlns:android="http://schemas.android.com/apk/res/android">
+	android:background="@drawable/gameoverw" xmlns:android="http://schemas.android.com/apk/res/android">
 	<Button android:layout_height="wrap_content"
 		android:layout_width="wrap_content" android:layout_alignParentBottom="true"
 		android:id="@+id/restart" android:background="@drawable/restart" android:layout_alignParentLeft="false"></Button>

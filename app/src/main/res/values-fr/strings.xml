@@ -59,8 +59,23 @@
         <item>bien </item>
         <item>ajouter dautres </item>
     </string-array>
+
+    <string-array name="gender">
+        <item>Female</item>
+        <item>Male</item>
+        <item>Prefer not to disclose</item>
+    </string-array>
+
+    <string-array name="time_zone">
+        <item>Eastern</item>
+        <item>Pacific</item>
+        <item>Mountain</item>
+        <item>Central</item>
+        <item>Atlantic</item>
+        <item>Newfoundland</item>
+    </string-array>
     <string name="time_zone_prompt">Fuseau Horaire</string>
-    <string name="title_activity_smoking_triggers" translatable="false"></string>
+    <string name="title_activity_smoking_triggers">fd</string>
     <string name="a">maison</string>
     <string name="b">Récompenses</string>
     <string name="c">Progrès</string>
@@ -183,7 +198,7 @@
     <string name="wefwe">maison</string>
     <string name="wfew">maison</string>
     <string name="xc">maison</string>
-    <string name="ssc"></string>
+    <string name="ssc">j</string>
     <string name="svd">Récompenses</string>
     <string name="ad2">PARTAGER</string>
     <string name="Jouer">Jouer</string>
@@ -272,7 +287,7 @@
     <string name="grds">"Quitter l'aide</string>
     <string name="hdtb">"Quitter l'aide</string>
     <string name="htrv">"Quitter l'aide</string>
-    <string name="jhgh"></string>
+    <string name="jhgh">k</string>
     <string name="jmolo">"Quitter l'aide</string>
     <string name="kjknj">"Quitter l'aide</string>
     <string name="klpo">"Quitter l'aide</string>
@@ -288,7 +303,7 @@
     <string name="sadc">"Quitter l'aide</string>
     <string name="sdv">"Quitter l'aide</string>
     <string name="vgds">"Quitter l'aide</string>
-    <string name="vxcxz"></string>
+    <string name="vxcxz">j</string>
     <string name="vxcx">"Quitter l'aide</string>
     <string name="w1w">"Quitter l'aide</string>
     <string name="wafqdc">"Quitter l'aide</string>
@@ -312,5 +327,98 @@
     <string name="sfvd">Plus</string>
     <string name="sfs32">Récompenses</string>
     <string name="ass">Calculatrices santé</string>
+    <string name="asdw">k</string>
+    <string name="qdws1">Plus</string>
+    <string name="wqs2">j</string>
+    <string name="zvas">j</string>
+    <string name="zxca2">j</string>
+    <string name="zxv">j</string>
+    <string name="wefwok">j</string>
+    <string name="wefv">j</string>
+    <string name="wefedwe">j</string>
+    <string name="wed">j</string>
+    <string name="w2">j</string>
+    <string name="vxs">j</string>
+    <string name="vca">j</string>
+    <string name="svfd">j</string>
+    <string name="svdxs">j</string>
+    <string name="svds">j</string>
+    <string name="svcd">j</string>
+    <string name="sgdv">j</string>
+    <string name="sgds">j</string>
+    <string name="sfz">k</string>
+    <string name="sfw3">k</string>
+    <string name="sfvdx">k</string>
+    <string name="sfds">k</string>
+    <string name="sfdk">k</string>
+    <string name="sefgd">k</string>
+    <string name="sdfk">k</string>
+    <string name="sdfs">k</string>
+    <string name="sdfss">k</string>
+    <string name="sdas">k</string>
+    <string name="safs">k</string>
+    <string name="sbsa">k</string>
+    <string name="saf">k</string>
+    <string name="sadaqq">k</string>
+    <string name="sad1">k</string>
+    <string name="qwe">k</string>
+    <string name="nmj">k</string>
+    <string name="ngh">k</string>
+    <string name="nfhb">k</string>
+    <string name="mn">k</string>
+    <string name="mlk">k</string>
+    <string name="lokj">k</string>
+    <string name="lml">k</string>
+    <string name="lkn">k</string>
+    <string name="lklnk">k</string>
+    <string name="lkln">k</string>
+    <string name="lk">k</string>
+    <string name="knbj">k</string>
+    <string name="kmkl">k</string>
+    <string name="kmk">k</string>
+    <string name="klm">k</string>
+    <string name="klln">k</string>
+    <string name="kjnlk">k</string>
+    <string name="kjlk">k</string>
+    <string name="kjl">k</string>
+    <string name="kjk">k</string>
+    <string name="jojo">k</string>
+    <string name="jnjl">k</string>
+    <string name="jmg">k</string>
+    <string name="jkh">k</string>
+    <string name="jhm">k</string>
+    <string name="hdbr">k</string>
+    <string name="hbr">k</string>
+    <string name="hb">k</string>
+    <string name="gxwee">k</string>
+    <string name="gsds">k</string>
+    <string name="grwew">k</string>
+    <string name="gds">k</string>
+    <string name="gd">k</string>
+    <string name="gdc">k</string>
+    <string name="fww">k</string>
+    <string name="fwe">k</string>
+    <string name="fvdb">k</string>
+    <string name="fsad">k</string>
+    <string name="fsf">k</string>
+    <string name="fqw">k</string>
+    <string name="fgdbx">k</string>
+    <string name="fgdbl">k</string>
+    <string name="fgd">k</string>
+    <string name="fca">k</string>
+    <string name="fcaq">k</string>
+    <string name="egrx">k</string>
+    <string name="egdr">k</string>
+    <string name="e2">k</string>
+    <string name="dwqdd">k</string>
+    <string name="dfgb">k</string>
+    <string name="dfsxc">k</string>
+    <string name="dca1">k</string>
+    <string name="daqd2">k</string>
+    <string name="d212">k</string>
+    <string name="d21">k</string>
+    <string name="bg">k</string>
+    <string name="asq1">k</string>
+    <string name="adqqz">k</string>
 
 </resources>

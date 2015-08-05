@@ -128,8 +128,8 @@
         android:clickable="true"
         android:background="@drawable/btnwhoarewe"
         android:layout_centerVertical="true"
-        android:layout_alignLeft="@+id/imageView4"
-        android:layout_alignStart="@+id/imageView4" />
+        android:layout_alignLeft="@+id/textView"
+        android:layout_alignStart="@+id/textView" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -146,9 +146,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton8"
         android:background="@drawable/btnsettings"
-        android:layout_above="@+id/textView25"
-        android:layout_alignLeft="@+id/textView4"
-        android:layout_alignStart="@+id/textView4" />
+        android:layout_below="@+id/imageButton27"
+        android:layout_toLeftOf="@+id/textView4"
+        android:layout_toStartOf="@+id/textView4" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -208,5 +208,24 @@
         android:layout_alignStart="@+id/imageButton28"
         android:layout_marginBottom="11dp"
         android:background="@drawable/appicon" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton54"
+        android:background="@drawable/btnfeedback"
+        android:layout_above="@+id/textView25"
+        android:layout_toRightOf="@+id/imageButton28"
+        android:layout_toEndOf="@+id/imageButton28" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Feedback"
+        android:id="@+id/textView56"
+        android:textColor="#ffffffff"
+        android:layout_below="@+id/imageButton54"
+        android:layout_toRightOf="@+id/imageButton28"
+        android:layout_toEndOf="@+id/imageButton28" />
 
 </RelativeLayout>

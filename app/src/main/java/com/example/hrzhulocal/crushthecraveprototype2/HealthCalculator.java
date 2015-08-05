@@ -33,7 +33,6 @@ public class HealthCalculator extends MainActivityHome {
 
         //assume you did not smoke after you set quit day - number of smoke's cost
         //moneySavedTotal = ((daysInBetween - daysInBetween2) * theNumberOfCrave * (costPerPack / numberOfCigarPerPack))-((daysInBetween - daysInBetween2)*theNumberOfSmokeTotal*(costPerPack/numberOfCigarPerPack));
-
         //Matthew's formula
         //(this is checked off when you calculate the cost per cigarette based on the values entered in the registration form.
         // Multiply the cost per cigarettes by the number of cigarettes not smoked determined for the above reward when this value is greater than or equal to $ X dolloars
@@ -46,7 +45,7 @@ public class HealthCalculator extends MainActivityHome {
                 +"\nMoney on track to save this year:  $"+ formatter.format(((double) (daysInAYear* (moneySavedTotal / daysInBetween ))))     // use ratio to estimate the money saved this year
                 +"\nTotal number of cravings:  " + theNumberOfCrave
                 +"\nTotal number of slips/smoke:  " + theNumberOfSmokeTotal    //theNumberOfSmokeTotal can change thus it added endfix Total
-                +"\nTime most vulnerable for craving:  ");
+                );
         myStatus.refreshDrawableState();
 
         addListenerOnHomeImageButton();

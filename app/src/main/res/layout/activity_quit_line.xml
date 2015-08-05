@@ -133,12 +133,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Call the Quitline and talk to a quit coach. A quit coach is a specially trained counselor who can provide information about quitting and help. They're your biggest fans and want to help. Not sold on it yet? well.
-        \n\n• It's free
-        \n• It 's completely confidential.
-        \n• You ask questions; you get answers.
-        \n• They have free quiting material.
-        \n• You get personalized non-judgemental support, advice and information."
+        android:text="@string/lklkj"
         android:id="@+id/textView26"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
