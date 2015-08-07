@@ -41,10 +41,9 @@ public class SocialMediaOptions extends Committed {
         fb.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 
-              //  Intent intent = new Intent(context, TwitterShare.class);
-             //   startActivity(intent);
+                Intent intent = new Intent(context, TwitterShare.class);
+                startActivity(intent);
             }
         });
     }
-
 }

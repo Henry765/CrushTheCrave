@@ -44,7 +44,7 @@ public class CraveActivity extends MainActivityHome {
         int n5 = rand.nextInt(13)+1;
         int n6 = rand.nextInt(29)+1;
 
-        Toast.makeText(getApplicationContext(), "daysInBetween is  " + daysInBetween, Toast.LENGTH_LONG).show();
+        ////////////////////////////////////////////Toast.makeText(getApplicationContext(), "daysInBetween is  " + daysInBetween, Toast.LENGTH_LONG).show();
 
         if(daysInBetween >= 0 && daysInBetween <= 6){
             switch(n){
@@ -167,8 +167,8 @@ public class CraveActivity extends MainActivityHome {
                     myPicture.setImageResource(R.drawable.istock_000013559073xsmall);break;
 
                 case 44: myMessage.setText("Exercise can reduce stress and keep your weight down. It also makes you feel good and improves your health.");
-
                     myPicture.setImageResource(R.drawable.istock_000002311855xsmall);break;
+
                 case 45: myMessage.setText("Drink some water, exercise, visit &lt;a href=\"http://www.quitrunchill.org\"&gt;www.quitrunchill.org.&lt;/a&gt;&nbsp; Check out Quit Help page for the link.");
                     myPicture.setImageResource(R.drawable.istock_000017523599xsmall);break;
 
@@ -434,6 +434,17 @@ public class CraveActivity extends MainActivityHome {
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }
+        switch(item.getItemId()){
+            case R.id.mainFB:
+                new FaceBookShare();
+                return true;
+            case R.id.mainTW:
+                new TwitterShare();
+                return true;
+            case R.id.set:
+                new MySettings();
+                return true;
         }
 
         return super.onOptionsItemSelected(item);

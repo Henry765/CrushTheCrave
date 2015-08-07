@@ -3,4 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivityHome">
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+
+    <item android:id="@+id/mainFB"
+        android:icon="@drawable/iconfacebook"
+        android:title="Facebook"
+       />
+    <item android:id="@+id/mainTW"
+        android:icon="@drawable/icontwitter"
+        android:title="Twitter" />
+    <item
+        android:id="@+id/set"
+        android:title="Setting"
+    />
 </menu>

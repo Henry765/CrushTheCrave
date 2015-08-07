@@ -594,15 +594,22 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
         </activity>
 
-
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="66faf7aa5a82165dc6604bdb6aae1e7ae6daabeb" />
         <activity
             android:name=".Graph.My_ProgressActivity$My_ProgressActivity3"
             android:label="@string/title_activity_my__progress_activity3"
             android:parentActivityName=".MainActivityHome" >
+
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome" />
         </activity>
+
+        <activity
+            android:name=".TwitterShare"
+            />
 
     </application>
 

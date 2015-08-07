@@ -91,6 +91,7 @@ public class TicTacToe extends ActionBarActivity {
             this.x = x;
             this.y = y;
         }
+
         @Override
         public void onClick(View view) {
             if (view instanceof Button) {
@@ -100,45 +101,38 @@ public class TicTacToe extends ActionBarActivity {
                 if (whosTurn) {
                     board[x][y] = 'O';
                     B.setText("O");
-                    //EASYAI(view, board);
+                    //EASYAI(view, board, x);
                     checkWinner(board);
                 } else {
                     //computer play X first
                     //if(firstTime){
-                      //  board[1][1] = 'X';
-                     //   B.setText(""+xString);}
+                    //  board[1][1] = 'X';
+                    //   B.setText(""+xString);}
                     board[x][y] = 'X';
                     B.setText("X");
                     //MEDIUMAI(view, board);
                     checkWinner(board);
                 }
-                    //after click that specific button, it can no longer respond to change to events
-                    B.setEnabled(false);
-                    whosTurn = !whosTurn;
+                //after click that specific button, it can no longer respond to change to events
+                B.setEnabled(false);
+                whosTurn = !whosTurn;
             }
         }
-    }
-    //You can never lose in EASYAI mode
-    private void EASYAI(View view, char[][] board) {
-        if (view instanceof Button) {
 
-            Button B = (Button) view;
-            B.setTextColor(Color.BLUE);
-            if (x == 0 && board[1][1] != 'X') {
-                board[1][1] = 'O';
-                B.setText("O");
-            }
-        }
-    }
+        //You can never lose in EASYAI mode
+        private void EASYAI(View view, char[][] board, int numberOfMove) {
+            Button b = (Button) view;
+            /*if (view instanceof Button) {
 
-    private void MEDIUMAI(View view, char[][] board){
-        if(view instanceof Button){
-            Button B = (Button) view;
-            B.setTextColor(Color.BLUE);
-            if( x > 0 ){
-                board[1][1] = 'X';
-                B.setText(""+xString);
-            }
+                Button B = (Button) view;
+                B.setTextColor(Color.BLUE);
+                if (numberOfMove == 0 && board[1][1] != 'X') {
+                    board[1][1] = 'O';
+                    B.setText("O");
+                }
+            }*/
+            board[1][1] = 'O';
+            b.setText("O");
         }
     }
         /*if (whosTurn) {

@@ -20,6 +20,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -124,9 +126,9 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
+        ///////this.supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        ///////this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         this.setContentView(R.layout.fragment_main_activity_home);
 
@@ -230,10 +232,12 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
         myPersonalization.setText(final_data22);
 
-        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
+        /*myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
                         + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
                         + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate+"\npath"+mCurrentPhotoPath
-        );
+        );*/
+
+        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6));
         moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
 
         if (quitDayNum6 != -1) {
@@ -280,7 +284,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         );
         // Save a file: path for use with ACTION_VIEW intents
         mCurrentPhotoPath = image.getAbsolutePath();
-        Toast.makeText(getApplicationContext(), "kkh"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+       //////////////////////////////////////////////////////////////////// Toast.makeText(getApplicationContext(), "kkh"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
 
         return image;
     }
@@ -321,7 +325,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         ib61.setImageBitmap(myBitmap);
         ib61.setBackgroundDrawable(bitmapDrawable);
 
-        Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
+        ///////////////////////////////////////////////////////////////////Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
     }
 
     private void ListenerSetDesktopPhoto(){
@@ -429,14 +433,13 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         imageButton.setOnClickListener(new OnClickListener() {
             public void onClick(View arg0) {
                 //keep a list of the time when you crave
-                if( isCraveFirstTime){
-                    for(int i = 0; i < TrackCrave.length; i++)
-                    {
+                if (isCraveFirstTime) {
+                    for (int i = 0; i < TrackCrave.length; i++) {
                         TrackCrave[i] = 0;
                     }
                     isCraveFirstTime = false;
                 }
-                if(TrackCraveCount < 200){
+                if (TrackCraveCount < 200) {
                     Calendar trackCrave = Calendar.getInstance();
                     //if s day has passed
                     /*if((daysInBetween-daysInBetween2) == 0) {
@@ -486,9 +489,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                     }else if((daysInBetween - daysInBetween2) == 15) {
                         TrackCraveCount = 15;
                     }*/
-                    for(int i = 0; i<TrackCrave.length; i++){
-                        if(daysInBetween - daysInBetween2 == i)
-                        {
+                    for (int i = 0; i < TrackCrave.length; i++) {
+                        if (daysInBetween - daysInBetween2 == i) {
                             TrackCraveCount = i;
                             break;
                         }
@@ -511,7 +513,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
                 }
                 //increment number of click
-                Toast.makeText(getApplicationContext(), "quit date is " + quitDayNum + " time", Toast.LENGTH_LONG).show();
+             //////////////////////////////////////////////////////////////   Toast.makeText(getApplicationContext(), "quit date is " + quitDayNum + " time", Toast.LENGTH_LONG).show();
                 theNumberOfCrave++;
                 //go to Crave screen
                 Intent intent = new Intent(context, CraveActivity.class);
@@ -615,7 +617,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                         }
                     }*/
                 }
-                Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
+              ///////////////////////////////////////////////////////////////  Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
 
                 //reset the smokeFreeDayNum to quitDayNum
                 smokeFreeDayNum = quitDayNum;
@@ -873,7 +875,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         final_data22 = sp.getString("FINAL_DATA22", final_data22);
 
 
-        Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
+        ///////////////////////////Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
 
         if (startDayNum == -1 && quitDayNum != -1) {
             //First time user open it
@@ -930,5 +932,34 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         quitDayNum = saveInstanceState.getLong("CURRENTHIGHESTSCORE");
         daysInBetween = saveInstanceState.getLong("4");
         daysInBetween2 = saveInstanceState.getLong("5");
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_crave, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        final Context context = this;
+        switch(item.getItemId()){
+            case R.id.mainFB:
+               // Intent intent = new Intent(context.);
+                //startActivity(intent);
+                return true;
+            case R.id.mainTW:
+                new TwitterShare();
+                return true;
+            case R.id.set:
+                new MySettings();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

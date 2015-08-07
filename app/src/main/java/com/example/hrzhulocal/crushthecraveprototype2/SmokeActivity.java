@@ -104,7 +104,7 @@ public class SmokeActivity extends MainActivityHome {
         TextView saveSp4 = (TextView) findViewById(R.id.textView74);
 
         final TextView textView = (TextView) findViewById(R.id.textView23);
-        Toast.makeText(getBaseContext(), "addNewText4" +addNewText4 , Toast.LENGTH_LONG).show();
+        /////////////////////////////////////////Toast.makeText(getBaseContext(), "addNewText4" +addNewText4 , Toast.LENGTH_LONG).show();
 
         /*ArrayAdapter<CharSequence> foodadapter = ArrayAdapter.createFromResource(
                 this, R.array.I_am_with, R.layout.spinner_item_with);
@@ -406,7 +406,7 @@ public class SmokeActivity extends MainActivityHome {
             e.printStackTrace();
         }
         //}
-        Toast.makeText(getBaseContext(), "Data saved be1" + Message4, Toast.LENGTH_SHORT).show();
+        /////////////////////////////////////////Toast.makeText(getBaseContext(), "Data saved be1" + Message4, Toast.LENGTH_SHORT).show();
         Message5 = "";
         //if(addNewText5 == 0) {
         try {
@@ -462,7 +462,7 @@ public class SmokeActivity extends MainActivityHome {
             e.printStackTrace();
         }
         //  }
-        Toast.makeText(getBaseContext(), "addnewtext before "+addNewText4, Toast.LENGTH_SHORT).show();
+        //////////////////////////////////////Toast.makeText(getBaseContext(), "addnewtext before "+addNewText4, Toast.LENGTH_SHORT).show();
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -664,7 +664,6 @@ public class SmokeActivity extends MainActivityHome {
     protected void onPause() {
         super.onPause();
         saveData6();
-
     }
 
     //@Override
