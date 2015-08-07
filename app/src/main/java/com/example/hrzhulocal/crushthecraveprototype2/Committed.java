@@ -10,10 +10,10 @@ import android.widget.TextView;
 
 import com.facebook.CallbackManager;
 import com.facebook.share.widget.ShareDialog;
-
 //  the committed award is always awarded to users who install the app!!
 public class Committed extends My_AwardsActivity {
 
+    //optimazation create an array to store the image file names
     //create an helper array to store the awards image file name
     String helperImageFile[] = {"iconquitdate_sel","iconday1_sel"};
     @Override
@@ -49,7 +49,6 @@ public class Committed extends My_AwardsActivity {
             setImageButtonEnabled(this, false, fbShareweek3, R.drawable.btnsighup_new);
             if(smokeFreeDay >= 21){
                 setImageButtonEnabled(this, true, fbShareweek3, R.drawable.btnsighup_new);
-
             }
             ListenerShare();
             addListenerOnHomeImageButton();
@@ -78,7 +77,6 @@ public class Committed extends My_AwardsActivity {
             addListenerOnQuitHelpImageButton();
             addListenerOnMoreImageButton();
         }
-
     }
 
 
@@ -96,7 +94,6 @@ public class Committed extends My_AwardsActivity {
             addListenerOnMoreImageButton();
 
         }
-
     }
 
     public static class AwardQuitDate extends My_AwardsActivity {
@@ -233,7 +230,6 @@ public class Committed extends My_AwardsActivity {
             setImageButtonEnabled(this, false, fbIDbetterHeart, R.drawable.btnsighup_new);
             if((daysInBetween2 - daysInBetween) >= 2) {
                 setImageButtonEnabled(this, true, fbIDbetterHeart, R.drawable.btnsighup_new);
-
             }
             ListenerShare();
             addListenerOnHomeImageButton();
@@ -242,7 +238,6 @@ public class Committed extends My_AwardsActivity {
             addListenerOnQuitHelpImageButton();
             addListenerOnMoreImageButton();
         }
-
     }
 
     public static class AwardFriends extends My_AwardsActivity {
@@ -350,7 +345,6 @@ public class Committed extends My_AwardsActivity {
             setImageButtonEnabled(this, false, fbIDbetterSmell, R.drawable.btnsighup_new);
             if((daysInBetween2 - daysInBetween) >= 2) {
                 setImageButtonEnabled(this, true, fbIDbetterSmell, R.drawable.btnsighup_new);
-
             }
 
             ListenerShare();
@@ -373,7 +367,7 @@ public class Committed extends My_AwardsActivity {
             if ((daysInBetween2 - daysInBetween) >= 180) {
                 setImageButtonEnabled(this, true, fbIDbetterhealth, R.drawable.btnsighup_new);
             }
-                ListenerShare();
+            ListenerShare();
             addListenerOnHomeImageButton();
             addListenerOnAwardImageButton();
             addListenerOnProgressImageButton();
@@ -393,7 +387,6 @@ public class Committed extends My_AwardsActivity {
             setImageButtonEnabled(this, false, fbID1000saved, R.drawable.btnsighup_new);
             if(moneySavedTotal >= 1000) {
                 setImageButtonEnabled(this, true, fbID1000saved, R.drawable.btnsighup_new);
-
             }
                 ListenerShare();
             addListenerOnHomeImageButton();
@@ -437,9 +430,8 @@ public class Committed extends My_AwardsActivity {
             setContentView(R.layout.activity_award500_cig);
             ImageButton fbID500cig = (ImageButton) findViewById(R.id.fbID500cig);
             setImageButtonEnabled(this, false, fbID500cig, R.drawable.btnsighup_new);
-            if (theNumberOfCrave-(cigarSmokedPerDay*(daysInBetween-daysInBetween2)) >= 500) {
+            if (((cigarSmokedPerDay*(daysInBetween-daysInBetween2))-theNumberOfSmoke) >= 500) {
                 setImageButtonEnabled(this, true, fbID500cig, R.drawable.btnsighup_new);
-
             }
                 ListenerShare();
             addListenerOnHomeImageButton();
@@ -459,7 +451,7 @@ public class Committed extends My_AwardsActivity {
             setContentView(R.layout.activity_award250_cig);
             ImageButton fbID250cig = (ImageButton) findViewById(R.id.fbID250cig);
             setImageButtonEnabled(this, false, fbID250cig, R.drawable.btnsighup_new);
-            if (theNumberOfCrave-(cigarSmokedPerDay*(daysInBetween-daysInBetween2)) >= 250)  {
+            if (((cigarSmokedPerDay*(daysInBetween-daysInBetween2))-theNumberOfSmoke)>= 250)  {
                 setImageButtonEnabled(this, true, fbID250cig, R.drawable.btnsighup_new);
             }
                 ListenerShare();
@@ -506,7 +498,7 @@ public class Committed extends My_AwardsActivity {
             ImageButton ib30 = (ImageButton) findViewById(R.id.imageButton30);
             ImageButton fbShare100C = (ImageButton) findViewById(R.id.fbID100cig);
             setImageButtonEnabled(this, false, fbShare100C, R.drawable.btnsighup_new);
-            if( theNumberOfCrave-(cigarSmokedPerDay*(daysInBetween-daysInBetween2)) >= 100){
+            if (((cigarSmokedPerDay*(daysInBetween-daysInBetween2))-theNumberOfSmoke) >= 100){
                 setImageButtonEnabled(this, true, fbShare100C, R.drawable.btnsighup_new);
             }
 

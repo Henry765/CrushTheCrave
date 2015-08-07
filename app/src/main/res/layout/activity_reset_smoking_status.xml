@@ -64,7 +64,8 @@
             android:id="@+id/spinner7"
             android:background="@drawable/btnsighup_new"
             android:entries="@array/gender"
-            android:prompt="@string/gender_prompt" />
+            android:prompt="@string/gender_prompt"
+            android:layout_gravity="right" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -163,10 +164,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/kljmlkjm"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Choose a time zone:"
             android:id="@+id/textView15"
-            android:textColor="#ffffffff"
-            />
+            android:textColor="#ffffffff" />
 
         <Spinner
             android:layout_width="251dp"
@@ -249,7 +250,7 @@
             android:textColor="#FFFFFFFF" />
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="405dp"
             android:layout_height="fill_parent"
             android:text="@string/ilojilojjnh"
             android:id="@+id/button10"

@@ -146,9 +146,8 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton8"
         android:background="@drawable/btnsettings"
-        android:layout_below="@+id/imageButton27"
-        android:layout_toLeftOf="@+id/textView4"
-        android:layout_toStartOf="@+id/textView4" />
+        android:layout_above="@+id/textView21"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -156,67 +155,54 @@
         android:id="@+id/textView25"
         android:text="@string/ss"
         android:textColor="#ffffffff"
-        android:layout_above="@+id/imageView4"
-        android:layout_alignRight="@+id/imageButton8"
-        android:layout_alignEnd="@+id/imageButton8" />
+        android:layout_below="@+id/imageButton8"
+        android:layout_alignLeft="@+id/imageButton8"
+        android:layout_alignStart="@+id/imageButton8" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton27"
         android:clickable="true"
-        android:background="@drawable/iconfacebook"
-        android:layout_above="@+id/imageButton6"
-        android:layout_toRightOf="@+id/imageButton"
-        android:layout_toEndOf="@+id/imageButton" />
+        android:background="@drawable/fb_icon"
+        android:layout_alignTop="@+id/imageButton41"
+        android:layout_alignRight="@+id/imageButton"
+        android:layout_alignEnd="@+id/imageButton"
+        android:layout_alignLeft="@+id/imageButton6"
+        android:layout_alignStart="@+id/imageButton6"
+        android:layout_alignBottom="@+id/imageButton41" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton28"
         android:clickable="true"
-        android:background="@drawable/icontwitter"
+        android:background="@drawable/twittericon"
+        android:layout_alignRight="@+id/imageButton8"
+        android:layout_alignEnd="@+id/imageButton8"
         android:layout_alignTop="@+id/imageButton27"
-        android:layout_alignRight="@+id/textView4"
-        android:layout_alignEnd="@+id/textView4" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageView4"
-        android:background="@drawable/likeus"
-        android:layout_below="@+id/textView21"
-        android:layout_alignRight="@+id/imageButton4"
-        android:layout_alignEnd="@+id/imageButton4" />
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/imageButton7"
-        android:background="@drawable/playstoredownload"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_toLeftOf="@+id/imageButton3"
-        android:layout_toStartOf="@+id/imageButton3" />
+        android:layout_alignBottom="@+id/imageButton41"
+        android:layout_toRightOf="@+id/imageButton2"
+        android:layout_toEndOf="@+id/imageButton2" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton41"
-        android:layout_alignBottom="@+id/imageButton7"
-        android:layout_alignLeft="@+id/imageButton28"
-        android:layout_alignStart="@+id/imageButton28"
-        android:layout_marginBottom="11dp"
-        android:background="@drawable/appicon" />
+        android:layout_marginBottom="35dp"
+        android:background="@drawable/appicon"
+        android:layout_above="@+id/imageButton54"
+        android:layout_alignLeft="@+id/imageButton5"
+        android:layout_alignStart="@+id/imageButton5" />
 
     <ImageButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton54"
         android:background="@drawable/btnfeedback"
-        android:layout_above="@+id/textView25"
-        android:layout_toRightOf="@+id/imageButton28"
-        android:layout_toEndOf="@+id/imageButton28" />
+        android:layout_alignTop="@+id/imageButton8"
+        android:layout_toRightOf="@+id/textView4"
+        android:layout_toEndOf="@+id/textView4" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -225,7 +211,7 @@
         android:id="@+id/textView56"
         android:textColor="#ffffffff"
         android:layout_below="@+id/imageButton54"
-        android:layout_toRightOf="@+id/imageButton28"
-        android:layout_toEndOf="@+id/imageButton28" />
+        android:layout_alignLeft="@+id/imageButton54"
+        android:layout_alignStart="@+id/imageButton54" />
 
 </RelativeLayout>

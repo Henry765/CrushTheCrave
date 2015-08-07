@@ -18,7 +18,6 @@ public class HowToUse extends ActionBarActivity {
         viewpager = (ViewPager) findViewById(R.id.pager);
         PagerAdapter padapter = new PagerAdapter(getSupportFragmentManager());
         viewpager.setAdapter(padapter);
-
     }
 
 

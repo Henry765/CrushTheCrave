@@ -59,7 +59,6 @@ public class SmokeActivity extends MainActivityHome {
 
     public SmokeActivity() {
     }
-
     public void display(){
         Toast.makeText(getBaseContext(), "triggerEntry;  "+triggerEntry, Toast.LENGTH_SHORT).show();
     }
@@ -481,7 +480,7 @@ public class SmokeActivity extends MainActivityHome {
                     Message6 = sp6.getSelectedItem().toString();
                     //}
                     ////////////////////////// MESSAGE_TOTAL = "I am with: " + Message4 + "  I am at: " + Message5 + "  I am feeling: " + Message6 + "\n";
-                    MESSAGE_TOTAL = "I am with: " + Message4 + " I am at: " + Message5 + " I am feeling: " + Message6 + "\n";
+                    MESSAGE_TOTAL = "I am with: " + Message4 + "* I am at: " + Message5 + "* I am feeling: " + Message6 + "\n";
                     LinkedList theLinkedList = new LinkedList();
 
                     if(final_data == null){
@@ -490,7 +489,7 @@ public class SmokeActivity extends MainActivityHome {
                     else{
                         theLinkedList.append(MESSAGE_TOTAL);
                     }
-                    myMessage.setText("size: "+theLinkedList.append(MESSAGE_TOTAL)+"\nHead: "+theLinkedList.Head+"\nTail: "+theLinkedList.Tail+"\nCurr: "+theLinkedList.Current+"\nFind:"+theLinkedList.find(MESSAGE_TOTAL));
+                    myMessage.setText("size: "+theLinkedList.append(MESSAGE_TOTAL)+"\nHead: "+theLinkedList.Head+"\nTail: "+theLinkedList.Tail+"\nCurr: "+theLinkedList.Current+"\nFind:"+theLinkedList.temp);
                     //            triggerEntry = MESSAGE_TOTAL;
 //                    SmokeActivity linkedListRef = currentLink;
 //                    currentLink = currentLink.next;

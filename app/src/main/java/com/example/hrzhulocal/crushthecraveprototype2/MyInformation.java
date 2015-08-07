@@ -67,11 +67,7 @@ public class MyInformation extends MySettings{
                     // TODO Auto-generated catch block
                     e.printStackTrace();
                 }
-            }
-        });
-        load.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+
                 try {
                     //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
                     FileInputStream fis = openFileInput("myinformation.txt");
@@ -105,7 +101,6 @@ public class MyInformation extends MySettings{
         addListenerOnQuitHelpImageButton();
         addListenerOnMoreImageButton();
         }
-
 
             //@Override
             public boolean onCreateOptionsMenu(Menu menu) {

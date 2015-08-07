@@ -11,6 +11,7 @@ class LinkedList{
     public SmokeActivity Head;
     public SmokeActivity Tail;
     public SmokeActivity Current;
+    public SmokeActivity temp;
 
     //Constructor
     LinkedList(){
@@ -79,16 +80,16 @@ class LinkedList{
     //    return LinkedListCount;
     //}
     public void prepend(String triggerEntry){
-        SmokeActivity newLink = new SmokeActivity(triggerEntry);
+        temp = new SmokeActivity(triggerEntry);
 
         //connect the the first ink field stored inside the linked list to newLinke
         //it's Next is assigned the reference to the previous Link created
-        newLink.next = Current;
+        temp.next = Current;
 
         //address
         //the LinkedList's firstLink is assigned to a reference to the newest Link added
-        Current = newLink;
-        Head = newLink;
+        Current = temp;
+        Head = temp;
     }
     public SmokeActivity removeLastLink(String triggerEntry){
         SmokeActivity linkedListRef = Current;

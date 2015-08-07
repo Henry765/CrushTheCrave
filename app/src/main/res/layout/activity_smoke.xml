@@ -20,7 +20,8 @@
         android:text="@string/az"
         android:textColor="#ffffffff"
         android:layout_above="@+id/spinner4"
-        android:layout_centerHorizontal="true" />
+        android:layout_toRightOf="@+id/textView77"
+        android:layout_toEndOf="@+id/textView77" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -162,8 +163,8 @@
         android:text="@string/sdfsdc"
         android:id="@+id/button4"
         android:layout_above="@+id/button3"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="11dp" />
+        android:layout_alignRight="@+id/imageButton3"
+        android:layout_alignEnd="@+id/imageButton3" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -183,10 +184,12 @@
         android:textSize="50sp"
         android:textColor="#FFFFFF"
         android:textColorHint="#FFFFFF"
-        android:layout_above="@+id/textView6"
-        android:layout_toRightOf="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2"
-        android:background="#ffffffff" />
+        android:background="@drawable/btnsighup_new"
+        android:layout_above="@+id/spinner5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/spinner5"
+        android:layout_alignStart="@+id/spinner5" />
 
 
     <Spinner
@@ -200,10 +203,12 @@
 
         android:hint="I am at: "
         android:textColorHint="#FFFFFF"
-        android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/textView6"
-        android:layout_toEndOf="@+id/textView6"
-        android:background="#ffffffff" />
+        android:background="@drawable/btnsighup_new"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/textView6"
+        android:layout_alignStart="@+id/textView6" />
 
 
     <Spinner
@@ -217,10 +222,12 @@
 
         android:hint="I am feeling:"
         android:textColorHint="#FFFFFF"
-        android:layout_below="@+id/textView6"
-        android:layout_alignLeft="@+id/spinner5"
-        android:layout_alignStart="@+id/spinner5"
-        android:background="#ffffffff" />
+        android:background="@drawable/btnsighup_new"
+        android:layout_below="@+id/spinner5"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_toRightOf="@+id/textView6"
+        android:layout_toEndOf="@+id/textView6" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -248,7 +255,7 @@
         android:text="@string/af"
         android:id="@+id/textView77"
         android:textColor="#ffffffff"
-        android:layout_below="@+id/textView6"
+        android:layout_below="@+id/spinner5"
         android:layout_alignLeft="@+id/textView76"
         android:layout_alignStart="@+id/textView76" />
 

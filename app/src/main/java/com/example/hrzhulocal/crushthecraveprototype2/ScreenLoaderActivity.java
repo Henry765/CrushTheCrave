@@ -53,7 +53,6 @@ public class ScreenLoaderActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_screen_loader);
-
         Thread screenTimer=new Thread(){
             public void run(){
                 try{
@@ -74,7 +73,6 @@ public class ScreenLoaderActivity extends Activity {
         };
         screenTimer.start();
     }
-
     @Override
     protected void onDestroy() {
         // TODO Auto-generated method stub

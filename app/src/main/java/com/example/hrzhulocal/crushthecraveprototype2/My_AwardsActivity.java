@@ -5,11 +5,13 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.facebook.FacebookSdk;
 
@@ -20,13 +22,19 @@ public class My_AwardsActivity extends MainActivityHome {
     public static boolean Feedback = false;
     public static boolean NightOut = false;
     public static int ShareOption = 0;
+    public static int[] TotalAwardEarnArray = new int[20];
+    public static int x;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         setContentView(R.layout.activity_my__awards);
-
+        //initializa all values to 0
+        for(int i = 0; i < TotalAwardEarnArray.length; i++){
+            TotalAwardEarnArray[i] = 0;
+        }
         final ImageButton ib33 = (ImageButton) findViewById(R.id.imageButton33);
         ImageButton ib34 = (ImageButton) findViewById(R.id.imageButton34);
         ImageButton ib35 = (ImageButton) findViewById(R.id.imageButton35);
@@ -61,6 +69,8 @@ public class My_AwardsActivity extends MainActivityHome {
         ImageButton fbIDbetterHeart2 = (ImageButton) findViewById(R.id.fbIDbetterHeart2);
 
         ImageView iv5 = (ImageView) findViewById(R.id.imageView5);
+
+        TextView numberOfAwards = (TextView) findViewById(R.id.textView87);
    //     rl.getLayoutParams().height = 400;
         //setImageButtonEnabled(this, false, ib33, R.id.imageButton33);
         /*setImageButtonEnabled(this, false, fbShareweek1, R.drawable.btnsighup_new);
@@ -108,6 +118,7 @@ public class My_AwardsActivity extends MainActivityHome {
         // check for awards
         if (quitDayNum6 != -1) {
             ib33.setImageResource(R.drawable.iconquitdate_sel);
+            TotalAwardEarnArray[1]++;
         }
 
         if (smokeFreeDay >= 1) {
@@ -115,59 +126,88 @@ public class My_AwardsActivity extends MainActivityHome {
             ib35.setImageResource(R.drawable.rsz_icon_locked_half);
             ib36.setImageResource(R.drawable.rsz_icon_locked_half);
             ib37.setImageResource(R.drawable.rsz_icon_locked_half);
+            TotalAwardEarnArray[2]++;
         }
         if (smokeFreeDay >= 7) {
             ib47.setImageResource(R.drawable.iconweek1_sel);
+            TotalAwardEarnArray[3]++;
         }
         if (smokeFreeDay >= 21) {
             ib36.setImageResource(R.drawable.iconweek3_sel);
+            TotalAwardEarnArray[4]++;
         }
         if (smokeFreeDay >= 30) { //one month
             ib53.setImageResource(R.drawable.iconmouth1_sel);
+            TotalAwardEarnArray[5]++;
         }
-        if (theNumberOfCrave-(cigarSmokedPerDay*(daysInBetween-daysInBetween2)) >= 100) {
+        if (((cigarSmokedPerDay*(daysInBetween-daysInBetween2))-theNumberOfSmoke) >= 100) {
             ib51.setImageResource(R.drawable.icon100cigarettes_sel);
+            TotalAwardEarnArray[6]++;
         }
-        if (theNumberOfCrave-(cigarSmokedPerDay*(daysInBetween-daysInBetween2)) >= 250)  {
+        if (((cigarSmokedPerDay*(daysInBetween-daysInBetween2))-theNumberOfSmoke) >= 250)  {
             ib50.setImageResource(R.drawable.icon250cigarettes_sel);
+            TotalAwardEarnArray[7]++;
         }
-        if (theNumberOfCrave-(cigarSmokedPerDay*(daysInBetween-daysInBetween2)) >= 500)  {
+        if (((cigarSmokedPerDay*(daysInBetween-daysInBetween2))-theNumberOfSmoke) >= 500)  {
             ib52.setImageResource(R.drawable.icon500cigarettes_sel);
+            TotalAwardEarnArray[8]++;
         }
         //if(trak of smoking)()
         //if(track of craving){}
         if(moneySavedTotal >= 100){
             ib45.setImageResource(R.drawable.icon100_sel);
+            TotalAwardEarnArray[9]++;
         }
         if(moneySavedTotal >= 500){
             ib35.setImageResource(R.drawable.icon500_sel);
+            TotalAwardEarnArray[10]++;
         }
         if(moneySavedTotal >= 1000){
             ib55.setImageResource(R.drawable.icon1000_sel);
+            TotalAwardEarnArray[11]++;
         }
         ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////1:16 monday
         if((daysInBetween - daysInBetween2) >= 2){
             ib56.setImageResource(R.drawable.iconoxygen2_sel);
+            TotalAwardEarnArray[12]++;
         }
         if((daysInBetween - daysInBetween2) >= 90){
             ib49.setImageResource(R.drawable.iconoxygen_sel);
+            TotalAwardEarnArray[13]++;
         }
         if((double)((daysInBetween - daysInBetween2)/24) >= (double)(8/24)){
             ib39.setImageResource(R.drawable.icono2_sel);
+            TotalAwardEarnArray[14]++;
         }
         if ((daysInBetween2 - daysInBetween) >= 180) {
             ib37.setImageResource(R.drawable.iconbetterhealth_sel);
+            TotalAwardEarnArray[15]++;
         }
         if((daysInBetween2 - daysInBetween) >= 14){
             ib43.setImageResource(R.drawable.iconnicotine_sel);
+            TotalAwardEarnArray[16]++;
         }
         if((daysInBetween2 - daysInBetween) >= 2) {
             ib42.setImageResource(R.drawable.icontasteandsmell_sel);
             ib40.setImageResource(R.drawable.iconhappyheart_sel);
+            TotalAwardEarnArray[17]++;
         }
         if((daysInBetween2 - daysInBetween) >= 365){
             ib57.setImageResource(R.drawable.iconheart2_sel);
+            TotalAwardEarnArray[18]++;
         }
+        //x represent total number of award earned, x is 1 because Committed award is always earned
+        x = 1;
+        //calculate the number of award earned
+        for(int i = 0; i < Committed.TotalAwardEarnArray.length; i++ )
+        {
+            if(Committed.TotalAwardEarnArray[i] != 0)
+            {
+                //wrong x++; here
+                x = x +1;
+            }
+        }
+        numberOfAwards.setText(x+"/20 Award Earned");
         listenerCommitted();
         listenerQuitDate();
         listenerDay1();
@@ -262,6 +302,15 @@ public class My_AwardsActivity extends MainActivityHome {
         final Context context = this;
 
         switch(ShareOption) {
+            case 0:
+                ImageButton fb0 = (ImageButton) findViewById(R.id.fbIDquitdate);//notice the difference);
+                fb0.setOnClickListener(new View.OnClickListener() {
+                    public void onClick(View arg0) {
+                        Intent intent = new Intent(context, SocialMediaOptions.class);
+                        startActivity(intent);
+                    }
+                });
+                break;
             case 1:
                 ImageButton fb = (ImageButton) findViewById(R.id.fbidquitdate);//imageButton58);
                 fb.setOnClickListener(new View.OnClickListener() {

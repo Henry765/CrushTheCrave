@@ -53,7 +53,6 @@ public class More extends MainActivityHome {
         listeneropenFB();
         listeneropenTW();
         listeneropenCTC();
-        listeneropenPLAY();
         listenerFeedBack();
     }
     private void listenerFeedBack(){
@@ -74,20 +73,7 @@ public class More extends MainActivityHome {
                 Intent intent = new Intent();
                 intent.setAction(Intent.ACTION_VIEW);
                 intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.techahead.ctc.main"));
-                startActivity(intent);
-            }
-        });
-    }
-    private void listeneropenPLAY(){
-        imageButton = (ImageButton) findViewById(R.id.imageButton7);
-
-        imageButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent intent = new Intent();
-                intent.setAction(Intent.ACTION_VIEW);
-                intent.addCategory(Intent.CATEGORY_BROWSABLE);
-                intent.setData(Uri.parse("https://play.google.com/store/apps/details?id=com.techahead.ctc.main"));
+                intent.setData(Uri.parse("http://www.crushthecrave.ca/"));
                 startActivity(intent);
             }
         });

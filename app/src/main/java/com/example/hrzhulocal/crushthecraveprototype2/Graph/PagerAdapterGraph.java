@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.app.FragmentTransaction;
 
 import com.example.hrzhulocal.crushthecraveprototype2.MainActivityHome;
 import com.example.hrzhulocal.crushthecraveprototype2.MyProgress;
@@ -25,11 +24,9 @@ public class PagerAdapterGraph extends FragmentPagerAdapter {
         // TODO Auto-generated constructor stub
         final MyProgress.FragmentThree f3 = new MyProgress.FragmentThree();
     }
-
     @Override
     public Fragment getItem(int theNumberOfFragment) {
         // TODO Auto-generated method stub
-        //for (int i = 0; (MAH.daysInBetween - MAH.daysInBetween2) >= i; i++) {
 
         switch (theNumberOfFragment) {
             case 0:
@@ -48,22 +45,35 @@ public class PagerAdapterGraph extends FragmentPagerAdapter {
                 return new com.example.hrzhulocal.crushthecraveprototype2.MyProgress.FragmentSeven();
             case 7:
                 return new com.example.hrzhulocal.crushthecraveprototype2.MyProgress.FragmentEight();
-
             default:
                 break;
         }
         return null;
     }
-
     //This method dynamically adjust the number of fragment
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
         for(int i = 0; (MAH.daysInBetween - MAH.daysInBetween2) >= i; i++){
             //get the quotient
-            theNumberOfFragment = (int)(i/7);
+            theNumberOfFragment = (i/7);
+        }
+
+        MainActivityHome mah = new MainActivityHome();
+        //if user did not set a quit day yet
+        if(mah.arrayListQuitNow == null)
+        {
+            theNumberOfFragment = 1;
         }
         return (theNumberOfFragment + 1);
-
+    }
+    /**
+     * Created by hrzhulocal on 23/06/2015.
+     * helper class to the PagerAdapterGraph class
+     */
+    public static class PagerAdapterInherits extends PagerAdapterGraph {
+        public PagerAdapterInherits(FragmentManager fm) {
+            super(fm);
+        }
     }
 }
