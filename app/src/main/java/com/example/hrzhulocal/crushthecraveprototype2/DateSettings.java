@@ -24,8 +24,12 @@ public class DateSettings extends MainActivityHome implements DatePickerDialog.O
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         Toast.makeText(context, "You have selected that date you would like to start quitting smoke: "+dayOfMonth+ " / "+monthOfYear+" / " +year, Toast.LENGTH_SHORT).show();
         Calendar quitDay = Calendar.getInstance();
+        SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
         quitDayNum6 = quitDay.getTimeInMillis();
+        //save the new quitDayNum6
+        editor.putLong("QUITDAYNUM6", quitDayNum6);
+        editor.commit();
         Toast.makeText(context, "quitDayNum6: " +quitDayNum6, Toast.LENGTH_LONG).show();
     }
-
 }

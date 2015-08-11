@@ -1,4 +1,4 @@
-package com.example.hrzhulocal.crushthecraveprototype2;
+package com.example.hrzhulocal.crushthecraveprototype2.Games;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,10 +10,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.hrzhulocal.crushthecraveprototype2.DistractMe;
+import com.example.hrzhulocal.crushthecraveprototype2.HealthCalculator;
+import com.example.hrzhulocal.crushthecraveprototype2.R;
 
 import java.util.Random;
 //credit to http://lyndonarmitage.com/making-tic-tac-toe-in-android/
@@ -22,38 +27,55 @@ import java.util.Random;
  * ---
  * Layout Code by Lyndon Armitage
  * For learning purposes
- *
  * Coded by Henry Zhu
  * added checking, scoring, and AI features
  */
-public class TicTacToe extends ActionBarActivity {
+public class TicTacToe extends DistractMe {
 
     //Representing the game state: who's turn is it?
     private boolean whosTurn = false;  //false = X true = O
-    private char board[][] = new char[3][3];
+    //private char board[][] = new char[3][3];
+
+    private char[][] board = {{'F', 'F', 'F'},
+                              { 'F', 'F', 'F'},
+                                {'F', 'F', 'F'}};
+    private int [][] buttonBox = {{R.id.button11,R.id.button12,R.id.button13},
+            {R.id.button14,R.id.button15, R.id.button16},
+            {R.id.button17,R.id.button18,R.id.button19}};
+
     // boolean vari gameOver represent whether game is over
     private boolean gameOver = false;
 
     public static final char HUMAN_PLAYER = 'X';
-    public static final char AI = '0';
+    //public static final char AI = '0';
 
     public static int x = 0;
-    public static int counter = 0;
+    public static boolean AI;
 
-    String xString= "X";
-    boolean firstTime = true;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tic_tac_toe);
         x=0;
-        if(!gameOver) {
+        /*if(!gameOver) {
             setupOnClickListeners();
             addListenerOnRestart();
+        }*/
+        //for(int i = 0; !gameOver && i < 10; i ++){
+        if(!gameOver) {
+            setupOnClickListeners();
+           // addListenerOnRestart();
         }
+        //}
         x=0;
         //OnClickListenersNewGame();
         addListenerOnRestart();
+        PLAYAI();
+        addListenerOnHomeImageButton();
+        addListenerOnAwardImageButton();
+        addListenerOnMoreImageButton();
+        addListenerOnProgressImageButton();
+        addListenerOnQuitHelpImageButton();
     }
     /**
      * This will add the OnClickListener to each button inside out TableLayout
@@ -70,10 +92,20 @@ public class TicTacToe extends ActionBarActivity {
                 TableRow R = (TableRow) T.getChildAt(y);
                 for (int x = 0; x < R.getChildCount(); x++) {
                     View V = R.getChildAt(x); // In our case this will be each button on the grid
+
                     V.setOnClickListener(new PlayOnClick(x, y));
+                    //for(int i = 11; i < 20; i++) {
+                    //}
                 }
             }
         }
+        //if(AI == false){}//if playing against human do nothing}
+        if ((!gameOver && whosTurn == true) /*|| (!gameOver && x == 0)&& AI == true*/) {
+            board[1][1] = 'O';
+            Button b15 = (Button) findViewById(R.id.button15);
+
+            b15.setText("O");
+            EASYAI();}
     }
     /*
      PlayOnClick is a custom OnClickListener I created for this program. I could of instead created 9
@@ -118,10 +150,10 @@ public class TicTacToe extends ActionBarActivity {
                 whosTurn = !whosTurn;
             }
         }
-
-        //You can never lose in EASYAI mode
-        private void EASYAI(View view, char[][] board, int numberOfMove) {
-            Button b = (Button) view;
+    }
+    //You can never lose in EASYAI mode
+    private void EASYAI() {
+        /*Button b = (Button) view;
             /*if (view instanceof Button) {
 
                 Button B = (Button) view;
@@ -130,9 +162,83 @@ public class TicTacToe extends ActionBarActivity {
                     board[1][1] = 'O';
                     B.setText("O");
                 }
-            }*/
-            board[1][1] = 'O';
-            b.setText("O");
+            }
+        board[1][1] = 'O';
+        b.setText("O");*/
+        Button b11 = (Button) findViewById(R.id.button11);
+        Button b12 = (Button) findViewById(R.id.button12);
+        Button b13 = (Button) findViewById(R.id.button13);
+        Button b14 = (Button) findViewById(R.id.button14);
+
+        Button b15 = (Button) findViewById(R.id.button15);
+        Button b16 = (Button) findViewById(R.id.button16);
+        Button b17 = (Button) findViewById(R.id.button17);
+        Button b18 = (Button) findViewById(R.id.button18);
+        Button b19 = (Button) findViewById(R.id.button19);
+        //if (x == 0){
+           // board[1][1] = 'O';
+           // b15.setText("O");
+       // }
+
+        if(x == 1 && (board[2][2] != 'O' && board[2][2] != 'X')){
+            board[2][2] = 'O';
+            b19.setText("O");
+        }
+        else{
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y < 3; y++){
+                    if(board[x][y] == 'c'){
+                        board[x][y] = 'O';
+                        Button button = (Button) findViewById(buttonBox[x][y]);
+                        button.setText("O");
+                    }
+                }
+            }
+        }
+        if(x==2 && (board[1][2] != 'O' && board[1][2] != 'X')){
+            board[1][2] = 'O';
+            b18.setText("O");
+        }
+        else{
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y < 3; y++){
+                    if(board[x][y] == 'c'){
+                        board[x][y] = 'O';
+                        Button button = (Button) findViewById(buttonBox[x][y]);
+                        button.setText("O");
+                    }
+                }
+            }
+        }
+        if (x==3 && (board[2][1] != 'O' && board[2][1] != 'X')){
+            board[2][1] = 'O';
+            b16.setText("O");
+        }
+        else{
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y < 3; y++){
+                    if(board[x][y] == 'c'){
+                        board[x][y] = 'O';
+                        Button button = (Button) findViewById(buttonBox[x][y]);
+                        button.setText("O");
+                    }
+                }
+            }
+        }
+        if(x==4 && (board[0][0] != 'O' && board[0][0] != 'X')){
+            board[0][0] = 'O';
+            b11.setText("O");
+        }
+        else{
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y < 3; y++){
+                    if(board[x][y] == 'c'){
+                        board[x][y] = 'O';
+                        Button button = (Button) findViewById(buttonBox[x][y]);
+                        button.setText("O");
+                    }
+                }
+            }
         }
     }
         /*if (whosTurn) {
@@ -153,7 +259,6 @@ public class TicTacToe extends ActionBarActivity {
             else if(nX != 0){
                 board[nX][nY] = 'O';
                 B.setText("O");
-
             }*/
 
         private void addListenerOnRestart() {
@@ -163,6 +268,7 @@ public class TicTacToe extends ActionBarActivity {
             button.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View arg0) {
                     Intent intent = new Intent(context, TicTacToe.class);
+                    x=0;
                     startActivity(intent);
                 }
             });
@@ -225,12 +331,26 @@ public class TicTacToe extends ActionBarActivity {
                 gameOver = true;
             }
             x++;
+            Toast.makeText(getApplicationContext(), "fs"+x,
+                    Toast.LENGTH_SHORT).show();
+            setupOnClickListeners();
             // after 9 moves and when game is over then is a tie!
-            if (x == 9 && gameOver == false){
+            if (x == 4 && gameOver == false){
                 Toast.makeText(getBaseContext(), "It is a tie!", Toast.LENGTH_SHORT).show();
                 x=0;
             }
         }
-    }
+    private void PLAYAI(){
+        final Context context = this;
+        Button button = (Button) findViewById(R.id.button2);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                AI = true;
+                Intent intent = new Intent(context, TicTacToe.class);
+                startActivity(intent);
+            }
+        });
+    }    }
 
 

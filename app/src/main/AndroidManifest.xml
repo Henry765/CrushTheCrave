@@ -297,16 +297,6 @@
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.CraveActivity" />
         </activity>
         <activity
-            android:name=".TicTacToe"
-            android:configChanges="orientation"
-            android:label="@string/title_activity_tic_tac_toe"
-            android:parentActivityName=".DistractMe"
-            android:screenOrientation="portrait" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.hrzhulocal.crushthecraveprototype2.DistractMe" />
-        </activity>
-        <activity
             android:name=".MyPersonalization"
             android:label="@string/title_activity_my_personalization"
             android:parentActivityName=".More" >
@@ -585,6 +575,16 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.hrzhulocal.crushthecraveprototype2.My_AwardsActivity" />
+        </activity>
+        <activity
+            android:name=".Games.TicTacToe"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_tic_tac_toe"
+            android:parentActivityName=".DistractMe"
+            android:screenOrientation="portrait" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.hrzhulocal.crushthecraveprototype2.DistractMe" />
         </activity>
         <activity
             android:name=".Committed$AwardCommitted"

@@ -55,7 +55,7 @@ public class DistractMe extends CraveActivity {
 
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.TicTacToe.class);
+                Intent intent = new Intent(context, com.example.hrzhulocal.crushthecraveprototype2.Games.TicTacToe.class);
                 startActivity(intent);
             }
         });
