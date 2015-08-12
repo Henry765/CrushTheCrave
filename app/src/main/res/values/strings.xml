@@ -62,13 +62,13 @@
         <item>In the near Future</item>
         <item>I have already quit</item>
     </string-array>
-    <string name="title_activity_my_information" translatable="false">MyInformation</string>
-    <string name="title_activity_distract_me" translatable="false">DistractMe</string>
+    <string name="title_activity_my_information" translatable="false">My Information</string>
+    <string name="title_activity_distract_me" translatable="false">Distract Me</string>
     <string name="title_activity_tic_tac_toe" translatable="false">TicTacToe</string>
-    <string name="title_activity_handling_triggers" translatable="false">HandlingTriggers</string>
-    <string name="title_activity_withdrawal_and_cravings" translatable="false">WithdrawalAndCravings</string>
-    <string name="title_activity_handling_slips" translatable="false">HandlingSlips</string>
-    <string name="title_activity_my_personalization" translatable="false">MyPersonalization</string>
+    <string name="title_activity_handling_triggers" translatable="false">Handling Triggers</string>
+    <string name="title_activity_withdrawal_and_cravings" translatable="false">Withdrawal And Cravings</string>
+    <string name="title_activity_handling_slips" translatable="false">Handling Slips</string>
+    <string name="title_activity_my_personalization" translatable="false">My Personalization</string>
 
     <string name="I_am_with_prompt">I am with:</string>
     <string-array name="I_am_with">

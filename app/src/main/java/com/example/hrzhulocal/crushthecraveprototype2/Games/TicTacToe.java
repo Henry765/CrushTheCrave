@@ -24,7 +24,6 @@ import java.util.Random;
 //credit to http://lyndonarmitage.com/making-tic-tac-toe-in-android/
 /**
  * Tic Tac Toe Game
- * ---
  * Layout Code by Lyndon Armitage
  * For learning purposes
  * Coded by Henry Zhu
@@ -130,12 +129,12 @@ public class TicTacToe extends DistractMe {
                 Button B = (Button) view;
                 B.setTextColor(Color.RED);
 
-                if (whosTurn) {
+                //if (whosTurn) {
                     board[x][y] = 'O';
                     B.setText("O");
                     //EASYAI(view, board, x);
                     checkWinner(board);
-                } else {
+                //} else {
                     //computer play X first
                     //if(firstTime){
                     //  board[1][1] = 'X';
@@ -144,7 +143,7 @@ public class TicTacToe extends DistractMe {
                     B.setText("X");
                     //MEDIUMAI(view, board);
                     checkWinner(board);
-                }
+                //}
                 //after click that specific button, it can no longer respond to change to events
                 B.setEnabled(false);
                 whosTurn = !whosTurn;
@@ -183,6 +182,8 @@ public class TicTacToe extends DistractMe {
         if(x == 1 && (board[2][2] != 'O' && board[2][2] != 'X')){
             board[2][2] = 'O';
             b19.setText("O");
+            b19.setEnabled(false);
+
         }
         else{
             for(int x = 0; x < 3; x++){
@@ -191,6 +192,8 @@ public class TicTacToe extends DistractMe {
                         board[x][y] = 'O';
                         Button button = (Button) findViewById(buttonBox[x][y]);
                         button.setText("O");
+                        button.setEnabled(false);
+                        break;
                     }
                 }
             }
@@ -206,6 +209,9 @@ public class TicTacToe extends DistractMe {
                         board[x][y] = 'O';
                         Button button = (Button) findViewById(buttonBox[x][y]);
                         button.setText("O");
+                        button.setEnabled(false);
+                        break;
+
                     }
                 }
             }
@@ -221,6 +227,8 @@ public class TicTacToe extends DistractMe {
                         board[x][y] = 'O';
                         Button button = (Button) findViewById(buttonBox[x][y]);
                         button.setText("O");
+                        button.setEnabled(false);
+                        break;
                     }
                 }
             }
@@ -236,6 +244,8 @@ public class TicTacToe extends DistractMe {
                         board[x][y] = 'O';
                         Button button = (Button) findViewById(buttonBox[x][y]);
                         button.setText("O");
+                        button.setEnabled(false);
+                        break;
                     }
                 }
             }
@@ -351,6 +361,7 @@ public class TicTacToe extends DistractMe {
                 startActivity(intent);
             }
         });
-    }    }
+    }
+}
 
 

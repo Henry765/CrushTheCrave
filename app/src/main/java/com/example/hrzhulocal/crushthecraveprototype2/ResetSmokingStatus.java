@@ -101,8 +101,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                         osw.flush();
                         osw.close();
 
-                        Toast.makeText(getBaseContext(), "Data saved1", Toast.LENGTH_SHORT).show();
-
                     } catch (IOException e) {
                         //TODO Auto-generated catch block
                         e.printStackTrace();
@@ -124,8 +122,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                         osw.write(Message3);
                         osw.flush();
                         osw.close();
-
-                        Toast.makeText(getBaseContext(), "Data saved2", Toast.LENGTH_SHORT).show();
 
                     } catch (IOException e) {
                         //TODO Auto-generated catch block
@@ -149,8 +145,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                         osw.write(Message4);
                         osw.flush();
                         osw.close();
-
-                        Toast.makeText(getBaseContext(), "Data saved3", Toast.LENGTH_SHORT).show();
 
                     } catch (IOException e) {
                         //TODO Auto-generated catch block
@@ -214,7 +208,6 @@ public class ResetSmokingStatus extends MainActivityHome {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-
                 try {
                     //4. For reading the data from the file, first you need to create an object of the FileInputStream class.
                     FileInputStream fis = openFileInput("status4.txt");

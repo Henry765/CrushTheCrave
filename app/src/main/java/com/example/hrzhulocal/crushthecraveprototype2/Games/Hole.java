@@ -53,12 +53,9 @@ public class Hole {
     }
 
 
-
-
     public Integer getHole(){
 
         return buca;
     }
 
 }
-

@@ -1,7 +1,9 @@
 package com.example.hrzhulocal.crushthecraveprototype2;
 import android.app.AlertDialog;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.content.res.AssetManager;
 import android.database.Cursor;
@@ -52,6 +54,9 @@ import java.util.Set;
 import java.util.TimeZone;
 
 //import com.example.hrzhulocal.crushthecraveprototype2.Graph.My_ProgressActivity;
+import com.arellomobile.android.push.BasePushMessageReceiver;
+import com.arellomobile.android.push.PushManager;
+import com.arellomobile.android.push.utils.RegisterBroadcastReceiver;
 import com.example.hrzhulocal.crushthecraveprototype2.Graph.MainActivity;
 import com.facebook.appevents.AppEventsLogger;
 
@@ -249,6 +254,28 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             //moneySaved.refreshDrawableState();
             isFirstTimeUserOpenTheApp2 = 1;
         //dispatchTakePictureIntent();
+
+
+        //Register receivers for push notifications
+        registerReceivers();
+
+        //Create and start push manager
+        PushManager pushManager = PushManager.getInstance(this);
+
+        //Start push manager, this will count app open for Pushwoosh stats as well
+        try {
+            pushManager.onStartup(this);
+        }
+        catch(Exception e)
+        {
+            //push notifications are not available or AndroidManifest.xml is not configured properly
+        }
+
+        //Register for push!
+        pushManager.registerForPushNotifications();
+
+        checkMessage(getIntent());
+
         }
         /*else{
             Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
@@ -896,6 +923,131 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
         mCurrentPhotoPath = sp.getString("HOMEIMAGE", mCurrentPhotoPath);
     }
+
+    //Registration receiver
+    BroadcastReceiver mBroadcastReceiver = new RegisterBroadcastReceiver()
+    {
+        @Override
+        public void onRegisterActionReceive(Context context, Intent intent)
+        {
+            checkMessage(intent);
+        }
+    };
+
+    //Push message receiver
+    private BroadcastReceiver mReceiver = new BasePushMessageReceiver()
+    {
+        @Override
+        protected void onMessageReceive(Intent intent)
+        {
+            //JSON_DATA_KEY contains JSON payload of push notification.
+            showMessage("push message is " + intent.getExtras().getString(JSON_DATA_KEY));
+        }
+    };
+
+    //Registration of the receivers
+    public void registerReceivers()
+    {
+        IntentFilter intentFilter = new IntentFilter(getPackageName() + ".action.PUSH_MESSAGE_RECEIVE");
+
+        registerReceiver(mReceiver, intentFilter, getPackageName() +".permission.C2D_MESSAGE", null);
+
+        registerReceiver(mBroadcastReceiver, new IntentFilter(getPackageName() + "." + PushManager.REGISTER_BROAD_CAST_ACTION));
+    }
+
+    public void unregisterReceivers()
+    {
+        //Unregister receivers on pause
+        try
+        {
+            unregisterReceiver(mReceiver);
+        }
+        catch (Exception e)
+        {
+            // pass.
+        }
+
+        try
+        {
+            unregisterReceiver(mBroadcastReceiver);
+        }
+        catch (Exception e)
+        {
+            //pass through
+        }
+    }
+    private void checkMessage(Intent intent)
+    {
+        if (null != intent)
+        {
+            if (intent.hasExtra(PushManager.PUSH_RECEIVE_EVENT))
+            {
+                showMessage("push message is " + intent.getExtras().getString(PushManager.PUSH_RECEIVE_EVENT));
+            }
+            else if (intent.hasExtra(PushManager.REGISTER_EVENT))
+            {
+                showMessage("register");
+            }
+            else if (intent.hasExtra(PushManager.UNREGISTER_EVENT))
+            {
+                showMessage("unregister");
+            }
+            else if (intent.hasExtra(PushManager.REGISTER_ERROR_EVENT))
+            {
+                showMessage("register error");
+            }
+            else if (intent.hasExtra(PushManager.UNREGISTER_ERROR_EVENT))
+            {
+                showMessage("unregister error");
+            }
+
+            resetIntentValues();
+        }
+    }
+
+    /**
+     * Will check main Activity intent and if it contains any PushWoosh data, will clear it
+     */
+    private void resetIntentValues()
+    {
+        Intent mainAppIntent = getIntent();
+
+        if (mainAppIntent.hasExtra(PushManager.PUSH_RECEIVE_EVENT))
+        {
+            mainAppIntent.removeExtra(PushManager.PUSH_RECEIVE_EVENT);
+        }
+        else if (mainAppIntent.hasExtra(PushManager.REGISTER_EVENT))
+        {
+            mainAppIntent.removeExtra(PushManager.REGISTER_EVENT);
+        }
+        else if (mainAppIntent.hasExtra(PushManager.UNREGISTER_EVENT))
+        {
+            mainAppIntent.removeExtra(PushManager.UNREGISTER_EVENT);
+        }
+        else if (mainAppIntent.hasExtra(PushManager.REGISTER_ERROR_EVENT))
+        {
+            mainAppIntent.removeExtra(PushManager.REGISTER_ERROR_EVENT);
+        }
+        else if (mainAppIntent.hasExtra(PushManager.UNREGISTER_ERROR_EVENT))
+        {
+            mainAppIntent.removeExtra(PushManager.UNREGISTER_ERROR_EVENT);
+        }
+
+        setIntent(mainAppIntent);
+    }
+
+    private void showMessage(String message)
+    {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+    @Override
+    protected void onNewIntent(Intent intent)
+    {
+        super.onNewIntent(intent);
+        setIntent(intent);
+
+        checkMessage(intent);
+    }
     //@Override
     protected void onPause() {
         super.onPause();
@@ -903,6 +1055,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         saveDate();
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
+        //Unregister receivers on pause
+        unregisterReceivers();
     }
     //@Override
     protected void onResume() {
@@ -911,6 +1065,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         loadDate();
         // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
+        //Unregister receivers on pause
+        unregisterReceivers();
     }
 
     @Override
@@ -935,8 +1091,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_crave, menu);
+        //Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main_activity_home, menu);
         return true;
     }
 
@@ -945,20 +1101,24 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        final Context context = this;
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent intent3 = new Intent(this, MySettings.class);
+            startActivity(intent3);
+        }
         switch(item.getItemId()){
             case R.id.mainFB:
-               // Intent intent = new Intent(context.);
-                //startActivity(intent);
-                return true;
+                //Committed award
+                My_AwardsActivity.ShareOption = 0;
+                Intent intent = new Intent(this, FaceBookShare.class);
+                startActivity(intent);
             case R.id.mainTW:
-                new TwitterShare();
-                return true;
-            case R.id.set:
-                new MySettings();
-                return true;
+                Intent intent2 = new Intent(this, TwitterShare.class);
+                startActivity(intent2);
         }
 
         return super.onOptionsItemSelected(item);
     }
+
 }

@@ -151,7 +151,7 @@ public class Slt extends Activity {
                                     setProbability(0.5);
                                     mg.setTimeToWait(400);
                                 }
-                                else if(scoreCurr == 65){
+                                else if(scoreCurr == 45){
                                     AlertDialog.Builder alertDialogBuilderInst = new AlertDialog.Builder(context);
 
                                     //set title

@@ -166,11 +166,11 @@
         android:clickable="true"
         android:background="@drawable/fb_icon"
         android:layout_alignTop="@+id/imageButton41"
-        android:layout_alignRight="@+id/imageButton"
-        android:layout_alignEnd="@+id/imageButton"
+        android:layout_alignRight="@+id/imageButton6"
+        android:layout_alignEnd="@+id/imageButton6"
+        android:layout_alignBottom="@+id/imageButton41"
         android:layout_alignLeft="@+id/imageButton6"
-        android:layout_alignStart="@+id/imageButton6"
-        android:layout_alignBottom="@+id/imageButton41" />
+        android:layout_alignStart="@+id/imageButton6" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -182,8 +182,9 @@
         android:layout_alignEnd="@+id/imageButton8"
         android:layout_alignTop="@+id/imageButton27"
         android:layout_alignBottom="@+id/imageButton41"
-        android:layout_toRightOf="@+id/imageButton2"
-        android:layout_toEndOf="@+id/imageButton2" />
+        android:layout_toEndOf="@+id/imageButton2"
+        android:layout_alignLeft="@+id/imageButton8"
+        android:layout_alignStart="@+id/imageButton8" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -200,7 +201,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/imageButton54"
         android:background="@drawable/btnfeedback"
-        android:layout_above="@+id/textView25"
+        android:layout_alignTop="@+id/imageButton8"
         android:layout_alignLeft="@+id/imageButton41"
         android:layout_alignStart="@+id/imageButton41" />
 

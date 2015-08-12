@@ -42,24 +42,18 @@ repositories {
 dependencies {
     //*****************************i added this for creating a Date Picker
     //compile "com.android.support:appcompat-v15:21.0.+"
-
-
     compile fileTree(dir: 'libs', include: ['*.jar'])
-
     compile 'com.android.support:appcompat-v7:22.1.1'
-
     compile 'com.jjoe64:graphview:4.0.1'
     //add game library project as an dependency
     //compile project(":SLT")
     //compile 'com.androidplot:androidplot-core:0.6.1'
     //compile(name:'androidplot-core-0.6.2-SNAPSHOT', ext:'aar')
-
-
-
     //****************
     compile 'com.facebook.android:facebook-android-sdk:4.1.0'
     //compile ('com.facebook.android:facebook-android-sdk:4.1.1') { exclude module: 'support-v4'}
     compile('com.twitter.sdk.android:twitter:1.6.0@aar') {
         transitive = true;
     }
+    compile files('libs/Pushwoosh.jar')
 }

@@ -1,7 +1,9 @@
 package com.example.hrzhulocal.crushthecraveprototype2;
 
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -12,7 +14,11 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.arellomobile.android.push.BasePushMessageReceiver;
+import com.arellomobile.android.push.PushManager;
+import com.arellomobile.android.push.utils.RegisterBroadcastReceiver;
 import com.facebook.FacebookSdk;
 
 
@@ -31,6 +37,7 @@ public class My_AwardsActivity extends MainActivityHome {
         FacebookSdk.sdkInitialize(getApplicationContext());
 
         setContentView(R.layout.activity_my__awards);
+
         //initializa all values to 0
         for(int i = 0; i < TotalAwardEarnArray.length; i++){
             TotalAwardEarnArray[i] = 0;
@@ -484,6 +491,7 @@ public class My_AwardsActivity extends MainActivityHome {
                 break;
         }
     }
+
     private void listenerCommitted() {
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton32);
