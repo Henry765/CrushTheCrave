@@ -487,7 +487,7 @@ public class SmokeActivity extends MainActivityHome {
                     else{
                         theLinkedList.append(MESSAGE_TOTAL);
                     }
-                    myMessage.setText("size: "+theLinkedList.append(MESSAGE_TOTAL)+"\nHead: "+theLinkedList.Head+"\nTail: "+theLinkedList.Tail+"\nCurr: "+theLinkedList.Current+"\nFind:"+theLinkedList.temp);
+   //////////////////                 myMessage.setText("size: "+theLinkedList.append(MESSAGE_TOTAL)+"\nHead: "+theLinkedList.Head+"\nTail: "+theLinkedList.Tail+"\nCurr: "+theLinkedList.Current+"\nFind:"+theLinkedList.temp);
                     //            triggerEntry = MESSAGE_TOTAL;
 //                    SmokeActivity linkedListRef = currentLink;
 //                    currentLink = currentLink.next;

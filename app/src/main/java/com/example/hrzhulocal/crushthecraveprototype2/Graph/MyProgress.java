@@ -87,10 +87,10 @@ public class MyProgress extends Fragment{
                 MainActivityHome.cigarSmokedPerDay,
                 MainActivityHome.cigarSmokedPerDay,
                 MainActivityHome.cigarSmokedPerDay,
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7))),
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))};
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1)))};
         Number[] SMOKE = {
                 //86400000 in 24 hours
                 MainActivityHome.TrackSmoke[0],//MainActivityHome.daysInBetween,//978307200,  // 2001

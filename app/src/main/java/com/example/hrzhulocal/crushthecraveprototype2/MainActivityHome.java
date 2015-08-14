@@ -207,11 +207,11 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             //final_data22 = sp.getString("FINAL_DATA22", final_data22);
 
         myPersonalization.setText(final_data22);
-
-        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
-                        + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
-                        + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate+"\npath"+mCurrentPhotoPath
-        );
+        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6));
+        //myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
+        //                + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
+        //                + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate+"\npath"+mCurrentPhotoPath
+        //);
 
         moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
 

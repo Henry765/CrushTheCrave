@@ -30,7 +30,7 @@ public class SmokingTriggers extends SmokeActivity {
 
         //textView.setText(final_data.substring(6).relace("^", "\n"));
         //If the string is empty
-        Toast.makeText(getApplicationContext(), "final_data " + final_data, Toast.LENGTH_LONG).show();
+  //////////////      Toast.makeText(getApplicationContext(), "final_data " + final_data, Toast.LENGTH_LONG).show();
 
         if(final_data == null ) {
             //do nothing
@@ -47,7 +47,7 @@ public class SmokingTriggers extends SmokeActivity {
             theLinkedList.append(MESSAGE_TOTAL);
         }*/
         //textView.setText("entry 1 "+theLinkedList.Head);
-        Toast.makeText(getApplicationContext(), "size of linked list " + LinkedListCount, Toast.LENGTH_LONG).show();
+  //////////////////      Toast.makeText(getApplicationContext(), "size of linked list " + LinkedListCount, Toast.LENGTH_LONG).show();
     }
     private void saveData2() {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -97,7 +97,7 @@ public class SmokingTriggers extends SmokeActivity {
             return(Current == null);
         }
         public static boolean isTriggerFull(){
-            if(LinkedListCount >= 22){
+            if(LinkedListCount >= 18){
                 return true;
             }else{
                 return false;
