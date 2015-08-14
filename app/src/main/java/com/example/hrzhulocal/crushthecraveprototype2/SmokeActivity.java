@@ -25,9 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 
@@ -481,7 +479,7 @@ public class SmokeActivity extends MainActivityHome {
                     //}
                     ////////////////////////// MESSAGE_TOTAL = "I am with: " + Message4 + "  I am at: " + Message5 + "  I am feeling: " + Message6 + "\n";
                     MESSAGE_TOTAL = "I am with: " + Message4 + "* I am at: " + Message5 + "* I am feeling: " + Message6 + "\n";
-                    LinkedList theLinkedList = new LinkedList();
+                    SmokingTriggers.LinkedList theLinkedList = new SmokingTriggers.LinkedList();
 
                     if(final_data == null){
                         theLinkedList.prepend(MESSAGE_TOTAL);
@@ -545,7 +543,7 @@ public class SmokeActivity extends MainActivityHome {
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 }
-                if(LinkedList.isTriggerFull()){
+                if(SmokingTriggers.LinkedList.isTriggerFull()){
                     AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
                             context);
                     // set title

@@ -147,7 +147,7 @@
         android:id="@+id/textView50"
         android:textColor="#ffffffff"
         android:layout_below="@+id/SmokeButtonID"
-         />
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -173,8 +173,8 @@
         android:id="@+id/imageButton61"
         android:background="@drawable/splash"
         android:scaleType="fitXY"
-        android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/textView4"
-        android:layout_toEndOf="@+id/textView4" />
+        android:layout_toEndOf="@+id/textView4"
+        android:layout_alignTop="@+id/imageButton4" />
 
 </RelativeLayout>

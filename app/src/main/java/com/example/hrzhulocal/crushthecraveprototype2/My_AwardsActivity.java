@@ -9,24 +9,18 @@ import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.hardware.camera2.TotalCaptureResult;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.arellomobile.android.push.BasePushMessageReceiver;
-import com.arellomobile.android.push.PushManager;
-import com.arellomobile.android.push.utils.RegisterBroadcastReceiver;
 import com.facebook.FacebookSdk;
-
 
 public class My_AwardsActivity extends MainActivityHome {
 
-    public static boolean SharedFB = false;
-    public static boolean Feedback = false;
-    public static boolean NightOut = false;
     public static int ShareOption = 0;
     public static int[] TotalAwardEarnArray = new int[20];
     public static int x;
@@ -38,7 +32,11 @@ public class My_AwardsActivity extends MainActivityHome {
 
         setContentView(R.layout.activity_my__awards);
 
-        //initializa all values to 0
+        //****************
+        loadDate();
+        loadSetUpInformation();
+        //****************
+        // initializa all values to 0
         for(int i = 0; i < TotalAwardEarnArray.length; i++){
             TotalAwardEarnArray[i] = 0;
         }
@@ -51,7 +49,6 @@ public class My_AwardsActivity extends MainActivityHome {
         ImageButton ib39 = (ImageButton) findViewById(R.id.imageButton39);
         ImageButton ib40 = (ImageButton) findViewById(R.id.imageButton40);
         ImageButton ib42 = (ImageButton) findViewById(R.id.imageButton42);
-
         ImageButton ib43 = (ImageButton) findViewById(R.id.imageButton43);
         ImageButton ib44 = (ImageButton) findViewById(R.id.imageButton44);
         ImageButton ib45 = (ImageButton) findViewById(R.id.imageButton45);
@@ -127,7 +124,6 @@ public class My_AwardsActivity extends MainActivityHome {
             ib33.setImageResource(R.drawable.iconquitdate_sel);
             TotalAwardEarnArray[1]++;
         }
-
         if (smokeFreeDay >= 1) {
             ib34.setImageResource(R.drawable.iconday1_sel);
             ib35.setImageResource(R.drawable.rsz_icon_locked_half);
@@ -740,5 +736,36 @@ public class My_AwardsActivity extends MainActivityHome {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        //Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main_activity_home, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            Intent intent3 = new Intent(this, MySettings.class);
+            startActivity(intent3);
+        }
+        switch(item.getItemId()){
+            case R.id.mainFB:
+                //Committed award
+                My_AwardsActivity.ShareOption = 0;
+                Intent intent = new Intent(this, FaceBookShare.class);
+                startActivity(intent);
+            case R.id.mainTW:
+                Intent intent2 = new Intent(this, TwitterShare.class);
+                startActivity(intent2);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

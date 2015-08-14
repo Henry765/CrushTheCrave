@@ -54,9 +54,6 @@ import java.util.Set;
 import java.util.TimeZone;
 
 //import com.example.hrzhulocal.crushthecraveprototype2.Graph.My_ProgressActivity;
-import com.arellomobile.android.push.BasePushMessageReceiver;
-import com.arellomobile.android.push.PushManager;
-import com.arellomobile.android.push.utils.RegisterBroadcastReceiver;
 import com.example.hrzhulocal.crushthecraveprototype2.Graph.MainActivity;
 import com.facebook.appevents.AppEventsLogger;
 
@@ -79,7 +76,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
     public static long startDayNum = -1;
     long startDayNum6 = -1;
     long quitDayNum = -1;
-    long quitDayNum6 = -1;
+    public static long quitDayNum6 = -1;////////////////////////////////////////////////////////////////////////Aug.14 was like long quitDayNum6 = -1;
     public static long daysInBetween = 0;
     public static long daysInBetween2 = 0;
     //int moneySaved = 0;
@@ -160,37 +157,11 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         }
         if( mCurrentPhotoPath != null){
         //  Toast.makeText(getApplicationContext(), "sss"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
-            loadImageFile();}
-        //}else{
-
-        //  Toast.makeText(getApplicationContext(), "qqqq"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
-
-             ListenerSetDesktopPhoto();
-        //}
-
-
-        /*if(isFirstTimeUserOpenTheApp2 == 1){
-            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
-            isFirstTimeUserOpenTheApp2 = 0;
-
-            final Context context = this;
-            Intent intent = new Intent(context, ResetSmokingStatus.class);
-            startActivity(intent);
+            loadImageFile();
         }
-        /*else {
-            Toast.makeText(getApplicationContext(), "should be false " + isFirstTimeUserOpenTheApp, Toast.LENGTH_LONG).show();
-            Intent intent = new Intent(context, MainActivityHome.class);
-            startActivity(intent);
-        }*/
-            //set desktop photo
-            /*if (iv61 != null && drawable != null) {
-                iv61.setImageDrawable(drawable);
-            }*/
+             ListenerSetDesktopPhoto();
 
-        //Intent i = new Intent(Intent.ACTION_PICK,android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        //startActivityForResult(i, 1);
-        switch(TimeZoneOption)
-        {
+        switch(TimeZoneOption) {
             case 0:
                 TimeZone.setDefault(TimeZone.getTimeZone("America/Toronto")); //Standard Eastern Time here
                 break;
@@ -255,35 +226,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             isFirstTimeUserOpenTheApp2 = 1;
         //dispatchTakePictureIntent();
 
-
-        //Register receivers for push notifications
-        registerReceivers();
-
-        //Create and start push manager
-        PushManager pushManager = PushManager.getInstance(this);
-
-        //Start push manager, this will count app open for Pushwoosh stats as well
-        try {
-            pushManager.onStartup(this);
-        }
-        catch(Exception e)
-        {
-            //push notifications are not available or AndroidManifest.xml is not configured properly
         }
 
-        //Register for push!
-        pushManager.registerForPushNotifications();
-
-        checkMessage(getIntent());
-
-        }
-        /*else{
-            Toast.makeText(getApplicationContext(), "should be true "+isFirstTimeUserOpenTheApp2, Toast.LENGTH_LONG).show();
-            isFirstTimeUserOpenTheApp2 = 0;
-            final Context context = this;
-            Intent intent = new Intent(context, ResetSmokingStatus.class);
-            startActivity(intent);
-        }*/
     /**
      * A class, that can be used as a TouchListener on any view (e.g. a Button).
      * It cyclically runs a clickListener, emulating keyboard-like behaviour. First
@@ -807,6 +751,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
        // editor.putFloat("TOGGLE", MySettings.toggle);
         editor.putString("HOMEIMAGE", mCurrentPhotoPath);
 
+
         editor.commit();
         //save arrays to sharedpreference
         for( int i = 0; i < 125; i++ ){
@@ -845,7 +790,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         theNumberOfSmoke = sp.getInt("Smoke", theNumberOfSmoke);
         isFirstTime5 = sp.getInt("ISFIRSTTIME5", isFirstTime5);
         startDayNum6 = sp.getLong("STARTDAYNUM6", startDayNum6);
-        quitDayNum6 = sp.getLong("QUITDAYNUM6", quitDayNum6);
+        ////////////////////////////////////quitDayNum6 = sp.getLong("QUITDAYNUM6", quitDayNum6);
         smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
         theNumberOfSmokeTotal = sp.getInt("SmokeTotal", theNumberOfSmokeTotal);
         final_data22 = sp.getString("FINAL_DATA22", final_data22);
@@ -878,7 +823,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         }
     }
 
-    private void saveDate() {
+    public void saveDate() {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putLong("QUITDAYNUM", quitDayNum);
@@ -889,7 +834,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
         editor.commit();
     }
-    private void loadDate() {
+    public void loadDate() {
         TextView myMessage = (TextView) findViewById(R.id.textView19);
 
         /*final*/ SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
@@ -912,7 +857,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             saveDate();
         }
     }
-    private void loadSetUpInformation(){
+    public void loadSetUpInformation(){
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
 
         cigarSmokedPerDay = sp.getInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
@@ -923,131 +868,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
         mCurrentPhotoPath = sp.getString("HOMEIMAGE", mCurrentPhotoPath);
     }
-
-    //Registration receiver
-    BroadcastReceiver mBroadcastReceiver = new RegisterBroadcastReceiver()
-    {
-        @Override
-        public void onRegisterActionReceive(Context context, Intent intent)
-        {
-            checkMessage(intent);
-        }
-    };
-
-    //Push message receiver
-    private BroadcastReceiver mReceiver = new BasePushMessageReceiver()
-    {
-        @Override
-        protected void onMessageReceive(Intent intent)
-        {
-            //JSON_DATA_KEY contains JSON payload of push notification.
-            showMessage("push message is " + intent.getExtras().getString(JSON_DATA_KEY));
-        }
-    };
-
-    //Registration of the receivers
-    public void registerReceivers()
-    {
-        IntentFilter intentFilter = new IntentFilter(getPackageName() + ".action.PUSH_MESSAGE_RECEIVE");
-
-        registerReceiver(mReceiver, intentFilter, getPackageName() +".permission.C2D_MESSAGE", null);
-
-        registerReceiver(mBroadcastReceiver, new IntentFilter(getPackageName() + "." + PushManager.REGISTER_BROAD_CAST_ACTION));
-    }
-
-    public void unregisterReceivers()
-    {
-        //Unregister receivers on pause
-        try
-        {
-            unregisterReceiver(mReceiver);
-        }
-        catch (Exception e)
-        {
-            // pass.
-        }
-
-        try
-        {
-            unregisterReceiver(mBroadcastReceiver);
-        }
-        catch (Exception e)
-        {
-            //pass through
-        }
-    }
-    private void checkMessage(Intent intent)
-    {
-        if (null != intent)
-        {
-            if (intent.hasExtra(PushManager.PUSH_RECEIVE_EVENT))
-            {
-                showMessage("push message is " + intent.getExtras().getString(PushManager.PUSH_RECEIVE_EVENT));
-            }
-            else if (intent.hasExtra(PushManager.REGISTER_EVENT))
-            {
-                showMessage("register");
-            }
-            else if (intent.hasExtra(PushManager.UNREGISTER_EVENT))
-            {
-                showMessage("unregister");
-            }
-            else if (intent.hasExtra(PushManager.REGISTER_ERROR_EVENT))
-            {
-                showMessage("register error");
-            }
-            else if (intent.hasExtra(PushManager.UNREGISTER_ERROR_EVENT))
-            {
-                showMessage("unregister error");
-            }
-
-            resetIntentValues();
-        }
-    }
-
-    /**
-     * Will check main Activity intent and if it contains any PushWoosh data, will clear it
-     */
-    private void resetIntentValues()
-    {
-        Intent mainAppIntent = getIntent();
-
-        if (mainAppIntent.hasExtra(PushManager.PUSH_RECEIVE_EVENT))
-        {
-            mainAppIntent.removeExtra(PushManager.PUSH_RECEIVE_EVENT);
-        }
-        else if (mainAppIntent.hasExtra(PushManager.REGISTER_EVENT))
-        {
-            mainAppIntent.removeExtra(PushManager.REGISTER_EVENT);
-        }
-        else if (mainAppIntent.hasExtra(PushManager.UNREGISTER_EVENT))
-        {
-            mainAppIntent.removeExtra(PushManager.UNREGISTER_EVENT);
-        }
-        else if (mainAppIntent.hasExtra(PushManager.REGISTER_ERROR_EVENT))
-        {
-            mainAppIntent.removeExtra(PushManager.REGISTER_ERROR_EVENT);
-        }
-        else if (mainAppIntent.hasExtra(PushManager.UNREGISTER_ERROR_EVENT))
-        {
-            mainAppIntent.removeExtra(PushManager.UNREGISTER_ERROR_EVENT);
-        }
-
-        setIntent(mainAppIntent);
-    }
-
-    private void showMessage(String message)
-    {
-        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
-    }
-    @Override
-    protected void onNewIntent(Intent intent)
-    {
-        super.onNewIntent(intent);
-        setIntent(intent);
-
-        checkMessage(intent);
-    }
     //@Override
     protected void onPause() {
         super.onPause();
@@ -1055,8 +875,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         saveDate();
         // Logs 'app deactivate' App Event.
         AppEventsLogger.deactivateApp(this);
-        //Unregister receivers on pause
-        unregisterReceivers();
     }
     //@Override
     protected void onResume() {
@@ -1065,8 +883,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         loadDate();
         // Logs 'install' and 'app activate' App Events.
         AppEventsLogger.activateApp(this);
-        //Unregister receivers on pause
-        unregisterReceivers();
     }
 
     @Override
@@ -1089,13 +905,13 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         daysInBetween2 = saveInstanceState.getLong("5");
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main_activity_home, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

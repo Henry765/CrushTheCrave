@@ -277,6 +277,13 @@ public class ResetSmokingStatus extends MainActivityHome {
         spinner1 = (Spinner) findViewById(R.id.spinner3);
         spinner1.setOnItemSelectedListener(new ResetCustomOnItemSelectedListenerStatus());
     }*/
+    //set a quit date in the future
+    public void setDate(View view){
+        DateSettings.PickerDialogs pickerDialogs = new DateSettings.PickerDialogs();
+
+        //TimeUnit.MILLISECONDS.convert(1, pickerDialogs);
+        pickerDialogs.show(getSupportFragmentManager(), "date_picker");
+    }
 
     private void QuitDayNow(){
         final Context context = this;

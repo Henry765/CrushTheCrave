@@ -17,7 +17,6 @@ import android.widget.Toast;
 
 import java.util.List;
 
-
 public class DistractMe extends CraveActivity {
 
     @Override
@@ -36,7 +35,8 @@ public class DistractMe extends CraveActivity {
         addListenerOnAwardImageButton();
         addListenerOnProgressImageButton();
         addListenerOnQuitHelpImageButton();
-        addListenerOnMoreImageButton();    }
+        addListenerOnMoreImageButton();
+    }
 
     private void ListenerOpenSMSAPP() {
         imageButton = (ImageButton) findViewById(R.id.imageButton25);

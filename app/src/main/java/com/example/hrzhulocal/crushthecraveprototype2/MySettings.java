@@ -6,21 +6,19 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.ImageButton;
 
 import java.io.File;
-import java.text.DateFormat;
 import java.util.Calendar;
 import java.util.Locale;
+import java.util.concurrent.TimeUnit;
 
 import android.util.Log;
-import android.widget.TextView;
+import android.widget.TimePicker;
 
 
 public class MySettings extends More /*FragmentActivity*/ {
@@ -79,11 +77,14 @@ public class MySettings extends More /*FragmentActivity*/ {
             });
         }
     }
-
+    //set a quit date in the future
     public void setDate(View view){
-        PickerDialogs pickerDialogs = new PickerDialogs();
+        DateSettings.PickerDialogs pickerDialogs = new DateSettings.PickerDialogs();
+
+        //TimeUnit.MILLISECONDS.convert(1, pickerDialogs);
         pickerDialogs.show(getSupportFragmentManager(), "date_picker");
     }
+
     private void clearApplicationData() {
         File cache = getCacheDir();
         File appDir = new File(cache.getParent());

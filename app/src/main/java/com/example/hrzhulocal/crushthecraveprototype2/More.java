@@ -42,8 +42,8 @@ public class More extends MainActivityHome {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
-      //  TextView myMessage = (TextView) findViewById(R.id.textView20);
-         //       myMessage.setMovementMethod(LinkMovementMethod.getInstance());
+        //  TextView myMessage = (TextView) findViewById(R.id.textView20);
+        //       myMessage.setMovementMethod(LinkMovementMethod.getInstance());
         addListenerOnHomeImageButton();
         addListenerOnAwardImageButton();
         addListenerOnProgressImageButton();
@@ -55,6 +55,7 @@ public class More extends MainActivityHome {
         listeneropenCTC();
         listenerFeedBack();
     }
+
     private void listenerFeedBack(){
         imageButton = (ImageButton) findViewById(R.id.imageButton54);
 
@@ -108,8 +109,8 @@ public class More extends MainActivityHome {
         final Context context = this;
         imageButton = (ImageButton) findViewById(R.id.imageButton8);
 
-        imageButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View arg0){
+        imageButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
                 Intent intent = new Intent(context, MySettings.class);
                 startActivity(intent);
             }
@@ -125,26 +126,5 @@ public class More extends MainActivityHome {
                 startActivity(intent);
             }
         });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_more, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
     }
 }

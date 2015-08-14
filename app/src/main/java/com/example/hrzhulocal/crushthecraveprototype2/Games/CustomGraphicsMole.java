@@ -51,7 +51,6 @@ import com.example.hrzhulocal.crushthecraveprototype2.R;
 
 public class CustomGraphicsMole extends BaseAdapter implements View.OnClickListener {
     private Context mContext;
-
     public CustomGraphicsMole(Context c) {
         super();
         mContext = c;
@@ -59,7 +58,6 @@ public class CustomGraphicsMole extends BaseAdapter implements View.OnClickListe
 
     @Override
     public boolean areAllItemsEnabled() {
-
         return super.areAllItemsEnabled();
     }
 

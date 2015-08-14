@@ -36,7 +36,7 @@ public class TwitterShare extends ActionBarActivity {
         //f:\June 30\CrushTheCravePrototype2\app\src\main\res\drawable
         //File myImageFile = new File("file:C:\\June 30\\CrushTheCravePrototype2\\app\\src\\main\\res\\drawable\\icon100cigarettes_sel.png");
 
-        File myImageFile = new File("/June 30/CrushTheCravePrototype2/app/src/main/res/drawable/icon100cigarettes_sel.png");
+        File myImageFile = new File("C:\\Users\\hrzhulocal\\AndroidStudioProjects\\July21 12 20pm\\CrushTheCravePrototype2\\app\\src\\main\\res\\assets\\iconfeedback_sel.png");
 
         TweetComposer.Builder builder = new TweetComposer.Builder(this)
                 .text("just setting up my Fabric.")

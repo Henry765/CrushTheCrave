@@ -38,5 +38,4 @@ public class SetDesktopImage extends More {
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(Intent.createChooser(intent, "Select Picture"),0);
     }
-
 }

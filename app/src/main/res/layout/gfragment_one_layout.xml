@@ -10,7 +10,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         androidPlot.title="My Progress 1"
-        androidPlot.domainLabel="Day(s) After Quit Day"
+        androidPlot.domainLabel="Day(s) after user installed the app"
         androidPlot.titleWidget.labelPaint.textSize="@dimen/title_font_size"
         androidPlot.domainLabelWidget.labelPaint.textSize="@dimen/domain_label_font_size"
         androidPlot.rangeLabelWidget.labelPaint.textSize="@dimen/range_label_font_size"
