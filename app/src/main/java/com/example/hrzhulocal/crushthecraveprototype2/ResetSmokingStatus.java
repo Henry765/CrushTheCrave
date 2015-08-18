@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import android.app.Activity;
 import android.os.Bundle;
@@ -62,6 +64,25 @@ public class ResetSmokingStatus extends MainActivityHome {
 
         SaveAndLoad = (Button) findViewById(R.id.button10);
         isFirstTimeUserOpenTheApp2 = 0;
+        final String PREFS_NAME = "MyPrefsFile";
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+        /*if (settings.getBoolean("my_first_time", true)) {
+            //the app is being launched for first time, do something
+            Log.d("Comments", "First time");
+
+            final Context context = this;
+            Intent intent = new Intent(context, ResetSmokingStatus.class);
+            startActivity(intent);
+            Calendar quitDay = Calendar.getInstance();
+            quitDayNum = quitDay.getTimeInMillis();
+            SharedPreferences spx = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
+            SharedPreferences.Editor editor = spx.edit();
+
+            settings.edit().putBoolean("my_first_time", false).commit();
+
+        }*/
         SaveAndLoad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -173,7 +194,7 @@ public class ResetSmokingStatus extends MainActivityHome {
                             cigarSmokedPerDay = Integer.parseInt(cigarSmokedPerDayS);
 
                         }
-                        Toast.makeText(getBaseContext(), "Message1 :" + cigarSmokedPerDay, Toast.LENGTH_LONG).show();
+                       ////////////// Toast.makeText(getBaseContext(), "Message1 :" + cigarSmokedPerDay, Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -200,7 +221,7 @@ public class ResetSmokingStatus extends MainActivityHome {
                             numberOfCigarPerPack = Integer.parseInt(NumberOfCigarPerPackS);
 
                         }
-                        Toast.makeText(getBaseContext(), "Message2 :" + numberOfCigarPerPack, Toast.LENGTH_LONG).show();
+                       ///////////////////// Toast.makeText(getBaseContext(), "Message2 :" + numberOfCigarPerPack, Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -227,7 +248,7 @@ public class ResetSmokingStatus extends MainActivityHome {
                             costPerPack = Float.valueOf(costPerPackS);
 
                         }
-                        Toast.makeText(getBaseContext(), "Message3 :" + costPerPackS, Toast.LENGTH_LONG).show();
+                       ////////////////////// Toast.makeText(getBaseContext(), "Message3 :" + costPerPackS, Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -238,7 +259,7 @@ public class ResetSmokingStatus extends MainActivityHome {
                 //assume you did not smoke after you set quit day
                 //days after you start quit                             // cost of one cigar you defined
 
-                Toast.makeText(getApplicationContext(), "total" + moneySavedTotal, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "Money saved so far: " + moneySavedTotal, Toast.LENGTH_LONG).show();
 
                 new AlertDialog.Builder(context)
                         .setTitle(" Congratulations ")

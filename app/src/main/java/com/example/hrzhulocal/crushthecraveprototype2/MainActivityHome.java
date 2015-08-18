@@ -151,15 +151,15 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             final Context context = this;
             Intent intent = new Intent(context, ResetSmokingStatus.class);
             startActivity(intent);
-
             // record the fact that the app has been started at least once
             settings.edit().putBoolean("my_first_time", false).commit();
+
         }
         if( mCurrentPhotoPath != null){
         //  Toast.makeText(getApplicationContext(), "sss"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
             loadImageFile();
         }
-             ListenerSetDesktopPhoto();
+        //ListenerSetDesktopPhoto();
 
         switch(TimeZoneOption) {
             case 0:
@@ -187,6 +187,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             //****************
             loadDate();
             loadSetUpInformation();
+           ////////////////////////////// loadData();//////////////////////////aug18
             //****************
             //total days pass since user installed the app
             daysInBetween = (quitDayNum - startDayNum) / (24 * 60 * 60 * 1000);
@@ -194,8 +195,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             //DAYS BEFORE THE YOU START TO QUIT
             daysInBetween2 = (quitDayNum6 - startDayNum) / (24 * 60 * 60 * 1000);
 
-            //number of consecutive days without clicking on SMOKE button
-            smokeFreeDay = (quitDayNum - smokeFreeDayNum) / (24 * 60 * 60 * 1000);
             addListenerOnCRAVEButton();
             addListenerOnSMOKEButton();
             //Options for navigation from home
@@ -207,11 +206,14 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             //final_data22 = sp.getString("FINAL_DATA22", final_data22);
 
         myPersonalization.setText(final_data22);
-        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6));
-        //myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
-        //                + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
-        //                + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate+"\npath"+mCurrentPhotoPath
-        //);
+        //myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6));
+        myMessage.setText("Your current quit date is: \n"+ DateFormat.getDateTimeInstance().format(quitDayNum6)+"startDayNum   " + startDayNum + "\nquitDayNum   " + quitDayNum + "\nquitDayNum6   " + quitDayNum6 + "\ndaysInBetween   " + daysInBetween
+                        + "\nstartDayNum2   " + "\ndaysInBetween2   " + daysInBetween2 + "\nsmokeFreeDayNum   " + smokeFreeDayNum + "\n " + (quitDayNum6 - startDayNum)
+                        + "\nquitDayNum - smokeFreeDayNum\n" + (quitDayNum - smokeFreeDayNum) + "array list" + arrayListQuitNow + "leeminho\n" + workAroundQuitDate+"\npath"+mCurrentPhotoPath
+        );
+
+        //number of consecutive days without clicking on SMOKE button
+        smokeFreeDay = (quitDayNum - smokeFreeDayNum) / (24 * 60 * 60 * 1000);
 
         moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
 
@@ -259,28 +261,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         return image;
     }
 
-    /*private File SaveImageFile() throws IOException {
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        String imageFileName = "JPEG_" + timeStamp + "_";
-        FileOutputStream out = null;
-        Bitmap bmap = BitmapFactory.decodeFile((String.valueOf(mCurrentPhotoPath)));
-
-        try {
-            out = new FileOutputStream(imageFileName);
-            bmap.compress(Bitmap.CompressFormat.PNG, 100, out); // bmp is your Bitmap instance
-            // PNG is a lossless format, the compression factor (100) is ignored
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (out != null) {
-                    out.close();
-                }
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }*/
     private void loadImageFile(){
         File root = Environment.getExternalStorageDirectory();
 
@@ -295,7 +275,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         ib61.setImageBitmap(myBitmap);
         ib61.setBackgroundDrawable(bitmapDrawable);
 
-        ///////////////////////////////////////////////////////////////////Toast.makeText(getApplicationContext(), "sdfsdf"+String.valueOf(mCurrentPhotoPath) + " time", Toast.LENGTH_LONG).show();
     }
 
     private void ListenerSetDesktopPhoto(){
@@ -411,54 +390,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                 }
                 if (TrackCraveCount < 200) {
                     Calendar trackCrave = Calendar.getInstance();
-                    //if s day has passed
-                    /*if((daysInBetween-daysInBetween2) == 0) {
-                        TrackCraveCount = 0;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 1) {
-                        TrackCraveCount = 1;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 2) {
-                        TrackCraveCount = 2;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 3 ){
-                        TrackCraveCount = 3;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 4) {
-                        TrackCraveCount = 4;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 5) {
-                        TrackCraveCount = 5;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 6 ){
-                        TrackCraveCount = 6;
-                    }else if((daysInBetween - daysInBetween2) == 7) {
-                        TrackCraveCount = 7;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 8) {
-                        TrackCraveCount = 8;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 9 ){
-                        TrackCraveCount = 9;
-                    }else if((daysInBetween - daysInBetween2) == 10) {
-                        TrackCraveCount = 10;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 11) {
-                        TrackCraveCount = 11;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 11 ){
-                        TrackCraveCount = 11;
-                    }else if((daysInBetween - daysInBetween2) == 12) {
-                        TrackCraveCount = 12;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 13) {
-                        TrackCraveCount = 13;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 14 ){
-                        TrackCraveCount = 14;
-                    }else if((daysInBetween - daysInBetween2) == 15) {
-                        TrackCraveCount = 15;
-                    }*/
+
                     for (int i = 0; i < TrackCrave.length; i++) {
                         if (daysInBetween - daysInBetween2 == i) {
                             TrackCraveCount = i;
@@ -466,24 +398,10 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                         }
                     }
                     TrackCrave[TrackCraveCount]++;
-                    /*if (TrackCrave != null) {
-                        int len = TrackCrave.length();
-                        for (int i=0; i<len; i++){
-                            try {
-                                TrackCrave.get(i).toString();
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    }*/
-                    //assert TrackCrave != null;
-                    //TrackCrave[TrackCraveCount] = trackCrave.getTimeInMillis();
-                    //TrackCrave[TrackCraveCount] = TrackCrave[TrackCraveCount] / (60*60*1000*24);
-                    //if a day has passed
+
 
                 }
                 //increment number of click
-             //////////////////////////////////////////////////////////////   Toast.makeText(getApplicationContext(), "quit date is " + quitDayNum + " time", Toast.LENGTH_LONG).show();
                 theNumberOfCrave++;
                 //go to Crave screen
                 Intent intent = new Intent(context, CraveActivity.class);
@@ -511,57 +429,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                 //keep a list of the time when you smoke
                 if (TrackSmokeCount < 125) {
                     Calendar trackSmoke = Calendar.getInstance();
-                    //TrackSmoke[TrackSmokeCount] = trackSmoke.getTimeInMillis();
-                    //TrackSmoke[TrackSmokeCount] = TrackSmoke[TrackSmokeCount] / (60*60*1000*24);
 
-                    //if s day has passed
-                    /*if((daysInBetween-daysInBetween2) == 0) {
-                        TrackSmokeCount = 0;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 1) {
-                        TrackSmokeCount = 1;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 2) {
-                        TrackSmokeCount = 2;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 3 ){
-                        TrackSmokeCount = 3;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 4) {
-                        TrackSmokeCount = 4;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 5) {
-                        TrackSmokeCount = 5;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 6 ){
-                        TrackSmokeCount = 6;
-                    }else if((daysInBetween - daysInBetween2) == 7) {
-                        TrackSmokeCount = 7;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 8) {
-                        TrackSmokeCount = 8;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 9 ){
-                        TrackSmokeCount = 9;
-                    }else if((daysInBetween - daysInBetween2) == 10) {
-                        TrackSmokeCount = 10;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 11) {
-                        TrackSmokeCount = 11;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 11 ){
-                        TrackSmokeCount = 11;
-                    }else if((daysInBetween - daysInBetween2) == 12) {
-                        TrackSmokeCount = 12;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 13) {
-                        TrackSmokeCount = 13;
-                    }
-                    else if((daysInBetween - daysInBetween2) == 14 ){
-                        TrackSmokeCount = 14;
-                    }else if((daysInBetween - daysInBetween2) == 15) {
-                        TrackSmokeCount = 15;
-                    }*/
                     for(int i = 0; i<TrackCrave.length; i++){
                         if(daysInBetween - daysInBetween2 == i)
                         {
@@ -572,22 +440,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
 
                     TrackSmoke[TrackCraveCount]++;
 
-                    /*for(int n = 0; ; n++ )
-                    {
-                        //after quit days
-                        if((daysInBetween - daysInBetween2) == n)
-                        {
-                            TrackCraveCount = n;
-                        }
-                        if(n != TrackCraveCount)
-                        {
-                            TrackCrave[TrackCraveCount] = 0;
-                            TrackCrave[TrackCraveCount]++;
-                            break;
-                        }
-                    }*/
                 }
-              ///////////////////////////////////////////////////////////////  Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
 
                 //reset the smokeFreeDayNum to quitDayNum
                 smokeFreeDayNum = quitDayNum;
@@ -741,7 +594,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         editor.putString("CIGARSMOKEDPERDAYS",cigarSmokedPerDayS);
         editor.putString("NUMBEROFCIGARPERPACKS",NumberOfCigarPerPackS);
         editor.putString("COSTPERPACKS", costPerPackS);
-
+/////////////////////////////////////////////////////
+        editor.putLong("QUITDAYNUM6", quitDayNum6);
 
         editor.putInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
         editor.putInt("NUMBEROFCIGARPERPACK", numberOfCigarPerPack);
@@ -790,7 +644,10 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         theNumberOfSmoke = sp.getInt("Smoke", theNumberOfSmoke);
         isFirstTime5 = sp.getInt("ISFIRSTTIME5", isFirstTime5);
         startDayNum6 = sp.getLong("STARTDAYNUM6", startDayNum6);
-        ////////////////////////////////////quitDayNum6 = sp.getLong("QUITDAYNUM6", quitDayNum6);
+
+
+        //////////////////////////////////////////////////////////
+        quitDayNum6 = sp.getLong("QUITDAYNUM6", quitDayNum6);
         smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
         theNumberOfSmokeTotal = sp.getInt("SmokeTotal", theNumberOfSmokeTotal);
         final_data22 = sp.getString("FINAL_DATA22", final_data22);
@@ -830,23 +687,21 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         editor.putLong("QUITDAYNUM6", quitDayNum6);
         editor.putString("FINAL_DATA22", final_data22);
 
-        moneySavedTotal = sp.getFloat("MONEYSAVEDTOTAL", moneySavedTotal);
-
+        /////////////////////////////////////moneySavedTotal = sp.getFloat("MONEYSAVEDTOTAL", moneySavedTotal);
         editor.commit();
     }
     public void loadDate() {
-        TextView myMessage = (TextView) findViewById(R.id.textView19);
 
         /*final*/ SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-        /*final*/ Calendar quitDay = Calendar.getInstance();
+        /*final*/
+        Calendar quitDay = Calendar.getInstance();
         quitDayNum = quitDay.getTimeInMillis();
-
+        smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
         startDayNum = sp.getLong("STARTDAYNUM", startDayNum);
         quitDayNum6 = sp.getLong("QUITDAYNUM6", quitDayNum6);
         final_data22 = sp.getString("FINAL_DATA22", final_data22);
 
-
-        ///////////////////////////Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
+        ////////////////////////////////////////////Toast.makeText(getApplicationContext(), "startDayNum in loadDate() " + startDayNum, Toast.LENGTH_SHORT).show();
 
         if (startDayNum == -1 && quitDayNum != -1) {
             //First time user open it
@@ -859,14 +714,13 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
     }
     public void loadSetUpInformation(){
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
-
         cigarSmokedPerDay = sp.getInt("CIGARSMOKEDPERDAY", cigarSmokedPerDay);
         numberOfCigarPerPack = sp.getInt("NUMBEROFCIGARPERPACK", numberOfCigarPerPack);
         costPerPack = sp.getFloat("COSTPERPACK", costPerPack);
 
         theNumberOfCrave = sp.getInt("Crave", theNumberOfCrave);
-        smokeFreeDayNum = sp.getLong("SMOKEFREEDAYNUM", smokeFreeDayNum);
         mCurrentPhotoPath = sp.getString("HOMEIMAGE", mCurrentPhotoPath);
+
     }
     //@Override
     protected void onPause() {
@@ -905,7 +759,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         daysInBetween2 = saveInstanceState.getLong("5");
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         //Inflate the menu; this adds items to the action bar if it is present.
@@ -933,7 +786,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                 Intent intent2 = new Intent(this, TwitterShare.class);
                 startActivity(intent2);
         }
-
         return super.onOptionsItemSelected(item);
     }
 

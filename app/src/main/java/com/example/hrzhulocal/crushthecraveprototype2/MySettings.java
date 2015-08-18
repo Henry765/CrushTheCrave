@@ -108,7 +108,6 @@ public class MySettings extends More /*FragmentActivity*/ {
                 }
             }
         }
-
         return dir.delete();
     }
     private void addListenerOnMyInformation(){
@@ -155,7 +154,6 @@ public class MySettings extends More /*FragmentActivity*/ {
                         });
                 // create alert dialog
                 AlertDialog alertDialog = alertDialogBuilder.create();
-
                 // show it
                 alertDialog.show();
             }

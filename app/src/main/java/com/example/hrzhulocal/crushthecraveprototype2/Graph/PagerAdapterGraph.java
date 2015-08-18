@@ -17,7 +17,7 @@ import static android.app.PendingIntent.getActivity;
 public class PagerAdapterGraph extends FragmentPagerAdapter {
 
     MainActivityHome MAH;
-    int theNumberOfFragment = 2;
+    int theNumberOfFragment = 0;
 
     public PagerAdapterGraph(FragmentManager fm) {
         super(fm);
@@ -54,7 +54,7 @@ public class PagerAdapterGraph extends FragmentPagerAdapter {
     @Override
     public int getCount() {
         // TODO Auto-generated method stub
-        for(int i = 0; (MAH.daysInBetween - MAH.daysInBetween2) >= i; i++){
+        /*for(int i = 0; (MAH.daysInBetween - MAH.daysInBetween2) >= i; i++){
             //get the quotient
             theNumberOfFragment = (i/7);
         }
@@ -65,7 +65,17 @@ public class PagerAdapterGraph extends FragmentPagerAdapter {
         {
             theNumberOfFragment = 1;
         }
-        return (theNumberOfFragment + 1);
+        return (theNumberOfFragment + 1);*/
+
+        if(MAH.daysInBetween2 == 0 || MAH.daysInBetween2 == 7){
+            return 1;
+        }
+        else {
+            for (int i = 0; i <= MAH.daysInBetween2; i++) {
+                theNumberOfFragment = i / 7;
+            }
+            return (theNumberOfFragment + 1);
+        }
     }
     /**
      * Created by hrzhulocal on 23/06/2015.

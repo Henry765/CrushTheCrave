@@ -36,7 +36,7 @@ public class DateSettings extends MainActivityHome implements DatePickerDialog.O
     @Override
     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
         Toast.makeText(context, "You have selected that date you would like to start quitting smoke: "+dayOfMonth+ " / "+Integer.valueOf(monthOfYear+1)+" / " +year, Toast.LENGTH_SHORT).show();
-        Toast.makeText(context, "before quitDayNum6: " + quitDayNum6, Toast.LENGTH_LONG).show();
+       // Toast.makeText(context, "before quitDayNum6: " + quitDayNum6, Toast.LENGTH_LONG).show();
         //saveFutureDate();
         DatePicker datePicker = new DatePicker(context);
         TimePicker timePicker = new TimePicker(context);
@@ -59,7 +59,7 @@ public class DateSettings extends MainActivityHome implements DatePickerDialog.O
         //pickerDialogs.set(datePicker.getYear(), datePicker.getMonth(), datePicker.getDayOfMonth(),
         //timePicker.getCurrentHour(), timePicker.getCurrentMinute(), 0);
 
-        Toast.makeText(context, "quitDayNum6: " + quitDayNum6, Toast.LENGTH_LONG).show();
+        //Toast.makeText(context, "quitDayNum6: " + quitDayNum6, Toast.LENGTH_LONG).show();
 
     }
    /* private void saveFutureDate(){
@@ -100,9 +100,6 @@ public class DateSettings extends MainActivityHome implements DatePickerDialog.O
 
 
             return dialog;
-        }
-        private void saveFutureDate(){
-
         }
     }
 }

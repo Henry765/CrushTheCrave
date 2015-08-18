@@ -67,6 +67,7 @@ public class MyProgress extends Fragment{
     //create one getTimeAndCount instance to extends two classes
     private MainActivityHome getTimeAndCount;
 
+    public static int decrementFactor = 0;
 
     //@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -83,6 +84,14 @@ public class MyProgress extends Fragment{
         /*if(MainActivityHome.daysInBetween2 == 0){
             Number[] allowance = {0, 0, 0, 0, 0, 0, 0};
         }*/
+       /* Number[] allowance = {
+                MainActivityHome.cigarSmokedPerDay,
+                MainActivityHome.cigarSmokedPerDay,
+                MainActivityHome.cigarSmokedPerDay,
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1)))};*/
         Number[] allowance = {
                 MainActivityHome.cigarSmokedPerDay,
                 MainActivityHome.cigarSmokedPerDay,
@@ -91,6 +100,7 @@ public class MyProgress extends Fragment{
                 (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
                 (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
                 (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1)))};
+
         Number[] SMOKE = {
                 //86400000 in 24 hours
                 MainActivityHome.TrackSmoke[0],//MainActivityHome.daysInBetween,//978307200,  // 2001
@@ -316,7 +326,6 @@ public class MyProgress extends Fragment{
 
             }*/
 
-
             // initialize our XYPlot reference:
             plot2 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotTwo);
 
@@ -338,17 +347,19 @@ public class MyProgress extends Fragment{
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)))};
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1)))};
+
             Number[] SMOKE = {
                     //86400000 in 24 hours
                     0, 0, 0, 0, 0, 0, 0,
@@ -390,7 +401,6 @@ public class MyProgress extends Fragment{
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                     "Crave");
             LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
-
 
             LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
 
@@ -461,30 +471,33 @@ public class MyProgress extends Fragment{
             // initialize our XYPlot reference:
             plot3 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotThree);
 
+            decrementFactor = decrementFactor + 2;
             // Create a couple arrays of y-values to plot:
             Number[] allowance = {
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)))};
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
 
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1)))
+            };
             Number[] SMOKE = {
                     //86400000 in 24 hours
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -598,37 +611,42 @@ public class MyProgress extends Fragment{
 
             // initialize our XYPlot reference:
             plot4 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotFour);
+            decrementFactor = decrementFactor + 2;
 
             // Create a couple arrays of y-values to plot:
             Number[] allowance = {
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)))};
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((2*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((3*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((4*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((4*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((4*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - ((4*MainActivityHome.cigarSmokedPerDay)/((MainActivityHome.daysInBetween2/7)+1)))}
+            ;
             Number[] SMOKE = {
                     //86400000 in 24 hours
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
@@ -730,8 +748,6 @@ public class MyProgress extends Fragment{
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }
-
-
     }
 
     public static class FragmentFive extends FragmentFour {
@@ -744,44 +760,55 @@ public class MyProgress extends Fragment{
 
             // initialize our XYPlot reference:
             plot5 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotFive);
+            decrementFactor = decrementFactor + 2;
 
+            /*if(MainActivityHome.daysInBetween2 == 0){
+                Number[] allowance = {0,0,0,0,0,0,0
+                };*/
             // Create a couple arrays of y-values to plot:
             Number[] allowance = {
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
                     MainActivityHome.cigarSmokedPerDay,
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2)),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (2*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (4*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (6*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (8*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (8*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (8*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),
-                    (MainActivityHome.cigarSmokedPerDay - (8*(MainActivityHome.cigarSmokedPerDay/MainActivityHome.daysInBetween2))),};            Number[] SMOKE = {
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1)))};
+
+
+                    Number[] SMOKE = {
                     //86400000 in 24 hours
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
                     0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
