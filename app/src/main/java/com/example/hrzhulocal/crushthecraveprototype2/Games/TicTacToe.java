@@ -101,12 +101,12 @@ public class TicTacToe extends DistractMe {
                 }
             }
         }
-        board[1][1] = 'O';
-        Button b15 = (Button) findViewById(R.id.button15);
-        b15.setText("O");
-        b15.setEnabled(false);
+        //board[1][1] = 'O';
+        //Button b15 = (Button) findViewById(R.id.button15);
+        //b15.setText("O");
+        //b15.setEnabled(false);///////////////////////////////////////////
         //if(AI == false){}//if playing against human do nothing}
-        if ((!gameOver && whosTurn == true) /*|| (!gameOver && x == 0)&& AI == true*/) {
+        if ((!gameOver && whosTurn == false) /*|| (!gameOver && x == 0)&& AI == true*/) {
             EASYAI();
         }
     }
@@ -145,8 +145,6 @@ public class TicTacToe extends DistractMe {
                 //   B.setText(""+xString);}
 
                 //MEDIUMAI(view, board);
-
-
 
                 /*board[x][y] = 'X';
                 B.setText("X");

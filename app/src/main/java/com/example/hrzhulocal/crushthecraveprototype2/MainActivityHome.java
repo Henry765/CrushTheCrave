@@ -192,7 +192,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
             //total days pass since user installed the app
             daysInBetween = (quitDayNum - startDayNum) / (24 * 60 * 60 * 1000);
 
-            //DAYS BEFORE THE YOU START TO QUIT
+            //DAYS BEFORE YOU START TO QUIT
             daysInBetween2 = (quitDayNum6 - startDayNum) / (24 * 60 * 60 * 1000);
 
             addListenerOnCRAVEButton();
@@ -215,6 +215,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         //number of consecutive days without clicking on SMOKE button
         smokeFreeDay = (quitDayNum - smokeFreeDayNum) / (24 * 60 * 60 * 1000);
 
+        /////////////////asdfasdfasdf
+        smokeFreeDay = 0;
         moneySavedTotal = (costPerPack / numberOfCigarPerPack) * theNumberOfCrave;
 
         if (quitDayNum6 != -1) {
@@ -323,7 +325,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         }
     }
     public class RepeatListener implements OnTouchListener {
-
         private Handler handler = new Handler();
 
         private int initialInterval;
@@ -437,9 +438,7 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
                             break;
                         }
                     }
-
                     TrackSmoke[TrackCraveCount]++;
-
                 }
 
                 //reset the smokeFreeDayNum to quitDayNum
@@ -552,7 +551,6 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         getMenuInflater().inflate(R.menu.menu_main_activity_home, menu);
         return true;
     }
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
@@ -564,10 +562,8 @@ public class MainActivityHome extends AppCompatActivity//ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
-
     /*private*/
     public void saveData() {
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);

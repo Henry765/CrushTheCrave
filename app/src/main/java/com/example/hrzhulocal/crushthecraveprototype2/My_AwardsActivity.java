@@ -126,7 +126,7 @@ public class My_AwardsActivity extends MainActivityHome {
         }
         if (smokeFreeDay >= 1) {
             ib34.setImageResource(R.drawable.iconday1_sel);
-            ib35.setImageResource(R.drawable.rsz_icon_locked_half);
+            //ib35.setImageResource(R.drawable.rsz_icon_locked_half);
             ib36.setImageResource(R.drawable.rsz_icon_locked_half);
             ib37.setImageResource(R.drawable.rsz_icon_locked_half);
             TotalAwardEarnArray[2]++;
@@ -178,9 +178,11 @@ public class My_AwardsActivity extends MainActivityHome {
             ib49.setImageResource(R.drawable.iconoxygen_sel);
             TotalAwardEarnArray[13]++;
         }
-        if((double)((daysInBetween - daysInBetween2)/24) >= (double)(8/24)){
-            ib39.setImageResource(R.drawable.icono2_sel);
-            TotalAwardEarnArray[14]++;
+        if(daysInBetween >= daysInBetween2) {
+            if ((double) ((daysInBetween - daysInBetween2) / 24) >= (double) (8 / 24)) {
+                ib39.setImageResource(R.drawable.icono2_sel);
+                TotalAwardEarnArray[14]++;
+            }
         }
         if ((daysInBetween2 - daysInBetween) >= 180) {
             ib37.setImageResource(R.drawable.iconbetterhealth_sel);
@@ -190,10 +192,12 @@ public class My_AwardsActivity extends MainActivityHome {
             ib43.setImageResource(R.drawable.iconnicotine_sel);
             TotalAwardEarnArray[16]++;
         }
-        if((daysInBetween2 - daysInBetween) >= 2) {
-            ib42.setImageResource(R.drawable.icontasteandsmell_sel);
-            ib40.setImageResource(R.drawable.iconhappyheart_sel);
-            TotalAwardEarnArray[17]++;
+        if(daysInBetween >= daysInBetween2) {
+            if ((daysInBetween2 - daysInBetween) >= 2) {
+                ib42.setImageResource(R.drawable.icontasteandsmell_sel);
+                ib40.setImageResource(R.drawable.iconhappyheart_sel);
+                TotalAwardEarnArray[17]++;
+            }
         }
         if((daysInBetween2 - daysInBetween) >= 365){
             ib57.setImageResource(R.drawable.iconheart2_sel);
@@ -207,7 +211,7 @@ public class My_AwardsActivity extends MainActivityHome {
             if(Committed.TotalAwardEarnArray[i] != 0)
             {
                 //wrong x++; here
-                x = x +1;
+                x = x + 1;
             }
         }
         numberOfAwards.setText(x+"/20 Award Earned");

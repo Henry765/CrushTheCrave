@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -57,7 +58,7 @@ public class MySettings extends More /*FragmentActivity*/ {
                     getBaseContext().getResources().updateConfiguration(config_en, getBaseContext().getResources().getDisplayMetrics());
                     Intent intent = new Intent(MySettings.this, MySettings.class);
                     startActivity(intent);
-                    //x%2 reminder to alternative languages
+                    //x%2 reminder to alternative between languages
                 }
             });
         } else {
@@ -83,6 +84,22 @@ public class MySettings extends More /*FragmentActivity*/ {
 
         //TimeUnit.MILLISECONDS.convert(1, pickerDialogs);
         pickerDialogs.show(getSupportFragmentManager(), "date_picker");
+
+
+        Handler handler =new Handler();
+        Runnable r=new Runnable() {
+            public void run() {
+                Intent intent = new Intent(context, MainActivityHome.class);
+                startActivity(intent);
+            }
+        };
+        handler.postDelayed(r, 1000);
+
+        //GoToMain();
+    }
+    private void GoToMain(){
+        Intent intent = new Intent(context, MainActivityHome.class);
+        startActivity(intent);
     }
 
     private void clearApplicationData() {
@@ -125,7 +142,6 @@ public class MySettings extends More /*FragmentActivity*/ {
         ImageButton imageButton = (ImageButton) findViewById(R.id.imageButton22);
         SharedPreferences sp = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-
         imageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
 

@@ -37,7 +37,7 @@ public class CraveActivity extends MainActivityHome {
 
         Random rand = new Random();
 
-        int n = rand.nextInt(47) + 1;           // Generate Random number between 1 to 45
+        int n = rand.nextInt(57) + 1;           // Generate Random number between 1 to 57
         int n2 = rand.nextInt(4) + 1;
         int n3 = rand.nextInt(2) + 1;
         int n4 = rand.nextInt(17) + 1;

@@ -15,7 +15,6 @@
  *    limitations under the License.
  */
 package com.example.hrzhulocal.crushthecraveprototype2;
-
 /**
  * Created by hrzhulocal on 23/06/2015.
  */
@@ -60,7 +59,6 @@ import java.util.Arrays;
 import java.util.Date;
 
 import static android.graphics.Color.*;
-
 //***********************************************************************
 public class MyProgress extends Fragment{
     private XYPlot plot;
@@ -68,7 +66,7 @@ public class MyProgress extends Fragment{
     private MainActivityHome getTimeAndCount;
 
     public static int decrementFactor = 0;
-
+    public static long tempFirstFrag = 1;
     //@Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -84,6 +82,23 @@ public class MyProgress extends Fragment{
         /*if(MainActivityHome.daysInBetween2 == 0){
             Number[] allowance = {0, 0, 0, 0, 0, 0, 0};
         }*/
+
+        if(MainActivityHome.daysInBetween2 != 7){
+            //2223 in 2pm today
+            tempFirstFrag = (MainActivityHome.daysInBetween2/7)+1;
+        }
+        // if before quit date is divisible by 7
+        if( MainActivityHome.daysInBetween2 % 7 == 0) {
+
+            for (int n = 1; n <= 8; n++) {
+
+                if (n * 7 == MainActivityHome.daysInBetween2) {
+                    tempFirstFrag = n;
+                    break;
+                }
+            }
+        }
+
        /* Number[] allowance = {
                 MainActivityHome.cigarSmokedPerDay,
                 MainActivityHome.cigarSmokedPerDay,
@@ -96,10 +111,11 @@ public class MyProgress extends Fragment{
                 MainActivityHome.cigarSmokedPerDay,
                 MainActivityHome.cigarSmokedPerDay,
                 MainActivityHome.cigarSmokedPerDay,
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
-                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1)))};
+                //Below work for a future quit date greater than 7 days
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/(tempFirstFrag))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/(tempFirstFrag))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/(tempFirstFrag))),
+                (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/(tempFirstFrag)))};
 
         Number[] SMOKE = {
                 //86400000 in 24 hours
@@ -319,13 +335,11 @@ public class MyProgress extends Fragment{
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-
             View rootView = inflater.inflate(R.layout.gfragment_two_layout, container, false);
 
             /*if(mAH.daysInBetween-mAH.daysInBetween2 >= 14){
 
             }*/
-
             // initialize our XYPlot reference:
             plot2 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotTwo);
 
@@ -916,7 +930,7 @@ public class MyProgress extends Fragment{
     }
 
     public static class FragmentSix extends FragmentFive{
-        private XYPlot plot;
+        private XYPlot plot6;
 
         //@Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -925,8 +939,69 @@ public class MyProgress extends Fragment{
 
 
             // initialize our XYPlot reference:
-            plot = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotSix);
+            plot6 = (XYPlot) rootView.findViewById(R.id.mySimpleXYPlotSix);
+            Number[] allowance = {
+                    MainActivityHome.cigarSmokedPerDay,
+                    MainActivityHome.cigarSmokedPerDay,
+                    MainActivityHome.cigarSmokedPerDay,
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
 
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (2*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (3*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (4*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+
+
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (5*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (6*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (6*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (6*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1))),
+                    (MainActivityHome.cigarSmokedPerDay - (6*MainActivityHome.cigarSmokedPerDay/((MainActivityHome.daysInBetween2/7)+1)))};
+
+            // Turn the above arrays into XYSeries':
+            XYSeries Allowance = new SimpleXYSeries(
+                    Arrays.asList(allowance),          // SimpleXYSeries takes a List so turn our array into a List
+                    SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
+                    "Allowance");                             // Set the display title of the series
+            // Create a formatter to use for drawing a series using LineAndPointRenderer
+            // and configure it from xml:
+            LineAndPointFormatter AllowanceFORMAT = new LineAndPointFormatter();
+
+            AllowanceFORMAT.configure(container.getContext(),
+                    R.xml.line_point_formatter_with_plf1_2);
+            plot6.addSeries(Allowance, AllowanceFORMAT);
             // Create a couple arrays of y-values to plot:
             Number[] SMOKE = {
                     //86400000 in 24 hours
@@ -952,7 +1027,7 @@ public class MyProgress extends Fragment{
                     MainActivityHome.TrackCrave[41]
             };
             //set boundaries
-            plot.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
+            plot6.setRangeBoundaries(0, 15, BoundaryMode.FIXED);
             // Turn the above arrays into XYSeries':
 
             XYSeries Crave = new SimpleXYSeries(
@@ -961,7 +1036,7 @@ public class MyProgress extends Fragment{
                     SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, // Y_VALS_ONLY means use the element index as the x value
                     "Crave");
             LineAndPointFormatter CraveFORMAT = new LineAndPointFormatter(Color.BLACK, Color.BLACK, Color.BLACK, null);
-            plot.getGraphWidget().setPaddingRight(1);
+            plot6.getGraphWidget().setPaddingRight(1);
 
 
             LineAndPointFormatter CRAVEFormat2 = new LineAndPointFormatter();
@@ -969,7 +1044,7 @@ public class MyProgress extends Fragment{
             CRAVEFormat2.configure(container.getContext(),
                     R.xml.line_point_formatter_with_plf1);
 
-            plot.addSeries(Crave, CRAVEFormat2);
+            plot6.addSeries(Crave, CRAVEFormat2);
 
             // add a new series' to the xyplot:*********************************************
             XYSeries Smoke = new SimpleXYSeries(
@@ -982,40 +1057,40 @@ public class MyProgress extends Fragment{
             SMOKEFormat.configure(container.getContext(),
                     R.xml.line_point_formatter_with_plf1_3);
             // add a new series' to the xyplot:*********************************************
-            plot.addSeries(Smoke, SMOKEFormat);
+            plot6.addSeries(Smoke, SMOKEFormat);
 
 
-            plot.setTicksPerRangeLabel(3);
+            plot6.setTicksPerRangeLabel(3);
             //Remove legend
-            plot.getLayoutManager().remove(plot.getRangeLabelWidget());
+            plot6.getLayoutManager().remove(plot6.getRangeLabelWidget());
 
             //set background colors
-            plot.getBackgroundPaint().setColor(Color.BLACK);
-            plot.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
-            plot.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
-            plot.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
+            plot6.getBackgroundPaint().setColor(Color.BLACK);
+            plot6.setBorderStyle(XYPlot.BorderStyle.SQUARE, null, null);
+            plot6.getGraphWidget().getBackgroundPaint().setColor(Color.BLACK);
+            plot6.getGraphWidget().getGridBackgroundPaint().setColor(Color.BLACK);
             // draw a domain tick for each year:
-            plot.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
+            plot6.setDomainStep(XYStepMode.SUBDIVIDE, SMOKE.length);
 
             // customize our domain/range labels
-            plot.setRangeLabel("Value");
+            plot6.setRangeLabel("Value");
 
             // get rid of decimal points in the domain labels:
-            plot.setDomainValueFormat(new DecimalFormat("0"));
-            plot.setRangeValueFormat(new DecimalFormat("0"));
+            plot6.setDomainValueFormat(new DecimalFormat("0"));
+            plot6.setRangeValueFormat(new DecimalFormat("0"));
             // reduce the number of range labels
             //plot6.setTicksPerRangeLabel(6);
-            plot.getGraphWidget().setDomainLabelOrientation(-45);
+            plot6.getGraphWidget().setDomainLabelOrientation(-45);
 
             //7 domain ticks 6 range ticks
-            plot.setDomainStep(XYStepMode.SUBDIVIDE, 7);
-            plot.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
-            plot.setRangeStep(XYStepMode.SUBDIVIDE, 6);
-            plot.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
+            plot6.setDomainStep(XYStepMode.SUBDIVIDE, 7);
+            plot6.setDomainStep(XYStepMode.INCREMENT_BY_VAL, 1);
+            plot6.setRangeStep(XYStepMode.SUBDIVIDE, 6);
+            plot6.setRangeStep(XYStepMode.INCREMENT_BY_VAL, 1);
 
             //set boundaries
-            plot.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
-            plot.setDomainBoundaries(35, 41, BoundaryMode.FIXED);
+            plot6.setRangeBoundaries(0, 15, BoundaryMode.AUTO);
+            plot6.setDomainBoundaries(35, 41, BoundaryMode.FIXED);
 
             return rootView;//inflater.inflate(R.layout.fragment_one_layout,container,false);
         }

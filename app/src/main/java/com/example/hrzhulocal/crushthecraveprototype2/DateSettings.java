@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -44,7 +45,6 @@ public class DateSettings extends MainActivityHome implements DatePickerDialog.O
         cal12.set(Calendar.DAY_OF_MONTH, dayOfMonth);
         cal12.set(Calendar.MONTH, monthOfYear);
         cal12.set(Calendar.YEAR, year);
-
         quitDayNum6 = cal12.getTimeInMillis();
 
         quitDayNum6 = cal12.getTimeInMillis();
@@ -93,7 +93,6 @@ public class DateSettings extends MainActivityHome implements DatePickerDialog.O
             int day = calendar.get(Calendar.DAY_OF_MONTH);
             DatePickerDialog dialog;
             dialog = new DatePickerDialog(getActivity(), dateSettings, year, month, day);
-
             //calendar.setTimeInMillis(quitDayNum6);
             //quitDayNum6 = calendar.get();
             //Toast.makeText(context, "quitDayNum6:kj " + MainActivityHome.quitDayNum6, Toast.LENGTH_LONG).show();
